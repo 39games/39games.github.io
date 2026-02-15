@@ -1,11 +1,11 @@
 const translations = {
   en: {
-    "gamesbtn": "Games",
-    "libbtn": "Discography",
-    "collabbtn": "Collaborations",
-    "reviewbtn": "Reviews",
-    "aboutbtn": "About",
-    "contactbtn": "Contact",
+    "gamesbtn": " Games",
+    "libbtn": " Discography",
+    "collabbtn": " Collaborations",
+    "reviewbtn": " Reviews",
+    "aboutbtn": " About",
+    "contactbtn": " Contact",
 
     "hero-title-games": "Indie Games. Fun Mechanics. Complete products.",
     "hero-desc-games": "Indie game developer focused primarily on fun, user experience, and every aspect of a shipped product.",
@@ -50,7 +50,7 @@ I’ve worked as a freelancer on platforms like Fiverr and Upwork, collaborating
 
     "mixtape-title": "Old-school boom-bap beat-tape — svaki bit je besplatan, uz kreditaciju",
 
-    "buybeats": "Buy Beats",
+    "buybeats": " Buy Beats",
 
     /* ===== ADDED (BUY BEATS PAGE) ===== */
     "beats-available-title": "Available Beats",
@@ -103,12 +103,12 @@ I’ve worked as a freelancer on platforms like Fiverr and Upwork, collaborating
   },
 
   sr: {
-    "gamesbtn": "Igre",
-    "libbtn": "Diskografija",
-    "collabbtn": "Saradnje",
-    "reviewbtn": "Recenzije",
-    "aboutbtn": "O meni",
-    "contactbtn": "Kontakt",
+    "gamesbtn": " Igre",
+    "libbtn": " Diskografija",
+    "collabbtn": " Saradnje",
+    "reviewbtn": " Recenzije",
+    "aboutbtn": " O meni",
+    "contactbtn": " Kontakt",
 
     "hero-title-games": "Indie Igre. Zabavne Mehanike. Kompletni Proizvodi.",
     "hero-desc-games": "Indie game developer fokusiran na zabavu, doživljaj igrača i sve aspekte gotovog proizvoda.",
@@ -153,7 +153,7 @@ Radio sam kao freelancer na platformama kao što su Fiverr i Upwork, sarađujuć
 
     "mixtape-title": "Old-school boom-bap beat-tape — any beat from it is free to use, if credited.",
 
-    "buybeats": "Kupi Bitove",
+    "buybeats": " Kupi Bitove",
 
     /* ===== ADDED (BUY BEATS PAGE) ===== */
     "beats-available-title": "Dostupni Bitovi",
