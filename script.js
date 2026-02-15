@@ -2,6 +2,19 @@
 const switchBtn = document.getElementById('modeSwitch');
 const body = document.body;
 
+const favicon = document.getElementById("favicon");
+
+function updateFavicon(){
+    if(!favicon) return;
+
+    if(body.classList.contains("mode-beats")){
+        favicon.href = "images/herobeats-alt.png";
+    }else{
+        favicon.href = "images/herogames-alt.png";
+    }
+}
+
+
 switchBtn.addEventListener('click', () => {
     body.classList.add('switching');
     switchBtn.classList.add('switch-animate');
@@ -10,8 +23,12 @@ switchBtn.addEventListener('click', () => {
         const isBeats = body.classList.contains('mode-beats');
 
         // Toggle modes
-        body.classList.toggle('mode-games');
-        body.classList.toggle('mode-beats');
+        // Toggle modes
+body.classList.toggle('mode-games');
+body.classList.toggle('mode-beats');
+
+updateFavicon(); // <-- ADD THIS
+
 
         // Update URL without reloading the page
         const url = new URL(window.location);
@@ -102,6 +119,8 @@ if (urlParams.get("mode") === "beats") {
     if (modeSwitch) {
         modeSwitch.classList.add("active"); // update toggle UI if needed
     }
+    updateFavicon();
+
 }
 
 /* ================= PARALLAX HERO SCROLL ================= */
@@ -135,3 +154,5 @@ const char2 = document.querySelector('.character2');
       `${window.scrollY * 0.12}px`
     );
   });
+
+  updateFavicon();
