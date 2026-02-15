@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>39 | Games & Beats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAqVd_MlvkUCOgstd5Vz0kV4qqCQaq38RwFndLDaxvx97RQU4weoiYdwzpGuLAtSVgmbIzOEbXNOE86AM&components=hosted-buttons&disable-funding=venmo&currency=EUR">
+</script>
+</head>
+<body class="mode-beats">
+
+<!-- ===== NAV ===== -->
+<nav>
+    <div class="nav-left">
+        <a href="index.html?mode=beats#home" class="logo-container">
+            <img src="images/logo-games.png" alt="39 Games" class="logo games-only" />
+            <img src="images/logo-beats.png" alt="39 Beats" class="logo beats-only" />
+        </a>
+        <button id="modeSwitch1" title="Switch mode">
+            <div class="switch-icon"></div>
+        </button>
+        
+    </div>
+
+    <ul>
+    <li><a href="index.html?mode=beats#home"><i class="fas fa-home"></i><span data-i18n="homebtn">Home</span></a></li>
+    <li class="games-only"><a href="index.html?mode=beats#home"><i class="fas fa-gamepad"></i><span data-i18n="gamesbtn">Games</span></a></li>
+    <li class="beats-only"><a href="index.html?mode=beats#library"><i class="fas fa-music"></i><span data-i18n="libbtn">Library</span></a></li>
+    <li class="beats-only"><a href="index.html?mode=beats#collaborations"><i class="fas fa-handshake"></i><span data-i18n="collabbtn">Collaborations</span></a></li>
+    <li class="beats-only"><a href="beats.html#buy-beats"><i class="fas fa-shopping-cart"></i><span data-i18n="buybeats">Buy Beats</span></a></li>
+    <li class="games-only"><a href="index.html?mode=beats#reviews-section"><i class="fas fa-star"></i><span data-i18n="reviewbtn">Reviews</span></a></li>
+    <li><a href="index.html?mode=beats#about"><i class="fas fa-info-circle"></i><span data-i18n="aboutbtn">About</span></a></li>
+    <li><a href="index.html?mode=beats#contact"><i class="fas fa-envelope"></i><span data-i18n="contactbtn">Contact</span></a></li>
+</ul>
+
+    <div class="lang-menu">
+    <!-- Main button -->
+    <button id="lang-btn" class="lang-btn">
+        <img src="https://flagcdn.com/gb.svg" id="current-flag" alt="English">
+    </button>
+
+    <!-- Dropdown -->
+    <div id="lang-dropdown" class="lang-dropdown">
+        <div class="lang-option" data-lang="en">
+            <img class="dropdown-flag" src="https://flagcdn.com/gb.svg" alt="English"> English
+        </div>
+        <div class="lang-option" data-lang="sr">
+            <img class="dropdown-flag" src="https://flagcdn.com/rs.svg" alt="Serbian"> Srpski
+        </div>
+    </div>
+</div>
+
+</div>
+</nav>
+
+
+<!-- ===== BUY BEATS GRID ===== -->
+<section id="buy-beats" class="beats-only">
+  <div class="section-title fade">
+    <h2 data-i18n="beats-available-title">Available Beats</h2>
+    <p data-i18n="beats-available-sub">Search and filter by tags</p>
+    <br><br>
+    <input
+      type="text"
+      id="search-beats"
+      data-i18n="beats-search"
+      placeholder="Search beats..."
+    />
+  </div>
+
+  <div class="beat-grid fade" id="beat-grid"></div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="socials games-only">
+        <a class="social-btn" href="https://www.youtube.com/@39Gamess" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a class="social-btn" href="https://www.instagram.com/39games_" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a class="social-btn" href="https://www.tiktok.com/@39games_" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <div class="socials beats-only">
+        <a class="social-btn" href="https://www.youtube.com/@39Beats" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a class="social-btn" href="https://www.instagram.com/39beats_" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a class="social-btn" href="https://www.tiktok.com/@39beats_" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    © 39 Games — Darko Stamenković
+    © 39 Beats — Darko Stamenković
+</footer>
+
+<script>
+
+    const tagPriority = ["trap", "boom-bap", "chill", "dark", "moody", "gritty", "funky", "happy", "futuristic", "flute"];
+
+const beats = [
+    { title: "Awake", file: "awake.mp3", tags: ["boom-bap", "chill", "happy"], icon: "chill.png" },
+    { title: "Bit By bit", file: "bit by bit.mp3", tags: ["boom-bap", "dark"], icon: "dark.png" },
+    { title: "Guilt", file: "guilt.mp3", tags: ["boom-bap", "moody", "dark"], icon: "dark.png" },
+    { title: "How", file: "how.mp3", tags: ["boom-bap", "gritty", "dark"], icon: "dark.png" },
+    { title: "Hunter", file: "hunter.mp3", tags: ["boom-bap", "gritty", "dark"], icon: "dark.png" },
+    { title: "Late", file: "late.mp3", tags: ["boom-bap", "chill", "funky"], icon: "chill.png" },
+    { title: "Life", file: "life.mp3", tags: ["boom-bap", "chill", "happy"], icon: "chill.png" },
+    { title: "Rio", file: "rio.mp3", tags: ["boom-bap", "chill"], icon: "chill.png" },
+    { title: "Calling", file: "calling.mp3", tags: ["trap", "chill", "futuristic"], icon: "trap.png" },
+    { title: "Seashell", file: "seashell.mp3", tags: ["trap", "chill"], icon: "trap.png" },
+    { title: "Proud", file: "proud.mp3", tags: ["trap", "flute"], icon: "trap.png" },
+    { title: "Bar", file: "bar.mp3", tags: ["boom-bap", "chill", "funky"], icon: "chill.png" }
+];
+
+const defaultIcon = "beats/default.png";
+const grid = document.getElementById("beat-grid");
+const searchInput = document.getElementById("search-beats");
+
+function renderBeats(filter="") {
+    grid.innerHTML = "";
+    const query = filter.toLowerCase();
+
+    // Filter beats first
+    let filteredBeats = beats.filter(beat => 
+        beat.title.toLowerCase().includes(query) ||
+        beat.tags.join(" ").toLowerCase().includes(query)
+    );
+
+    // Sort by first tag in priority
+    filteredBeats.sort((a, b) => {
+    // Helper: get array of tag priorities for a beat
+    const getPriorities = beat => {
+        return beat.tags
+            .map(tag => tagPriority.indexOf(tag))
+            .filter(i => i !== -1) // only tags in priority
+            .sort((x, y) => x - y); // lowest index = highest priority
+    };
+
+    const aPriorities = getPriorities(a);
+    const bPriorities = getPriorities(b);
+
+    // Compare each priority index in order
+    for (let i = 0; i < Math.max(aPriorities.length, bPriorities.length); i++) {
+        const aVal = aPriorities[i] ?? Infinity; // beats with fewer tags get Infinity
+        const bVal = bPriorities[i] ?? Infinity;
+        if (aVal !== bVal) return aVal - bVal;
+    }
+
+    // Fallback to alphabetical if priorities are identical
+    return a.title.localeCompare(b.title);
+});
+
+
+    // Render
+    filteredBeats.forEach(beat => {
+        const container = document.createElement("div");
+        container.className = "beat-card";
+
+        const iconPath = beat.icon ? `beats/${beat.icon}` : defaultIcon;
+        const audioPath = `beats/${beat.file}`;
+
+        container.innerHTML = `
+            <div class="beat-img-container">
+                <img class="beat" src="${iconPath}" alt="${beat.title}" />
+                <button class="play-overlay"><i class="fas fa-play"></i></button>
+                <audio src="${audioPath}"></audio>
+            </div>
+            <div class="game-info">
+                <h3>${beat.title}</h3>
+
+                <div class="beat-tags">
+                    ${beat.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
+                </div>
+
+                <div class="timeline">
+                    <span class="current-time">0:00</span>
+                    <input type="range" class="progress" value="0" min="0" max="100">
+                    <span class="duration">0:00</span>
+                </div>
+
+                <button class="btn" data-i18n="beats-buy">Buy Now</button>
+            </div>
+        `;
+        grid.appendChild(container);
+    });
+}
+
+searchInput.addEventListener("input", e => {
+    renderBeats(e.target.value);
+});
+
+renderBeats(); // initial render
+</script>
+
+
+<script src="beats.js"></script>
+<script src="translation.js"></script>
+</body>
+</html>
