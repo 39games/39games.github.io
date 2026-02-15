@@ -1294,3 +1294,72 @@ nav a:hover span {
   }
 }
 
+/* ================= MOBILE & NAV FINETUNING ================= */
+
+/* 1. Spacing between Nav Icons and Text */
+nav a {
+  display: flex;
+  align-items: center;
+}
+
+nav a i, 
+nav a .mobile-icon {
+  margin-right: 12px; /* The requested space */
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+/* 2. Touch Accessibility for Mobile */
+@media (max-width: 768px) {
+  /* Increase nav tap area */
+  nav a {
+    padding: 8px 4px;
+  }
+  
+  /* Remove right margin when text is hidden to center the icon */
+  nav a span:not(.mobile-icon) {
+    display: none;
+  }
+  
+  nav a i, 
+  nav a .mobile-icon {
+    margin-right: 0;
+    font-size: 1.4rem;
+  }
+
+  /* Stack Hero buttons vertically on very small screens */
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Ensure grids don't have awkward side padding */
+  section {
+    padding: 80px 6%;
+  }
+
+  /* Fix for overlapping elements in Project Header */
+  #projectHeader {
+    padding: 100px 5% 40px;
+    height: auto;
+    min-height: 40vh;
+  }
+
+  .game-logo {
+    width: 90%;
+    transform: none !important; /* Disable parallax on mobile for performance */
+  }
+}
+
+/* 3. Global fix to prevent horizontal "wiggle" on mobile */
+html, body {
+  position: relative;
+  overflow-x: hidden;
+  width: 100%;
+}
