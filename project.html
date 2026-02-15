@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>39 | Games & Beats</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="mode-games">
+
+<nav>
+    <div class="nav-left">
+        <a href="index.html#home" class="logo-container">
+            <img src="images/logo-games.png" alt="39 Games" class="logo games-only" />
+            <img src="images/logo-beats.png" alt="39 Beats" class="logo beats-only" />
+        </a>
+        <button id="modeSwitch1" title="Switch mode" href="#beats">
+            <div class="switch-icon"></div>
+        </button>
+        
+    </div>
+
+    <ul>
+    <li><a href="index.html#home"><i class="fas fa-home"></i><span data-i18n="homebtn">Home</span></a></li>
+    <li class="games-only"><a href="index.html#games"><i class="fas fa-gamepad"></i><span data-i18n="gamesbtn">Games</span></a></li>
+    <li class="beats-only"><a href="index.html#library"><i class="fas fa-music"></i><span data-i18n="libbtn">Library</span></a></li>
+    <li class="beats-only"><a href="index.html#collaborations"><i class="fas fa-handshake"></i><span data-i18n="collabbtn">Collaborations</span></a></li>
+    <li class="beats-only"><a href="index.htmlbeats.html#buy-beats"><i class="fas fa-shopping-cart"></i><span data-i18n="buybeats">Buy Beats</span></a></li>
+    <li class="games-only"><a href="index.html#reviews-section"><i class="fas fa-star"></i><span data-i18n="reviewbtn">Reviews</span></a></li>
+    <li><a href="index.html#about"><i class="fas fa-info-circle"></i><span data-i18n="aboutbtn">About</span></a></li>
+    <li><a href="index.html#contact"><i class="fas fa-envelope"></i><span data-i18n="contactbtn">Contact</span></a></li>
+</ul>
+
+    <div class="lang-menu">
+    <!-- Main button -->
+    <button id="lang-btn" class="lang-btn">
+        <img src="https://flagcdn.com/gb.svg" id="current-flag" alt="English">
+    </button>
+
+    <!-- Dropdown -->
+    <div id="lang-dropdown" class="lang-dropdown">
+        <div class="lang-option" data-lang="en">
+            <img class="dropdown-flag" src="https://flagcdn.com/gb.svg" alt="English"> English
+        </div>
+        <div class="lang-option" data-lang="sr">
+            <img class="dropdown-flag" src="https://flagcdn.com/rs.svg" alt="Serbian"> Srpski
+        </div>
+    </div>
+</div>
+
+</div>
+</nav>
+<section class="project-header" id="projectHeader"></section>
+<main class="project-page">
+  <section class="project-content" id="projectContent"></section>
+
+</main>
+
+<footer>
+    <div class="socials games-only">
+        <a class="social-btn" href="https://www.youtube.com/@39Gamess" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a class="social-btn" href="https://www.instagram.com/39games_" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a class="social-btn" href="https://www.tiktok.com/@39games_" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <div class="socials beats-only">
+        <a class="social-btn" href="https://www.youtube.com/@39Beats" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a class="social-btn" href="https://www.instagram.com/39beats_" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a class="social-btn" href="https://www.tiktok.com/@39beats_" target="_blank"><i class="fab fa-tiktok"></i></a>
+    </div>
+    © 39 Games — Darko Stamenković
+    © 39 Beats — Darko Stamenković
+</footer>
+
+<script src="project.js"></script>
+<script src="translation.js"></script>
+
+<script>
+if (gameKey === "goblinbarrage") {
+
+  // 👉 Just add filenames here when you add new skins
+ const skins = [
+  "default.png",
+  "potion.png",
+  "homeless.png",
+  "red.png",
+  "pirate.png",
+  "osama.png",
+  "doom.png",
+  "demoman.png",
+  "chemist.png",
+  "dave.png",
+  "skeleton.png",
+  "vampire.png",
+  "bunny.png",
+  "santa.png",
+  "ghost.png",
+  "zombie.png",
+  "viking.png",
+  "executioner.png",
+  "robot.png"
+];
+
+
+  let currentSkin = 0;
+
+  const skinImg = document.getElementById("skinImage");
+  const skinName = document.getElementById("skinName");
+
+  function formatName(filename) {
+    return filename
+      .replace(".png", "")
+      .replace(/[-_]/g, " ")
+      .replace(/\b\w/g, c => c.toUpperCase());
+  }
+
+  function showSkin(index, direction = 1) {
+    skinImg.classList.remove("show");
+    skinImg.classList.add(direction > 0 ? "slide-left" : "slide-right");
+
+    setTimeout(() => {
+      skinImg.src = `images/gbskins/${skins[index]}`;
+      skinName.textContent = formatName(skins[index]);
+
+      skinImg.classList.remove("slide-left", "slide-right");
+      skinImg.classList.add("show");
+    }, 200);
+  }
+
+  showSkin(currentSkin);
+
+  document.querySelector(".skin-arrow.left").addEventListener("click", () => {
+    currentSkin = (currentSkin - 1 + skins.length) % skins.length;
+    showSkin(currentSkin, -1);
+  });
+
+  document.querySelector(".skin-arrow.right").addEventListener("click", () => {
+    currentSkin = (currentSkin + 1) % skins.length;
+    showSkin(currentSkin, 1);
+  });
+}
+</script>
