@@ -1264,6 +1264,7 @@ a {
 /* Desktop: show text, hide mobile icon */
 nav a .mobile-icon {
   display: none;
+  left: 50px;
 }
 
 nav a span {
@@ -1293,10 +1294,6 @@ nav a:hover span {
     color: var(--accent);
   }
 }
-
-/* ================= MOBILE & NAV FINETUNING ================= */
-
-/* 1. Spacing between Nav Icons and Text */
 nav a {
   display: flex;
   align-items: center;
@@ -1309,57 +1306,76 @@ nav a .mobile-icon {
   transition: transform 0.3s ease;
 }
 
-/* 2. Touch Accessibility for Mobile */
+/* ================= MOBILE OPTIMIZATION OVERRIDES ================= */
+
 @media (max-width: 768px) {
-  /* Increase nav tap area */
-  nav a {
-    padding: 8px 4px;
-  }
-  
-  /* Remove right margin when text is hidden to center the icon */
-  nav a span:not(.mobile-icon) {
-    display: none;
-  }
-  
-  nav a i, 
-  nav a .mobile-icon {
-    margin-right: 0;
-    font-size: 1.4rem;
+  /* 1. Shrink Nav to fit all items */
+  nav {
+    padding: 10px 12px; /* Tighten side padding */
   }
 
-  /* Stack Hero buttons vertically on very small screens */
-  .hero-buttons {
-    flex-direction: column;
-    width: 100%;
-    gap: 15px;
+  .nav-left {
+    gap: 8px; /* Closer logo and switch */
   }
 
-  .btn {
-    width: 100%;
-    text-align: center;
+  .logo-container {
+    width: 60px; /* Smaller logo */
+    height: 50px;
   }
 
-  /* Ensure grids don't have awkward side padding */
-  section {
-    padding: 80px 6%;
+  nav ul {
+    gap: 12px; /* Pull nav links closer together */
   }
 
-  /* Fix for overlapping elements in Project Header */
-  #projectHeader {
-    padding: 100px 5% 40px;
-    height: auto;
-    min-height: 40vh;
+  /* 2. Compact Header/Hero Section */
+  #home, #homebeats, #projectHeader {
+    min-height: 50vh !important; /* Force smaller height */
+    padding: 80px 5% 40px !important; /* Reduce top/bottom padding */
   }
 
+  .hero, .herobeats {
+    min-height: auto;
+    gap: 20px;
+  }
+
+  .hero-text h1 {
+    font-size: 28px !important; /* Smaller title to prevent wrapping */
+    line-height: 1.2;
+  }
+
+  body.mode-beats .hero-text h1 {
+    font-size: 32px !important;
+  }
+
+  .hero-text p {
+    font-size: 14px;
+    margin-top: 10px;
+  }
+
+  /* 3. Project Specific Header Adjustments */
   .game-logo {
-    width: 90%;
-    transform: none !important; /* Disable parallax on mobile for performance */
+    max-width: 220px; /* Keep logo contained */
+    margin-bottom: 20px;
+  }
+
+  .project-links .link-btn {
+    width: 60px; /* Smaller link circles */
+    height: 60px;
+  }
+
+  .project-links .link-btn .fas, 
+  .project-links .link-btn .fab {
+    font-size: 24px; /* Scaled down icons */
   }
 }
 
-/* 3. Global fix to prevent horizontal "wiggle" on mobile */
-html, body {
-  position: relative;
-  overflow-x: hidden;
-  width: 100%;
+/* Extra fix for very small screens (iPhone SE, etc) */
+@media (max-width: 380px) {
+  nav ul {
+    gap: 8px;
+  }
+  
+  nav a .mobile-icon {
+    font-size: 18px;
+  }
 }
