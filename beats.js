@@ -187,6 +187,20 @@ function setupBeatPlayers() {
     });
 }
 
+document.addEventListener("click", e => {
+    const btn = e.target.closest(".buy-btn");
+    if(!btn) return;
+
+    const params = new URLSearchParams({
+        beat: btn.dataset.title,
+        price: btn.dataset.price,
+        paypal: btn.dataset.paypal
+    });
+
+    window.location.href = `checkout.html?${params.toString()}`;
+});
+
+
 function formatTime(time) {
     const m = Math.floor(time / 60);
     const s = Math.floor(time % 60).toString().padStart(2, '0');

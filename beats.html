@@ -19,7 +19,7 @@
 <!-- ===== NAV ===== -->
 <nav>
     <div class="nav-left">
-        <a href="index.html?mode=beats#home" class="logo-container">
+        <a href="/?mode=beats#home" class="logo-container">
             <img src="images/logo-games.png" alt="39 Games" class="logo games-only" />
             <img src="images/logo-beats.png" alt="39 Beats" class="logo beats-only" />
         </a>
@@ -30,14 +30,14 @@
     </div>
 
     <ul>
-    <li><a href="index.html?mode=beats#home"><i class="fas fa-home"></i><span data-i18n="homebtn"> Home</span></a></li>
-    <li class="games-only"><a href="index.html?mode=beats#home"><i class="fas fa-gamepad"></i><span data-i18n="gamesbtn"> Games</span></a></li>
-    <li class="beats-only"><a href="index.html?mode=beats#library"><i class="fas fa-music"></i><span data-i18n="libbtn"> Library</span></a></li>
-    <li class="beats-only"><a href="index.html?mode=beats#collaborations"><i class="fas fa-handshake"></i><span data-i18n="collabbtn"> Collaborations</span></a></li>
-    <li class="beats-only"><a href="beats.html#buy-beats"><i class="fas fa-shopping-cart"></i><span data-i18n="buybeats"> Buy Beats</span></a></li>
-    <li class="games-only"><a href="index.html?mode=beats#reviews-section"><i class="fas fa-star"></i><span data-i18n="reviewbtn"> Reviews</span></a></li>
-    <li><a href="index.html?mode=beats#about"><i class="fas fa-info-circle"></i><span data-i18n="aboutbtn"> About</span></a></li>
-    <li><a href="index.html?mode=beats#contact"><i class="fas fa-envelope"></i><span data-i18n="contactbtn"> Contact</span></a></li>
+    <li><a href="/?mode=beats#home"><i class="fas fa-home"></i><span data-i18n="homebtn"> Home</span></a></li>
+    <li class="games-only"><a href="/mode=beats#home"><i class="fas fa-gamepad"></i><span data-i18n="gamesbtn"> Games</span></a></li>
+    <li class="beats-only"><a href="/?mode=beats#library"><i class="fas fa-music"></i><span data-i18n="libbtn"> Library</span></a></li>
+    <li class="beats-only"><a href="/?mode=beats#collaborations"><i class="fas fa-handshake"></i><span data-i18n="collabbtn"> Collaborations</span></a></li>
+    <li class="beats-only"><a href="/beats#buy-beats"><i class="fas fa-shopping-cart"></i><span data-i18n="buybeats"> Buy Beats</span></a></li>
+    <li class="games-only"><a href="/?mode=beats#reviews-section"><i class="fas fa-star"></i><span data-i18n="reviewbtn"> Reviews</span></a></li>
+    <li><a href="/?mode=beats#about"><i class="fas fa-info-circle"></i><span data-i18n="aboutbtn"> About</span></a></li>
+    <li><a href="/?mode=beats#contact"><i class="fas fa-envelope"></i><span data-i18n="contactbtn"> Contact</span></a></li>
 </ul>
 
     <div class="lang-menu">
@@ -183,7 +183,13 @@ function renderBeats(filter="") {
                     <span class="duration">0:00</span>
                 </div>
 
-                <button class="btn" data-i18n="beats-buy">Buy Now</button>
+                <button class="btn buy-btn"
+    data-title="${beat.title}"
+    data-price="${beat.price}"
+    data-paypal="${beat.paypal}">
+    Buy Now
+</button>
+
             </div>
         `;
         grid.appendChild(container);
