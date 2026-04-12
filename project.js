@@ -281,10 +281,18 @@ if (isTheforeigner) {
                       filter:drop-shadow(0 0 20px rgba(139,47,201,0.4));" 
                alt="The Foreigner scene">
         -->
-        <img src="images/foreigner/scene-intro.png" 
-               style="max-width:100%; image-rendering:pixelated; 
-                      filter:drop-shadow(0 0 20px rgba(139,47,201,0.4));" 
-               alt="The Foreigner scene">
+        <video 
+    autoplay 
+    muted 
+    loop 
+    playsinline
+    controlslist="nodownload nofullscreen noremoteplayback"
+    disablepictureinpicture
+    style="max-width:100%; image-rendering:pixelated; 
+           filter:drop-shadow(0 0 20px rgba(139,47,201,0.4)); pointer-events:none;">
+    
+    <source src="images/foreigner/scene-intro.mp4" type="video/mp4">
+</video>
       </div>
     </div>
  
@@ -326,7 +334,7 @@ if (isTheforeigner) {
           <span class="foreigner-feature-card__icon">📖</span>
           <div class="foreigner-feature-card__title">ENGAGING STORY</div>
           <div class="foreigner-feature-card__desc">
-            Zou just have to trust me on this one, can't reveal too much yet...
+            You just have to trust me on this one, can't reveal too much yet...
           </div>
         </div>
       </div>
