@@ -243,7 +243,7 @@ if (isTheforeigner) {
       <div class="foreigner-status__dot"></div>
       <div class="foreigner-status__text">
         <strong>IN DEVELOPMENT</strong> &nbsp;·&nbsp; 
-        <strong>Beat-em-up RPG</strong> &nbsp;·&nbsp; <strong>Unity 2D</strong> &nbsp;·&nbsp; <strong>Demo targeted for end of year</strong>
+        <strong>Beat-em-up RPG</strong> &nbsp;·&nbsp; <strong>Unity 2D</strong> &nbsp;·&nbsp; <strong>Demo coming before end of the year</strong>
       </div>
     </div>
  
