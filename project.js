@@ -316,18 +316,17 @@ if (isTheforeigner) {
           </div>
         </div>
         <div class="foreigner-feature-card">
-          <span class="foreigner-feature-card__icon">📖</span>
+          <span class="foreigner-feature-card__icon">👾</span>
           <div class="foreigner-feature-card__title">MULTIPLE WAYS TO PLAY</div>
           <div class="foreigner-feature-card__desc">
             The game is an RPG-beat em up-platformer-puzzle game hybrid, there's something for everyone! Well, not really everyone, I doubt people with hemophobia would want to play it.
           </div>
         </div>
         <div class="foreigner-feature-card">
-          <span class="foreigner-feature-card__icon">⚡</span>
-          <div class="foreigner-feature-card__title">COMBO SYSTEM</div>
+          <span class="foreigner-feature-card__icon">📖</span>
+          <div class="foreigner-feature-card__title">ENGAGING STORY</div>
           <div class="foreigner-feature-card__desc">
-            Energy-driven combo chains with escalating damage and 
-            crowd-control mechanics that reward aggression.
+            Zou just have to trust me on this one, can't reveal too much yet...
           </div>
         </div>
       </div>
