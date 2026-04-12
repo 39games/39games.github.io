@@ -98,8 +98,10 @@ I’ve worked as a freelancer on platforms like Fiverr and Upwork, collaborating
     "game-ogreassault-title": "Ogre Assault",
     "game-ogreassault-desc": `<h1>Early Access Beta Release</h1>
 <p style="text-indent: 50px;">Embark on an epic tower defense journey in Ogre Assault, where you take on the role of the mighty Ogre King defending your kingdom from the relentless onslaught of advanced robotic invaders. As the last bastion of the Ogre nation, it's up to you to defend your villagers, and yourself, from the waves of robot enemies. Collect powerful Technology Gems along your journey to upgrade your towers and villagers and fight legendary bosses who are holding them.</p>
-<p style="text-indent: 50px;">The game is still actively in development and there's currently no downloadable version. Anyone who donates any amount of money will get the game for completely free on launch.<br></p>`
-  
+<p style="text-indent: 50px;">The game is still actively in development and there's currently no downloadable version. Anyone who donates any amount of money will get the game for completely free on launch.<br></p>`,
+    "game-theforeigner-desc": "",   // left empty, overridden by special content block
+    "game-theforeigner-title": "The Foreigner",
+    "game-foreigner-card-desc": "A dark beat-em-up RPG. Demo coming end of year.",
   },
 
   sr: {
@@ -201,7 +203,10 @@ Radio sam kao freelancer na platformama kao što su Fiverr i Upwork, sarađujuć
     "game-ogreassault-title": "Ogre Assault",
     "game-ogreassault-desc": `<h1>Rana Beta verzija</h1>
 <p style="text-indent: 50px;">Krenite u epsko tower defense putovanje u Ogre Assault, gde preuzimate ulogu moćnog Ogre Kralja i branite svoje kraljevstvo od neprekidnog napada naprednih robotskih napadača. Kao poslednji bastion Ogre nacije, na vama je da branite svoje seljake i sebe od talasa robotskih neprijatelja. Sakupljajte moćne Technology Gems kako biste unapredili svoje kule i seljake i borili se protiv legendardnih šefova.</p>
-<p style="text-indent: 50px;">Igra je još uvek u aktivnom razvoju i trenutno nema verziju za preuzimanje. Svako ko donira bilo koju sumu će dobiti igru potpuno besplatno po izlasku.<br></p>`
+<p style="text-indent: 50px;">Igra je još uvek u aktivnom razvoju i trenutno nema verziju za preuzimanje. Svako ko donira bilo koju sumu će dobiti igru potpuno besplatno po izlasku.<br></p>`,
+"game-theforeigner-desc": "",
+    "game-theforeigner-title": "The Foreigner",
+    "game-foreigner-card-desc": "Tamni beat-em-up RPG. Demo krajem godine.",
   }
 };
 

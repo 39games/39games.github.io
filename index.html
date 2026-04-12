@@ -58,34 +58,85 @@
 </div>
 </nav>
 
-<section id="home">
-    <div class="hero fade">
-        <div class="hero-text">
-            <div class="games-only">
-                <h1 data-i18n="hero-title-games">Indie Games. Clean Systems. Real Shipping.</h1>
-                <p data-i18n="hero-desc-games">Indie Unity developer focused primarily on fun, bur ofcourse clean architecture, and shipped products.</p>
-            </div>
-            <div class="beats-only">
-                <h1 data-i18n="hero-title-beats">Heavy Beats. Heavy Atmosphere.</h1>
-                <p data-i18n="hero-desc-beats">Beat-making project blending gritty boom bap, trap, and funky sounds.</p>
-            </div>
-
-            <div class="hero-buttons">
-                <a href="#games" class="btn games-only" data-i18n="view-games">View Games</a>
-                <a href="#library" class="btn beats-only" data-i18n="view-beats">View Library</a>
-                <a href="#contact" class="btn" data-i18n="contact">Contact</a>
-            </div>
-        </div>
-
-        <div class="hero-img">
-            <img src="images/herogames-alt.png" class="games-only" alt="Games Hero" />
-            <img src="images/characters/dread.png" class="character1 games-only" alt="Games Hero" />
-            <div class="character2-parallax">
-                <img src="images/characters/goblinbarrage.png" class="character2 games-only" alt="Games Hero" />
-            </div>
-            <img src="images/herobeats-alt.png" class="beats-only" alt="Beats Hero" />
-        </div>
+<section id="home" class="home-split games-only">
+ 
+  <!-- ===== LEFT HALF: your existing tagline ===== -->
+  <div class="home-split__left">
+    <div class="home-split__text fade">
+      <h1 data-i18n="hero-title-games">Indie Games. Fun Mechanics. Complete products.</h1>
+      <p data-i18n="hero-desc-games">Indie game developer focused primarily on fun, user experience, and every aspect of a shipped product.</p>
+      <div class="hero-buttons" style="margin-top:28px;">
+        <a href="#games" class="btn" data-i18n="view-games">View Games</a>
+        <a href="#contact" class="btn" data-i18n="contact">Contact</a>
+      </div>
     </div>
+  </div>
+ 
+  <!-- ===== RIGHT HALF: The Foreigner, fills edge-to-edge ===== -->
+  <div class="home-split__right">
+ 
+    <!-- Background art — set src to images/foreigner/bg.png -->
+    <img src="images/foreigner/bg.png" class="foreigner-hero-bg" alt="" />
+ 
+    <!-- Noise + scanlines atmosphere -->
+    <div class="foreigner-hero-noise"></div>
+    <div class="foreigner-hero-scanlines"></div>
+ 
+    <!-- Dark edge fade so it bleeds into page nicely -->
+    <div class="foreigner-hero-fade-bottom"></div>
+ 
+    <!-- Content on top -->
+    <div class="foreigner-hero-content">
+ 
+      <div class="foreigner-hero-tag">
+        <span class="foreigner-tag-dot"></span>
+        UPCOMING RELEASE
+      </div>
+ 
+      <!--
+        LOGO IMAGE (uncomment when you have logo.png):
+        <img src="images/foreigner/logo.png" class="foreigner-hero-logo-img" alt="The Foreigner" />
+        
+        Keep the text version below as fallback, or remove once you have the PNG.
+      -->
+      <img src="images/foreigner/logo.png" class="foreigner-hero-logo-img" alt="The Foreigner" />
+ 
+      <p class="foreigner-hero-desc">
+        A dark beat-em-up RPG where justice<br>and monstrosity are the same hand.<br>
+        Play as the stranger. Become the monster they always feared.
+      </p>
+ 
+      <a href="project.html?game=theforeigner" class="foreigner-hero-btn">
+  <span>LEARN MORE</span>
+</a>
+    </div>
+ 
+    <!--
+      CHARACTER SPRITE (uncomment when ready):
+      <img src="images/foreigner/char-main.png" class="foreigner-hero-char" alt="" />
+    -->
+ 
+  </div>
+ 
+</section>
+ 
+<!-- Beats mode hero — unchanged, shown only in beats mode -->
+<section id="home-beats" class="beats-only">
+  <div class="hero fade">
+    <div class="hero-text">
+      <div class="beats-only">
+        <h1 data-i18n="hero-title-beats">Heavy Beats. Heavy Atmosphere.</h1>
+        <p data-i18n="hero-desc-beats">Beat-making project blending gritty boom bap, trap, and funky sounds.</p>
+      </div>
+      <div class="hero-buttons">
+        <a href="#library" class="btn beats-only" data-i18n="view-beats">View Library</a>
+        <a href="#contact" class="btn" data-i18n="contact">Contact</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="images/herobeats-alt.png" class="beats-only" alt="Beats Hero" />
+    </div>
+  </div>
 </section>
 
 
@@ -96,6 +147,13 @@
   </div>
 
   <div class="games-grid fade">
+    <a class="game-card" href="project.html?game=theforeigner">
+  <img src="images/games/game7.png" alt="The Foreigner" />
+  <div class="game-info">
+    <h3>The Foreigner</h3>
+    <p data-i18n="game-foreigner-card-desc">A dark beat-em-up RPG. Demo coming end of year.</p>
+  </div>
+</a>
     <a class="game-card" href="project.html?game=dread">
       <img src="images/games/game1.png" alt="Dread" />
       <div class="game-info">
