@@ -1702,7 +1702,7 @@ nav a .mobile-icon {
   gap: 8px;
   font-size: 10px;
   letter-spacing: 3px;
-  color: var(--violet);
+  color: var(--white);
   font-weight: 700;
   text-transform: uppercase;
   margin-bottom: 30px;
@@ -1711,7 +1711,7 @@ nav a .mobile-icon {
 .foreigner-tag-dot {
   width: 10px; height: 10px;
   border-radius: 50%;
-  background: var(--violet);
+  background: var(--white);
   box-shadow: 0 0 8px var(--violet);
   animation: vblink 1.8s ease-in-out infinite;
   flex-shrink: 0;
