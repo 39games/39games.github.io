@@ -134,11 +134,11 @@ if (game.header) {
 
 headerEl.innerHTML = `
   <img src="${game.logo}" alt="" class="game-logo" data-i18n="${game.i18n.title}">
-  <div class="project-links">
+  <!-- <div class="project-links">
     ${game.links.googleplay ? `<a href="${game.links.googleplay}" target="_blank" class="link-btn googleplay"><i class="fab fa-google-play"></i></a>` : ''}
     ${game.links.steam    ? `<a href="${game.links.steam}"       target="_blank" class="link-btn steam"><i class="fab fa-steam"></i></a>`         : ''}
     ${game.links.itch     ? `<a href="${game.links.itch}"        target="_blank" class="link-btn itch"><i class="fab fa-itch-io"></i></a>`          : ''}
-  </div>
+  </div> -->
 `;
 
 // ====== BUILD MEDIA HTML ======
@@ -327,9 +327,9 @@ if (gameKey === "theforeigner") {
     <span class="nsr-wt-word nsr-wt-red" style="--d:0.6s">can't)</span>
   </div>
 <br>
+<div class="media-gallery nsr-media fade">${mediaHTML}</div>
 </div>
 
-    <div class="media-gallery nsr-media fade">${mediaHTML}</div>
 
     <div class="nsr-about fade">
       <div class="nsr-about-inner">
@@ -487,70 +487,234 @@ document.addEventListener('mousemove', (e) => {
       <div class="moon-quote-attr">— Zen Buddhist Saying</div>
     </div>
   `;
-
-// ─────────────────────────────────────────────
-//  SMASH TROLLS — pixel art comic chaos
+ // ─────────────────────────────────────────────
+//  SMASH TROLLS — drop-in replacement block
+//  Replace the entire existing "smashtrolls"
+//  else-if block in your project.js with this.
 // ─────────────────────────────────────────────
 } else if (gameKey === "smashtrolls") {
   document.body.classList.add('pg-trolls');
+ 
   contentEl.innerHTML = `
-    <div class="trolls-px-grid" aria-hidden="true"></div>
-
-    <div class="trolls-title-wrap fade">
-      <div class="trolls-px-title">SMASH!</div>
-      <div class="trolls-px-sub">THE TROLLS WON'T STOP. NEITHER WILL YOU.</div>
+ 
+    <!-- ══ LIVE SCENE: troll + stomping title ══ -->
+    <div id="st-scene">
+      <div class="st-bubble-layer" id="st-bubbles"></div>
+ 
+      <div id="st-arena">
+        <div id="st-impact-flash"></div>
+        <div id="st-smash-text">SMASH!</div>
+      </div>
+ 
+      <div id="st-troll-wrap">
+        <img id="st-troll-img" src="images/smashtrolls/troll1.png" alt="">
+      </div>
+ 
+      <div id="st-hud">STOMPS: <span id="st-cnt">0</span></div>
     </div>
-
+ 
+    <!-- ══ REST OF PAGE ══ -->
+ 
     <div class="trolls-speech-bubble fade">
       <p data-i18n="${game.i18n.description}"></p>
-      <div class="trolls-bubble-tail"></div>
     </div>
-
+ 
     <div class="media-gallery trolls-media fade">${mediaHTML || '<div class="trolls-no-media">[ NO FOOTAGE YET — BUT TRUST THE PROCESS ]</div>'}</div>
-
+ 
     <div class="trolls-px-features fade">
       <div class="trolls-px-card">
-        <div class="trolls-px-card-header">
-          <span class="trolls-px-icon">💪</span>
-          <span>SIMPLE CONTROLS</span>
-        </div>
-        <div class="trolls-px-card-body">Tap. Tap faster. That's it. You're already better than most players.</div>
+        <div class="trolls-px-card-header"><span class="trolls-px-icon">💪</span><p>SIMPLE CONTROLS</p></div>
+        <div class="trolls-px-card-body"><p>Go up to jump, go down to smash, go to the side to push, easy.</p></div>
       </div>
       <div class="trolls-px-card">
-        <div class="trolls-px-card-header">
-          <span class="trolls-px-icon">👹</span>
-          <span>SMASH THE TROLLS</span>
-        </div>
-        <div class="trolls-px-card-body">Every single troll must go. No mercy. No exceptions. Pure satisfying crunch.</div>
+        <div class="trolls-px-card-header"><span class="trolls-px-icon">🤼</span><p>2 PLAYER ACTION</p></div>
+        <div class="trolls-px-card-body"><p>Choose your favourite troll and battle with your friends.</p></div>
       </div>
       <div class="trolls-px-card">
-        <div class="trolls-px-card-header">
-          <span class="trolls-px-icon">🏆</span>
-          <span>BEAT YOUR SCORE</span>
-        </div>
-        <div class="trolls-px-card-body">Your high score is an insult to your future self. Keep going until it hurts.</div>
+        <div class="trolls-px-card-header"><span class="trolls-px-icon">🔥</span><p>SPECIAL ABILITIES</p></div>
+        <div class="trolls-px-card-body"><p>Each troll has a unique ability, try them all out!</p></div>
       </div>
     </div>
-
-    <!-- Pixel art scene drawn in CSS -->
-    <div class="trolls-px-scene fade" aria-hidden="true">
-      <div class="trolls-px-ground"></div>
-      <div class="trolls-px-troll t1"></div>
-      <div class="trolls-px-troll t2"></div>
-      <div class="trolls-px-troll t3"></div>
-      <div class="trolls-px-fist"></div>
-      <div class="trolls-px-star s1">★</div>
-      <div class="trolls-px-star s2">★</div>
-      <div class="trolls-px-star s3">✦</div>
-    </div>
-
+ 
     <div class="trolls-cta fade">
       <a href="https://39games.itch.io/smash-trolls" target="_blank" class="trolls-px-btn">
         ▶ PLAY FREE ON ITCH.IO
       </a>
     </div>
   `;
-
+ 
+  /* ── fixed dark overlay for page bg ── */
+  if (!document.getElementById('st-bg-overlay')) {
+    const ov = document.createElement('div');
+    ov.id = 'st-bg-overlay';
+    document.body.insertBefore(ov, document.body.firstChild);
+  }
+ 
+  /* ── boot after two rAFs so layout is ready ── */
+  requestAnimationFrame(() => requestAnimationFrame(bootStompScene));
+ 
+  function bootStompScene() {
+    const scene     = document.getElementById('st-scene');
+    const smashEl   = document.getElementById('st-smash-text');
+    const trollWrap = document.getElementById('st-troll-wrap');
+    const trollImg  = document.getElementById('st-troll-img');
+    const flash     = document.getElementById('st-impact-flash');
+    const cntEl     = document.getElementById('st-cnt');
+    const bubLayer = document.createElement('div');
+    bubLayer.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:hidden;';
+    document.body.appendChild(bubLayer);
+ 
+    const BASE = 'images/smashtrolls/';
+    const T1   = BASE + 'troll2.png';
+    const T2   = BASE + 'troll1.png';
+    const BUBS = [BASE+'poison_bubble1.png', BASE+'poison_bubble2.png', BASE+'poison_bubble3.png'];
+ 
+    /* ── bubbles ── */
+    function spawnBubble() {
+      const b   = document.createElement('img');
+      b.className = 'st-bubble';
+      b.src = BUBS[Math.floor(Math.random() * BUBS.length)];
+      const sz  = 36;
+      const rise = -(100 + Math.random() * 220);
+      const dur  = 3.5 + Math.random() * 4;
+      const dly  = Math.random() * 1.5;
+      b.style.cssText = `
+        width:${sz}px;
+        left:${Math.random() * 96}%;
+        bottom:${Math.random() * document.body.scrollHeight}px;
+        --st-rise:${rise}px;
+        animation-duration:${dur}s;
+        animation-delay:${dly}s;
+      `;
+      bubLayer.appendChild(b);
+      setTimeout(() => b.remove(), (dur + dly) * 1000 + 400);
+    }
+    for (let i = 0; i < 10; i++) setTimeout(spawnBubble, i * 140);
+    setInterval(spawnBubble, 360);
+ 
+    const sceneH = () => scene.offsetHeight;
+    const sceneW = () => scene.offsetWidth;
+    const trollW = () => trollImg.offsetWidth;
+    const trollH = () => trollImg.offsetHeight;
+ 
+    function getSmashRect() {
+      const sr = scene.getBoundingClientRect();
+      const tr = smashEl.getBoundingClientRect();
+      return {
+        top:    tr.top    - sr.top,
+        bottom: tr.bottom - sr.top,
+        height: tr.height,
+      };
+    }
+ 
+    function centerTroll() {
+      trollWrap.style.left = Math.round((sceneW() - trollW()) / 2) + 'px';
+    }
+ 
+    let stomps     = 0;
+    let phase      = 'idle';
+    let stompTimer = null;
+ 
+    function doJump() {
+      if (phase !== 'idle') return;
+      phase = 'jumping';
+      trollImg.src = T1;
+      centerTroll();
+ 
+      const sr = getSmashRect();
+ 
+      const landBottom = sceneH() - sr.top - trollH();
+      const airBottom  = landBottom + trollH() + 30;
+ 
+      trollWrap.style.transition = 'bottom 0.28s cubic-bezier(0.25,0.8,0.25,1)';
+      trollWrap.style.bottom = (airBottom + 18) + 'px';
+ 
+      stompTimer = setTimeout(() => {
+        trollImg.src = T2;
+        trollWrap.style.transition = 'bottom 0.15s cubic-bezier(0.65,0,0.95,0.9)';
+        trollWrap.style.bottom = landBottom + 'px';
+ 
+        const rot = (Math.random() * 18 - 9);
+        smashEl.style.transition = 'transform 0.15s cubic-bezier(0.65,0,0.95,0.9)';
+        smashEl.style.transform  = `rotate(${rot}deg) scaleY(0.80) scaleX(1.08) translateY(8px)`;
+ 
+        stompTimer = setTimeout(() => {
+          phase = 'hit';
+          stomps++;
+          cntEl.textContent = stomps;
+ 
+          flash.style.animation = 'none';
+          flash.offsetHeight;
+          flash.style.animation = 'stFlashOut 0.35s ease-out forwards';
+ 
+          spawnCrack(scene, rot);
+ 
+          smashEl.style.transition = 'transform 0.05s ease';
+          smashEl.style.transform  = `rotate(${rot * 1.2}deg) scaleY(0.72) scaleX(1.14) translateY(10px)`;
+ 
+          stompTimer = setTimeout(() => {
+            smashEl.style.transition = 'transform 0.5s cubic-bezier(0.34,1.56,0.64,1)';
+            smashEl.style.transform  = 'none';
+ 
+            trollImg.src = T1;
+            trollWrap.style.transition = 'bottom 0.24s cubic-bezier(0.25,0.8,0.25,1)';
+            trollWrap.style.bottom = (airBottom + 28) + 'px';
+ 
+            stompTimer = setTimeout(() => {
+              trollWrap.style.transition = 'bottom 0.16s ease-in';
+              trollWrap.style.bottom = airBottom + 'px';
+              phase = 'idle';
+              stompTimer = setTimeout(doJump, 150 + Math.random() * 150);
+            }, 250);
+          }, 230);
+        }, 155);
+      }, 300);
+    }
+ 
+    function spawnCrack(parent, rot) {
+      const words = ['STOMP!','CRUNCH!','POW!','BOOM!','SMACK!','CRUSH!'];
+      const el = document.createElement('div');
+      el.className = 'st-crack';
+      el.textContent = words[Math.floor(Math.random() * words.length)];
+      const hue = 65 + Math.random() * 45;
+      el.style.cssText = `
+        left:${20 + Math.random() * 55}%;
+        top:${18 + Math.random() * 38}%;
+        color: hsl(${hue},100%,${62 + Math.random() * 22}%);
+        text-shadow: 2px 2px 0 #000;
+        transform: rotate(${rot * 0.5}deg);
+        animation: stCrackPop 0.65s ease-out forwards;
+      `;
+      parent.appendChild(el);
+      setTimeout(() => el.remove(), 700);
+    }
+ 
+    function init() {
+      centerTroll();
+      const sr         = getSmashRect();
+      const landBottom = sceneH() - sr.top - trollH();
+      const airBottom  = landBottom + trollH() + 20;
+      trollWrap.style.transition = 'none';
+      trollWrap.style.bottom = airBottom + 'px';
+      setTimeout(doJump, 400);
+    }
+ 
+    if (trollImg.complete && trollImg.naturalWidth > 0) {
+      setTimeout(init, 80);
+    } else {
+      trollImg.onload = () => setTimeout(init, 80);
+    }
+ 
+    window.addEventListener('resize', () => {
+      clearTimeout(stompTimer);
+      phase = 'idle';
+      smashEl.style.transform = 'none';
+      setTimeout(init, 60);
+    });
+  }
+ 
+// ─── end smashtrolls block ───
+ 
 // ─────────────────────────────────────────────
 //  GOBLIN BARRAGE — pixel art mobile runner
 // ─────────────────────────────────────────────
@@ -576,14 +740,14 @@ document.addEventListener('mousemove', (e) => {
         <div class="gb-px-hud-val">FREE</div>
       </div>
     </div>
-
+ 
     <div class="media-gallery gb-media fade">${mediaHTML}</div>
-
+ 
     <div class="gb-about fade">
       <div class="gb-px-tag">// MISSION BRIEFING</div>
       <p class="gb-about-text" data-i18n="${game.i18n.description}"></p>
     </div>
-
+ 
     <!-- Skins carousel -->
     <section class="skins-section gb-skins fade">
       <h2 class="gb-px-section-title">▶ UNLOCKABLE SKINS</h2>
@@ -596,7 +760,7 @@ document.addEventListener('mousemove', (e) => {
         <button class="skin-arrow right"><i class="fas fa-chevron-right"></i></button>
       </div>
     </section>
-
+ 
     <div class="gb-px-features fade">
       <div class="gb-px-card">
         <div class="gb-px-card-icon">🛸</div>
@@ -606,7 +770,7 @@ document.addEventListener('mousemove', (e) => {
       <div class="gb-px-card">
         <div class="gb-px-card-icon">👑</div>
         <div class="gb-px-card-title">BOSSES</div>
-        <p>Fight bosses every certain ammount of points you get, each boss is harder than the last.</p>
+        <p>Fight bosses every certain amount of points you get, each boss is harder than the last.</p>
       </div>
       <div class="gb-px-card">
         <div class="gb-px-card-icon">🧙</div>
@@ -614,13 +778,13 @@ document.addEventListener('mousemove', (e) => {
         <p>From pirates to vikings to santa. Unlock them all. Flex on your friends with your high score.</p>
       </div>
     </div>
-
+ 
     <div class="gb-cta fade">
       <a href="https://play.google.com/store/apps/details?id=com.bruh39.GoblinBarrage" target="_blank" class="gb-px-btn"><i class="fab fa-google-play"></i> Google Play</a>
       <a href="https://39games.itch.io/goblin-barrage" target="_blank" class="gb-px-btn gb-px-btn--outline"><i class="fab fa-itch-io"></i> Itch.io</a>
     </div>
   `;
-
+ 
   // Animated score counter
   let score = 0;
   const counter = document.getElementById('gbScoreCounter');
@@ -628,9 +792,9 @@ document.addEventListener('mousemove', (e) => {
     score += Math.floor(Math.random() * 47 + 3);
     if (counter) counter.textContent = String(score).padStart(6, '0');
   }, 80);
-
+ 
 // ─────────────────────────────────────────────
-//  OGRE ASSAULT — pixel art tower defense, YOU command ogres vs robots
+//  OGRE ASSAULT — pixel art tower defense
 // ─────────────────────────────────────────────
 } else if (gameKey === "ogreassault") {
   document.body.classList.add('pg-oa');
@@ -651,24 +815,9 @@ document.addEventListener('mousemove', (e) => {
         </div>
       </div>
     </div>
-
-    <!-- Pixel battlefield scene -->
-    <div class="oa-px-battlefield fade" aria-hidden="true">
-      <!-- Castle wall left -->
-      <div class="oa-px-castle"></div>
-      <!-- Ogre units -->
-      <div class="oa-px-ogre og1"></div>
-      <div class="oa-px-ogre og2"></div>
-      <div class="oa-px-ogre og3"></div>
-      <!-- Robot enemies -->
-      <div class="oa-px-robot rb1"></div>
-      <div class="oa-px-robot rb2"></div>
-      <!-- Ground -->
-      <div class="oa-px-ground"></div>
-    </div>
-
+ 
     <div class="media-gallery oa-media fade">${mediaHTML}</div>
-
+ 
     <!-- Lore tablet -->
     <div class="oa-px-tablet fade">
       <div class="oa-px-tablet-top">
@@ -678,7 +827,7 @@ document.addEventListener('mousemove', (e) => {
         <p data-i18n="${game.i18n.description}"></p>
       </div>
     </div>
-
+ 
     <!-- Stat grid -->
     <div class="oa-px-stats fade">
       <div class="oa-px-stat">
@@ -702,7 +851,7 @@ document.addEventListener('mousemove', (e) => {
         <div class="oa-px-stat-label">PLATFORM</div>
       </div>
     </div>
-
+ 
     <!-- Features -->
     <div class="oa-px-features fade">
       <div class="oa-px-feat-card">
@@ -713,15 +862,15 @@ document.addEventListener('mousemove', (e) => {
       <div class="oa-px-feat-card">
         <div class="oa-px-feat-num">[ 02 ]</div>
         <div class="oa-px-feat-title">HOLD THE LINE</div>
-        <p>Robot waves keep coming. Bigger, faster, meaner. Your castle falls if they break through.</p>
+        <p>Robot waves keep coming. Bigger, faster, meaner. Your king falls if they break through.</p>
       </div>
       <div class="oa-px-feat-card">
         <div class="oa-px-feat-num">[ 03 ]</div>
         <div class="oa-px-feat-title">UPGRADE & CONQUER</div>
-        <p>Earn upgrades between waves. Stronger ogres, tougher walls, deadlier traps.</p>
+        <p>Buy upgrades between waves. Stronger ogres, tougher walls, deadlier weapons.</p>
       </div>
     </div>
-
+ 
     <div class="oa-cta fade">
       <a href="https://play.google.com/store/apps/details?id=com.bruh39.OgreAssault" target="_blank" class="oa-px-btn"><i class="fab fa-google-play"></i> Download Free</a>
       <a href="https://39games.itch.io/ogre-assault" target="_blank" class="oa-px-btn oa-px-btn--alt"><i class="fab fa-itch-io"></i> Itch.io</a>
