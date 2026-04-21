@@ -660,6 +660,10 @@ section.beats-only{
   display:block!important;
 }
 
+body.mode-beats #home.home-split {
+    display: none !important;
+}
+
 /* ================= SWITCH OVERLAY ================= */
 body::after{
   content:"";
@@ -2284,11 +2288,16 @@ body.pg-foreigner{ background: linear-gradient(to bottom, #06000f, #0b0b0b); }
 
 /* PS1 box border with corner brackets */
 .dread-ps1-border {
+  background-image: 
+  linear-gradient(rgba(12, 7, 1, 0.743), rgba(12, 7, 1, 0.743)),
+  url('images/dread/wall.png');
+
+background-repeat: repeat;
+background-size: 1536px 1536px;
   position: relative;
-  border: 2px solid rgba(195, 190, 167, 0.3);
+  border: 10px solid rgba(189, 161, 33, 0.784);
   padding: 48px 52px;
   margin: 0;
-  background: rgba(236, 236, 236, 0.03);
 }
 .dread-ps1-corner {
   position: absolute;
@@ -2387,10 +2396,25 @@ body.pg-foreigner{ background: linear-gradient(to bottom, #06000f, #0b0b0b); }
   background: rgba(200,162,0,0.03);
   position: relative;
   transition: border-color 0.3s, background 0.3s;
+
+  background-image: 
+  linear-gradient(rgba(12, 7, 1, 0.743), rgba(12, 7, 1, 0.743)),
+  url('images/dread/wall.png');
+
+background-repeat: repeat;
+background-size: 1536px 1536px;
+  position: relative;
+  border: 10px solid rgba(189, 161, 33, 0.784);
 }
 .dread-feature-card:hover {
-  border-color: rgba(200,162,0,0.5);
-  background: rgba(200,162,0,0.07);
+  background-image: 
+  linear-gradient(rgba(37, 22, 3, 0.743), rgba(37, 22, 3, 0.743)),
+  url('images/dread/wall.png');
+
+background-repeat: repeat;
+background-size: 1536px 1536px;
+  position: relative;
+  border: 10px solid rgba(248, 205, 14, 0.983);
 }
 .dread-fc-icon {
   font-family: 'Dread', monospace;
@@ -2466,6 +2490,36 @@ body.pg-dread #projectHeader::before {
 }
 body.pg-dread .game-logo {
   filter: drop-shadow(0 0 25px rgba(0, 0, 0, 0.5));
+}
+
+body.pg-dread{
+  background-image: 
+  linear-gradient(rgba(57, 49, 27, 0.6), rgba(57, 49, 27, 0.6)),
+  url('images/dread/floor.png');
+
+background-repeat: repeat;
+background-size: 1024px 1024px;
+}
+
+.dread-media {
+  margin-top: -200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  min-height: 100vh; /* full screen height */
+
+  background-image: url('images/dread/button.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1150px 700px; /* control frame size */
+}
+
+.dread-media iframe {
+  width: 1050px;   /* bigger video */
+  height: 600px;
+  border: none;
 }
 
 /* ================================================================
@@ -3535,4 +3589,599 @@ body.pg-trolls *:not(.fas):not(.fab):not(.far) {
   color: #00ff88;
   border: 1px solid rgba(0, 255, 120, 0.4);
   box-shadow: 0 0 8px rgba(0, 255, 120, 0.6);
+}
+/* ================================================================
+   GOBLIN BARRAGE — Redesigned Page Styles
+   Drop this into your CSS after the existing .pg-gb block,
+   or replace the entire pg-gb section with this file.
+   All asset paths assume your existing folder structure.
+================================================================ */
+
+/* ── FONT STACK ── */
+body.pg-gb {
+  background: #0a0600;
+  font-family: 'PixelFont', monospace;
+}
+
+/* ================================================================
+   HUD HEADER BAR — game-UI stat panel
+================================================================ */
+.gb-px-hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin: 40px 0 0;
+  border: 4px solid #e2801d;
+  background: #0d0800;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 30px rgba(226, 128, 29, 0.25),
+    inset 0 0 60px rgba(0,0,0,0.6);
+  image-rendering: pixelated;
+}
+
+.gb-px-hud-cell {
+  padding: 18px 16px;
+  text-align: center;
+  border-right: 3px solid #e2801d;
+  position: relative;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      transparent 0px, transparent 3px,
+      rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px
+    );
+}
+.gb-px-hud-cell:last-child { border-right: none; }
+
+/* Pixel corner notch */
+.gb-px-hud-cell::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 6px; height: 6px;
+  background: #000;
+  border-right: 2px solid #e2801d;
+  border-bottom: 2px solid #e2801d;
+}
+
+.gb-px-hud-label {
+  font-family: 'PixelFont', monospace !important;
+  font-size: 26px;
+  letter-spacing: 2px;
+  color: rgba(226, 128, 29, 0.45);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.gb-px-hud-val {
+  font-family: 'PixelFont', monospace !important;
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffd060;
+  letter-spacing: 1px;
+}
+
+.gb-px-live {
+  color: #4cff4c !important;
+  animation: gb-live-pulse 1.4s ease-in-out infinite;
+}
+@keyframes gb-live-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.gb-px-counter {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ================================================================
+   MEDIA GALLERY — clean, centred video
+================================================================ */
+.gb-media {
+  margin: 30px 0 10px;
+}
+
+/* ================================================================
+   MISSION BRIEFING — about section
+================================================================ */
+.gb-about {
+  margin: 50px 0 40px;
+  padding: 36px 40px;
+  background: #0d0800;
+  border: 4px solid #e2801d;
+  position: relative;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 40px rgba(226,128,29,0.12),
+    inset 0 0 60px rgba(0,0,0,0.5);
+}
+
+/* "screen" scanlines on the panel */
+.gb-about::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0px, transparent 3px,
+    rgba(0,0,0,0.06) 3px, rgba(0,0,0,0.06) 4px
+  );
+  pointer-events: none;
+}
+
+/* Pixel corner brackets */
+.gb-about::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 4px solid #e2801d;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,208,96,0.15);
+}
+
+.gb-px-tag {
+  font-family: 'PixelFont', monospace !important;
+  font-size: 24px;
+  letter-spacing: 4px;
+  color: #e2801d;
+  margin-bottom: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.gb-about-text {
+  font-family: 'PixelFont', monospace !important;
+  color: rgba(255, 220, 140, 0.72);
+  font-size: 24px;
+  line-height: 2.1;
+  max-width: 800px;
+}
+
+/* ================================================================
+   SKINS SHOWCASE
+================================================================ */
+.gb-skins {
+  margin: 60px 0;
+}
+
+.gb-px-section-title {
+  font-family: 'PixelFont', monospace !important;
+  font-size: 24px;
+  letter-spacing: 4px;
+  color: #ffd060;
+  margin-bottom: 32px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.gb-px-section-title::after {
+  content: '';
+  flex: 1;
+  height: 3px;
+  background: linear-gradient(to right, #e2801d44, transparent);
+}
+
+/* Carousel wrapper gets a game-panel look */
+.skin-carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 40px 32px;
+  background: #0d0800;
+  border: 4px solid #e2801d;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 50px rgba(226,128,29,0.15),
+    inset 0 0 80px rgba(0,0,0,0.55);
+  position: relative;
+  image-rendering: pixelated;
+}
+
+/* Scanlines on carousel too */
+.skin-carousel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0, transparent 3px,
+    rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.07) 4px
+  );
+  pointer-events: none;
+}
+
+.skin-display {
+  width: 280px;
+  height: 300px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* Drop-shadow glow under the skin */
+.skin-display::before {
+  content: '';
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 20px;
+  background: radial-gradient(ellipse, rgba(226,128,29,0.35) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.skin-display img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+  image-rendering: pixelated;
+  filter: drop-shadow(0 0 12px rgba(226,128,29,0.4));
+  position: relative;
+  left: 0;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.skin-display img.show {
+  opacity: 1;
+  transform: scale(1);
+}
+.skin-display img.slide-left {
+  transform: translateX(-50px) scale(0.8);
+  opacity: 0;
+}
+.skin-display img.slide-right {
+  transform: translateX(50px) scale(0.8);
+  opacity: 0;
+}
+
+#skinName {
+  font-family: 'PixelFont', monospace !important;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffd060;
+  letter-spacing: 3px;
+  text-align: center;
+  text-shadow: 0 0 12px rgba(255,208,96,0.4);
+  margin-top: 8px;
+}
+
+/* Pixel arrow buttons */
+.skin-arrow {
+  background: #1a1000;
+  border: 3px solid #e2801d;
+  color: #ffd060;
+  font-size: 22px;
+  cursor: pointer;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 5px 0 #7a3800, 0 0 20px rgba(226,128,29,0.2);
+  image-rendering: pixelated;
+}
+.skin-arrow:hover {
+  background: #e2801d;
+  color: #000;
+  transform: translateY(2px);
+  box-shadow: 0 3px 0 #7a3800, 0 0 30px rgba(226,128,29,0.5);
+}
+.skin-arrow:active {
+  transform: translateY(5px);
+  box-shadow: 0 0 0 #7a3800;
+}
+
+/* ================================================================
+   FEATURE CARDS — asset-driven, clean grid
+================================================================ */
+.gb-px-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0;
+  margin: 60px 0 30px;
+  border: 4px solid #e2801d;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 40px rgba(226,128,29,0.12);
+}
+
+.gb-px-card {
+  background: #0d0800;
+  border-right: 3px solid rgba(226,128,29,0.35);
+  padding: 36px 28px;
+  transition: background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.gb-px-card:last-child { border-right: none; }
+
+/* Pixel scanlines on each card */
+.gb-px-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0, transparent 3px,
+    rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.07) 4px
+  );
+  pointer-events: none;
+}
+
+/* Accent bar on hover */
+.gb-px-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 0; height: 3px;
+  background: #ffd060;
+  transition: width 0.3s ease;
+}
+.gb-px-card:hover::before { width: 100%; }
+.gb-px-card:hover { background: rgba(226,128,29,0.06); }
+
+.gb-px-card-icon {
+  font-size: 36px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.gb-px-card-title {
+  font-family: 'PixelFont', monospace !important;
+  font-size: 30px;
+  letter-spacing: 2px;
+  color: #ffd060;
+  margin-bottom: 14px;
+  font-weight: 700;
+}
+
+.gb-px-card p {
+  font-family: 'PixelFont', monospace !important;
+  font-size: 26px !important;
+  color: rgba(255, 210, 130, 0.5);
+  line-height: 1.9;
+}
+
+/* ================================================================
+   DOWNLOAD CTA SECTION
+   - Animated app icon plays on scroll (no controls)
+   - Big platform buttons with game-UI border style
+================================================================ */
+.gb-cta-section {
+  margin: 60px 0 80px;
+  padding: 60px 40px;
+  background: #0d0800;
+  border: 4px solid #e2801d;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 60px rgba(226,128,29,0.18),
+    inset 0 0 100px rgba(0,0,0,0.6);
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Diagonal dither overlay */
+.gb-cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(226,128,29,0.05) 1px, transparent 1px);
+  background-size: 8px 8px;
+  pointer-events: none;
+}
+
+.gb-cta-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    180deg,
+    transparent 0, transparent 3px,
+    rgba(0,0,0,0.07) 3px, rgba(0,0,0,0.07) 4px
+  );
+  pointer-events: none;
+}
+
+.gb-cta-label {
+  font-family: 'PixelFont', monospace !important;
+  font-size: 24px;
+  letter-spacing: 5px;
+  color: rgba(226,128,29,0.5);
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 2;
+}
+
+.gb-cta-headline {
+  font-family: 'PixelFont', monospace !important;
+  font-size: clamp(27px, 3.5vw, 40px);
+  font-weight: 900;
+  color: #ffd060;
+  letter-spacing: 3px;
+  margin-bottom: 40px;
+  text-shadow:
+    3px 3px 0 rgba(0,0,0,0.6),
+    0 0 30px rgba(255,208,96,0.25);
+  position: relative;
+  z-index: 2;
+}
+
+/* Animated app icon video — renders like a GIF */
+.gb-app-icon-wrap {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 36px;
+  margin-bottom: 40px;
+}
+
+.gb-app-icon-video {
+  width: 160px;
+  height: 160px;
+  border-radius: 28px;
+  border: 4px solid #e2801d;
+  box-shadow:
+    0 0 0 2px #000,
+    0 0 40px rgba(226,128,29,0.5),
+    0 20px 60px rgba(0,0,0,0.6);
+  object-fit: cover;
+  image-rendering: pixelated;
+  display: block;
+  /* Start paused — JS triggers play on scroll */
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.gb-app-icon-video.gb-icon-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Platform buttons */
+.gb-cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+}
+
+.gb-px-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 36px;
+  font-family: 'PixelFont', monospace !important;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+
+/* Primary — Google Play */
+.gb-px-btn:not(.gb-px-btn--outline) {
+  background: #e2801d;
+  color: #000;
+  border: 4px solid #000;
+  box-shadow:
+    0 8px 0 #7a3800,
+    4px 4px 0 rgba(255,208,96,0.2) inset;
+  image-rendering: pixelated;
+}
+.gb-px-btn:not(.gb-px-btn--outline):hover {
+  background: #ffd060;
+  transform: translateY(3px);
+  box-shadow: 0 5px 0 #7a3800, 0 0 30px rgba(255,208,96,0.4);
+}
+.gb-px-btn:not(.gb-px-btn--outline):active {
+  transform: translateY(8px);
+  box-shadow: 0 0 0 #7a3800;
+}
+
+/* Secondary — Itch.io */
+.gb-px-btn--outline {
+  background: transparent;
+  color: #ffd060;
+  border: 4px solid #e2801d;
+  box-shadow:
+    0 8px 0 #3a2000,
+    0 0 20px rgba(226,128,29,0.15);
+}
+.gb-px-btn--outline:hover {
+  background: rgba(226,128,29,0.12);
+  transform: translateY(3px);
+  box-shadow: 0 5px 0 #3a2000, 0 0 30px rgba(226,128,29,0.3);
+}
+.gb-px-btn--outline:active {
+  transform: translateY(8px);
+  box-shadow: 0 0 0 #3a2000;
+}
+
+.header-gb .game-logo{
+  filter:drop-shadow(0 0 25px rgb(239, 13, 13));
+}
+
+/* ================================================================
+   RESPONSIVE PATCHES
+================================================================ */
+@media (max-width: 768px) {
+  .gb-px-hud {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gb-px-hud-cell:nth-child(2) {
+    border-right: none;
+  }
+  .gb-px-hud-cell:nth-child(3),
+  .gb-px-hud-cell:nth-child(4) {
+    border-top: 3px solid #e2801d;
+  }
+
+  .gb-about {
+    padding: 28px 24px;
+  }
+  .gb-about-text {
+    font-size: 17px;
+  }
+
+  .gb-px-features {
+    grid-template-columns: 1fr;
+    border: none;
+    gap: 4px;
+  }
+  .gb-px-card {
+    border: 4px solid rgba(226,128,29,0.35);
+    border-right: 4px solid rgba(226,128,29,0.35);
+  }
+  .gb-px-card:hover::before { width: 100%; }
+
+  .skin-carousel {
+    padding: 30px 16px;
+    gap: 12px;
+  }
+  .skin-display {
+    width: 200px;
+    height: 240px;
+  }
+  .skin-display img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .gb-cta-section {
+    padding: 40px 24px;
+  }
+  .gb-cta-headline {
+    font-size: 20px;
+  }
+  .gb-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .gb-px-btn {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
+  }
 }

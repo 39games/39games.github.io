@@ -1,3 +1,47 @@
+const switchBtn1 = document.getElementById('modeSwitch1');
+const body = document.body;
+
+switchBtn1.addEventListener('click', () => {
+    body.classList.add('switching');
+    switchBtn1.classList.add('switch-animate');
+    
+    setTimeout(() => {
+        const isBeats = body.classList.contains('mode-beats');
+
+        // Toggle modes
+        body.classList.toggle('mode-games');
+        body.classList.toggle('mode-beats');
+
+        // Update URL without reloading the page
+        const url = new URL(window.location);
+        if (isBeats) {
+            url.searchParams.delete('mode'); // switching to games
+        } else {
+            url.searchParams.set('mode', 'beats'); // switching to beats
+        }
+        window.history.replaceState({}, '', url);
+
+        // Force-check elements in view after the switch
+        const visibleFaders = document.querySelectorAll('.fade');
+        visibleFaders.forEach(fader => {
+            const rect = fader.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                fader.classList.add('show');
+            } else {
+                fader.classList.remove('show');
+            }
+        });
+
+        switchBtn1.classList.remove('switch-animate');
+    }, 300);
+
+    setTimeout(() => {
+        body.classList.remove('switching');
+        // Navigate back to index.html after the animation
+        window.location.href = 'index.html?mode=beats';
+    }, 600);
+});
+
 // ====== GAME DATA ======
 const gamesData = {
   "dread": {
@@ -220,11 +264,6 @@ if (gameKey === "theforeigner") {
   contentEl.innerHTML = `
     <div class="dread-vhs-noise" aria-hidden="true"></div>
 
-    <div class="dread-vhs-label fade">
-      <span class="dread-vhs-rec">● REC</span>
-      <span class="dread-vhs-time" id="dreadClock"></span>
-      <span class="dread-vhs-tape">SP · T-120</span>
-    </div>
 
     <div class="media-gallery dread-media fade">${mediaHTML}</div>
 
@@ -239,6 +278,7 @@ if (gameKey === "theforeigner") {
         <p class="dread-body" data-i18n="${game.i18n.description}"></p>
       </div>
     </div>
+    
 
     <div class="dread-section fade">
       <div class="dread-ps1-border">
@@ -249,12 +289,6 @@ if (gameKey === "theforeigner") {
         <h2 class="dread-title">DEMO COMING<br>SOON<span class="dread-title-glitch">?</span></h2>
         <div class="dread-scanbar"></div>
         <p class="dread-body" data-i18n=""></p>
-      </div>
-    </div>
-
-    <div class="dread-warning-strip fade">
-      <div class="dread-warning-inner">
-        | WARNING | CONTAINS EXTREME CONTENT | NOT FOR THE FAINT OF HEART | WARNING | CONTAINS EXTREME CONTENT |
       </div>
     </div>
 
@@ -718,13 +752,19 @@ document.addEventListener('mousemove', (e) => {
 // ─────────────────────────────────────────────
 //  GOBLIN BARRAGE — pixel art mobile runner
 // ─────────────────────────────────────────────
+// ─────────────────────────────────────────────
+//  GOBLIN BARRAGE — Redesigned, asset-driven
+//  Replace the existing } else if (gameKey === "goblinbarrage") { ... }
+//  block in project.js with this entire block.
+// ─────────────────────────────────────────────
 } else if (gameKey === "goblinbarrage") {
   document.body.classList.add('pg-gb');
   contentEl.innerHTML = `
-    <!-- Pixel HUD top bar -->
+
+    <!-- ══ PIXEL HUD STAT BAR ══ -->
     <div class="gb-px-hud fade">
       <div class="gb-px-hud-cell">
-        <div class="gb-px-hud-label">FUN LEVEL</div>
+        <div class="gb-px-hud-label">SCORE</div>
         <div class="gb-px-hud-val gb-px-counter" id="gbScoreCounter">000000</div>
       </div>
       <div class="gb-px-hud-cell">
@@ -740,27 +780,34 @@ document.addEventListener('mousemove', (e) => {
         <div class="gb-px-hud-val">FREE</div>
       </div>
     </div>
- 
+
+    <!-- ══ VIDEO ══ -->
     <div class="media-gallery gb-media fade">${mediaHTML}</div>
- 
+
+    <!-- ══ MISSION BRIEFING ══ -->
     <div class="gb-about fade">
-      <div class="gb-px-tag">// MISSION BRIEFING</div>
+      <div class="gb-px-tag">▶ MISSION BRIEFING</div>
       <p class="gb-about-text" data-i18n="${game.i18n.description}"></p>
     </div>
- 
-    <!-- Skins carousel -->
+
+    <!-- ══ SKINS CAROUSEL ══ -->
     <section class="skins-section gb-skins fade">
       <h2 class="gb-px-section-title">▶ UNLOCKABLE SKINS</h2>
       <div class="skin-carousel">
-        <button class="skin-arrow left"><i class="fas fa-chevron-left"></i></button>
+        <button class="skin-arrow left" aria-label="Previous skin">
+          <i class="fas fa-chevron-left"></i>
+        </button>
         <div class="skin-display">
-          <img id="skinImage" src="" alt="Skin">
+          <img id="skinImage" src="" alt="Goblin skin">
           <div id="skinName"></div>
         </div>
-        <button class="skin-arrow right"><i class="fas fa-chevron-right"></i></button>
+        <button class="skin-arrow right" aria-label="Next skin">
+          <i class="fas fa-chevron-right"></i>
+        </button>
       </div>
     </section>
- 
+
+    <!-- ══ FEATURE CARDS ══ -->
     <div class="gb-px-features fade">
       <div class="gb-px-card">
         <div class="gb-px-card-icon">🛸</div>
@@ -769,29 +816,80 @@ document.addEventListener('mousemove', (e) => {
       </div>
       <div class="gb-px-card">
         <div class="gb-px-card-icon">👑</div>
-        <div class="gb-px-card-title">BOSSES</div>
-        <p>Fight bosses every certain amount of points you get, each boss is harder than the last.</p>
+        <div class="gb-px-card-title">BOSS FIGHTS</div>
+        <p>Fight bosses every certain amount of points. Each one harder than the last.</p>
       </div>
       <div class="gb-px-card">
         <div class="gb-px-card-icon">🧙</div>
         <div class="gb-px-card-title">TONS OF SKINS</div>
-        <p>From pirates to vikings to santa. Unlock them all. Flex on your friends with your high score.</p>
+        <p>Pirates, vikings, santa and more. Unlock them all and flex your high score.</p>
       </div>
     </div>
- 
-    <div class="gb-cta fade">
-      <a href="https://play.google.com/store/apps/details?id=com.bruh39.GoblinBarrage" target="_blank" class="gb-px-btn"><i class="fab fa-google-play"></i> Google Play</a>
-      <a href="https://39games.itch.io/goblin-barrage" target="_blank" class="gb-px-btn gb-px-btn--outline"><i class="fab fa-itch-io"></i> Itch.io</a>
+
+    <!-- ══ DOWNLOAD CTA with animated app icon ══ -->
+    <div class="gb-cta-section fade" id="gbCtaSection">
+      <div class="gb-cta-label">AVAILABLE NOW</div>
+      <div class="gb-cta-headline">DOWNLOAD FREE</div>
+
+      <div class="gb-app-icon-wrap">
+        <!-- Animated app icon: plays like a GIF when scrolled into view -->
+        <video
+          id="gbAppIconVideo"
+          class="gb-app-icon-video"
+          src="images/gbskins/icon-animated.mp4"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          disablepictureinpicture
+          controlslist="nodownload nofullscreen noremoteplayback"
+          style="pointer-events:none;"
+        ></video>
+
+        <div class="gb-cta-buttons">
+          <a href="https://play.google.com/store/apps/details?id=com.bruh39.GoblinBarrage"
+             target="_blank"
+             class="gb-px-btn">
+            <i class="fab fa-google-play"></i> Google Play
+          </a>
+          <a href="https://39games.itch.io/goblin-barrage"
+             target="_blank"
+             class="gb-px-btn gb-px-btn--outline">
+            <i class="fab fa-itch-io"></i> Itch.io
+          </a>
+        </div>
+      </div>
     </div>
+
   `;
- 
-  // Animated score counter
+
+  // ── Animated score counter ──
   let score = 0;
   const counter = document.getElementById('gbScoreCounter');
   setInterval(() => {
     score += Math.floor(Math.random() * 47 + 3);
     if (counter) counter.textContent = String(score).padStart(6, '0');
   }, 80);
+
+  // ── App icon video: play & animate in when scrolled into view ──
+  const iconVideo = document.getElementById('gbAppIconVideo');
+  if (iconVideo) {
+    // Pause immediately — IntersectionObserver will trigger play
+    iconVideo.pause();
+
+    const iconObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          iconVideo.play().catch(() => {});
+          iconVideo.classList.add('gb-icon-visible');
+          iconObserver.unobserve(iconVideo);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    iconObserver.observe(iconVideo);
+  }
  
 // ─────────────────────────────────────────────
 //  OGRE ASSAULT — pixel art tower defense
@@ -943,4 +1041,3 @@ window.addEventListener('scroll',()=>{
     logo.style.setProperty('--parallax',`${scrollY*speed}px`);
   });
 });
-
