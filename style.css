@@ -4185,3 +4185,578 @@ body.pg-gb {
     justify-content: center;
   }
 }
+
+/* ================================================
+   ABOUT ME — REDESIGN
+   Replace or override the existing .about block
+================================================ */
+
+/* Override the old 2-column layout */
+#about .about {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+/* ── LEFT COLUMN: profile card ── */
+.about-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: sticky;
+  top: 120px;
+}
+
+/* Gradient ring around avatar */
+.about-avatar-wrap {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.about-avatar-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(var(--accent) 0deg, var(--accent2) 120deg, transparent 200deg);
+  z-index: 0;
+}
+
+/* The actual img gets new styles */
+#about .about img {
+  position: relative;
+  z-index: 1;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--black);
+  outline: none; /* remove the old outline */
+  display: block;
+  margin: 0;
+}
+
+.about-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+}
+
+.about-role {
+  font-size: 13px;
+  color: var(--accent);
+  text-align: center;
+  letter-spacing: 1px;
+  margin-top: -12px;
+}
+
+.about-skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.about-skill-tag {
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--accent2);
+  color: var(--accent);
+  background: rgba(255,122,0,0.07);
+  letter-spacing: 0.5px;
+}
+
+/* ── RIGHT COLUMN: bio blocks ── */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 8px;
+}
+
+.about-bio-block {
+  border-left: 2px solid rgba(255,122,0,0.3);
+  padding-left: 24px;
+  transition: border-color 0.3s;
+}
+
+.about-bio-block:hover {
+  border-color: var(--accent);
+}
+
+.about-bio-block h3 {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.about-bio-block p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.62);
+  line-height: 1.9;
+}
+
+/* Stats row at the bottom of bio */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.about-stat {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-align: center;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.about-stat:hover {
+  background: rgba(255,122,0,0.05);
+  border-color: rgba(255,122,0,0.25);
+}
+
+.about-stat-num {
+  font-size: 28px;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.about-stat-label {
+  font-size: 12px;
+  color: var(--gray);
+  letter-spacing: 0.5px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  #about .about {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .about-left {
+    position: static;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ================================================
+   GENERAL POLISH — minor improvements site-wide
+================================================ */
+
+/* Softer section dividers via section padding rhythm */
+#about, #contact, #games, #reviews-section {
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+/* Contact box glow on focus */
+.contact-box input:focus,
+.contact-box textarea:focus {
+  outline: none;
+  border: 1px solid rgba(255,122,0,0.4);
+  box-shadow: 0 0 0 3px rgba(255,122,0,0.08);
+}
+
+/* Review cards — accent border color follows mode */
+.review-card {
+  border-left-color: var(--accent);
+}
+
+/* Footer subtle separator */
+footer {
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+/* ================================================
+   HOME PAGE — SECTION IMPROVEMENTS
+================================================ */
+
+/* ── GAMES GRID ── */
+.games-grid {
+  gap: 24px;
+}
+
+.game-card {
+  background: #111;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease, filter 0.4s ease;
+}
+
+.game-card:hover img {
+  transform: scale(1.04);
+  filter: brightness(0.8);
+}
+
+.game-info {
+  padding: 16px 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.game-info h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--accent);
+  margin: 0;
+}
+
+.game-info p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Status tag — cleaner */
+.game-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  z-index: 2;
+  backdrop-filter: blur(6px);
+}
+
+.game-card.dev .game-tag {
+  background: rgba(255, 200, 0, 0.15);
+  color: #ffd54a;
+  border: 1px solid rgba(255, 200, 0, 0.4);
+}
+
+.game-card.released .game-tag {
+  background: rgba(0, 255, 120, 0.12);
+  color: #00ff88;
+  border: 1px solid rgba(0, 255, 120, 0.35);
+}
+
+/* Arrow hint on hover */
+.game-card::after {
+  content: '→';
+  position: absolute;
+  bottom: 16px;
+  right: 18px;
+  font-size: 18px;
+  color: var(--accent);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.game-card:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── SECTION TITLES ── */
+.section-title {
+  margin-bottom: 52px;
+}
+
+.section-title h2 {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 8px;
+  letter-spacing: -0.5px;
+}
+
+.section-title p {
+  font-size: 14px;
+  color: var(--gray);
+  letter-spacing: 1px;
+}
+
+/* Subtle underline accent below h2 */
+.section-title h2::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(to right, var(--accent), var(--accent2));
+  border-radius: 2px;
+  margin: 12px auto 0;
+}
+
+/* ── REVIEWS ── */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.review-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-left: 3px solid var(--accent);
+  border-radius: 12px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background 0.3s, border-color 0.3s, transform 0.3s;
+  position: relative;
+}
+
+.review-card:hover {
+  background: rgba(255,122,0,0.04);
+  border-color: rgba(255,122,0,0.5);
+  transform: translateY(-4px);
+}
+
+/* Opening quote mark */
+.review-card::before {
+  content: '"';
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 56px;
+  color: rgba(255,122,0,0.08);
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+.review-card .stars {
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--accent2);
+}
+
+.review-card p {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  font-style: italic;
+  flex: 1;
+  margin: 0;
+}
+
+.review-card .client {
+  font-size: 12px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 1200px) {
+  .reviews-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 500px) {
+  .reviews-grid { grid-template-columns: 1fr; }
+}
+
+/* ── CONTACT ── */
+.contact-box {
+  max-width: 620px;
+  margin: auto;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 48px 44px;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+}
+
+.contact-box input,
+.contact-box textarea {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: white;
+  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  transition: border-color 0.3s, background 0.3s, box-shadow 0.3s;
+  resize: vertical;
+}
+
+.contact-box input::placeholder,
+.contact-box textarea::placeholder {
+  color: rgba(255,255,255,0.3);
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+  outline: none;
+  border-color: rgba(255,122,0,0.5);
+  background: rgba(255,122,0,0.04);
+  box-shadow: 0 0 0 3px rgba(255,122,0,0.08);
+}
+
+.contact-box .btn {
+  width: 100%;
+  text-align: center;
+  padding: 14px;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+#formStatus {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 14px;
+  color: var(--accent2);
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 60px 10%;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: rgba(255,255,255,0.3);
+  font-size: 13px;
+}
+
+.socials {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+}
+
+.social-btn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,0.7);
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255,122,0,0.3);
+}
+
+/* ── COLLAB CARDS ── */
+.collab-card {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 24px 16px;
+  border-radius: 14px;
+  text-align: center;
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.collab-card:hover {
+  border-color: var(--accent);
+  background: rgba(255,122,0,0.05);
+  transform: translateY(-6px);
+}
+
+.collab-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid rgba(255,255,255,0.15);
+  transition: border-color 0.3s;
+}
+
+.collab-card:hover .collab-img {
+  border-color: var(--accent);
+}
+
+.collab-card span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+  font-weight: 600;
+}
+
+/* ── BEATS MODE: hero ── */
+#home-beats {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  padding: 140px 10% 80px;
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+}
+
+/* ── HERO BUTTONS ── */
+.hero-buttons .btn:last-child {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+.hero-buttons .btn:last-child:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+/* ── GENERAL SECTION RHYTHM ── */
+#games, #reviews-section, #about, #contact,
+#library, #collaborations {
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
