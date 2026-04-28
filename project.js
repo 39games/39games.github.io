@@ -1017,20 +1017,7 @@ if (gameKey === "goblinbarrage") {
 function observeFades(root=document) { root.querySelectorAll('.fade').forEach(el=>observer.observe(el)); }
 observeFades(contentEl);
 
-// ====== TRANSLATIONS ======
-function applyTranslations(lang) {
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const key = el.getAttribute('data-i18n');
-    if (translations[lang]&&translations[lang][key]) el.innerHTML = translations[lang][key];
-  });
-}
-let currentLang = localStorage.getItem('lang')||'en';
-applyTranslations(currentLang);
-document.getElementById('langSwitch')?.addEventListener('click',()=>{
-  currentLang = currentLang==='en'?'sr':'en';
-  localStorage.setItem('lang',currentLang);
-  applyTranslations(currentLang);
-});
+
 
 // ====== PARALLAX LOGO ======
 const logos = document.querySelectorAll('.game-logo');
