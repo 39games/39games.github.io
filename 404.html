@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Page Not Found | 39 Games & Beats</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="images/herogames-alt.png">
+
+    <style>
+        /* ── 404 PAGE LAYOUT ── */
+        .not-found {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 50% 30%, #1a1a1a 0%, #0b0b0b 70%);
+        }
+
+        /* ── SCANLINE TEXTURE ── */
+        .not-found::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,255,255,0.012) 2px,
+                rgba(255,255,255,0.012) 4px
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── FLOATING GRID LINES ── */
+        .not-found::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,122,0,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,122,0,0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+            animation: gridDrift 20s linear infinite;
+        }
+
+        @keyframes gridDrift {
+            0%   { transform: translateY(0); }
+            100% { transform: translateY(60px); }
+        }
+
+        .not-found-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 600px;
+        }
+
+        /* ── BIG 404 GLITCH ── */
+        .error-code {
+            font-size: clamp(100px, 22vw, 200px);
+            font-weight: 700;
+            line-height: 1;
+            color: var(--accent);
+            position: relative;
+            letter-spacing: -4px;
+            animation: glitchPulse 4s ease-in-out infinite;
+            text-shadow:
+                0 0 40px rgba(255,122,0,0.4),
+                0 0 80px rgba(255,122,0,0.15);
+        }
+
+        /* Glitch layers */
+        .error-code::before,
+        .error-code::after {
+            content: '404';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .error-code::before {
+            color: var(--red2);
+            animation: glitchLeft 3s steps(2) infinite;
+            clip-path: polygon(0 20%, 100% 20%, 100% 40%, 0 40%);
+        }
+
+        .error-code::after {
+            color: var(--yellow);
+            animation: glitchRight 2.5s steps(2) infinite;
+            clip-path: polygon(0 60%, 100% 60%, 100% 80%, 0 80%);
+        }
+
+        @keyframes glitchLeft {
+            0%,90%,100% { transform: translate(0); opacity: 0; }
+            92%          { transform: translate(-6px, 2px); opacity: 0.8; }
+            94%          { transform: translate(4px, -2px); opacity: 0.8; }
+            96%          { transform: translate(-2px, 0); opacity: 0.8; }
+            98%          { transform: translate(0); opacity: 0; }
+        }
+
+        @keyframes glitchRight {
+            0%,85%,100% { transform: translate(0); opacity: 0; }
+            87%          { transform: translate(6px, -2px); opacity: 0.7; }
+            89%          { transform: translate(-4px, 2px); opacity: 0.7; }
+            91%          { transform: translate(2px, 0); opacity: 0.7; }
+            93%          { transform: translate(0); opacity: 0; }
+        }
+
+        @keyframes glitchPulse {
+            0%,100% { text-shadow: 0 0 40px rgba(255,122,0,0.4), 0 0 80px rgba(255,122,0,0.15); }
+            50%      { text-shadow: 0 0 60px rgba(255,122,0,0.7), 0 0 120px rgba(255,122,0,0.3); }
+        }
+
+        /* ── ERROR LABEL ── */
+        .error-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid rgba(255,122,0,0.3);
+            background: rgba(255,122,0,0.06);
+            padding: 6px 16px;
+            border-radius: 30px;
+            margin-bottom: 28px;
+            animation: fadeSlideUp 0.6s ease both;
+        }
+
+        .error-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: blink 1.2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%,100% { opacity: 1; }
+            50%      { opacity: 0.2; }
+        }
+
+        /* ── HEADING & SUBTEXT ── */
+        .error-title {
+            font-size: clamp(22px, 4vw, 32px);
+            font-weight: 700;
+            color: var(--white);
+            margin: 20px 0 14px;
+            animation: fadeSlideUp 0.7s ease 0.1s both;
+        }
+
+        .error-desc {
+            font-size: 15px;
+            color: var(--gray);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            animation: fadeSlideUp 0.7s ease 0.2s both;
+        }
+
+        /* ── BUTTONS ── */
+        .error-buttons {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeSlideUp 0.7s ease 0.3s both;
+        }
+
+        .error-buttons .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 13px 28px;
+            font-size: 14px;
+        }
+
+        .error-buttons .btn-outline {
+            background: transparent;
+            border: 2px solid rgba(255,255,255,0.15);
+            color: rgba(255,255,255,0.7);
+            padding: 13px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .error-buttons .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* ── DIVIDER ── */
+        .error-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(to right, var(--accent), var(--accent2));
+            border-radius: 2px;
+            margin: 48px auto 0;
+            animation: fadeSlideUp 0.7s ease 0.4s both;
+        }
+
+        /* ── QUICK LINKS ── */
+        .error-links {
+            margin-top: 28px;
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeSlideUp 0.7s ease 0.5s both;
+        }
+
+        .error-links a {
+            font-size: 13px;
+            color: var(--gray);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: color 0.2s;
+        }
+
+        .error-links a i {
+            font-size: 11px;
+            color: var(--accent);
+        }
+
+        .error-links a:hover {
+            color: var(--white);
+        }
+
+        /* ── FADE IN ANIMATION ── */
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── BEATS MODE OVERRIDES ── */
+        body.mode-beats .error-code {
+            text-shadow:
+                0 0 40px rgba(230,57,70,0.5),
+                0 0 80px rgba(230,57,70,0.2);
+        }
+
+        body.mode-beats .error-code::before { color: var(--orange); }
+        body.mode-beats .error-code::after  { color: var(--red2); }
+
+        body.mode-beats .not-found::after {
+            background-image:
+                linear-gradient(rgba(230,57,70,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(230,57,70,0.05) 1px, transparent 1px);
+        }
+
+        body.mode-beats .social-btn:hover {
+            box-shadow: 0 8px 20px rgba(230,57,70,0.3);
+        }
+
+        /* ── MOBILE ── */
+        @media (max-width: 600px) {
+            .error-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            .error-buttons .btn,
+            .error-buttons .btn-outline {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body class="mode-games">
+
+<nav>
+    <div class="nav-left">
+        <a href="/" class="logo-container">
+            <img src="images/logo-games.png" alt="39 Games logo" class="logo games-only" />
+            <img src="images/logo-beats.png" alt="39 Beats logo" class="logo beats-only" />
+        </a>
+    </div>
+    <ul>
+        <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="/#games" class="games-only"><i class="fas fa-gamepad"></i> Games</a></li>
+        <li><a href="/beats" class="beats-only"><i class="fas fa-music"></i> Beats</a></li>
+        <li><a href="/#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+    </ul>
+</nav>
+
+<div class="not-found">
+    <div class="not-found-inner">
+
+        <div class="error-label">
+            <span class="error-dot"></span>
+            Error
+        </div>
+
+        <div class="error-code">404</div>
+
+        <h1 class="error-title">This page doesn't exist.</h1>
+        <p class="error-desc">
+            The page you're looking for was moved, deleted,<br>
+            or never existed in the first place.
+        </p>
+
+        <div class="error-buttons">
+            <a href="/" class="btn">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+            <a href="/#contact" class="btn-outline">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+        </div>
+
+        <div class="error-divider"></div>
+
+        <div class="error-links">
+            <a href="/#games"><i class="fas fa-gamepad"></i> Games</a>
+            <a href="/beats"><i class="fas fa-music"></i> Buy Beats</a>
+            <a href="/#about"><i class="fas fa-user"></i> About</a>
+            <a href="/#reviews-section"><i class="fas fa-star"></i> Reviews</a>
+        </div>
+
+    </div>
+</div>
+
+<footer>
+    <div class="socials">
+        <a class="social-btn" href="https://www.youtube.com/@39Gamess" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <a class="social-btn" href="https://www.instagram.com/39games_" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a class="social-btn" href="https://www.tiktok.com/@39games_" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+    </div>
+    <span>© 39 Games & Beats — Darko Stamenković</span>
+</footer>
+
+</body>
+</html>
