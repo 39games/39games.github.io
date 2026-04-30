@@ -45,7 +45,7 @@ switchBtn1.addEventListener('click', () => {
 // ====== GAME DATA ======
 const gamesData = {
   "dread": {
-    logo: "images/logos/dread.png",
+    logo: "../images/logos/dread.png",
     header: {
       background: "images/headers/dread-bg.png",
       accent: "#eae73d",
@@ -58,9 +58,9 @@ const gamesData = {
     i18n: { title: "game-dread-title", description: "game-dread-desc1" }
   },
   "nutriasoulrush": {
-    logo: "images/logos/nsr.png",
+    logo: "../images/logos/nsr.png",
     header: {
-      background: "images/headers/nsr-bg.png",
+      background: "../images/headers/nsr-bg.png",
       accent: "#e63946",
       class: "header-nsr"
     },
@@ -75,9 +75,9 @@ const gamesData = {
     i18n: { title: "game-nutriasoulrush-title", description: "game-nutriasoulrush-desc" }
   },
   "themoon": {
-    logo: "images/logos/moon.png",
+    logo: "../images/logos/moon.png",
     header: {
-      background: "images/headers/moon-bg.png",
+      background: "../images/headers/moon-bg.png",
       accent: "#ffffff",
       class: "header-moon"
     },
@@ -88,9 +88,9 @@ const gamesData = {
     i18n: { title: "game-themoon-title", description: "game-themoon-desc" }
   },
   "smashtrolls": {
-    logo: "images/logos/troll.png",
+    logo: "../images/logos/troll.png",
     header: {
-      background: "images/headers/troll-bg.png",
+      background: "../images/headers/troll-bg.png",
       accent: "#1ab617",
       class: "header-trolls"
     },
@@ -99,9 +99,9 @@ const gamesData = {
     i18n: { title: "game-smashtrolls-title", description: "game-smashtrolls-desc" }
   },
   "goblinbarrage": {
-    logo: "images/logos/gb.png",
+    logo: "../images/logos/gb.png",
     header: {
-      background: "images/headers/gb-bg.png",
+      background: "../images/headers/gb-bg.png",
       accent: "#e2801d",
       class: "header-gb"
     },
@@ -116,9 +116,9 @@ const gamesData = {
     i18n: { title: "game-goblinbarrage-title", description: "game-goblinbarrage-desc" }
   },
   "ogreassault": {
-    logo: "images/logos/oa.png",
+    logo: "../images/logos/oa.png",
     header: {
-      background: "images/headers/oa-bg.png",
+      background: "../images/headers/oa-bg.png",
       accent: "#218631",
       class: "header-oa"
     },
@@ -133,9 +133,9 @@ const gamesData = {
     i18n: { title: "game-ogreassault-title", description: "game-ogreassault-desc" }
   },
   "theforeigner": {
-    logo: "images/logos/foreigner.png",
+    logo: "../images/logos/foreigner.png",
     header: {
-      background: "images/headers/foreigner-bg.png",
+      background: "../images/headers/foreigner-bg.png",
       accent: "#8b2fc9",
       class: "header-foreigner"
     },
@@ -368,14 +368,14 @@ if (gameKey === "theforeigner") {
     <div class="nsr-about fade">
       <div class="nsr-about-inner">
         <div class="nsr-head-container">
-  <img src="images/nsr/head.png" alt="Nutria Head" class="nsr-head-img">
+  <img src="../images/nsr/head.png" alt="Nutria Head" class="nsr-head-img">
   
   <div class="nsr-eye left-eye">
-    <img src="images/nsr/pupil.png" alt="pupil" class="nsr-pupil">
+    <img src="../images/nsr/pupil.png" alt="pupil" class="nsr-pupil">
   </div>
   
   <div class="nsr-eye right-eye">
-    <img src="images/nsr/pupil.png" alt="pupil" class="nsr-pupil">
+    <img src="../images/nsr/pupil.png" alt="pupil" class="nsr-pupil">
   </div>
 </div>
         <div class="nsr-about-text">
@@ -541,7 +541,7 @@ document.addEventListener('mousemove', (e) => {
       </div>
  
       <div id="st-troll-wrap">
-        <img id="st-troll-img" src="images/smashtrolls/troll1.png" alt="">
+        <img id="st-troll-img" src="../images/smashtrolls/troll1.png" alt="">
       </div>
  
       <div id="st-hud">STOMPS: <span id="st-cnt">0</span></div>
@@ -598,7 +598,7 @@ document.addEventListener('mousemove', (e) => {
     bubLayer.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:1;overflow:hidden;';
     document.body.appendChild(bubLayer);
  
-    const BASE = 'images/smashtrolls/';
+    const BASE = '../images/smashtrolls/';
     const T1   = BASE + 'troll2.png';
     const T2   = BASE + 'troll1.png';
     const BUBS = [BASE+'poison_bubble1.png', BASE+'poison_bubble2.png', BASE+'poison_bubble3.png'];
@@ -836,7 +836,7 @@ document.addEventListener('mousemove', (e) => {
         <video
           id="gbAppIconVideo"
           class="gb-app-icon-video"
-          src="images/gbskins/icon-animated.mp4"
+          src="../images/gbskins/icon-animated.mp4"
           autoplay
           muted
           loop
@@ -1002,7 +1002,7 @@ if (gameKey === "goblinbarrage") {
     skinImg.classList.remove("show");
     skinImg.classList.add(dir>0?"slide-left":"slide-right");
     setTimeout(()=>{
-      skinImg.src = `images/gbskins/${skins[idx]}`;
+      skinImg.src = `../images/gbskins/${skins[idx]}`;
       skinName.textContent = formatName(skins[idx]);
       skinImg.classList.remove("slide-left","slide-right");
       skinImg.classList.add("show");
