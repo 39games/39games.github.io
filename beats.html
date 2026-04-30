@@ -3,7 +3,53 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="page-title-beats">39 Beats | Buy Beats</title>
+
+    <!-- ═══════════════════════════════════════════════
+         SEO META TAGS
+    ═══════════════════════════════════════════════ -->
+    <title data-i18n="page-title-beats">39 Beats | Buy Dark Hip-Hop & Boom Bap Beats</title>
+    <meta name="description" content="Buy dark, atmospheric hip-hop beats by 39 Beats (Darko Stamenković). Boom bap, trap, and funky instrumentals. Non-exclusive licenses from €20." />
+    <meta name="keywords" content="buy beats, hip-hop beats, boom bap beats, dark beats, trap beats, atmospheric beats, buy instrumentals, 39 Beats" />
+    <meta name="author" content="Darko Stamenković" />
+    <link rel="canonical" href="https://39gamesandbeats.com/beats" />
+
+    <!-- ═══════════════════════════════════════════════
+         OPEN GRAPH
+    ═══════════════════════════════════════════════ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://39gamesandbeats.com/beats" />
+    <meta property="og:title" content="39 Beats | Buy Dark Hip-Hop & Boom Bap Beats" />
+    <meta property="og:description" content="Buy dark, atmospheric hip-hop beats. Boom bap, trap, and funky instrumentals. Non-exclusive licenses from €20." />
+    <meta property="og:image" content="https://39gamesandbeats.com/images/og-preview-beats.png" />
+    <meta property="og:site_name" content="39 Games & Beats" />
+
+    <!-- ═══════════════════════════════════════════════
+         TWITTER / X CARD
+    ═══════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="39 Beats | Buy Dark Hip-Hop & Boom Bap Beats" />
+    <meta name="twitter:description" content="Buy dark, atmospheric hip-hop beats. Boom bap, trap, and funky instrumentals. Non-exclusive licenses from €20." />
+    <meta name="twitter:image" content="https://39gamesandbeats.com/images/og-preview-beats.png" />
+
+    <!-- ═══════════════════════════════════════════════
+         STRUCTURED DATA
+    ═══════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MusicGroup",
+      "name": "39 Beats",
+      "url": "https://39gamesandbeats.com/beats",
+      "description": "Dark, atmospheric hip-hop beat producer blending gritty boom bap, trap, and funky sounds.",
+      "genre": ["Hip-Hop", "Boom Bap", "Trap"],
+      "sameAs": [
+        "https://www.instagram.com/39beats_",
+        "https://www.youtube.com/@39Beats",
+        "https://www.tiktok.com/@39beats_"
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -17,10 +63,10 @@
 <nav>
     <div class="nav-left">
         <a href="/?mode=beats#home" class="logo-container">
-            <img src="images/logo-games.png" alt="39 Games" class="logo games-only" />
-            <img src="images/logo-beats.png" alt="39 Beats" class="logo beats-only" />
+            <img src="images/logo-games.png" alt="39 Games logo" class="logo games-only" />
+            <img src="images/logo-beats.png" alt="39 Beats logo" class="logo beats-only" />
         </a>
-        <button id="modeSwitch1" title="Switch mode">
+        <button id="modeSwitch1" title="Switch between Games and Beats mode">
             <div class="switch-icon"></div>
         </button>
     </div>
@@ -35,15 +81,15 @@
     </ul>
 
     <div class="lang-menu">
-        <button id="lang-btn" class="lang-btn">
-            <img src="https://flagcdn.com/gb.svg" id="current-flag" alt="English">
+        <button id="lang-btn" class="lang-btn" aria-label="Select language">
+            <img src="https://flagcdn.com/gb.svg" id="current-flag" alt="English language selected">
         </button>
         <div id="lang-dropdown" class="lang-dropdown">
             <div class="lang-option" data-lang="en">
-                <img class="dropdown-flag" src="https://flagcdn.com/gb.svg" alt="English"> English
+                <img class="dropdown-flag" src="https://flagcdn.com/gb.svg" alt="English flag"> English
             </div>
             <div class="lang-option" data-lang="sr">
-                <img class="dropdown-flag" src="https://flagcdn.com/rs.svg" alt="Serbian"> Srpski
+                <img class="dropdown-flag" src="https://flagcdn.com/rs.svg" alt="Serbian flag"> Srpski
             </div>
         </div>
     </div>
@@ -54,16 +100,16 @@
         <h2 data-i18n="beats-available-title">Available Beats</h2>
         <p data-i18n="beats-available-sub">Search and filter by tags</p>
         <br><br>
-        <input type="text" id="search-beats" data-i18n="beats-search" placeholder="Search beats..." />
+        <input type="text" id="search-beats" data-i18n="beats-search" placeholder="Search beats..." aria-label="Search beats by title or tag" />
     </div>
-    <div class="beat-grid fade" id="beat-grid"></div>
+    <div class="beat-grid fade" id="beat-grid" role="list" aria-label="Available beats"></div>
 </section>
 
 <footer>
     <div class="socials beats-only">
-        <a class="social-btn" href="https://www.youtube.com/@39Beats" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a class="social-btn" href="https://www.instagram.com/39beats_" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a class="social-btn" href="https://www.tiktok.com/@39beats_" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a class="social-btn" href="https://www.youtube.com/@39Beats" target="_blank" rel="noopener noreferrer" aria-label="39 Beats on YouTube"><i class="fab fa-youtube"></i></a>
+        <a class="social-btn" href="https://www.instagram.com/39beats_" target="_blank" rel="noopener noreferrer" aria-label="39 Beats on Instagram"><i class="fab fa-instagram"></i></a>
+        <a class="social-btn" href="https://www.tiktok.com/@39beats_" target="_blank" rel="noopener noreferrer" aria-label="39 Beats on TikTok"><i class="fab fa-tiktok"></i></a>
     </div>
     <span data-i18n="footer-copy">© 39 Games & Beats — Darko Stamenković</span>
 </footer>
@@ -72,21 +118,21 @@
 const tagPriority = ["trap", "boom-bap", "chill", "dark", "moody", "gritty", "funky", "happy", "futuristic", "flute"];
 
 const beats = [
-    { title: "Awake",      file: "awake.mp3",       tags: ["boom-bap", "chill", "happy"],         icon: "chill.png" },
-    { title: "Bit By bit", file: "bit by bit.mp3",  tags: ["boom-bap", "dark"],                   icon: "dark.png"  },
-    { title: "Guilt",      file: "guilt.mp3",        tags: ["boom-bap", "moody", "dark"],          icon: "dark.png"  },
-    { title: "How",        file: "how.mp3",          tags: ["boom-bap", "gritty", "dark"],         icon: "dark.png"  },
-    { title: "Hunter",     file: "hunter.mp3",       tags: ["boom-bap", "gritty", "dark"],         icon: "dark.png"  },
-    { title: "Late",       file: "late.mp3",         tags: ["boom-bap", "chill", "funky"],         icon: "chill.png" },
-    { title: "Life",       file: "life.mp3",         tags: ["boom-bap", "chill", "happy"],         icon: "chill.png" },
-    { title: "Rio",        file: "rio.mp3",          tags: ["boom-bap", "chill"],                  icon: "chill.png" },
-    { title: "Calling",    file: "calling.mp3",      tags: ["trap", "chill", "futuristic"],        icon: "trap.png"  },
-    { title: "Seashell",   file: "seashell.mp3",     tags: ["trap", "chill"],                      icon: "trap.png"  },
-    { title: "Proud",      file: "proud.mp3",        tags: ["trap", "flute"],                      icon: "trap.png"  },
-    { title: "Bar",        file: "bar.mp3",          tags: ["boom-bap", "chill", "funky"],         icon: "chill.png" },
-    { title: "Man",        file: "man.mp3",          tags: ["boom-bap", "chill", "happy"],         icon: "chill.png" },
-    { title: "One Day",    file: "one day.mp3",      tags: ["boom-bap", "moody", "dark"],          icon: "dark.png"  },
-    { title: "Suit",       file: "suit.mp3",         tags: ["trap", "moody", "dark"],              icon: "trap.png"  },
+    { title: "Awake",      file: "awake.mp3",       tags: ["boom-bap", "chill", "happy"],         icon: "chill.png",  price: "20", paypal: "" },
+    { title: "Bit By bit", file: "bit by bit.mp3",  tags: ["boom-bap", "dark"],                   icon: "dark.png",   price: "20", paypal: "" },
+    { title: "Guilt",      file: "guilt.mp3",        tags: ["boom-bap", "moody", "dark"],          icon: "dark.png",   price: "20", paypal: "" },
+    { title: "How",        file: "how.mp3",          tags: ["boom-bap", "gritty", "dark"],         icon: "dark.png",   price: "20", paypal: "" },
+    { title: "Hunter",     file: "hunter.mp3",       tags: ["boom-bap", "gritty", "dark"],         icon: "dark.png",   price: "20", paypal: "" },
+    { title: "Late",       file: "late.mp3",         tags: ["boom-bap", "chill", "funky"],         icon: "chill.png",  price: "20", paypal: "" },
+    { title: "Life",       file: "life.mp3",         tags: ["boom-bap", "chill", "happy"],         icon: "chill.png",  price: "20", paypal: "" },
+    { title: "Rio",        file: "rio.mp3",          tags: ["boom-bap", "chill"],                  icon: "chill.png",  price: "20", paypal: "" },
+    { title: "Calling",    file: "calling.mp3",      tags: ["trap", "chill", "futuristic"],        icon: "trap.png",   price: "20", paypal: "" },
+    { title: "Seashell",   file: "seashell.mp3",     tags: ["trap", "chill"],                      icon: "trap.png",   price: "20", paypal: "" },
+    { title: "Proud",      file: "proud.mp3",        tags: ["trap", "flute"],                      icon: "trap.png",   price: "20", paypal: "" },
+    { title: "Bar",        file: "bar.mp3",          tags: ["boom-bap", "chill", "funky"],         icon: "chill.png",  price: "20", paypal: "" },
+    { title: "Man",        file: "man.mp3",          tags: ["boom-bap", "chill", "happy"],         icon: "chill.png",  price: "20", paypal: "" },
+    { title: "One Day",    file: "one day.mp3",      tags: ["boom-bap", "moody", "dark"],          icon: "dark.png",   price: "20", paypal: "" },
+    { title: "Suit",       file: "suit.mp3",         tags: ["trap", "moody", "dark"],              icon: "trap.png",   price: "20", paypal: "" },
 ];
 
 const defaultIcon = "beats/default.png";
@@ -120,13 +166,14 @@ function renderBeats(filter = "") {
     filteredBeats.forEach(beat => {
         const container  = document.createElement("div");
         container.className = "beat-card";
+        container.setAttribute("role", "listitem");
         const iconPath   = beat.icon ? `beats/${beat.icon}` : defaultIcon;
         const audioPath  = `beats/${beat.file}`;
         container.innerHTML = `
             <div class="beat-img-container">
-                <img class="beat" src="${iconPath}" alt="${beat.title}" />
-                <button class="play-overlay"><i class="fas fa-play"></i></button>
-                <audio src="${audioPath}"></audio>
+                <img class="beat" src="${iconPath}" alt="${beat.title} — ${beat.tags.join(', ')} beat" />
+                <button class="play-overlay" aria-label="Play ${beat.title}"><i class="fas fa-play" aria-hidden="true"></i></button>
+                <audio src="${audioPath}" preload="none"></audio>
             </div>
             <div class="game-info">
                 <h3>${beat.title}</h3>
@@ -135,7 +182,7 @@ function renderBeats(filter = "") {
                 </div>
                 <div class="timeline">
                     <span class="current-time">0:00</span>
-                    <input type="range" class="progress" value="0" min="0" max="100">
+                    <input type="range" class="progress" value="0" min="0" max="100" aria-label="Seek ${beat.title}">
                     <span class="duration">0:00</span>
                 </div>
                 <button class="btn buy-btn" data-title="${beat.title}" data-price="${beat.price}" data-paypal="${beat.paypal}" data-i18n="beats-buy">Buy Now</button>
@@ -146,7 +193,6 @@ function renderBeats(filter = "") {
 }
 
 searchInput.addEventListener("input", e => renderBeats(e.target.value));
-renderBeats();
 </script>
 
 <script src="beats.js"></script>

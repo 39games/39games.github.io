@@ -3,7 +3,65 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title data-i18n="page-title">39 | Games & Beats</title>
+
+    <!-- ═══════════════════════════════════════════════
+         SEO META TAGS
+    ═══════════════════════════════════════════════ -->
+    <title data-i18n="page-title">39 Games & Beats | Indie Game Developer & Hip-Hop Beat Producer</title>
+    <meta name="description" content="Darko Stamenković — indie Unity game developer and hip-hop beat producer. Shipped 6+ games on Google Play & itch.io. Buy dark, atmospheric beats. Freelance 5-star rated on Fiverr & Upwork." />
+    <meta name="keywords" content="indie game developer, Unity developer, hip-hop beats, buy beats, boom bap beats, dark beats, atmospheric beats, freelance Unity, game development Serbia" />
+    <meta name="author" content="Darko Stamenković" />
+    <link rel="canonical" href="https://39gamesandbeats.com/" />
+
+    <!-- ═══════════════════════════════════════════════
+         OPEN GRAPH (Facebook, Discord, LinkedIn)
+    ═══════════════════════════════════════════════ -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://39gamesandbeats.com/" />
+    <meta property="og:title" content="39 Games & Beats | Indie Game Developer & Hip-Hop Beat Producer" />
+    <meta property="og:description" content="Darko Stamenković — indie Unity game developer and hip-hop beat producer. Shipped 6+ games. Buy dark, atmospheric beats." />
+    <meta property="og:image" content="https://39gamesandbeats.com/images/og-preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="39 Games & Beats" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ═══════════════════════════════════════════════
+         TWITTER / X CARD
+    ═══════════════════════════════════════════════ -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="39 Games & Beats | Indie Game Developer & Hip-Hop Beat Producer" />
+    <meta name="twitter:description" content="Darko Stamenković — indie Unity game developer and hip-hop beat producer. Shipped 6+ games. Buy dark, atmospheric beats." />
+    <meta name="twitter:image" content="https://39gamesandbeats.com/images/og-preview.png" />
+
+    <!-- ═══════════════════════════════════════════════
+         STRUCTURED DATA (JSON-LD)
+    ═══════════════════════════════════════════════ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Darko Stamenković",
+      "url": "https://39gamesandbeats.com",
+      "image": "https://39gamesandbeats.com/images/profile.png",
+      "jobTitle": ["Indie Game Developer", "Music Producer"],
+      "description": "Indie Unity game developer and hip-hop beat producer. Creator of 6+ shipped games and the 39 Beats music project.",
+      "sameAs": [
+        "https://www.instagram.com/39games_",
+        "https://www.youtube.com/@39Gamess",
+        "https://www.tiktok.com/@39games_",
+        "https://www.instagram.com/39beats_",
+        "https://www.youtube.com/@39Beats"
+      ],
+      "knowsAbout": ["Unity", "C#", "Game Development", "Hip-Hop Production", "Boom Bap", "Trap"],
+      "hasOccupation": {
+        "@type": "Occupation",
+        "name": "Game Developer",
+        "occupationLocation": { "@type": "Country", "name": "Serbia" }
+      }
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -17,10 +75,10 @@
 <nav>
     <div class="nav-left">
         <a href="#home" class="logo-container">
-            <img src="images/logo-games.png" alt="39 Games" class="logo games-only" />
-            <img src="images/logo-beats.png" alt="39 Beats" class="logo beats-only" />
+            <img src="images/logo-games.png" alt="39 Games logo" class="logo games-only" />
+            <img src="images/logo-beats.png" alt="39 Beats logo" class="logo beats-only" />
         </a>
-        <button id="modeSwitch" title="Switch mode">
+        <button id="modeSwitch" title="Switch between Games and Beats mode">
             <div class="switch-icon"></div>
         </button>
     </div>
@@ -37,15 +95,15 @@
     </ul>
 
     <div class="lang-menu">
-        <button id="lang-btn" class="lang-btn">
-            <img src="https://flagcdn.com/gb.svg" id="current-flag" alt="English">
+        <button id="lang-btn" class="lang-btn" aria-label="Select language">
+            <img src="https://flagcdn.com/gb.svg" id="current-flag" alt="English language selected">
         </button>
         <div id="lang-dropdown" class="lang-dropdown">
             <div class="lang-option" data-lang="en">
-                <img class="dropdown-flag" src="https://flagcdn.com/gb.svg" alt="English"> English
+                <img class="dropdown-flag" src="https://flagcdn.com/gb.svg" alt="English flag"> English
             </div>
             <div class="lang-option" data-lang="sr">
-                <img class="dropdown-flag" src="https://flagcdn.com/rs.svg" alt="Serbian"> Srpski
+                <img class="dropdown-flag" src="https://flagcdn.com/rs.svg" alt="Serbian flag"> Srpski
             </div>
         </div>
     </div>
@@ -64,7 +122,7 @@
         </div>
     </div>
     <div class="home-split__right games-only">
-        <img src="images/foreigner/bg.png" class="foreigner-hero-bg" alt="" />
+        <img src="images/foreigner/bg.png" class="foreigner-hero-bg" alt="The Foreigner game background — dark city at night" />
         <div class="foreigner-hero-noise"></div>
         <div class="foreigner-hero-scanlines"></div>
         <div class="foreigner-hero-fade-bottom"></div>
@@ -73,7 +131,7 @@
                 <span class="foreigner-tag-dot"></span>
                 <span data-i18n="foreigner-tag">UPCOMING RELEASE</span>
             </div>
-            <img src="images/foreigner/logo.png" class="foreigner-hero-logo-img" alt="The Foreigner" />
+            <img src="images/foreigner/logo.png" class="foreigner-hero-logo-img" alt="The Foreigner — dark beat-em-up RPG indie game logo" />
             <p class="foreigner-hero-desc" data-i18n="foreigner-hero-desc">
                 A dark beat-em-up RPG where justice<br>and monstrosity are the same hand.<br>
                 Play as the stranger. Become the monster they always feared.
@@ -95,11 +153,12 @@
             </div>
             <div class="hero-buttons">
                 <a href="#library" class="btn beats-only" data-i18n="view-beats">View Library</a>
+                <a href="/beats#buy-beats" class="btn beats-only" data-i18n="buybeats">Buy Beats</a>
                 <a href="#contact" class="btn" data-i18n="contact">Contact</a>
             </div>
         </div>
         <div class="hero-img">
-            <img src="images/herobeats-alt.png" class="beats-only" alt="Beats Hero" />
+            <img src="images/herobeats-alt.png" class="beats-only" alt="39 Beats — dark hip-hop beat producer artwork" />
         </div>
     </div>
 </section>
@@ -113,7 +172,7 @@
     <div class="games-grid fade">
         <a class="game-card dev" href="project.html?game=theforeigner">
             <div class="game-tag" data-i18n="tag-dev">IN DEVELOPMENT</div>
-            <img src="images/games/game7.png" alt="The Foreigner" />
+            <img src="images/games/game7.png" alt="The Foreigner — dark beat-em-up RPG indie game screenshot" />
             <div class="game-info">
                 <h3 data-i18n="game-theforeigner-title">The Foreigner</h3>
                 <p data-i18n="game-foreigner-card-desc">A dark beat-em-up RPG. Demo coming end of year.</p>
@@ -121,7 +180,7 @@
         </a>
         <a class="game-card dev" href="project.html?game=themoon">
             <div class="game-tag" data-i18n="tag-dev">IN DEVELOPMENT</div>
-            <img src="images/games/game3.png" alt="The Moon" />
+            <img src="images/games/game3.png" alt="The Moon — indie game about truth and purpose" />
             <div class="game-info">
                 <h3 data-i18n="game-themoon-title">The Moon</h3>
                 <p data-i18n="game-moon-desc">A game about truth and purpose.</p>
@@ -129,7 +188,7 @@
         </a>
         <a class="game-card dev" href="project.html?game=dread">
             <div class="game-tag" data-i18n="tag-dev">IN DEVELOPMENT</div>
-            <img src="images/games/game1.png" alt="Dread" />
+            <img src="images/games/game1.png" alt="Dread — 4v1 asymmetrical online horror game" />
             <div class="game-info">
                 <h3 data-i18n="game-dread-title">Dread</h3>
                 <p data-i18n="game-dread-desc">A 4v1 asymmetrical online horror game.</p>
@@ -137,7 +196,7 @@
         </a>
         <a class="game-card released" href="project.html?game=nutriasoulrush">
             <div class="game-tag" data-i18n="tag-released">RELEASED</div>
-            <img src="images/games/game2.png" alt="Nutria Soul Rush" />
+            <img src="images/games/game2.png" alt="Nutria Soul Rush — arcade mobile runner game screenshot" />
             <div class="game-info">
                 <h3 data-i18n="game-nutriasoulrush-title">Nutria Soul Rush</h3>
                 <p data-i18n="game-nsr-desc">Arcade mobile runner — collab with Lumo TV.</p>
@@ -145,7 +204,7 @@
         </a>
         <a class="game-card released" href="project.html?game=smashtrolls">
             <div class="game-tag" data-i18n="tag-released">RELEASED</div>
-            <img src="images/games/game4.png" alt="Smash Trolls" />
+            <img src="images/games/game4.png" alt="Smash Trolls — 2D co-op platformer fighting game screenshot" />
             <div class="game-info">
                 <h3 data-i18n="game-smashtrolls-title">Smash Trolls</h3>
                 <p data-i18n="game-smash-desc">2D co-op platformer / fighting game.</p>
@@ -153,7 +212,7 @@
         </a>
         <a class="game-card released" href="project.html?game=ogreassault">
             <div class="game-tag" data-i18n="tag-released">RELEASED</div>
-            <img src="images/games/game6.png" alt="Ogre Assault" />
+            <img src="images/games/game6.png" alt="Ogre Assault — tower defense strategy game, ogres vs robots" />
             <div class="game-info">
                 <h3 data-i18n="game-ogreassault-title">Ogre Assault</h3>
                 <p data-i18n="game-oa-desc">Tower-defense strategy — ogres vs robots.</p>
@@ -161,7 +220,7 @@
         </a>
         <a class="game-card released" href="project.html?game=goblinbarrage">
             <div class="game-tag" data-i18n="tag-released">RELEASED</div>
-            <img src="images/games/game5.png" alt="Goblin Barrage" />
+            <img src="images/games/game5.png" alt="Goblin Barrage — endless arcade runner, throw bombs at everything" />
             <div class="game-info">
                 <h3 data-i18n="game-goblinbarrage-title">Goblin Barrage</h3>
                 <p data-i18n="game-gb-desc">Endless arcade runner — throw bombs at everything.</p>
@@ -173,19 +232,14 @@
     </div>
 </section>
 
-<!-- BEAT LIBRARY -->
+<!-- BEATS LIBRARY -->
 <section id="library" class="beats-only">
     <div class="section-title fade">
         <h2 data-i18n="beats-title">My Discography</h2>
         <p data-i18n="beats-sub">Selected releases</p>
     </div>
-    <div class="media-grid fade">
-        <iframe width="1423" height="800" src="https://www.youtube.com/embed/RrfJaOFxkds" title="NIGHTS Beat" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        <iframe width="1423" height="800" src="https://www.youtube.com/embed/ddDJ1uUf1gU" title="NIGHTS Beat" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-    <div class="spotify fade">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/5LfV4LV8UYpPm7OLuvAA7B?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <p class="spotify-desc" data-i18n="mixtape-title">Old-school boom-bap beat-tape — any beat is free to use, with credit.</p>
+    <div class="mixtape-card fade">
+        <p data-i18n="mixtape-title">Old-school boom-bap beat-tape — any beat is free to use, with credit.</p>
     </div>
 </section>
 
@@ -195,29 +249,29 @@
         <h2 data-i18n="collab-title">Collaborations</h2>
         <p data-i18n="collab-sub">Artists I've produced for & worked with</p>
     </div>
-    <div class="collab-grid">
-        <a href="https://www.instagram.com/laki.zpj" target="_blank" class="collab-card">
-            <img src="images/artists/zpj.png" alt="ZPJ (11050)" class="collab-img">
+    <div class="artists-grid fade">
+        <a class="artist-card" href="https://www.instagram.com/laki.zpj" target="_blank" rel="noopener noreferrer">
+            <img src="images/artists/zpj.png" alt="ZPJ (11050) — hip-hop artist collaboration" />
             <span>ZPJ (11050)</span>
         </a>
-        <a href="https://www.instagram.com/ukov_je_jakov" target="_blank" class="collab-card">
-            <img src="images/artists/ukov.png" alt="Ukov" class="collab-img">
+        <a class="artist-card" href="https://www.instagram.com/ukov_je_jakov" target="_blank" rel="noopener noreferrer">
+            <img src="images/artists/ukov.png" alt="Ukov — hip-hop artist collaboration" />
             <span>Ukov</span>
         </a>
-        <a href="https://www.instagram.com/ratnigarurumon" target="_blank" class="collab-card">
-            <img src="images/artists/the.png" alt="The Mitrije" class="collab-img">
+        <a class="artist-card" href="https://www.instagram.com/ratnigarurumon" target="_blank" rel="noopener noreferrer">
+            <img src="images/artists/the.png" alt="The Mitrije — hip-hop artist collaboration" />
             <span>The Mitrije</span>
         </a>
-        <a href="https://www.instagram.com/djordjejpetrovic" target="_blank" class="collab-card">
-            <img src="images/artists/cigi.png" alt="Brat Cigi" class="collab-img">
+        <a class="artist-card" href="https://www.instagram.com/djordjejpetrovic" target="_blank" rel="noopener noreferrer">
+            <img src="images/artists/cigi.png" alt="Brat Cigi — hip-hop artist collaboration" />
             <span>Brat Cigi</span>
         </a>
-        <a href="https://www.instagram.com/jezik_najoficijalniji" target="_blank" class="collab-card">
-            <img src="images/artists/jezik.png" alt="Jezik" class="collab-img">
+        <a class="artist-card" href="https://www.instagram.com/jezik_najoficijalniji" target="_blank" rel="noopener noreferrer">
+            <img src="images/artists/jezik.png" alt="Jezik — hip-hop artist collaboration" />
             <span>Jezik</span>
         </a>
-        <a href="https://www.instagram.com/yng_wallace" target="_blank" class="collab-card">
-            <img src="images/artists/bigi.png" alt="Bigi" class="collab-img">
+        <a class="artist-card" href="https://www.instagram.com/yng_wallace" target="_blank" rel="noopener noreferrer">
+            <img src="images/artists/bigi.png" alt="Bigi — hip-hop artist collaboration" />
             <span>Bigi</span>
         </a>
     </div>
@@ -235,42 +289,42 @@
     </div>
     <div class="reviews-grid">
         <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="stars" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
             <p data-i18n="review-1">"Nice guy, really knowledgeable. I am planning to have more lessons with him :)"</p>
             <span class="client" data-i18n="review-1-client">— Fiverr Client (UK)</span>
         </div>
         <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="stars" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
             <p data-i18n="review-2">"The session was really good, he is really professional. It was way above expectation."</p>
             <span class="client" data-i18n="review-2-client">— Fiverr Client (Slovakia)</span>
         </div>
         <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="stars" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
             <p data-i18n="review-3">"Good communication and understanding of Unity. Will be ordering again."</p>
             <span class="client" data-i18n="review-3-client">— Fiverr Client (Canada)</span>
         </div>
         <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="stars" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
             <p data-i18n="review-4">"Great guy, quickly responds, learned a lot."</p>
             <span class="client" data-i18n="review-4-client">— Fiverr Client (United States)</span>
         </div>
         <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="stars" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
             <p data-i18n="review-5">"Very good teacher, I recommend. :)"</p>
             <span class="client" data-i18n="review-5-client">— Fiverr Client (Finland)</span>
         </div>
         <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="stars" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
             <p data-i18n="review-6">"Amazing work, I learned a lot from only 1 hour of class, the price is excellent. I will come back for sure. I learned vfx, animation with attention to details and examples. Thank you very much!"</p>
             <span class="client" data-i18n="review-6-client">— Fiverr Client (Israel)</span>
         </div>
         <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="stars" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
             <p data-i18n="review-7">"Perfect class, very quick and simple. Even took time from his own time to help me more. He went through all the aspects of Unity that I needed to learn and now I am able to start creating my own games!"</p>
             <span class="client" data-i18n="review-7-client">— Fiverr Client (Turkey)</span>
         </div>
         <div class="review-card">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <div class="stars" aria-label="5 out of 5 stars">⭐⭐⭐⭐⭐</div>
             <p data-i18n="review-8">"He guided me in a very clear and simple way — easy to understand and follow. Enjoyed the lesson with him. Thanks!"</p>
             <span class="client" data-i18n="review-8-client">— Fiverr Client (Malaysia)</span>
         </div>
@@ -285,7 +339,7 @@
     <div class="about fade">
         <div class="about-left">
             <div class="about-avatar-wrap">
-                <img src="images/profile.png" alt="Darko Stamenković" />
+                <img src="images/profile.png" alt="Darko Stamenković — indie game developer and beat producer" />
             </div>
             <div class="about-name" data-i18n="about-name">Darko Stamenković</div>
             <div class="about-role" data-i18n="about-role">Unity Developer · Music Producer</div>
@@ -336,26 +390,26 @@
         <p data-i18n="contact-desc">Let's build something</p>
     </div>
     <div class="contact-box fade">
-        <form id="contactForm">
-            <input type="text" name="user_name" data-i18n="contact-name" placeholder="Your Name" required />
-            <input type="email" name="user_email" data-i18n="contact-email" placeholder="Your Email" required />
-            <textarea name="message" rows="5" data-i18n="contact-message" placeholder="Your Message" required></textarea>
+        <form id="contactForm" novalidate>
+            <input type="text" name="user_name" data-i18n="contact-name" placeholder="Your Name" required aria-label="Your Name" />
+            <input type="email" name="user_email" data-i18n="contact-email" placeholder="Your Email" required aria-label="Your Email" />
+            <textarea name="message" rows="5" data-i18n="contact-message" placeholder="Your Message" required aria-label="Your Message"></textarea>
             <button type="submit" class="btn" data-i18n="contact-send">Send</button>
         </form>
-        <div id="formStatus"></div>
+        <div id="formStatus" role="status" aria-live="polite"></div>
     </div>
 </section>
 
 <footer>
     <div class="socials games-only">
-        <a class="social-btn" href="https://www.youtube.com/@39Gamess" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a class="social-btn" href="https://www.instagram.com/39games_" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a class="social-btn" href="https://www.tiktok.com/@39games_" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a class="social-btn" href="https://www.youtube.com/@39Gamess" target="_blank" rel="noopener noreferrer" aria-label="39 Games on YouTube"><i class="fab fa-youtube"></i></a>
+        <a class="social-btn" href="https://www.instagram.com/39games_" target="_blank" rel="noopener noreferrer" aria-label="39 Games on Instagram"><i class="fab fa-instagram"></i></a>
+        <a class="social-btn" href="https://www.tiktok.com/@39games_" target="_blank" rel="noopener noreferrer" aria-label="39 Games on TikTok"><i class="fab fa-tiktok"></i></a>
     </div>
     <div class="socials beats-only">
-        <a class="social-btn" href="https://www.youtube.com/@39Beats" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a class="social-btn" href="https://www.instagram.com/39beats_" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a class="social-btn" href="https://www.tiktok.com/@39beats_" target="_blank"><i class="fab fa-tiktok"></i></a>
+        <a class="social-btn" href="https://www.youtube.com/@39Beats" target="_blank" rel="noopener noreferrer" aria-label="39 Beats on YouTube"><i class="fab fa-youtube"></i></a>
+        <a class="social-btn" href="https://www.instagram.com/39beats_" target="_blank" rel="noopener noreferrer" aria-label="39 Beats on Instagram"><i class="fab fa-instagram"></i></a>
+        <a class="social-btn" href="https://www.tiktok.com/@39beats_" target="_blank" rel="noopener noreferrer" aria-label="39 Beats on TikTok"><i class="fab fa-tiktok"></i></a>
     </div>
     <span data-i18n="footer-copy">© 39 Games & Beats — Darko Stamenković</span>
 </footer>

@@ -1,8 +1,8 @@
 const translations = {
   en: {
     /* ── PAGE TITLES ── */
-    "page-title":       "39 | Games & Beats",
-    "page-title-beats": "39 Beats | Buy Beats",
+    "page-title":       "39 Games & Beats | Indie Game Developer & Hip-Hop Beat Producer",
+    "page-title-beats": "39 Beats | Buy Dark Hip-Hop & Boom Bap Beats",
 
     /* ── NAV ── */
     "homebtn":     " Home",
@@ -144,8 +144,8 @@ const translations = {
 
   sr: {
     /* ── NASLOVI STRANICA ── */
-    "page-title":       "39 | Igre & Bitovi",
-    "page-title-beats": "39 Beats | Kupi Bitove",
+    "page-title":       "39 Games & Beats | Indie Game Developer & Hip-Hop Beat Producer",
+    "page-title-beats": "39 Beats | Kupi Dark Hip-Hop & Boom Bap Bitove",
 
     /* ── NAV ── */
     "homebtn":    " Početna",

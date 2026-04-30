@@ -3,81 +3,105 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>39 | Games & Beats</title>
+    <title>Buy Beat | 39 Beats</title>
+    <meta name="robots" content="noindex, nofollow" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
-    <script 
-  src="https://www.paypal.com/sdk/js?client-id=BAAqVd_MlvkUCOgstd5Vz0kV4qqCQaq38RwFndLDaxvx97RQU4weoiYdwzpGuLAtSVgmbIzOEbXNOE86AM&components=hosted-buttons&disable-funding=venmo&currency=EUR">
-</script>
+    <link rel="icon" type="image/png" href="images/herobeats-alt.png">
+    <script src="https://www.paypal.com/sdk/js?client-id=BAAqVd_MlvkUCOgstd5Vz0kV4qqCQaq38RwFndLDaxvx97RQU4weoiYdwzpGuLAtSVgmbIzOEbXNOE86AM&components=hosted-buttons&disable-funding=venmo&currency=EUR"></script>
 </head>
 <body class="mode-beats">
 
-<script>
-  paypal.HostedButtons({
-    hostedButtonId: "XDYXLXKALETKE",
-  }).render("#paypal-container-XDYXLXKALETKE")
-</script>
-<body class="mode-beats">
+<nav>
+    <div class="nav-left">
+        <a href="/beats#buy-beats" class="logo-container">
+            <img src="images/logo-beats.png" alt="39 Beats logo" class="logo" />
+        </a>
+    </div>
+    <ul>
+        <li><a href="/beats#buy-beats"><i class="fas fa-arrow-left"></i> Back to Beats</a></li>
+    </ul>
+</nav>
 
 <div class="checkout-wrapper">
-  <div class="checkout-card">
+    <div class="checkout-card">
 
-    <h1>Buy Beat</h1>
+        <h1 id="checkout-beat-name">Buy Beat</h1>
+        <p class="checkout-price"><strong>Price:</strong> <span id="checkout-price-display">€20</span></p>
+        <p class="checkout-note">
+            This beat is <strong>non-exclusive</strong>. I may sell it to multiple artists.
+        </p>
 
-    <p class="checkout-price"><strong>Price:</strong> 20 EUR</p>
-    <p class="checkout-note">
-      This beat is <strong>non-exclusive</strong>. I may sell it to multiple artists.
-    </p>
+        <div id="checkout-step1">
+            <label for="artist-name">Artist Name *</label>
+            <input type="text" id="artist-name" placeholder="Your artist name" required aria-required="true" />
 
-    <form id="checkout-form">
-        <label for="artist-name">Artist Name *</label>
-        <input type="text" id="artist-name" placeholder="Your artist name" required>
+            <label for="email">Email *</label>
+            <input type="email" id="email" placeholder="your@email.com" required aria-required="true" />
 
-        <label for="email">Email *</label>
-        <input type="email" id="email" placeholder="Your email" required>
+            <p id="checkout-error" style="color: red; display: none; margin-top: 8px;"></p>
 
-        <input type="hidden" id="beat-name" value="Boom-Bap 01">
+            <button class="btn checkout-btn" id="proceed-btn" style="margin-top: 16px;">
+                Continue to Payment
+            </button>
+        </div>
 
-        <button type="submit" class="checkout-btn">Go to PayPal</button>
-    </form>
+        <!-- PayPal button appears after form is filled -->
+        <div id="checkout-step2" style="display: none; margin-top: 24px;">
+            <p style="margin-bottom: 12px; opacity: 0.7; font-size: 0.9em;">
+                Paying as: <strong id="summary-artist"></strong> — <strong id="summary-email"></strong>
+            </p>
+            <div id="paypal-container-XDYXLXKALETKE"></div>
+        </div>
 
-    <div id="paypal-container-XDYXLXKALETKE"></div>
-
-  </div>
+    </div>
 </div>
 
+<footer>
+    <span>© 39 Games & Beats — Darko Stamenković</span>
+</footer>
 
 <script>
-document.getElementById('checkout-form').addEventListener('submit', function(e){
-    e.preventDefault();
+    // Read beat info from URL params
+    const params = new URLSearchParams(window.location.search);
+    const beatTitle = params.get('beat') || 'Beat';
+    const beatPrice = params.get('price') || '20';
 
-    const artist = document.getElementById('artist-name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const beat = document.getElementById('beat-name').value;
+    document.getElementById('checkout-beat-name').textContent = `Buy: ${beatTitle}`;
+    document.getElementById('checkout-price-display').textContent = `€${beatPrice}`;
 
-    if(!artist || !email){
-        alert("Please fill in both Artist Name and Email.");
-        return;
-    }
+    document.getElementById('proceed-btn').addEventListener('click', () => {
+        const artist = document.getElementById('artist-name').value.trim();
+        const email  = document.getElementById('email').value.trim();
+        const errorEl = document.getElementById('checkout-error');
 
-    // Pass info to PayPal via URL (custom field)
-    const paypalUrl = new URL("https://www.paypal.com/cgi-bin/webscr");
-    paypalUrl.searchParams.set("cmd", "_xclick");
-    paypalUrl.searchParams.set("business", "YOUR_PAYPAL_EMAIL_HERE"); // <-- replace with your PayPal email
-    paypalUrl.searchParams.set("item_name", beat);
-    paypalUrl.searchParams.set("amount", "20.00");
-    paypalUrl.searchParams.set("currency_code", "EUR");
+        if (!artist || !email) {
+            errorEl.textContent = 'Please fill in both fields.';
+            errorEl.style.display = 'block';
+            return;
+        }
 
-    // Pass artist name & email in "custom" field
-    paypalUrl.searchParams.set("custom", JSON.stringify({artist, email}));
+        // Basic email check
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            errorEl.textContent = 'Please enter a valid email address.';
+            errorEl.style.display = 'block';
+            return;
+        }
 
-    // Redirect to PayPal
-    window.location.href = paypalUrl.toString();
-});
+        errorEl.style.display = 'none';
+        document.getElementById('summary-artist').textContent = artist;
+        document.getElementById('summary-email').textContent = email;
+        document.getElementById('checkout-step1').style.display = 'none';
+        document.getElementById('checkout-step2').style.display = 'block';
+
+        // Render PayPal button now that we have their info
+        paypal.HostedButtons({
+            hostedButtonId: "XDYXLXKALETKE",
+        }).render("#paypal-container-XDYXLXKALETKE");
+    });
 </script>
-<script src="translation.js"></script>
 </body>
 </html>
