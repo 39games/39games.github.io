@@ -157,7 +157,13 @@ const observer = new IntersectionObserver((entries) => {
 // ====== GET GAME FROM URL ======
 const urlParams = new URLSearchParams(window.location.search);
 const gameKey = urlParams.get("game");
-const game = gamesData[gameKey] || Object.values(gamesData)[0];
+
+if (!gameKey || !gamesData[gameKey]) {
+    window.location.replace("/#games");
+    throw new Error("Invalid game key — redirecting.");
+}
+
+const game = gamesData[gameKey];
 
 // ====== POPULATE HEADER ======
 const headerEl = document.getElementById("projectHeader");
@@ -223,18 +229,18 @@ if (gameKey === "theforeigner") {
       <div class="foreigner-intro__art">
         <video autoplay muted loop playsinline controlslist="nodownload nofullscreen noremoteplayback" disablepictureinpicture
           style="max-width:100%;image-rendering:pixelated;filter:drop-shadow(0 0 20px rgba(139,47,201,0.4));pointer-events:none;">
-          <source src="images/foreigner/scene-intro.mp4" type="video/mp4">
+          <source src="../images/foreigner/scene-intro.mp4" type="video/mp4">
         </video>
       </div>
     </div>
     <div class="foreigner-features fade">
       <div class="foreigner-features__title">WHAT MAKES IT</div>
       <div class="foreigner-features__grid">
-        <div class="foreigner-feature-card"><span class="foreigner-feature-card__icon">⚔️</span><div class="foreigner-feature-card__title">BRUTAL COMBAT</div><div class="foreigner-feature-card__desc">Hand-animated finishers and lots, and i mean LOTS of blood. Every kill has weight.</div></div>
-        <div class="foreigner-feature-card"><span class="foreigner-feature-card__icon">🌑</span><div class="foreigner-feature-card__title">CREEPY ART STYLE</div><div class="foreigner-feature-card__desc">Unsettling horror-inspired creature design. Grotesque, hand-crafted sprites that make every enemy unforgettable, all thanks to Lumo TV.</div></div>
-        <div class="foreigner-feature-card"><span class="foreigner-feature-card__icon">🧠</span><div class="foreigner-feature-card__title">FUN PUZZLES</div><div class="foreigner-feature-card__desc">Along side the gore and the murder, there are also some crazy-ass puzzles that will make you want to murder the devs when you figure out the answer!</div></div>
-        <div class="foreigner-feature-card"><span class="foreigner-feature-card__icon">👾</span><div class="foreigner-feature-card__title">MULTIPLE WAYS TO PLAY</div><div class="foreigner-feature-card__desc">RPG-beat em up-platformer-puzzle hybrid. There's something for everyone! Well, not for people with hemophobia.</div></div>
-        <div class="foreigner-feature-card"><span class="foreigner-feature-card__icon">📖</span><div class="foreigner-feature-card__title">ENGAGING STORY</div><div class="foreigner-feature-card__desc">You just have to trust me on this one, can't reveal too much yet...</div></div>
+        <div class="foreigner-feature-card"><img class="foreigner-feature-card__icon" src="../images/icons/combat.png" alt=""><div class="foreigner-feature-card__title">BRUTAL COMBAT</div><div class="foreigner-feature-card__desc">Hand-animated finishers and lots, and i mean LOTS of blood. Every kill has weight.</div></div>
+        <div class="foreigner-feature-card"><img class="foreigner-feature-card__icon" src="../images/icons/creepy.png" alt=""><div class="foreigner-feature-card__title">CREEPY ART STYLE</div><div class="foreigner-feature-card__desc">Unsettling horror-inspired creature design. Grotesque, hand-crafted sprites that make every enemy unforgettable, all thanks to Lumo TV.</div></div>
+        <div class="foreigner-feature-card"><img class="foreigner-feature-card__icon" src="../images/icons/puzzle.png" alt=""><div class="foreigner-feature-card__title">FUN PUZZLES</div><div class="foreigner-feature-card__desc">Along side the gore and the murder, there are also some crazy-ass puzzles that will make you want to murder the devs when you figure out the answer!</div></div>
+        <div class="foreigner-feature-card"><img class="foreigner-feature-card__icon" src="../images/icons/multiple.png" alt=""><div class="foreigner-feature-card__title">MULTIPLE WAYS TO PLAY</div><div class="foreigner-feature-card__desc">RPG-beat em up-platformer-puzzle hybrid. There's something for everyone! Well, not for people with hemophobia.</div></div>
+        <div class="foreigner-feature-card"><img class="foreigner-feature-card__icon" src="../images/icons/story.png" alt=""><div class="foreigner-feature-card__title">ENGAGING STORY</div><div class="foreigner-feature-card__desc">You just have to trust me on this one, can't reveal too much yet...</div></div>
       </div>
     </div>
     <div class="foreigner-sprites fade">
@@ -530,8 +536,46 @@ document.addEventListener('mousemove', (e) => {
   document.body.classList.add('pg-trolls');
  
   contentEl.innerHTML = `
- 
-    <!-- ══ LIVE SCENE: troll + stomping title ══ -->
+
+    <!-- ══ UNITY GAME EMBED ══ -->
+<div id="st-game-launcher" class="fade">
+  <div class="st-play-now-label">
+    <span class="st-play-now-text">PLAY NOW</span>
+    <div class="st-arrows">
+    </div>
+  </div>
+  <br><br><br><br>
+  <button id="st-play-btn" onclick="launchSTGame()">
+    <img src="../images/smashtrolls/play-button.png" alt="Play" id="st-play-img">
+  </button>
+</div>
+
+<div id="st-game-container" style="display:none;">
+  <div id="st-game-frame-wrap">
+    <div id="st-game-topbar">
+      <span class="st-game-title">▶ SMASH TROLLS</span>
+      <div class="st-game-controls">
+        <button id="st-fullscreen-btn" onclick="goSTFullscreen()">
+          <img src="../images/smashtrolls/fullscreen.png" alt="" onerror="this.style.display='none';this.parentElement.innerHTML='⛶ FULLSCREEN';">
+          <span>FULLSCREEN</span>
+        </button>
+        <button id="st-close-btn" onclick="closeSTGame()">✕ CLOSE</button>
+      </div>
+    </div>
+    <canvas id="unity-canvas"></canvas>
+    <div id="st-unity-loading">
+      <div class="st-loading-bar-wrap">
+        <div class="st-loading-label">LOADING GAME...</div>
+        <div class="st-loading-bar">
+          <div class="st-loading-fill" id="st-loading-fill"></div>
+        </div>
+        <div class="st-loading-pct" id="st-loading-pct">0%</div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<!-- ══ LIVE SCENE: troll + stomping title ══ -->
     <div id="st-scene">
       <div class="st-bubble-layer" id="st-bubbles"></div>
  
@@ -557,25 +601,79 @@ document.addEventListener('mousemove', (e) => {
  
     <div class="trolls-px-features fade">
       <div class="trolls-px-card">
-        <div class="trolls-px-card-header"><span class="trolls-px-icon">💪</span><p>SIMPLE CONTROLS</p></div>
+        <div class="trolls-px-card-header"><img class="trolls-px-icon" src="../images/icons/stomp.png" alt=""><p>SIMPLE CONTROLS</p></div>
         <div class="trolls-px-card-body"><p>Go up to jump, go down to smash, go to the side to push, easy.</p></div>
       </div>
       <div class="trolls-px-card">
-        <div class="trolls-px-card-header"><span class="trolls-px-icon">🤼</span><p>2 PLAYER ACTION</p></div>
+        <div class="trolls-px-card-header"><img class="trolls-px-icon" src="../images/icons/2player.png" alt=""><p>2 PLAYER ACTION</p></div>
         <div class="trolls-px-card-body"><p>Choose your favourite troll and battle with your friends.</p></div>
       </div>
       <div class="trolls-px-card">
-        <div class="trolls-px-card-header"><span class="trolls-px-icon">🔥</span><p>SPECIAL ABILITIES</p></div>
+        <div class="trolls-px-card-header"><img class="trolls-px-icon" src="../images/icons/ability.png" alt=""><p>SPECIAL ABILITIES</p></div>
         <div class="trolls-px-card-body"><p>Each troll has a unique ability, try them all out!</p></div>
       </div>
     </div>
  
     <div class="trolls-cta fade">
       <a href="https://39games.itch.io/smash-trolls" target="_blank" class="trolls-px-btn">
-        ▶ PLAY FREE ON ITCH.IO
+        ▶ PLAY FREE ON ITCH.IO TOO
       </a>
     </div>
   `;
+  window.launchSTGame = function() {
+  document.getElementById('st-game-launcher').style.display = 'none';
+  const container = document.getElementById('st-game-container');
+  container.style.display = 'flex';
+
+  const canvas = document.getElementById('unity-canvas');
+  canvas.style.width  = '960px';
+  canvas.style.height = '600px';
+
+  const loadingEl  = document.getElementById('st-unity-loading');
+  const fillEl     = document.getElementById('st-loading-fill');
+  const pctEl      = document.getElementById('st-loading-pct');
+
+  const script = document.createElement('script');
+  script.src = '../smashtrolls-game/Build/Troll.loader.js';
+  script.onload = function() {
+    createUnityInstance(canvas, {
+      dataUrl:            '../smashtrolls-game/Build/smashtrolls-game.data',
+      frameworkUrl:       '../smashtrolls-game/Build/smashtrolls-game.framework.js',
+      codeUrl:            '../smashtrolls-game/Build/smashtrolls-game.wasm',
+      streamingAssetsUrl: '../smashtrolls-game/StreamingAssets',
+      companyName:  '39Games',
+      productName:  'SmashTrolls',
+      productVersion: '1.0',
+    }, (progress) => {
+      const pct = Math.round(progress * 100);
+      if (fillEl) fillEl.style.width = pct + '%';
+      if (pctEl)  pctEl.textContent  = pct + '%';
+      if (progress === 1 && loadingEl) {
+        loadingEl.style.opacity = '0';
+        setTimeout(() => loadingEl.style.display = 'none', 400);
+      }
+    }).catch(err => {
+      console.error('Unity failed:', err);
+      if (loadingEl) loadingEl.innerHTML = '<div class="st-loading-label" style="color:#ff4444;">FAILED TO LOAD — CHECK CONSOLE</div>';
+    });
+  };
+  script.onerror = function() {
+    if (loadingEl) loadingEl.innerHTML = '<div class="st-loading-label" style="color:#ff4444;">COULD NOT FIND BUILD FILES</div>';
+  };
+  document.body.appendChild(script);
+};
+
+window.closeSTGame = function() {
+  document.getElementById('st-game-container').style.display = 'none';
+  document.getElementById('st-game-launcher').style.display  = 'flex';
+};
+
+window.goSTFullscreen = function() {
+  const canvas = document.getElementById('unity-canvas');
+  if (canvas.requestFullscreen)            canvas.requestFullscreen();
+  else if (canvas.webkitRequestFullscreen) canvas.webkitRequestFullscreen();
+  else if (canvas.mozRequestFullScreen)    canvas.mozRequestFullScreen();
+};
  
   /* ── fixed dark overlay for page bg ── */
   if (!document.getElementById('st-bg-overlay')) {
