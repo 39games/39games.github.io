@@ -3522,10 +3522,6 @@ body.pg-oa .game-logo { filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.35));}
   font-family: 'PixelFont', monospace !important;
 }
 
-/* ── SMASH TROLLS (catch-all for anything not already set) ── */
-body.pg-trolls *:not(.fas):not(.fab):not(.far) {
-  font-family: 'PixelFont', monospace !important;
-}
 
 .game-card {
   position: relative;
@@ -4786,7 +4782,7 @@ footer {
   align-items: center;
   padding: 150px 0 250px;
   gap: 0;
-  background-color: #00000043;
+  background-image: url('../images/smashtrolls/dirt_square1.png');
 }
 
 .st-play-now-label {
