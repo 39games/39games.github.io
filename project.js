@@ -559,7 +559,7 @@ document.addEventListener('mousemove', (e) => {
           <img src="../images/smashtrolls/fullscreen.png" alt="" onerror="this.style.display='none';this.parentElement.innerHTML='⛶ FULLSCREEN';">
           <span>FULLSCREEN</span>
         </button>
-        <button id="st-close-btn" onclick="closeSTGame()">✕ CLOSE</button>
+        <!--<button id="st-close-btn" onclick="closeSTGame()">✕ CLOSE</button>-->
       </div>
     </div>
     <canvas id="unity-canvas"></canvas>
@@ -634,13 +634,13 @@ document.addEventListener('mousemove', (e) => {
   const pctEl      = document.getElementById('st-loading-pct');
 
   const script = document.createElement('script');
-  script.src = '../smashtrolls-game/Build/Troll.loader.js';
+  script.src = '../smashtrolls-game/Build/smashtrolls-game.loader.js';
   script.onload = function() {
     createUnityInstance(canvas, {
       dataUrl:            '../smashtrolls-game/Build/smashtrolls-game.data',
       frameworkUrl:       '../smashtrolls-game/Build/smashtrolls-game.framework.js',
       codeUrl:            '../smashtrolls-game/Build/smashtrolls-game.wasm',
-      streamingAssetsUrl: '../smashtrolls-game/StreamingAssets',
+      streamingAssetsUrl: undefined,
       companyName:  '39Games',
       productName:  'SmashTrolls',
       productVersion: '1.0',
