@@ -156,3 +156,42 @@ const char2 = document.querySelector('.character2');
   });
 
   updateFavicon();
+
+  /* ================================================================
+   STAT COUNTER ANIMATION — paste into script.js
+   Animates the numbers in #stats-strip on scroll
+================================================================ */
+
+(function() {
+  function animateCounter(el, target, duration) {
+    var start = performance.now();
+    function step(now) {
+      var elapsed = now - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var value = Math.round(eased * target);
+      el.textContent = value;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  var strip = document.getElementById('stats-strip');
+  if (!strip) return;
+
+  var animated = false;
+
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !animated) {
+        animated = true;
+        document.querySelectorAll('.stat-pill__num[data-target]').forEach(function(el) {
+          var target = parseFloat(el.dataset.target);
+          animateCounter(el, target, 1600);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+
+  io.observe(strip);
+})();

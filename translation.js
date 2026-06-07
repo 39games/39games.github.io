@@ -334,13 +334,13 @@ function setLanguage(lang) {
   const savedLang = localStorage.getItem('preferredLang');
   if (savedLang) { setLanguage(savedLang); return; }
 
-  fetch('https://ipapi.co/json/')
+  /*fetch('https://ipapi.co/json/')
     .then(r => r.json())
     .then(data => {
       const balkans = ['RS', 'BA', 'HR', 'ME'];
       setLanguage(balkans.includes(data.country_code) ? 'sr' : 'en');
     })
-    .catch(() => setLanguage('en'));
+    .catch(() => setLanguage('en'));*/
 })();
 
 window.addEventListener('click', () => {
