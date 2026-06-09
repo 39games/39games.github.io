@@ -1597,33 +1597,32 @@ nav a .mobile-icon {
   grid-template-columns: 46% 54%;
   position: relative;
   overflow: hidden;
-  background: #0b0b0b;
+border-right: 1px solid rgba(255, 122, 0, 0.12);
 }
  
 /* ===== LEFT ===== */
 .home-split__left {
   display: flex;
-  align-items: center;
-  padding: 120px 8% 80px 10%;
+  align-items: center;  /* vertically centred */
+  padding: 100px 7% 60px 8%;  /* tighter top/bottom */
   position: relative;
   z-index: 2;
   /* subtle left-side radial so it doesn't feel totally dead */
-  background: radial-gradient(ellipse at 20% 50%, rgba(255,122,0,0.04) 0%, transparent 60%);
 }
  
 .home-split__text h1 {
-  font-size: clamp(28px, 3.2vw, 52px);
+  font-size: clamp(22px, 2.4vw, 40px);
   font-weight: 700;
   line-height: 1.15;
   color: #fff;
 }
  
 .home-split__text p {
-  margin-top: 18px;
-  max-width: 400px;
+  margin-top: 12px;
+  max-width: 380px;
   color: var(--gray);
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.65;
 }
  
 /* ===== DIAGONAL CLIP on the right panel ===== */
@@ -1632,6 +1631,7 @@ nav a .mobile-icon {
   overflow: hidden;
   /* The diagonal: clip the left edge so it cuts from top-left to bottom-right */
   clip-path: polygon(8% 0%, 100% 0%, 100% 100%, 0% 100%);
+  align-self: stretch;  /* ADD THIS */
 }
  
 /* Background image */
@@ -1641,7 +1641,7 @@ nav a .mobile-icon {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: top center;
   filter: brightness(0.38) saturate(1.5);
   z-index: 0;
 }
@@ -1700,10 +1700,10 @@ nav a .mobile-icon {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  padding: 80px 20% 80px 18%;
+  padding: 110px 12% 60px 10%;
   align-items: flex-start;
   height: 100%;
-  gap: 0;
+  gap: 28px;
 }
  
 /* "UPCOMING RELEASE" tag */
@@ -1835,26 +1835,45 @@ nav a .mobile-icon {
 @media (max-width: 900px) {
   #home.home-split {
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: auto auto;
     min-height: unset;
+    max-height: unset;
   }
- 
+
   .home-split__left {
-    padding: 120px 8% 50px;
+    padding: 100px 8% 36px;
+    align-items: flex-start;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 122, 0, 0.12);
   }
- 
-  .home-split__right {
-    clip-path: polygon(0% 6%, 100% 0%, 100% 100%, 0% 100%);
-    min-height: 60vw;
-  }
- 
+
+  .home-split__left,
   .foreigner-hero-content {
-    padding: 60px 8% 60px 10%;
+    padding-top: 90px;
   }
- 
+
+  .home-split__right {
+    clip-path: none;
+    min-height: 55vw;
+  }
+
+  .foreigner-hero-content {
+    padding: 36px 8% 48px 8%;
+    gap: 14px;
+  }
+
   .foreigner-hero-char {
     height: 70%;
     right: 2%;
+  }
+
+  .foreigner-hero-logo-img {
+    max-width: min(300px, 65%);
+  }
+
+  .foreigner-hero-desc {
+    font-size: 13px;
+    margin-bottom: 20px;
   }
 }
  
@@ -1862,9 +1881,38 @@ nav a .mobile-icon {
   .foreigner-hero-char {
     display: none;
   }
- 
+
   .foreigner-hero-content {
-    padding: 50px 6%;
+    padding: 28px 6% 40px;
+    gap: 12px;
+  }
+
+  .foreigner-hero-logo-img {
+    max-width: min(240px, 75%);
+  }
+
+  .home-split__left {
+    padding: 85px 6% 28px;
+  }
+
+  .home-split__text h1 {
+    font-size: 24px;
+  }
+
+  .home-split__text p {
+    font-size: 13px;
+    margin-top: 8px;
+  }
+
+  .foreigner-hero-tag {
+    font-size: 9px;
+    margin-bottom: 16px;
+  }
+
+  .foreigner-hero-btn {
+    width: 180px;
+    height: 60px;
+    font-size: 10px;
   }
  
   .foreigner-hero-logo-text {
@@ -1886,7 +1934,7 @@ nav {
 
 .home-split__left,
 .foreigner-hero-content {
-  padding-top: 350px; /* adjust based on nav height */
+  padding-top: 110px;  /* nav-safe, but not huge */
 }
 
 .foreigner-hero-logo-img {
@@ -1898,7 +1946,7 @@ nav {
 }
 
 .foreigner-hero-content {
-  gap: 12px;
+  gap: 28px;
 }
 
 
