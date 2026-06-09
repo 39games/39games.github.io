@@ -100,6 +100,10 @@ contactForm.addEventListener('submit', function(e) {
 
     emailjs.sendForm('service_tfwmdxm', 'template_qa13arh', this)
         .then(() => {
+            // also send autoreply
+            return emailjs.sendForm('service_tfwmdxm', 'template_autoreply', contactForm);
+        })
+        .then(() => {
             formStatus.textContent = "✅ Message sent!";
             contactForm.reset();
         }, (error) => {
