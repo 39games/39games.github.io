@@ -100,13 +100,14 @@ contactForm.addEventListener('submit', function(e) {
 
     emailjs.sendForm('service_tfwmdxm', 'template_qa13arh', this)
         .then(() => {
-            // also send autoreply
-            return emailjs.sendForm('service_tfwmdxm', 'template_autoreply', contactForm);
-        })
-        .then(() => {
             formStatus.textContent = "✅ Message sent!";
             contactForm.reset();
-        }, (error) => {
+
+            // Autoreply is separate — failure won't affect the success message
+            emailjs.sendForm('service_tfwmdxm', 'template_autoreply', contactForm)
+                .catch(err => console.error('Autoreply failed:', err));
+        })
+        .catch((error) => {
             console.error(error);
             formStatus.textContent = "❌ Failed to send. Please try again.";
         });
