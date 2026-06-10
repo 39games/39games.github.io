@@ -141,24 +141,17 @@ window.addEventListener('scroll', () => {
     });
 });
 
+// With this (null-guarded version):
 const char1 = document.querySelector('.character1');
 const char2 = document.querySelector('.character2');
+const parallax = document.querySelector('.character2-parallax');
 
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-
-    char1.style.transform = `translateY(${scrollY * 0.08}px)`;
-    char2.style.transform = `translateY(${scrollY * 0.55}px)`;
-  });
-
-  const parallax = document.querySelector('.character2-parallax');
-
-  window.addEventListener('scroll', () => {
-    parallax.style.setProperty(
-      '--parallaxY',
-      `${window.scrollY * 0.12}px`
-    );
-  });
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY;
+  if (char1) char1.style.transform = `translateY(${scrollY * 0.08}px)`;
+  if (char2) char2.style.transform = `translateY(${scrollY * 0.55}px)`;
+  if (parallax) parallax.style.setProperty('--parallaxY', `${scrollY * 0.12}px`);
+});
 
   updateFavicon();
 
