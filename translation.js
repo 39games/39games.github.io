@@ -140,6 +140,14 @@ const translations = {
 
     /* ── FOOTER ── */
     "footer-copy": "© 39 Games & Beats — Darko Stamenković",
+
+    "projectsbtn":      " Projects",
+    "more-projects":    "More Projects",
+    "search-projects":  "Search projects, tags, or tools...",
+    "directory-title":  "Project Directory",
+    "project-interfaith-title": "Interfaith Debate",
+    "project-interfaith-card-desc": "Omegle-style stranger-matching web app including 34+ faiths.",
+    "project-interfaith-desc": "<p style='text-indent:50px;'>Interfaith Debate is an Omegle-style stranger-matching web application dedicated to theological and philosophical discussions. It features a robust matching system encompassing over 34 different faiths, allowing users to engage in meaningful dialogue and explore logical paradoxes and metaphysical questions with people from diverse belief systems.</p>",
   },
 
   sr: {
@@ -283,6 +291,13 @@ const translations = {
 
     /* ── FOOTER ── */
     "footer-copy": "© 39 Igre & Bitovi — Darko Stamenković",
+    "projectsbtn":      " Projekti",
+    "more-projects":    "Više Projekata",
+    "search-projects":  "Pretraži projekte, tagove, programe...",
+    "directory-title":  "Katalog Projekata",
+    "project-interfaith-title": "Interfaith Debate",
+    "project-interfaith-card-desc": "Omegle-stil web aplikacija za spajanje stranaca sa preko 34 vere.",
+    "project-interfaith-desc": "<p style='text-indent:50px;'>Interfaith Debate je web aplikacija za teološke i filozofske diskusije u stilu Omegle-a. Sadrži robustan sistem uparivanja koji obuhvata više od 34 različite vere, omogućavajući korisnicima da vode smislene dijaloge i istražuju logičke paradokse i metafizička pitanja sa ljudima različitih sistema verovanja.</p>",
   }
 };
 

@@ -5513,3 +5513,387 @@ footer {
     gap: 30px;
   }
 }
+
+/* ================= PROJECTS DIRECTORY & SEARCH ================= */
+
+.directory-controls {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 24px;
+margin-bottom: 50px;
+padding-top: 20px;
+}
+
+#search-projects {
+width: 100%;
+max-width: 600px;
+padding: 14px 22px;
+font-size: 18px;
+border-radius: 30px;
+border: 2px solid var(--accent);
+background: rgba(20, 20, 20, 0.85);
+color: var(--white);
+outline: none;
+box-shadow: 0 0 15px rgba(255, 122, 0, 0.1);
+backdrop-filter: blur(8px);
+transition: all 0.3s ease;
+}
+
+#search-projects:focus {
+border-color: var(--accent2);
+box-shadow: 0 0 25px rgba(255, 122, 0, 0.3);
+}
+
+.filter-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+justify-content: center;
+max-width: 800px;
+}
+
+.filter-tag {
+font-size: 13px;
+padding: 6px 16px;
+border-radius: 20px;
+background: rgba(255,255,255,0.05);
+color: var(--gray);
+border: 1px solid rgba(255,255,255,0.1);
+cursor: pointer;
+transition: all 0.2s ease;
+user-select: none;
+}
+
+.filter-tag:hover {
+background: rgba(255,255,255,0.1);
+color: var(--white);
+}
+
+.filter-tag.active {
+background: rgba(255,122,0,0.15);
+color: var(--accent);
+border-color: var(--accent);
+}
+
+/* ================= FIX PROJECT CARD STRETCHING ================= */
+
+/* CHANGE THIS TO YOUR ACTUAL PROJECTS CONTAINER */
+.project-page .games-grid {
+display: grid;
+
+/* fixed card sizing */
+grid-template-columns: repeat(auto-fill, 280px);
+
+gap: 24px;
+
+/* prevents stretching */
+justify-content: center;
+
+width: 100%;
+
+}
+
+/* project cards stay fixed size */
+.project-tab {
+width: 320px;
+min-width: 320px;
+max-width: 320px;
+
+flex: none;
+
+}
+
+/* ================= MORE PROJECTS CARD ================= */
+.more-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,122,0,0.03) !important;
+    border: 2px dashed rgba(255,122,0,0.3);
+    min-height: 280px;
+    box-shadow: none !important;
+}
+.more-card:hover {
+    background: rgba(255,122,0,0.08) !important;
+    border-style: solid;
+    transform: translateY(-6px) !important;
+}
+.more-card-content {
+    text-align: center;
+    color: var(--accent);
+}
+.more-card-content i {
+    font-size: 48px;
+    margin-bottom: 16px;
+    transition: transform 0.3s ease;
+}
+.more-card:hover .more-card-content i {
+    transform: scale(1.2) rotate(90deg);
+}
+.more-card-content h3 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+/* =====================================================
+INTERFAITH DEBATE PAGE
+===================================================== */
+
+.interfaith-hero{
+position:relative;
+min-height:85vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+padding:140px 10%;
+}
+
+.interfaith-bg-glow{
+position:absolute;
+width:700px;
+height:700px;
+filter:blur(80px);
+top:-200px;
+z-index:1;
+}
+
+.interfaith-content{
+position:relative;
+z-index:2;
+max-width:950px;
+}
+
+.interfaith-tag{
+color:#ffd000;
+letter-spacing:4px;
+font-size:13px;
+margin-bottom:28px;
+opacity:.8;
+}
+
+.interfaith-title{
+font-size:clamp(58px, 9vw, 120px);
+line-height:.9;
+margin-bottom:28px;
+color:#ffd000;
+text-shadow:0 0 35px rgba(255,208,0,.15);
+}
+
+.interfaith-desc{
+font-size:20px;
+line-height:1.8;
+color:#bdbdbd;
+max-width:760px;
+margin:auto;
+}
+
+.interfaith-buttons{
+display:flex;
+justify-content:center;
+gap:18px;
+margin-top:42px;
+flex-wrap:wrap;
+}
+
+.btn-primary,
+.btn-secondary{
+padding:16px 34px;
+border-radius:14px;
+font-weight:700;
+text-decoration:none;
+transition:.25s ease;
+}
+
+.btn-primary{
+background:#ffd000;
+color:#000;
+}
+
+.btn-secondary{
+border:2px solid #ffd000;
+color:#ffd000;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover{
+transform:translateY(-5px);
+box-shadow:0 0 30px rgba(255,208,0,.2);
+}
+
+/* ================= STATS ================= */
+
+.stats-strip{
+margin-top:70px;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.stat{
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.stat-num{
+font-size:42px;
+font-weight:800;
+color:#ffd000;
+}
+
+.stat-label{
+font-size:12px;
+letter-spacing:2px;
+color:#9d9d9d;
+margin-top:6px;
+}
+
+.stat-divider{
+width:1px;
+height:60px;
+background:rgba(255,208,0,.2);
+}
+
+/* ================= FEATURES ================= */
+
+.interfaith-features{
+padding:120px 10%;
+background:#0c0c0c;
+}
+
+.section-title{
+text-align:center;
+max-width:800px;
+margin:0 auto 70px;
+}
+
+.section-title h2{
+font-size:52px;
+color:#ffd000;
+margin-bottom:20px;
+}
+
+.section-title p{
+color:#a7a7a7;
+line-height:1.8;
+font-size:18px;
+}
+
+.interfaith-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:28px;
+}
+
+.interfaith-card{
+background:#141414;
+border:1px solid rgba(255,208,0,.12);
+border-radius:24px;
+padding:36px;
+transition:.3s ease;
+position:relative;
+overflow:hidden;
+}
+
+.interfaith-card::before{
+content:'';
+position:absolute;
+inset:0;
+background:linear-gradient(
+135deg,
+rgba(255,208,0,.08),
+transparent 40%
+);
+opacity:0;
+transition:.3s;
+}
+
+.interfaith-card:hover{
+transform:translateY(-8px);
+border-color:rgba(255,208,0,.3);
+}
+
+.interfaith-card:hover::before{
+opacity:1;
+}
+
+.interfaith-card h3{
+color:#ffd000;
+font-size:24px;
+margin-bottom:14px;
+}
+
+.interfaith-card p{
+color:#c9c9c9;
+line-height:1.7;
+}
+
+/* ================= QUOTE ================= */
+
+.interfaith-quote{
+padding:120px 10%;
+text-align:center;
+background:#080808;
+}
+
+.quote-line{
+width:120px;
+height:2px;
+margin:0 auto 40px;
+background:linear-gradient(
+to right,
+transparent,
+#ffd000,
+transparent
+);
+}
+
+.quote-text{
+max-width:900px;
+margin:auto;
+font-size:34px;
+line-height:1.6;
+color:#f2f2f2;
+font-weight:600;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+.interfaith-hero{
+    padding:130px 6% 90px;
+}
+
+.interfaith-title{
+    font-size:64px;
+}
+
+.interfaith-desc{
+    font-size:17px;
+}
+
+.section-title h2{
+    font-size:38px;
+}
+
+.quote-text{
+    font-size:24px;
+}
+
+.stats-strip{
+    gap:20px;
+}
+
+.stat-divider{
+    display:none;
+}
+
+
+}
