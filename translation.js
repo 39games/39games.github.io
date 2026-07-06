@@ -308,10 +308,6 @@ const langBtn      = document.getElementById('lang-btn');
 const langDropdown = document.getElementById('lang-dropdown');
 const currentFlag  = document.getElementById('current-flag');
 
-langBtn.addEventListener('click', (e) => {
-  e.stopPropagation();
-  langDropdown.classList.toggle('show');
-});
 
 document.querySelectorAll('.lang-option').forEach(option => {
   option.addEventListener('click', (e) => {
