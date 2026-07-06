@@ -47,6 +47,7 @@ const projectsData = {
     },
     media: [],
     links: { website: "https://interfaith.up.railway.app/" },
+    dates: { start: "2026-05", end: "" },
     i18n: { 
         title: "project-interfaith-title", 
         description: "project-interfaith-desc", 
@@ -61,6 +62,7 @@ const projectsData = {
     header: { background: "../images/headers/dread-bg.png", accent: "#eae73d", class: "header-dread" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/VQtT93fjYdI" }],
     links: { googleplay: "", steam: "", itch: "https://39games.itch.io/dread" },
+    dates: { start: "2025-09", end: "" },
     i18n: { title: "game-dread-title", description: "game-dread-desc1", cardDesc: "game-dread-desc" }
   },
   "nutriasoulrush": {
@@ -71,6 +73,7 @@ const projectsData = {
     header: { background: "../images/headers/nsr-bg.png", accent: "#e63946", class: "header-nsr" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/jwONLTwq24E" }],
     links: { googleplay: "https://play.google.com/store/apps/details?id=com.bruh39.drotn", steam: "", itch: "https://39games.itch.io/nutriasoulrush" },
+    dates: { start: "2024-05", end: "" },
     i18n: { title: "game-nutriasoulrush-title", description: "game-nutriasoulrush-desc", cardDesc: "game-nsr-desc" }
   },
   "themoon": {
@@ -81,6 +84,7 @@ const projectsData = {
     header: { background: "../images/headers/moon-bg.png", accent: "#ffffff", class: "header-moon" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/qcjvQ-SErNI" }],
     links: { googleplay: "", steam: "", itch: "" },
+    dates: { start: "2026-02", end: "" },
     i18n: { title: "game-themoon-title", description: "game-themoon-desc", cardDesc: "game-moon-desc" }
   },
   "smashtrolls": {
@@ -91,6 +95,7 @@ const projectsData = {
     header: { background: "../images/headers/troll-bg.png", accent: "#1ab617", class: "header-trolls" },
     media: [],
     links: { googleplay: "", steam: "", itch: "https://39games.itch.io/smash-trolls" },
+    dates: { start: "2024-04", end: "" },
     i18n: { title: "game-smashtrolls-title", description: "game-smashtrolls-desc", cardDesc: "game-smash-desc" }
   },
   "goblinbarrage": {
@@ -101,16 +106,18 @@ const projectsData = {
     header: { background: "../images/headers/gb-bg.png", accent: "#e2801d", class: "header-gb" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/3IjSDXVTHQg" }],
     links: { googleplay: "https://play.google.com/store/apps/details?id=com.bruh39.GoblinBarrage", steam: "", itch: "https://39games.itch.io/goblin-barrage" },
+    dates: { start: "2022-02", end: "2022-05" },
     i18n: { title: "game-goblinbarrage-title", description: "game-goblinbarrage-desc", cardDesc: "game-gb-desc" }
   },
   "ogreassault": {
     status: "RELEASED",
     cardImg: "../images/games/game6.png",
-    tags: ["Game", "Strategy", "Mobile", "Pixel Art", "Unity", "C#"],
+    tags: ["Game", "Strategy", "Mobile", "Pixel Art", "Unity", "C#", "Robots"],
     logo: "../images/logos/oa.png",
     header: { background: "../images/headers/oa-bg.png", accent: "#218631", class: "header-oa" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/YC6pSaAKGqA" }],
     links: { googleplay: "https://play.google.com/store/apps/details?id=com.bruh39.OgreAssault", steam: "", itch: "https://39games.itch.io/ogre-assault" },
+    dates: { start: "2024-02", end: "2024-04" },
     i18n: { title: "game-ogreassault-title", description: "game-ogreassault-desc", cardDesc: "game-oa-desc" }
   },
   "theforeigner": {
@@ -121,9 +128,78 @@ const projectsData = {
     header: { background: "../images/headers/foreigner-bg.png", accent: "#8b2fc9", class: "header-foreigner" },
     media: [],
     links: { googleplay: "", steam: "", itch: "" },
+    dates: { start: "2025-11", end: "" },
     i18n: { title: "game-theforeigner-title", description: "game-theforeigner-desc", cardDesc: "game-foreigner-card-desc" }
+  },
+  "salesmen": {
+    status: "DEMO",
+    cardImg: "../images/games/game9.png",
+    tags: ["Game", "Simulation", "Sandbox", "Robots", "Futuristic", "Unity", "C#", "Pixel Art"],
+    logo: "../images/logos/salesmen.png",
+    header: { background: "../images/headers/salesmen-bg.png", accent: "#e2a33d", class: "header-salesmen" },
+    media: [{ type: "video", src: "https://www.youtube.com/embed/G9Gn5TNlHI0" }],
+    links: { itch: "https://39games.itch.io/salesmen" },
+    dates: { start: "2023-12", end: "2024-06" },
+    i18n: { title: "game-salesmen-title", description: "game-salesmen-desc", cardDesc: "game-salesmen-card-desc" }
   }
 };
+
+// ====== STATUS TYPES ======
+// Add new statuses here — each needs a CSS class (.game-card.<cls>) and
+// an i18n key (tag-<cls>) defined in style.css / translation.js
+const STATUS_META = {
+  "IN DEVELOPMENT": { cls: "dev",      i18n: "tag-dev" },
+  "RELEASED":       { cls: "released", i18n: "tag-released" },
+  "DEMO":           { cls: "demo",     i18n: "tag-demo" }
+};
+
+function getStatusMeta(status) {
+  return STATUS_META[status] || STATUS_META["IN DEVELOPMENT"];
+}
+
+// ====== DATE HELPERS ======
+// Accepts "YYYY-MM-DD", "YYYY-MM", "YYYY", or "" (empty = not shown)
+const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+function formatProjectDate(str) {
+  if (!str) return "";
+  const parts = String(str).split("-");
+  const year = parts[0];
+  const month = parts.length >= 2 ? parseInt(parts[1], 10) : null;
+  if (month && month >= 1 && month <= 12) return `${MONTH_NAMES[month - 1]} ${year}`;
+  return year;
+}
+
+// Returns a sortable timestamp for a project's start date, or -Infinity
+// if it doesn't have one (so undated projects sink to the bottom)
+function getProjectSortValue(project) {
+  const start = project.dates && project.dates.start;
+  if (!start) return -Infinity;
+  const t = Date.parse(start);
+  return isNaN(t) ? -Infinity : t;
+}
+
+// Returns a plain-text date range string (e.g. "May 2023 — Aug 2023"), or "" if no dates set.
+// Shared by both the directory grid cards and the single project page badge.
+function getDateRangeText(project) {
+  const d = project.dates;
+  if (!d || (!d.start && !d.end)) return "";
+  if (d.start && d.end) return `${formatProjectDate(d.start)} — ${formatProjectDate(d.end)}`;
+  if (d.start) return `Started ${formatProjectDate(d.start)}`;
+  return `Finished ${formatProjectDate(d.end)}`;
+}
+
+// Badge shown on a project's own page (bigger pill, under the logo)
+function buildDateBadgeHTML(project) {
+  const text = getDateRangeText(project);
+  return text ? `<div class="project-date-badge">${text}</div>` : "";
+}
+
+// Small date line shown on the directory grid cards (/projects page only — never on the main home page)
+function buildCardDateHTML(project) {
+  const text = getDateRangeText(project);
+  return text ? `<div class="game-card-date"><i class="far fa-calendar-alt"></i> ${text}</div>` : "";
+}
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -187,8 +263,13 @@ function renderProjectDirectory() {
     function updateGrid() {
         const query = searchInput.value.toLowerCase();
         projectsGrid.innerHTML = "";
-        
-        Object.keys(projectsData).forEach(key => {
+
+        // Sort by start date (newest first); projects with no start date sink to the bottom
+        const sortedKeys = Object.keys(projectsData).sort((a, b) => {
+            return getProjectSortValue(projectsData[b]) - getProjectSortValue(projectsData[a]);
+        });
+
+        sortedKeys.forEach(key => {
             const p = projectsData[key];
             const title = p.i18n.title.toLowerCase(); // simplified fallback matching
             const tagStr = p.tags ? p.tags.join(" ").toLowerCase() : "";
@@ -199,17 +280,19 @@ function renderProjectDirectory() {
             const matchesSearch = title.includes(query) || tagStr.includes(query) || key.includes(query);
             
             if (matchesTag && matchesSearch) {
-                const tagClass = p.status === "IN DEVELOPMENT" ? "dev" : "released";
+                const meta = getStatusMeta(p.status);
                 const tagsHTML = p.tags ? p.tags.slice(0,3).map(t => `<span class="tag">${t}</span>`).join("") : "";
+                const dateHTML = buildCardDateHTML(p);
                 
                 projectsGrid.innerHTML += `
-                    <a class="game-card ${tagClass}" href="?project=${key}">
-                        <div class="game-tag" data-i18n="${p.status === 'IN DEVELOPMENT' ? 'tag-dev' : 'tag-released'}">${p.status}</div>
+                    <a class="game-card ${meta.cls}" href="?project=${key}">
+                        <div class="game-tag" data-i18n="${meta.i18n}">${p.status}</div>
                         <img src="${p.cardImg}" alt="" onerror="this.src='../images/herogames-alt.png'" />
                         <div class="game-info">
                             <h3 data-i18n="${p.i18n.title}">Project</h3>
                             <div class="beat-tags">${tagsHTML}</div>
                             <p data-i18n="${p.i18n.cardDesc}">Description</p>
+                            ${dateHTML}
                         </div>
                     </a>
                 `;
@@ -266,7 +349,7 @@ function renderSingleProject(gameKey) {
         ? `<img src="${game.logo}" alt="" class="game-logo" data-i18n="${game.i18n.title}">` 
         : `<h1 class="project-title" data-i18n="${game.i18n.title}"></h1>`;
 
-    headerEl.innerHTML = logoHtml;
+    headerEl.innerHTML = logoHtml + buildDateBadgeHTML(game);
 
     let mediaHTML = '';
     if(game.media) {
@@ -710,14 +793,73 @@ contentEl.innerHTML = `
 <div class="quote-line"></div>
 
 <p class="quote-text">
-    “The goal is not to win arguments. The goal is to understand
-    perspectives you would never normally encounter.”
+    "The goal is not to win arguments. The goal is to understand
+    perspectives you would never normally encounter."
 </p>
 
 
 </section>
 
 `;
+}
+else if (gameKey === "salesmen") {
+  document.body.classList.add('pg-salesmen');
+  contentEl.innerHTML = `
+    <div class="salesmen-pitch fade-up">
+      <div class="salesmen-pitch__tag">▶ STEP RIGHT UP</div>
+      <p class="salesmen-pitch__text" data-i18n="${game.i18n.description}"></p>
+    </div>
+
+    <div class="media-gallery salesmen-media fade-up">${mediaHTML}</div>
+
+    <div class="salesmen-price-divider fade-up">— choose how you'll build your empire —</div>
+
+    <div class="salesmen-paths fade-up">
+      <div class="salesmen-path-card">
+        <div class="salesmen-path-card__icon">💰</div>
+        <div class="salesmen-path-card__title">The Tycoon</div>
+        <p>Climb from scrap-heap trader to respected business mogul. Every deal counts, every upgrade matters.</p>
+      </div>
+      <div class="salesmen-path-card">
+        <div class="salesmen-path-card__icon">🃏</div>
+        <div class="salesmen-path-card__title">The Renegade</div>
+        <p>Cut corners, con customers, and claw your way up any way you can. Scrapropolis won't play fair with you either.</p>
+      </div>
+      <div class="salesmen-path-card">
+        <div class="salesmen-path-card__icon">🤝</div>
+        <div class="salesmen-path-card__title">The Kind Machine</div>
+        <p>Build a business that actually helps the neighborhood. Slower, harder, but somebody has to care.</p>
+      </div>
+    </div>
+
+    <div class="salesmen-shop-strip fade-up">
+      <div class="salesmen-shop-card">
+        <div class="salesmen-shop-card__num">01</div>
+        <div class="salesmen-shop-card__title">START WITH NOTHING</div>
+        <p>A cardboard box, a dirty shell, and whatever you can scavenge off the street. Scrapropolis doesn't hand out sympathy.</p>
+      </div>
+      <div class="salesmen-shop-card">
+        <div class="salesmen-shop-card__num">02</div>
+        <div class="salesmen-shop-card__title">MEET THE LOCALS</div>
+        <p>A whole cast of citizens with their own wants, quirks, and price points. Learn what sells and to whom.</p>
+      </div>
+      <div class="salesmen-shop-card">
+        <div class="salesmen-shop-card__num">03</div>
+        <div class="salesmen-shop-card__title">BUILD YOUR SHOP</div>
+        <p>Upgrade your stall into a storefront, and your storefront into whatever kind of empire you can imagine.</p>
+      </div>
+    </div>
+
+    <div class="salesmen-quote fade-up">
+      <div class="salesmen-quote-mark">"</div>
+      <div class="salesmen-quote-text">Every robot in Scrapropolis is selling something. The only question is what you're willing to sell.</div>
+    </div>
+
+    <div class="salesmen-cta fade-up">
+      <p class="salesmen-cta__sub">Currently just a demo — development is paused.</p>
+      <a href="https://39games.itch.io/salesmen" target="_blank" class="salesmen-btn"><i class="fab fa-itch-io"></i> Follow it on Itch.io</a>
+    </div>
+  `;
 }
 else {
       contentEl.innerHTML = `

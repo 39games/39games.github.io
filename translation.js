@@ -35,6 +35,7 @@ const translations = {
     "games-sub":   "My Portfolio",
     "tag-dev":      "IN DEVELOPMENT",
     "tag-released": "RELEASED",
+    "tag-demo":     "DEMO",
     "and-more1":   "And many more projects!",
 
     /* ── GAME CARD TITLES ── */
@@ -45,6 +46,7 @@ const translations = {
     "game-smashtrolls-title":    "Smash Trolls",
     "game-ogreassault-title":    "Ogre Assault",
     "game-goblinbarrage-title":  "Goblin Barrage",
+    "game-salesmen-title":       "Salesmen",
 
     /* ── GAME CARD SHORT DESCRIPTIONS ── */
     "game-foreigner-card-desc": "A dark beat-em-up RPG. Demo coming end of year.",
@@ -54,6 +56,7 @@ const translations = {
     "game-smash-desc":          "2D co-op platformer / fighting game.",
     "game-oa-desc":             "Tower-defense strategy — ogres vs robots.",
     "game-gb-desc":             "Endless arcade runner — throw bombs at everything.",
+    "game-salesmen-card-desc":  "A homeless robot's rise from street trading to running Scrapropolis's biggest shop.",
 
     /* ── GAME PAGE FULL DESCRIPTIONS ── */
     "game-dread-desc1": `<br><br>
@@ -77,6 +80,8 @@ const translations = {
 <p style="text-indent:50px;">The game is still in active development. Anyone who donates any amount will receive the game completely free on launch.</p>`,
 
     "game-theforeigner-desc": "",
+
+    "game-salesmen-desc": "You're a homeless robot scraping by on the streets of Scrapropolis — until you decide to start selling. Trade, haggle, and hustle your way from a cardboard stall to a full-blown shop, meeting a colorful cast of citizens along the way. Every deal you make shapes the kind of machine you become: a shrewd tycoon, a scheming con-artist, or the one honest voice in a city that could use one. How you build your empire is entirely up to you.",
 
     /* ── BEATS LIBRARY ── */
     "beats-title":    "My Discography",
@@ -186,6 +191,7 @@ const translations = {
     "games-sub":   "Moj Portfolio",
     "tag-dev":      "U RAZVOJU",
     "tag-released": "OBJAVLJENO",
+    "tag-demo":     "DEMO",
     "and-more1":   "I još mnogo projekata!",
 
     /* ── NASLOVI KARTI IGARA ── */
@@ -196,6 +202,7 @@ const translations = {
     "game-smashtrolls-title":    "Smash Trolls",
     "game-ogreassault-title":    "Ogre Assault",
     "game-goblinbarrage-title":  "Goblin Barrage",
+    "game-salesmen-title":       "Salesmen",
 
     /* ── KRATKI OPISI KARTI ── */
     "game-foreigner-card-desc": "Tamni beat-em-up RPG. Demo krajem godine.",
@@ -205,6 +212,7 @@ const translations = {
     "game-smash-desc":          "2D ko-op platformer / borbena igra.",
     "game-oa-desc":             "Tower-defense strategija — ogre-ovi protiv robota.",
     "game-gb-desc":             "Beskonačni arkadni runner — baci bombe na sve.",
+    "game-salesmen-card-desc":  "Beskućnik-robot se uzdiže od uličnog trgovca do najveće radnje u Scrapropolisu.",
 
     /* ── PUNI OPISI STRANICA IGARA ── */
     "game-dread-desc1": `<br><br>
@@ -228,6 +236,8 @@ const translations = {
 <p style="text-indent:50px;">Igra je još u aktivnom razvoju. Svako ko donira bilo koji iznos dobiće igru besplatno po izlasku.</p>`,
 
     "game-theforeigner-desc": "",
+
+    "game-salesmen-desc": "Ti si beskućnik-robot koji se snalazi na ulicama Scrapropolisa — dok se ne odlučiš da počneš da prodaješ. Trguj, cenkaj se i probijaj se od kartonskog štanda do prave radnje, upoznajući šarolik svet građana usput. Svaka pogodba koju napraviš oblikuje kakva ćeš mašina postati: lukavi tajkun, prevarant, ili jedini pošten glas u gradu kome to itekako treba. Kako ćeš izgraditi svoje carstvo, zavisi samo od tebe.",
 
     /* ── BIBLIOTEKA BITOVA ── */
     "beats-title":   "Moja Diskografija",
