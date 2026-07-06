@@ -123,7 +123,7 @@ const projectsData = {
   "theforeigner": {
     status: "IN DEVELOPMENT",
     cardImg: "../images/games/game7.png",
-    tags: ["Game", "RPG", "2D", "Pixel Art", "Unity", "C#", "Lumo TV"],
+    tags: ["Game", "RPG", "2D", "Unity", "C#", "Lumo TV"],
     logo: "../images/logos/foreigner.png",
     header: { background: "../images/headers/foreigner-bg.png", accent: "#8b2fc9", class: "header-foreigner" },
     media: [],
