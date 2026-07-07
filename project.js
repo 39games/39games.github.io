@@ -123,7 +123,7 @@ const projectsData = {
   "theforeigner": {
     status: "IN DEVELOPMENT",
     cardImg: "../images/games/game7.png",
-    tags: ["Game", "RPG", "2D", "Unity", "C#", "Lumo TV"],
+    tags: ["Game", "RPG", "2D", "Pixel Art", "Unity", "C#", "Lumo TV"],
     logo: "../images/logos/foreigner.png",
     header: { background: "../images/headers/foreigner-bg.png", accent: "#8b2fc9", class: "header-foreigner" },
     media: [],
@@ -141,6 +141,39 @@ const projectsData = {
     links: { itch: "https://39games.itch.io/salesmen" },
     dates: { start: "2023-12", end: "2024-06" },
     i18n: { title: "game-salesmen-title", description: "game-salesmen-desc", cardDesc: "game-salesmen-card-desc" }
+  },
+  "rulersofserbia": {
+    status: "DEMO",
+    cardImg: "../images/games/game10.png",
+    tags: ["Game", "Historical", "Medieval", "Story Rich", "Top-Down", "Adventure", "Unity", "C#"],
+    logo: "../images/logos/ros.png",
+    header: { background: "../images/headers/ros-bg.png", accent: "#c9a227", class: "header-ros" },
+    media: [],
+    links: { itch: "https://39games.itch.io/ros-nemanjic" },
+    dates: { start: "2023-10", end: "2023-12" },
+    i18n: { title: "game-ros-title", description: "game-ros-desc", cardDesc: "game-ros-card-desc" }
+  },
+  "chum": {
+    status: "DEMO",
+    cardImg: "../images/games/game11.png",
+    tags: ["Game", "Card Game", "1v1", "2D", "Multiplayer"],
+    logo: "../images/logos/chum.png",
+    header: { background: "../images/headers/chum-bg.png", accent: "#c98a3c", class: "header-chum" },
+    media: [],
+    links: { itch: "https://39games.itch.io/chum" },
+    dates: { start: "2021-10", end: "2022-02" },
+    i18n: { title: "game-chum-title", description: "game-chum-desc", cardDesc: "game-chum-card-desc" }
+  },
+  "ohcrab": {
+    status: "DEMO",
+    cardImg: "../images/games/game12.png",
+    tags: ["Game", "Tower Defense", "2D", "Pygame", "Game Jam"],
+    logo: "../images/logos/ohcrab.png",
+    header: { background: "../images/headers/ohcrab-bg.png", accent: "#e81e00", class: "header-ohcrab" },
+    media: [],
+    links: { itch: "https://39games.itch.io/oh-crab" },
+    dates: { start: "2020-05", end: "2020-07" },
+    i18n: { title: "game-ohcrab-title", description: "game-ohcrab-desc", cardDesc: "game-ohcrab-card-desc" }
   }
 };
 
@@ -229,7 +262,16 @@ if (!projectKey) {
 function renderProjectDirectory() {
     const headerEl = document.getElementById("projectHeader");
     const contentEl = document.getElementById("projectContent");
-    
+
+    // Reset header, then style it the same way individual project headers are styled
+    headerEl.className = '';
+    headerEl.style.cssText = '';
+    headerEl.classList.add('header-directory');
+    headerEl.style.backgroundImage = 'url(../images/headers/project-bg.png)';
+    headerEl.style.backgroundRepeat = 'no-repeat';
+    headerEl.style.backgroundSize = 'cover';
+    headerEl.style.backgroundPosition = 'center';
+
     // Set up basic header
     headerEl.innerHTML = `
         <h1 class="project-title" style="font-size: 56px;" data-i18n="directory-title">Project Directory</h1>
@@ -861,6 +903,152 @@ else if (gameKey === "salesmen") {
     </div>
   `;
 }
+else if (gameKey === "rulersofserbia") {
+  document.body.classList.add('pg-ros');
+  contentEl.innerHTML = `
+    <div class="ros-intro fade-up">
+      <div class="ros-intro__crest">☨</div>
+      <p class="ros-intro__text" data-i18n="${game.i18n.description}"></p>
+    </div>
+
+    <div class="ros-honest fade-up">
+      <div class="ros-honest__tag">A NOTE ON THIS ONE</div>
+      <p>Rulers of Serbia was an ambitious attempt to turn 200 years of Serbian medieval history into a playable strategy game. It grew bigger than one person could realistically finish, and development is currently paused. The project file's still here though, and it might get picked back up one day.</p>
+    </div>
+
+    <div class="ros-timeline fade-up">
+      <div class="ros-timeline__title">THE NEMANJIĆ DYNASTY <span>1166 – 1371</span></div>
+      <div class="ros-timeline__line"></div>
+      <div class="ros-timeline__items">
+        <div class="ros-tl-item">
+          <div class="ros-tl-item__year">1166</div>
+          <div class="ros-tl-item__name">Stefan Nemanja</div>
+          <div class="ros-tl-item__desc">Grand Prince who united the Serbian lands and founded the dynasty.</div>
+        </div>
+        <div class="ros-tl-item">
+          <div class="ros-tl-item__year">1217</div>
+          <div class="ros-tl-item__name">Stefan the First-Crowned</div>
+          <div class="ros-tl-item__desc">Crowned the first King of Serbia, cementing the kingdom's place in Europe.</div>
+        </div>
+        <div class="ros-tl-item">
+          <div class="ros-tl-item__year">1282</div>
+          <div class="ros-tl-item__name">King Milutin</div>
+          <div class="ros-tl-item__desc">Expanded the kingdom's borders and built dozens of monasteries.</div>
+        </div>
+        <div class="ros-tl-item">
+          <div class="ros-tl-item__year">1346</div>
+          <div class="ros-tl-item__name">Emperor Dušan</div>
+          <div class="ros-tl-item__desc">Crowned Emperor, ruling over the largest Serbian empire in history.</div>
+        </div>
+        <div class="ros-tl-item">
+          <div class="ros-tl-item__year">1371</div>
+          <div class="ros-tl-item__name">Uroš the Weak</div>
+          <div class="ros-tl-item__desc">The last Nemanjić ruler. His death fractured the empire into rival lords.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ros-vision fade-up">
+      <div class="ros-vision__title">WHAT IT WAS GOING FOR</div>
+      <div class="ros-vision__grid">
+        <div class="ros-vision-card">
+          <div class="ros-vision-card__icon">🏰</div>
+          <div class="ros-vision-card__title">RULE A KINGDOM</div>
+          <p>Manage territory, alliances, and succession across generations of Nemanjić rulers.</p>
+        </div>
+        <div class="ros-vision-card">
+          <div class="ros-vision-card__icon">⛪</div>
+          <div class="ros-vision-card__title">BUILD MONASTERIES</div>
+          <p>Fund the same real monastic complexes the Nemanjići actually built, from Studenica to Visoki Dečani.</p>
+        </div>
+        <div class="ros-vision-card">
+          <div class="ros-vision-card__icon">⚔️</div>
+          <div class="ros-vision-card__title">EXPAND THE BORDERS</div>
+          <p>Push into Byzantine territory, fend off rival kingdoms, and grow Serbia into an empire.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ros-cta fade-up">
+      <p class="ros-cta__sub">Extract the .zip, run the .exe, and see how far it got.</p>
+      <a href="https://39games.itch.io/ros-nemanjic" target="_blank" class="ros-btn"><i class="fab fa-itch-io"></i> Play it on Itch.io</a>
+    </div>
+  `;
+}
+else if (gameKey === "chum") {
+  document.body.classList.add('pg-chum');
+  contentEl.innerHTML = `
+    <div class="chum-status fade">
+      <div class="chum-status__dot"></div>
+      <div class="chum-status__text">
+        <strong>DISCONTINUED</strong> &nbsp;·&nbsp; <strong>1v1 Card Game</strong> &nbsp;·&nbsp; <strong>Windows &amp; Android</strong>
+      </div>
+    </div>
+
+    <div class="chum-intro fade-up">
+      <div class="chum-suits">♠ ♥ ♦ ♣</div>
+      <p class="chum-intro__text" data-i18n="${game.i18n.description}"></p>
+    </div>
+
+    <div class="chum-rules fade-up">
+      <div class="chum-rule-card">
+        <div class="chum-rule-card__icon">📦</div>
+        <div class="chum-rule-card__title">OPEN A CHEST</div>
+        <p>Crack one open on your turn for a random item to add to your hand. You never know what you'll get.</p>
+      </div>
+      <div class="chum-rule-card">
+        <div class="chum-rule-card__icon">⚔️</div>
+        <div class="chum-rule-card__title">OR ATTACK</div>
+        <p>Already holding something useful? Click it to strike your opponent instead of drawing.</p>
+      </div>
+      <div class="chum-rule-card">
+        <div class="chum-rule-card__icon">🏆</div>
+        <div class="chum-rule-card__title">LAST ONE STANDING</div>
+        <p>Whoever runs their opponent's health to zero first wins the match. Simple as that.</p>
+      </div>
+    </div>
+
+    <div class="chum-honest fade-up">
+      <div class="chum-honest__tag">WHY IT'S DISCONTINUED</div>
+      <p>Chum needed a server to match players up, and I didn't want to keep paying to keep it running. I leaned on some free server options for a while, but I'm honestly not sure they still work. On top of that, the code behind it turned into a mess that got harder and harder to touch. It was a fun one to make, but this one's retired.</p>
+    </div>
+
+    <div class="chum-cta fade-up">
+      <p class="chum-cta__sub">Still downloadable, name your own price.</p>
+      <a href="https://39games.itch.io/chum" target="_blank" class="chum-btn"><i class="fab fa-itch-io"></i> Grab it on Itch.io</a>
+    </div>
+  `;
+}
+else if (gameKey === "ohcrab") {
+  document.body.classList.add('pg-ohcrab');
+  contentEl.innerHTML = `
+    <div class="crab-badge fade">
+      <div class="crab-badge__icon">🦀</div>
+      <div class="crab-badge__text">MY FIRST GAME JAM ENTRY &nbsp;·&nbsp; MADE WITH PYGAME &nbsp;·&nbsp; PROCEED WITH LOW EXPECTATIONS</div>
+    </div>
+
+    <div class="crab-intro fade-up">
+      <p class="crab-intro__text" data-i18n="${game.i18n.description}"></p>
+    </div>
+
+    <div class="crab-tags fade-up">
+      <span class="crab-tag">🦀 crab</span>
+      <span class="crab-tag">🦞 lobster</span>
+      <span class="crab-tag">🏰 tower defense</span>
+      <span class="crab-tag">🤷 idk</span>
+    </div>
+
+    <div class="crab-honest fade-up">
+      <div class="crab-honest__tag">A NOTE FROM THE PAST</div>
+      <p>Oh Crab! was one of the very first games I ever finished, made for a game jam back when I was just starting to learn Pygame. It's rough, it's held together with duct tape, and it's absolutely not representative of what I make now. I'm keeping it up anyway — everyone's first game is a little embarrassing, and this one's mine.</p>
+    </div>
+
+    <div class="crab-cta fade-up">
+      <p class="crab-cta__sub">You've been warned. Download at your own risk.</p>
+      <a href="https://39games.itch.io/oh-crab" target="_blank" class="crab-btn"><i class="fab fa-itch-io"></i> Brave it on Itch.io</a>
+    </div>
+  `;
+}
 else {
       contentEl.innerHTML = `
         <div class="media-gallery fade">${mediaHTML}</div>
@@ -880,6 +1068,6 @@ else {
     });
 
     // Fades
-    function observeFades(root=document) { root.querySelectorAll('.fade').forEach(el=>observer.observe(el)); }
+    function observeFades(root=document) { root.querySelectorAll('.fade, .fade-up').forEach(el=>observer.observe(el)); }
     observeFades(contentEl);
 }

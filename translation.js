@@ -47,6 +47,9 @@ const translations = {
     "game-ogreassault-title":    "Ogre Assault",
     "game-goblinbarrage-title":  "Goblin Barrage",
     "game-salesmen-title":       "Salesmen",
+    "game-ros-title":            "Rulers of Serbia",
+    "game-chum-title":           "Chum",
+    "game-ohcrab-title":         "Oh Crab!",
 
     /* ── GAME CARD SHORT DESCRIPTIONS ── */
     "game-foreigner-card-desc": "A dark beat-em-up RPG. Demo coming end of year.",
@@ -57,6 +60,9 @@ const translations = {
     "game-oa-desc":             "Tower-defense strategy — ogres vs robots.",
     "game-gb-desc":             "Endless arcade runner — throw bombs at everything.",
     "game-salesmen-card-desc":  "A homeless robot's rise from street trading to running Scrapropolis's biggest shop.",
+    "game-ros-card-desc":       "A top-down adventure through a slice of medieval Serbian history.",
+    "game-chum-card-desc":      "A 1v1 turn-based card game. Discontinued, still downloadable.",
+    "game-ohcrab-card-desc":    "My very first finished game. A rough crab-themed tower defense.",
 
     /* ── GAME PAGE FULL DESCRIPTIONS ── */
     "game-dread-desc1": `<br><br>
@@ -82,6 +88,12 @@ const translations = {
     "game-theforeigner-desc": "",
 
     "game-salesmen-desc": "You're a homeless robot scraping by on the streets of Scrapropolis — until you decide to start selling. Trade, haggle, and hustle your way from a cardboard stall to a full-blown shop, meeting a colorful cast of citizens along the way. Every deal you make shapes the kind of machine you become: a shrewd tycoon, a scheming con-artist, or the one honest voice in a city that could use one. How you build your empire is entirely up to you.",
+
+    "game-ros-desc": "Rulers of Serbia is a top-down adventure that follows a slice of the Nemanjić dynasty's story — the medieval royal house that shaped Serbia for two centuries. You step into the role of a ruler trying to hold a kingdom together: managing nobles, neighbors, and a legacy that outlives you.",
+
+    "game-chum-desc": "Chum is a 1v1 turn-based card game for two. On your turn, crack open a chest for a random item, or attack with something you're already holding. Whoever runs their opponent's health down first wins.",
+
+    "game-ohcrab-desc": "Oh Crab! is a very old, very rough tower defense game about crustaceans, made for one of my first game jams — back when I was just starting to learn Pygame. It's not good, and that's kind of the point of keeping it around.",
 
     /* ── BEATS LIBRARY ── */
     "beats-title":    "My Discography",
@@ -203,6 +215,9 @@ const translations = {
     "game-ogreassault-title":    "Ogre Assault",
     "game-goblinbarrage-title":  "Goblin Barrage",
     "game-salesmen-title":       "Salesmen",
+    "game-ros-title":            "Rulers of Serbia",
+    "game-chum-title":           "Chum",
+    "game-ohcrab-title":         "Oh Crab!",
 
     /* ── KRATKI OPISI KARTI ── */
     "game-foreigner-card-desc": "Tamni beat-em-up RPG. Demo krajem godine.",
@@ -213,6 +228,9 @@ const translations = {
     "game-oa-desc":             "Tower-defense strategija — ogre-ovi protiv robota.",
     "game-gb-desc":             "Beskonačni arkadni runner — baci bombe na sve.",
     "game-salesmen-card-desc":  "Beskućnik-robot se uzdiže od uličnog trgovca do najveće radnje u Scrapropolisu.",
+    "game-ros-card-desc":       "Avantura odozgo kroz jedan deo srpske srednjovekovne istorije.",
+    "game-chum-card-desc":      "Potezna kartaška igra 1 na 1. Ukinuta, i dalje dostupna za preuzimanje.",
+    "game-ohcrab-card-desc":    "Moja prva ikad završena igra. Grubo urađena tower defense igra o rakovima.",
 
     /* ── PUNI OPISI STRANICA IGARA ── */
     "game-dread-desc1": `<br><br>
@@ -238,6 +256,12 @@ const translations = {
     "game-theforeigner-desc": "",
 
     "game-salesmen-desc": "Ti si beskućnik-robot koji se snalazi na ulicama Scrapropolisa — dok se ne odlučiš da počneš da prodaješ. Trguj, cenkaj se i probijaj se od kartonskog štanda do prave radnje, upoznajući šarolik svet građana usput. Svaka pogodba koju napraviš oblikuje kakva ćeš mašina postati: lukavi tajkun, prevarant, ili jedini pošten glas u gradu kome to itekako treba. Kako ćeš izgraditi svoje carstvo, zavisi samo od tebe.",
+
+    "game-ros-desc": "Rulers of Serbia je avantura odozgo koja prati jedan deo priče o dinastiji Nemanjić — srednjovekovnoj vladarskoj kući koja je oblikovala Srbiju tokom dva veka. Preuzimaš ulogu vladara koji pokušava da održi kraljevstvo na okupu: upravljajući plemićima, susedima i nasleđem koje ga nadživljava.",
+
+    "game-chum-desc": "Chum je potezna kartaška igra 1 na 1, za dva igrača. Na svom potezu, otvori sanduk za nasumičan predmet, ili napadni nečim što već imaš u ruci. Pobeđuje onaj ko prvi obori protivnikovo zdravlje na nulu.",
+
+    "game-ohcrab-desc": "Oh Crab! je vrlo stara i vrlo gruba tower defense igra o rakovima, napravljena za jedan od mojih prvih game jamova — kada sam tek počinjao da učim Pygame. Nije dobra, i to je donekle poenta zašto je i dalje čuvam.",
 
     /* ── BIBLIOTEKA BITOVA ── */
     "beats-title":   "Moja Diskografija",
