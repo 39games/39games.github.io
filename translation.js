@@ -159,7 +159,7 @@ const translations = {
     "footer-copy": "© 39 Games & Beats — Darko Stamenković",
 
     "projectsbtn":      " Projects",
-    "more-projects":    "More Projects",
+    "more-projects":    "View More",
     "search-projects":  "Search projects, tags, or tools...",
     "directory-title":  "Project Directory",
     "project-interfaith-title": "Interfaith Debate",

@@ -556,7 +556,7 @@ iframe{
 }
 
 .spotify iframe{
-  max-width:720px;
+  max-width:1000px;
   height:380px;
 }
 
@@ -5494,6 +5494,14 @@ footer {
 #games, #reviews-section, #about, #contact,
 #library, #collaborations {
   border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.spotify-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(320px,1fr));
+  gap:50px;
+  justify-content:center; /* optional but looks nice */
+  place-self: center;
 }
 
 .foreigner-feature-card__icon {
