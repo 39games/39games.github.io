@@ -57,7 +57,7 @@ const projectsData = {
   "dread": {
     status: "IN DEVELOPMENT",
     cardImg: "../images/games/game1.png",
-    tags: ["Game", "Horror", "Multiplayer", "Unity", "C#", "Blender", "3D"],
+    tags: ["Game", "Horror", "Multiplayer", "Unity", "C#", "Blender", "3D", "Servers"],
     logo: "../images/logos/dread.png",
     header: { background: "../images/headers/dread-bg.png", accent: "#eae73d", class: "header-dread" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/VQtT93fjYdI" }],
@@ -90,7 +90,7 @@ const projectsData = {
   "smashtrolls": {
     status: "RELEASED",
     cardImg: "../images/games/game4.png",
-    tags: ["Game", "2D", "Multiplayer", "Unity", "C#", "Pixel Art"],
+    tags: ["Game", "2D", "Multiplayer", "Unity", "C#", "Pixel Art", "1v1"],
     logo: "../images/logos/troll.png",
     header: { background: "../images/headers/troll-bg.png", accent: "#1ab617", class: "header-trolls" },
     media: [],
@@ -112,7 +112,7 @@ const projectsData = {
   "ogreassault": {
     status: "RELEASED",
     cardImg: "../images/games/game6.png",
-    tags: ["Game", "Strategy", "Mobile", "Pixel Art", "Unity", "C#", "Robots"],
+    tags: ["Game", "Strategy", "Mobile", "Pixel Art", "Unity", "C#", "Robots", "Tower Defense", "2D"],
     logo: "../images/logos/oa.png",
     header: { background: "../images/headers/oa-bg.png", accent: "#218631", class: "header-oa" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/YC6pSaAKGqA" }],
@@ -123,7 +123,7 @@ const projectsData = {
   "theforeigner": {
     status: "IN DEVELOPMENT",
     cardImg: "../images/games/game7.png",
-    tags: ["Game", "RPG", "2D", "Pixel Art", "Unity", "C#", "Lumo TV"],
+    tags: ["Game", "RPG", "2D", "Unity", "C#", "Lumo TV"],
     logo: "../images/logos/foreigner.png",
     header: { background: "../images/headers/foreigner-bg.png", accent: "#8b2fc9", class: "header-foreigner" },
     media: [],
@@ -134,7 +134,7 @@ const projectsData = {
   "salesmen": {
     status: "DEMO",
     cardImg: "../images/games/game9.png",
-    tags: ["Game", "Simulation", "Sandbox", "Robots", "Futuristic", "Unity", "C#", "Pixel Art"],
+    tags: ["Game", "Simulation", "Sandbox", "Robots", "Futuristic", "Unity", "C#", "Pixel Art", "2D"],
     logo: "../images/logos/salesmen.png",
     header: { background: "../images/headers/salesmen-bg.png", accent: "#e2a33d", class: "header-salesmen" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/G9Gn5TNlHI0" }],
@@ -145,7 +145,7 @@ const projectsData = {
   "rulersofserbia": {
     status: "DEMO",
     cardImg: "../images/games/game10.png",
-    tags: ["Game", "Historical", "Medieval", "Story Rich", "Top-Down", "Adventure", "Unity", "C#"],
+    tags: ["Game", "Historical", "Medieval", "Story Rich", "Top-Down", "Adventure", "Unity", "C#", "Pixel Art", "2D"],
     logo: "../images/logos/ros.png",
     header: { background: "../images/headers/ros-bg.png", accent: "#c9a227", class: "header-ros" },
     media: [],
@@ -156,7 +156,7 @@ const projectsData = {
   "chum": {
     status: "DEMO",
     cardImg: "../images/games/game11.png",
-    tags: ["Game", "Card Game", "1v1", "2D", "Multiplayer"],
+    tags: ["Game", "Card Game", "1v1", "2D", "Multiplayer", "Pixel Art", "Unity", "C#", "Servers"],
     logo: "../images/logos/chum.png",
     header: { background: "../images/headers/chum-bg.png", accent: "#c98a3c", class: "header-chum" },
     media: [],
@@ -167,13 +167,46 @@ const projectsData = {
   "ohcrab": {
     status: "DEMO",
     cardImg: "../images/games/game12.png",
-    tags: ["Game", "Tower Defense", "2D", "Pygame", "Game Jam"],
+    tags: ["Game", "Tower Defense", "2D", "Pygame", "Game Jam", "Pixel Art"],
     logo: "../images/logos/ohcrab.png",
     header: { background: "../images/headers/ohcrab-bg.png", accent: "#e81e00", class: "header-ohcrab" },
     media: [],
     links: { itch: "https://39games.itch.io/oh-crab" },
     dates: { start: "2020-05", end: "2020-07" },
     i18n: { title: "game-ohcrab-title", description: "game-ohcrab-desc", cardDesc: "game-ohcrab-card-desc" }
+  },
+  "colors": {
+    status: "DEMO",
+    cardImg: "../images/games/game13.png",
+    tags: ["Game", "Puzzle", "Mobile", "Android", "Unity", "C#", "Pixel Art", "Colorful", "2D"],
+    logo: "../images/logos/colors.png",
+    header: { background: "../images/headers/colors-bg.png", accent: "#8b2fc9", class: "header-colors" },
+    media: [{ type: "video", src: "https://www.youtube.com/embed/NBGup5VyUxU" }],
+    links: { itch: "https://39games.itch.io/colors" },
+    dates: { start: "2021-01", end: "2021-02" },
+    i18n: { title: "game-colors-title", description: "game-colors-desc", cardDesc: "game-colors-card-desc" }
+  },
+  "moonbreaker": {
+    status: "DEMO",
+    cardImg: "../images/games/game14.png",
+    tags: ["Game", "Space", "Arcade", "Game Jam", "Pygame", "Aliens", "2D", "Pixel Art"],
+    logo: "../images/logos/moonbreaker.png",
+    header: { background: "../images/headers/moonbreaker-bg.png", accent: "#4dff9e", class: "header-moonbreaker" },
+    media: [],
+    links: { itch: "https://39games.itch.io/moonbreaker" },
+    dates: { start: "2020-11", end: "2020-11" },
+    i18n: { title: "game-moonbreaker-title", description: "game-moonbreaker-desc", cardDesc: "game-moonbreaker-card-desc" }
+  },
+  "termiteswarm": {
+    status: "DEMO",
+    cardImg: "../images/games/game15.png",
+    tags: ["Game", "Arcade", "Game Jam", "2D", "Pixel Art", "Short", "Unity", "C#"],
+    logo: "../images/logos/termiteswarm.png",
+    header: { background: "../images/headers/termiteswarm-bg.png", accent: "#f7b079", class: "header-termiteswarm" },
+    media: [],
+    links: { itch: "https://39games.itch.io/termites" },
+    dates: { start: "2021-02", end: "2021-02" },
+    i18n: { title: "game-termiteswarm-title", description: "game-termiteswarm-desc", cardDesc: "game-termiteswarm-card-desc" }
   }
 };
 
@@ -978,12 +1011,6 @@ else if (gameKey === "rulersofserbia") {
 else if (gameKey === "chum") {
   document.body.classList.add('pg-chum');
   contentEl.innerHTML = `
-    <div class="chum-status fade">
-      <div class="chum-status__dot"></div>
-      <div class="chum-status__text">
-        <strong>DISCONTINUED</strong> &nbsp;·&nbsp; <strong>1v1 Card Game</strong> &nbsp;·&nbsp; <strong>Windows &amp; Android</strong>
-      </div>
-    </div>
 
     <div class="chum-intro fade-up">
       <div class="chum-suits">♠ ♥ ♦ ♣</div>
@@ -1022,10 +1049,6 @@ else if (gameKey === "chum") {
 else if (gameKey === "ohcrab") {
   document.body.classList.add('pg-ohcrab');
   contentEl.innerHTML = `
-    <div class="crab-badge fade">
-      <div class="crab-badge__icon">🦀</div>
-      <div class="crab-badge__text">MY FIRST GAME JAM ENTRY &nbsp;·&nbsp; MADE WITH PYGAME &nbsp;·&nbsp; PROCEED WITH LOW EXPECTATIONS</div>
-    </div>
 
     <div class="crab-intro fade-up">
       <p class="crab-intro__text" data-i18n="${game.i18n.description}"></p>
@@ -1046,6 +1069,143 @@ else if (gameKey === "ohcrab") {
     <div class="crab-cta fade-up">
       <p class="crab-cta__sub">You've been warned. Download at your own risk.</p>
       <a href="https://39games.itch.io/oh-crab" target="_blank" class="crab-btn"><i class="fab fa-itch-io"></i> Brave it on Itch.io</a>
+    </div>
+  `;
+}
+else if (gameKey === "colors") {
+  document.body.classList.add('pg-colors');
+  contentEl.innerHTML = `
+
+    <div class="colors-blend fade-up" aria-hidden="true">
+      <div class="colors-blend__blob colors-blend__blob--a"></div>
+      <div class="colors-blend__blob colors-blend__blob--b"></div>
+      <div class="colors-blend__blob colors-blend__blob--c"></div>
+    </div>
+
+    <div class="colors-intro fade-up">
+      <div class="colors-intro__tag">MY FIRST UNITY GAME EVER</div>
+      <p class="colors-intro__text" data-i18n="${game.i18n.description}"></p>
+    </div>
+
+    <div class="media-gallery colors-media fade-up">${mediaHTML}</div>
+
+    <div class="colors-mix fade-up">
+      <div class="colors-mix__title">MIX. MATCH. SOLVE.</div>
+      <div class="colors-mix__row">
+        <div class="colors-mix__swatch" style="background:#e63946"></div>
+        <div class="colors-mix__op">+</div>
+        <div class="colors-mix__swatch" style="background:#3d5ee2"></div>
+        <div class="colors-mix__op">=</div>
+        <div class="colors-mix__swatch colors-mix__swatch--result" style="background:#8b2fc9"></div>
+      </div>
+      <p class="colors-mix__desc">The whole game is built around one simple idea: combine colors to hit a target shade. No more, no less.</p>
+    </div>
+
+    <div class="colors-honest fade-up">
+      <div class="colors-honest__tag">A NOTE FROM THE PAST</div>
+      <p>Colors was the very first thing I ever finished in Unity, made before I had any idea what I was doing. It's rough, it's simple, and it's absolutely not representative of what I make now — but everything else on this site started because of it. Kept up here the way a first drawing stays on the fridge.</p>
+    </div>
+
+    <div class="colors-cta fade-up">
+      <p class="colors-cta__sub">Free, Android and PC only.</p>
+      <a href="https://39games.itch.io/colors" target="_blank" class="colors-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a>
+    </div>
+  `;
+}
+else if (gameKey === "moonbreaker") {
+  document.body.classList.add('pg-moonbreaker');
+  contentEl.innerHTML = `
+    
+    <div class="moonbreak-intro fade-up">
+      <div class="moonbreak-intro__tag">YEAR 2999</div>
+      <p class="moonbreak-intro__text" data-i18n="${game.i18n.description}"></p>
+    </div>
+
+    <div class="media-gallery moonbreak-media fade-up">${mediaHTML}</div>
+
+    <div class="moonbreak-brief fade-up">
+      <div class="moonbreak-brief__title">THE MISSION</div>
+      <div class="moonbreak-brief__grid">
+        <div class="moonbreak-brief-card">
+          <div class="moonbreak-brief-card__icon">🪐</div>
+          <div class="moonbreak-brief-card__title">FIND A PLANET</div>
+          <p>The green people want it. There's just one problem orbiting in the way.</p>
+        </div>
+        <div class="moonbreak-brief-card">
+          <div class="moonbreak-brief-card__icon">🌕</div>
+          <div class="moonbreak-brief-card__title">SPOT THE MOON</div>
+          <p>Every planet's got one, and every single one stands between you and conquest.</p>
+        </div>
+        <div class="moonbreak-brief-card">
+          <div class="moonbreak-brief-card__icon">💥</div>
+          <div class="moonbreak-brief-card__title">BREAK IT</div>
+          <p>Shoot it until it isn't there anymore. That's really the whole game.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="moonbreak-honest fade-up">
+      <div class="moonbreak-honest__tag">STRAIGHT FROM THE ITCH PAGE</div>
+      <p>Moonbreaker was thrown together in a few days for the Game Off 2020 game jam, and it has not aged well. It's short, it's rough, and even the original itch.io page tells you flat out not to download it. It's kept up here purely for the nostalgia of an old jam project — consider yourself warned.</p>
+    </div>
+
+    <div class="moonbreak-cta fade-up">
+      <p class="moonbreak-cta__sub">Free download, source code included, Windows only.</p>
+      <div class="moonbreak-cta__btns">
+        <a href="https://39games.itch.io/moonbreaker" target="_blank" class="moonbreak-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a>
+        <a href="https://github.com/ChocoFry/Moonbreaker" target="_blank" class="moonbreak-btn moonbreak-btn--outline"><i class="fab fa-github"></i> View the Source</a>
+      </div>
+    </div>
+  `;
+}
+else if (gameKey === "termiteswarm") {
+  document.body.classList.add('pg-termiteswarm');
+  let dots = '';
+  for (let i = 0; i < 18; i++) {
+    const angle = (i / 18) * 360;
+    const radius = 30 + (i % 3) * 12;
+    const d = (i * 0.15).toFixed(2);
+    dots += `<div class="termite-dot" style="--angle:${angle}deg;--radius:${radius}px;animation-delay:${d}s"></div>`;
+  }
+  contentEl.innerHTML = `
+
+
+    <div class="termite-intro fade-up">
+      <div class="termite-intro__tag">THE OBJECTIVE</div>
+      <p class="termite-intro__text" data-i18n="${game.i18n.description}"></p>
+    </div>
+
+    <div class="media-gallery termite-media fade-up">${mediaHTML}</div>
+
+    <div class="termite-brief fade-up">
+      <div class="termite-brief__title">HOW TO BULLY AN OLD MAN</div>
+      <div class="termite-brief__grid">
+        <div class="termite-brief-card">
+          <div class="termite-brief-card__icon">🌿</div>
+          <div class="termite-brief-card__title">EAT THE PLANTS</div>
+          <p>Chew through the greenery to grow your swarm. The bigger it gets, the scarier it looks.</p>
+        </div>
+        <div class="termite-brief-card">
+          <div class="termite-brief-card__icon">🏚️</div>
+          <div class="termite-brief-card__title">EAT THE CABIN</div>
+          <p>Once your swarm is big enough, start gnawing through the old man's home. He's still asleep.</p>
+        </div>
+        <div class="termite-brief-card">
+          <div class="termite-brief-card__icon">👴</div>
+          <div class="termite-brief-card__title">BITE HIM TO DEATH</div>
+          <p>Or something. The old man never really stood a chance against an entire swarm of termites.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="termite-honest fade-up">
+      <div class="termite-honest__tag">WHAT THIS ACTUALLY IS</div>
+      <p>Termite Swarm was made for the Brackeys Game Jam 2021.1, and it's exactly as silly as it sounds — control a growing termite swarm, eat everything in sight, and take down an old man in front of his cabin. It's short, it's a bit chaotic, and it hasn't been touched since. A weirdly satisfying little prototype.</p>
+    </div>
+
+    <div class="termite-cta fade-up">
+      <p class="termite-cta__sub">Free download, Windows only.</p>
+      <a href="https://39games.itch.io/termites" target="_blank" class="termite-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a>
     </div>
   `;
 }

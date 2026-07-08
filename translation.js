@@ -50,6 +50,9 @@ const translations = {
     "game-ros-title":            "Rulers of Serbia",
     "game-chum-title":           "Chum",
     "game-ohcrab-title":         "Oh Crab!",
+    "game-colors-title":         "Colors",
+    "game-moonbreaker-title":    "Moonbreaker",
+    "game-termiteswarm-title":   "Termite Swarm",
 
     /* ── GAME CARD SHORT DESCRIPTIONS ── */
     "game-foreigner-card-desc": "A dark beat-em-up RPG. Demo coming end of year.",
@@ -63,6 +66,9 @@ const translations = {
     "game-ros-card-desc":       "A top-down adventure through a slice of medieval Serbian history.",
     "game-chum-card-desc":      "A 1v1 turn-based card game. Discontinued, still downloadable.",
     "game-ohcrab-card-desc":    "My very first finished game. A rough crab-themed tower defense.",
+    "game-colors-card-desc":    "My very first Unity project ever. A rough little puzzle about mixing colors.",
+    "game-moonbreaker-card-desc": "A short, very bad Game Off 2020 jam entry about shooting moons.",
+    "game-termiteswarm-card-desc": "A Brackeys jam prototype about a termite swarm bullying an old man.",
 
     /* ── GAME PAGE FULL DESCRIPTIONS ── */
     "game-dread-desc1": `<br><br>
@@ -94,6 +100,12 @@ const translations = {
     "game-chum-desc": "Chum is a 1v1 turn-based card game for two. On your turn, crack open a chest for a random item, or attack with something you're already holding. Whoever runs their opponent's health down first wins.",
 
     "game-ohcrab-desc": "Oh Crab! is a very old, very rough tower defense game about crustaceans, made for one of my first game jams — back when I was just starting to learn Pygame. It's not good, and that's kind of the point of keeping it around.",
+
+    "game-colors-desc": "Colors is a small puzzle game about mixing colors to match a target shade, and it also happens to be the very first project I ever finished in Unity. It's rough, simple, and honestly kind of horrible — but it's the game that started everything else on this site. Available for Android and PC.",
+
+    "game-moonbreaker-desc": "In the year 2999, the green people discovered that planets have moons — and moons make conquering those planets a whole lot harder. So it's your job to blow them up. Made in a few days for the Game Off 2020 game jam, Moonbreaker is short, rough, and not exactly a highlight of the catalog, but it's still here for the sake of history.",
+
+    "game-termiteswarm-desc": "You control a swarm of termites whose only goal in life is to bully an old man sleeping in front of his cabin. Eat enough plants to grow your swarm, chew through his cabin, then bite him to death or something. Made for the Brackeys Game Jam 2021.1, it's a small, chaotic prototype and exactly as ridiculous as it sounds.",
 
     /* ── BEATS LIBRARY ── */
     "beats-title":    "My Discography",
@@ -218,6 +230,9 @@ const translations = {
     "game-ros-title":            "Rulers of Serbia",
     "game-chum-title":           "Chum",
     "game-ohcrab-title":         "Oh Crab!",
+    "game-colors-title":         "Colors",
+    "game-moonbreaker-title":    "Moonbreaker",
+    "game-termiteswarm-title":   "Termite Swarm",
 
     /* ── KRATKI OPISI KARTI ── */
     "game-foreigner-card-desc": "Tamni beat-em-up RPG. Demo krajem godine.",
@@ -231,6 +246,9 @@ const translations = {
     "game-ros-card-desc":       "Avantura odozgo kroz jedan deo srpske srednjovekovne istorije.",
     "game-chum-card-desc":      "Potezna kartaška igra 1 na 1. Ukinuta, i dalje dostupna za preuzimanje.",
     "game-ohcrab-card-desc":    "Moja prva ikad završena igra. Grubo urađena tower defense igra o rakovima.",
+    "game-colors-card-desc":    "Moj prvi Unity projekat ikad. Grubo urađena mala slagalica o mešanju boja.",
+    "game-moonbreaker-card-desc": "Kratak, vrlo loš jam projekat sa Game Off 2020 o pucanju u mesece.",
+    "game-termiteswarm-card-desc": "Brackeys jam prototip o roju termita koji maltretira starca.",
 
     /* ── PUNI OPISI STRANICA IGARA ── */
     "game-dread-desc1": `<br><br>
@@ -262,6 +280,12 @@ const translations = {
     "game-chum-desc": "Chum je potezna kartaška igra 1 na 1, za dva igrača. Na svom potezu, otvori sanduk za nasumičan predmet, ili napadni nečim što već imaš u ruci. Pobeđuje onaj ko prvi obori protivnikovo zdravlje na nulu.",
 
     "game-ohcrab-desc": "Oh Crab! je vrlo stara i vrlo gruba tower defense igra o rakovima, napravljena za jedan od mojih prvih game jamova — kada sam tek počinjao da učim Pygame. Nije dobra, i to je donekle poenta zašto je i dalje čuvam.",
+
+    "game-colors-desc": "Colors je mala slagalica o mešanju boja da bi se pogodila ciljna nijansa, i ujedno je prvi projekat koji sam ikada završio u Unity-ju. Grub je, jednostavan i iskreno pomalo užasan — ali je igra od koje je sve ostalo na ovom sajtu i krenulo. Dostupno za Android, besplatno za preuzimanje.",
+
+    "game-moonbreaker-desc": "Godine 2999. zeleni ljudi su otkrili da planete imaju mesece — a meseci znatno otežavaju osvajanje tih planeta. Zato je tvoj posao da ih razneseš. Napravljen za par dana za Game Off 2020 game jam, Moonbreaker je kratak, grub i nikako vrhunac kataloga, ali je i dalje ovde radi istorije.",
+
+    "game-termiteswarm-desc": "Kontrolišeš roj termita čiji je jedini cilj u životu da maltretira starca koji spava ispred svoje kolibe. Pojedi dovoljno biljaka da uvećaš roj, progrizi mu kolibu, pa ga ugrizi na smrt ili tako nešto. Napravljena za Brackeys Game Jam 2021.1, ovo je mali, haotičan prototip i tačno onoliko smešna koliko zvuči.",
 
     /* ── BIBLIOTEKA BITOVA ── */
     "beats-title":   "Moja Diskografija",
