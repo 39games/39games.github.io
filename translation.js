@@ -53,6 +53,7 @@ const translations = {
     "game-colors-title":         "Colors",
     "game-moonbreaker-title":    "Moonbreaker",
     "game-termiteswarm-title":   "Termite Swarm",
+    "game-rng-title":            "RNG",
 
     /* ── GAME CARD SHORT DESCRIPTIONS ── */
     "game-foreigner-card-desc": "A dark beat-em-up RPG. Demo coming end of year.",
@@ -69,6 +70,7 @@ const translations = {
     "game-colors-card-desc":    "My very first Unity project ever. A rough little puzzle about mixing colors.",
     "game-moonbreaker-card-desc": "A short, very bad Game Off 2020 jam entry about shooting moons.",
     "game-termiteswarm-card-desc": "A Brackeys jam prototype about a termite swarm bullying an old man.",
+    "game-rng-card-desc": "A Brackeys jam game where absolutely everything — gun color, size, damage — is random.",
 
     /* ── GAME PAGE FULL DESCRIPTIONS ── */
     "game-dread-desc1": `<br><br>
@@ -106,6 +108,8 @@ const translations = {
     "game-moonbreaker-desc": "In the year 2999, the green people discovered that planets have moons — and moons make conquering those planets a whole lot harder. So it's your job to blow them up. Made in a few days for the Game Off 2020 game jam, Moonbreaker is short, rough, and not exactly a highlight of the catalog, but it's still here for the sake of history.",
 
     "game-termiteswarm-desc": "You control a swarm of termites whose only goal in life is to bully an old man sleeping in front of his cabin. Eat enough plants to grow your swarm, chew through his cabin, then bite him to death or something. Made for the Brackeys Game Jam 2021.1, it's a small, chaotic prototype and exactly as ridiculous as it sounds.",
+
+    "game-rng-desc": "RNG takes its name literally: gun color, player size, damage — even things that probably shouldn't be random are random. Made in one week for the Brackeys Game Jam 2021.2, it's a chaotic, unbalanced-on-purpose top-down shooter prototype kept around for the sake of a good bit.",
 
     /* ── BEATS LIBRARY ── */
     "beats-title":    "My Discography",
@@ -233,6 +237,7 @@ const translations = {
     "game-colors-title":         "Colors",
     "game-moonbreaker-title":    "Moonbreaker",
     "game-termiteswarm-title":   "Termite Swarm",
+    "game-rng-title":            "RNG",
 
     /* ── KRATKI OPISI KARTI ── */
     "game-foreigner-card-desc": "Tamni beat-em-up RPG. Demo krajem godine.",
@@ -249,6 +254,7 @@ const translations = {
     "game-colors-card-desc":    "Moj prvi Unity projekat ikad. Grubo urađena mala slagalica o mešanju boja.",
     "game-moonbreaker-card-desc": "Kratak, vrlo loš jam projekat sa Game Off 2020 o pucanju u mesece.",
     "game-termiteswarm-card-desc": "Brackeys jam prototip o roju termita koji maltretira starca.",
+    "game-rng-card-desc": "Brackeys jam igra u kojoj je bukvalno sve — boja pištolja, veličina, damage — nasumično.",
 
     /* ── PUNI OPISI STRANICA IGARA ── */
     "game-dread-desc1": `<br><br>
@@ -286,6 +292,8 @@ const translations = {
     "game-moonbreaker-desc": "Godine 2999. zeleni ljudi su otkrili da planete imaju mesece — a meseci znatno otežavaju osvajanje tih planeta. Zato je tvoj posao da ih razneseš. Napravljen za par dana za Game Off 2020 game jam, Moonbreaker je kratak, grub i nikako vrhunac kataloga, ali je i dalje ovde radi istorije.",
 
     "game-termiteswarm-desc": "Kontrolišeš roj termita čiji je jedini cilj u životu da maltretira starca koji spava ispred svoje kolibe. Pojedi dovoljno biljaka da uvećaš roj, progrizi mu kolibu, pa ga ugrizi na smrt ili tako nešto. Napravljena za Brackeys Game Jam 2021.1, ovo je mali, haotičan prototip i tačno onoliko smešna koliko zvuči.",
+
+    "game-rng-desc": "RNG shvata svoje ime bukvalno: boja pištolja, veličina igrača, damage — čak i stvari koje verovatno ne bi trebalo da budu nasumične, jesu. Napravljena za nedelju dana za Brackeys Game Jam 2021.2, ovo je haotičan, namerno nebalansiran top-down shooter prototip koji je ostao ovde radi dobrog vica.",
 
     /* ── BIBLIOTEKA BITOVA ── */
     "beats-title":   "Moja Diskografija",

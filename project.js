@@ -207,6 +207,17 @@ const projectsData = {
     links: { itch: "https://39games.itch.io/termites" },
     dates: { start: "2021-02", end: "2021-02" },
     i18n: { title: "game-termiteswarm-title", description: "game-termiteswarm-desc", cardDesc: "game-termiteswarm-card-desc" }
+  },
+  "rng": {
+    status: "DEMO",
+    cardImg: "../images/games/game16.png",
+    tags: ["Game", "Shooter", "Top-Down", "Game Jam", "2D", "Pixel Art", "Unity", "C#"],
+    logo: "../images/logos/rng.png",
+    header: { background: "../images/headers/rng-bg.png", accent: "#00e5ff", class: "header-rng" },
+    media: [],
+    links: { itch: "https://39games.itch.io/rng" },
+    dates: { start: "2021-08", end: "2021-08" },
+    i18n: { title: "game-rng-title", description: "game-rng-desc", cardDesc: "game-rng-card-desc" }
   }
 };
 
@@ -1206,6 +1217,25 @@ else if (gameKey === "termiteswarm") {
     <div class="termite-cta fade-up">
       <p class="termite-cta__sub">Free download, Windows only.</p>
       <a href="https://39games.itch.io/termites" target="_blank" class="termite-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a>
+    </div>
+  `;
+}
+else if (gameKey === "rng") {
+  document.body.classList.add('pg-rng');
+  contentEl.innerHTML = `
+
+    <div class="rng-intro fade-up">
+      <p class="rng-intro__text" data-i18n="${game.i18n.description}"></p>
+    </div>
+
+    <div class="rng-honest fade-up">
+      <div class="rng-honest__tag">A NOTE FROM THE PAST</div>
+      <p>RNG was made in one week for the Brackeys Game Jam 2021.2, built around taking the word "random" as literally as possible — gun color, player size, damage, all rolled on the spot. It's chaotic, unbalanced on purpose, and not meant to be taken seriously. A weird little jam experiment kept up for the memories.</p>
+    </div>
+
+    <div class="rng-cta fade-up">
+      <p class="rng-cta__sub">Free download, Windows only.</p>
+      <a href="https://39games.itch.io/rng" target="_blank" class="rng-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a>
     </div>
   `;
 }
