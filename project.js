@@ -55,7 +55,7 @@ const projectsData = {
     }
   },
   "dread": {
-    status: "IN DEVELOPMENT",
+    status: "PAUSED",
     cardImg: "../images/games/game1.png",
     tags: ["Game", "Horror", "Multiplayer", "Unity", "C#", "Blender", "3D", "Servers"],
     logo: "../images/logos/dread.png",
@@ -77,7 +77,7 @@ const projectsData = {
     i18n: { title: "game-nutriasoulrush-title", description: "game-nutriasoulrush-desc", cardDesc: "game-nsr-desc" }
   },
   "themoon": {
-    status: "IN DEVELOPMENT",
+    status: "PAUSED",
     cardImg: "../images/games/game3.png",
     tags: ["Game", "Atmospheric", "3D", "Unity", "C#", "Blender"],
     logo: "../images/logos/moon.png",
@@ -218,6 +218,17 @@ const projectsData = {
     links: { itch: "https://39games.itch.io/rng" },
     dates: { start: "2021-08", end: "2021-08" },
     i18n: { title: "game-rng-title", description: "game-rng-desc", cardDesc: "game-rng-card-desc" }
+  },
+  "stepwarriors": {
+    status: "PAUSED",
+    cardImg: "../images/games/game8.png",
+    tags: ["Game", "RPG", "Mobile", "Android", "Walking", "Turn-Based", "PvP", "Unity", "C#", "3D", "Blender", "Multiplayer", "1v1", "Fitness", "Game Jam"],
+    logo: "../images/logos/stepwarriors.png",
+    header: { background: "../images/headers/stepwarriors-bg.png", accent: "#5ecb3d", class: "header-stepwarriors" },
+    media: [],
+    links: { itch: "https://39games.itch.io/step-warriors" },
+    dates: { start: "2026-01", end: "" },
+    i18n: { title: "game-stepwarriors-title", description: "game-stepwarriors-desc", cardDesc: "game-stepwarriors-card-desc" }
   }
 };
 
@@ -227,7 +238,8 @@ const projectsData = {
 const STATUS_META = {
   "IN DEVELOPMENT": { cls: "dev",      i18n: "tag-dev" },
   "RELEASED":       { cls: "released", i18n: "tag-released" },
-  "DEMO":           { cls: "demo",     i18n: "tag-demo" }
+  "DEMO":           { cls: "demo",     i18n: "tag-demo" },
+  "PAUSED":           { cls: "paused",     i18n: "tag-paused" }
 };
 
 function getStatusMeta(status) {
@@ -1238,6 +1250,78 @@ else if (gameKey === "rng") {
       <a href="https://39games.itch.io/rng" target="_blank" class="rng-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a>
     </div>
   `;
+}
+else if (gameKey === "stepwarriors") {
+  document.body.classList.add('pg-stepwarriors');
+  contentEl.innerHTML = `
+    <div class="sw-status fade">
+      <div class="sw-status__dot"></div>
+      <div class="sw-status__text">
+        <strong>IN DEVELOPMENT</strong> &nbsp;·&nbsp;
+        <strong>Made for the mts app konkurs</strong> &nbsp;·&nbsp;
+        <strong>Walking RPG</strong> &nbsp;·&nbsp; <strong>Unity · Android</strong>
+      </div>
+    </div>
+
+    <div class="sw-hero fade-up">
+      <div class="sw-hero__trail" aria-hidden="true">
+        <img src="../images/stepwarriors/foot-plain.png" alt="">
+        <img src="../images/stepwarriors/foot-plain.png" alt="">
+        <img src="../images/stepwarriors/foot-plain.png" alt="">
+        <img src="../images/stepwarriors/foot-plain.png" alt="">
+      </div>
+      <h2 class="sw-hero__tagline">Walk in real life.<br>Collect cursed feet.<br>Destroy your enemies.</h2>
+      <p class="sw-hero__sub" data-i18n="${game.i18n.description}"></p>
+    </div>
+
+    <div class="sw-hud fade-up">
+      <div class="sw-hud-cell"><div class="sw-hud-label">STEPS TODAY</div><div class="sw-hud-val">???</div></div>
+      <div class="sw-hud-cell"><div class="sw-hud-label">PLATFORM</div><div class="sw-hud-val">ANDROID</div></div>
+      <div class="sw-hud-cell"><div class="sw-hud-label">MODE</div><div class="sw-hud-val">ONLINE PVP</div></div>
+      <div class="sw-hud-cell"><div class="sw-hud-label">STATUS</div><div class="sw-hud-val sw-hud-live">● PROTOTYPE</div></div>
+    </div>
+
+    <div class="media-gallery sw-media fade">${mediaHTML || '<div class="sw-no-media">[ NO FOOTAGE YET — GO OUTSIDE AND WALK INSTEAD ]</div>'}</div>
+
+    <div class="sw-features fade-up">
+      <div class="sw-features__title">HOW IT WORKS</div>
+      <div class="sw-features__grid">
+        <div class="sw-feature-card"><div class="sw-feature-card__icon">🌍</div><div class="sw-feature-card__title">REAL WORLD BATTLES</div><p>Walk around in real life to uncover battles and boss fights scattered across an actual map.</p></div>
+        <div class="sw-feature-card"><div class="sw-feature-card__icon">⚔️</div><div class="sw-feature-card__title">TURN-BASED COMBAT</div><p>Build a team of feet and take down enemy feet using different attacks and strategies.</p></div>
+        <div class="sw-feature-card"><div class="sw-feature-card__icon">📦</div><div class="sw-feature-card__title">UNLOCK RARE FEET</div><p>Earn currency from walking and battles to crack open boxes and unlock stronger, weirder foot warriors.</p></div>
+        <div class="sw-feature-card"><div class="sw-feature-card__icon">👥</div><div class="sw-feature-card__title">ONLINE PVP</div><p>Fight real players with automatic matchmaking and player-hosted servers.</p></div>
+      </div>
+    </div>
+
+    <div class="sw-sprites fade-up">
+      <div class="sw-sprites__title">MEET THE FEET</div>
+      <div class="sw-sprites__row">
+        <div class="sw-sprite-card"><div class="sw-sprite-box"><img src="../images/stepwarriors/foot-bigfoot.png" alt="Bigfoot"></div><span class="sw-sprite-card__label">BIGFOOT</span></div>
+        <div class="sw-sprite-card"><div class="sw-sprite-box"><img src="../images/stepwarriors/foot-king.png" alt="Foot King"></div><span class="sw-sprite-card__label">FOOT KING</span></div>
+        <div class="sw-sprite-card"><div class="sw-sprite-box"><img src="../images/stepwarriors/foot-pirate.png" alt="Foot Pirate"></div><span class="sw-sprite-card__label">FOOT PIRATE</span></div>
+        <div class="sw-sprite-card"><div class="sw-sprite-box"><img src="../images/stepwarriors/foot-wizard.png" alt="Foot Wizard"></div><span class="sw-sprite-card__label">FOOT WIZARD</span></div>
+      </div>
+    </div>
+
+    <div class="sw-honest fade-up">
+      <div class="sw-honest__tag">WHY THIS EXISTS</div>
+      <p>Step Warriors was built for the <strong>mts app konkurs</strong> — a mobile app development competition run by Telekom Srbija for high school students specializing in math and computer science, judged on originality and technical complexity. Made by two friends who asked one simple question: what if Pokémon GO was about violent foot combat? It isn't released anywhere yet, but it should be soon.</p>
+    </div>
+
+    <div class="sw-cta fade-up">
+      <p class="sw-cta__sub">Not out anywhere yet — but you can follow along.</p>
+      <a href="https://39games.itch.io/step-warriors" target="_blank" class="sw-btn"><i class="fab fa-itch-io"></i> View it on Itch.io</a>
+    </div>
+  `;
+
+  const swCounterEl = document.getElementById('swStepCounter');
+  if (swCounterEl) {
+    let swSteps = 0;
+    setInterval(() => {
+      swSteps += Math.floor(Math.random() * 3) + 1;
+      swCounterEl.textContent = String(swSteps).padStart(4, '0');
+    }, 400);
+  }
 }
 else {
       contentEl.innerHTML = `

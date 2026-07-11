@@ -54,6 +54,7 @@ const translations = {
     "game-moonbreaker-title":    "Moonbreaker",
     "game-termiteswarm-title":   "Termite Swarm",
     "game-rng-title":            "RNG",
+    "game-stepwarriors-title":   "Step Warriors",
 
     /* ── GAME CARD SHORT DESCRIPTIONS ── */
     "game-foreigner-card-desc": "A dark beat-em-up RPG. Demo coming end of year.",
@@ -71,6 +72,7 @@ const translations = {
     "game-moonbreaker-card-desc": "A short, very bad Game Off 2020 jam entry about shooting moons.",
     "game-termiteswarm-card-desc": "A Brackeys jam prototype about a termite swarm bullying an old man.",
     "game-rng-card-desc": "A Brackeys jam game where absolutely everything — gun color, size, damage — is random.",
+    "game-stepwarriors-card-desc": "A turn-based walking RPG made for the mts app konkurs — walk in real life to fight cursed feet.",
 
     /* ── GAME PAGE FULL DESCRIPTIONS ── */
     "game-dread-desc1": `<br><br>
@@ -110,6 +112,8 @@ const translations = {
     "game-termiteswarm-desc": "You control a swarm of termites whose only goal in life is to bully an old man sleeping in front of his cabin. Eat enough plants to grow your swarm, chew through his cabin, then bite him to death or something. Made for the Brackeys Game Jam 2021.1, it's a small, chaotic prototype and exactly as ridiculous as it sounds.",
 
     "game-rng-desc": "RNG takes its name literally: gun color, player size, damage — even things that probably shouldn't be random are random. Made in one week for the Brackeys Game Jam 2021.2, it's a chaotic, unbalanced-on-purpose top-down shooter prototype kept around for the sake of a good bit.",
+
+    "game-stepwarriors-desc": "Step Warriors is a turn-based idle RPG that forces you to actually walk. Roam around in real life to stumble into battles and boss fights placed on a real-world map, earn currency to unlock stranger and rarer foot warriors, build a team, and fight other players online. Made for the mts app konkurs by two friends who wondered what Pokémon GO would look like if it were about violent foot combat.",
 
     /* ── BEATS LIBRARY ── */
     "beats-title":    "My Discography",
@@ -153,7 +157,7 @@ const translations = {
     "about-block-music":        "I also run <strong>39 Beats</strong>, a music project focused on dark, atmospheric hip-hop production. Music heavily influences the pacing, mood, and feel of everything I build.",
     "about-block-freelance-title": "Freelance",
     "about-block-freelance":    "Worked with clients worldwide via Fiverr and Upwork on prototypes, full releases, and system refactors — all 5-star rated across every engagement.",
-    "stat-games-num":           "6+",
+    "stat-games-num":           "4",
     "stat-games-label":         "Games shipped",
     "stat-rating-label":        "Freelance rating",
     "stat-beats-label":         "Streaming releases",
@@ -238,6 +242,7 @@ const translations = {
     "game-moonbreaker-title":    "Moonbreaker",
     "game-termiteswarm-title":   "Termite Swarm",
     "game-rng-title":            "RNG",
+    "game-stepwarriors-title":   "Step Warriors",
 
     /* ── KRATKI OPISI KARTI ── */
     "game-foreigner-card-desc": "Tamni beat-em-up RPG. Demo krajem godine.",
@@ -255,6 +260,7 @@ const translations = {
     "game-moonbreaker-card-desc": "Kratak, vrlo loš jam projekat sa Game Off 2020 o pucanju u mesece.",
     "game-termiteswarm-card-desc": "Brackeys jam prototip o roju termita koji maltretira starca.",
     "game-rng-card-desc": "Brackeys jam igra u kojoj je bukvalno sve — boja pištolja, veličina, damage — nasumično.",
+    "game-stepwarriors-card-desc": "Potezni šetački RPG napravljen za mts app konkurs — hodaj u stvarnom životu da bi se borio protiv prokletih stopala.",
 
     /* ── PUNI OPISI STRANICA IGARA ── */
     "game-dread-desc1": `<br><br>
@@ -294,6 +300,8 @@ const translations = {
     "game-termiteswarm-desc": "Kontrolišeš roj termita čiji je jedini cilj u životu da maltretira starca koji spava ispred svoje kolibe. Pojedi dovoljno biljaka da uvećaš roj, progrizi mu kolibu, pa ga ugrizi na smrt ili tako nešto. Napravljena za Brackeys Game Jam 2021.1, ovo je mali, haotičan prototip i tačno onoliko smešna koliko zvuči.",
 
     "game-rng-desc": "RNG shvata svoje ime bukvalno: boja pištolja, veličina igrača, damage — čak i stvari koje verovatno ne bi trebalo da budu nasumične, jesu. Napravljena za nedelju dana za Brackeys Game Jam 2021.2, ovo je haotičan, namerno nebalansiran top-down shooter prototip koji je ostao ovde radi dobrog vica.",
+
+    "game-stepwarriors-desc": "Step Warriors je potezni idle RPG koji te tera da zaista hodaš. Šetaj se u stvarnom životu da bi naišao na bitke i borbe sa šefovima postavljene na pravoj mapi, zarađuj valutu da otključaš čudnija i ređa stopala-ratnike, sastavi tim i bori se protiv drugih igrača onlajn. Napravljen za mts app konkurs od strane dvojice prijatelja koji su se zapitali kako bi izgledao Pokémon GO kada bi se radio o nasilnim borbama stopala.",
 
     /* ── BIBLIOTEKA BITOVA ── */
     "beats-title":   "Moja Diskografija",
@@ -337,7 +345,7 @@ const translations = {
     "about-block-music":           "Vodim i <strong>39 Beats</strong>, muzički projekat fokusiran na tamnu, atmosferičnu hip-hop produkciju. Muzika uveliko utiče na tempo, raspoloženje i osećaj svega što pravim.",
     "about-block-freelance-title": "Freelance",
     "about-block-freelance":       "Radio sam sa klijentima širom sveta putem Fiverr-a i Upwork-a na prototipovima, punim verzijama i refaktorisanju sistema — sve sa ocenom 5 zvezdica.",
-    "stat-games-num":              "6+",
+    "stat-games-num":              "4+",
     "stat-games-label":            "Igrica objavljeno",
     "stat-rating-label":           "Freelance ocena",
     "stat-beats-label":            "Izdanja na strimingu",

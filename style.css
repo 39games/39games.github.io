@@ -3649,6 +3649,15 @@ body.pg-oa .game-logo { filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.35));}
               0 0 40px rgba(0, 255, 120, 0.5);
 }
 
+.game-card.paused {
+  box-shadow: 0 0 12px rgba(3, 115, 190, 0.6),
+              0 0 25px rgba(2, 51, 136, 0.3);
+}
+.game-card.paused:hover {
+  box-shadow: 0 0 20px rgba(0, 225, 255, 0.9),
+              0 0 40px rgba(1, 118, 133, 0.5);
+}
+
 /* ⚪ DEMO */
 .game-card.demo {
   box-shadow: 0 0 12px rgba(170, 170, 180, 0.6),
@@ -3685,7 +3694,7 @@ body.pg-oa .game-logo { filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.35));}
 }
 
 .game-card.released .game-tag {
-  background: rgba(0, 255, 120, 0.15);
+  background: rgba(0, 255, 119, 0.585);
   color: #00ff88;
   border: 1px solid rgba(0, 255, 120, 0.4);
   box-shadow: 0 0 8px rgba(0, 255, 120, 0.6);
@@ -3696,6 +3705,13 @@ body.pg-oa .game-logo { filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.35));}
   color: #c4c4cc;
   border: 1px solid rgba(180, 180, 190, 0.4);
   box-shadow: 0 0 8px rgba(180, 180, 190, 0.5);
+}
+
+.game-card.paused .game-tag {
+  background: rgba(7, 137, 126, 0.484);
+  color: #13dad0;
+  border: 1px solid rgba(20, 219, 195, 0.4);
+  box-shadow: 0 0 8px rgba(4, 219, 219, 0.5);
 }
 /* ================================================================
    SALESMEN — Page Styles
@@ -7388,4 +7404,298 @@ font-weight:600;
 }
 
 
+}
+
+
+/* ================================================================
+   STEP WARRIORS — cartoony sticker style, walking RPG
+   Made for the mts app konkurs
+================================================================ */
+@font-face {
+  font-family: 'SuperCroissant';
+  src: url('../fonts/Super Croissant.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --sw-green: #5ecb3d;
+  --sw-green-dark: #2c6b1c;
+  --sw-ink: #0a0a0a;
+  --sw-cream: #f4ecd1;
+  --sw-red: #e42313;
+  --sw-red-dark: #a10d0d;
+  --font-sw: 'SuperCroissant', 'Poppins', sans-serif;
+}
+
+/* Whole-page background: the header art, tiled small and darkened,
+   sitting behind everything on the page */
+body.pg-stepwarriors {
+  position: relative;
+  background-color: #0e1a0c;
+}
+body.pg-stepwarriors::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url('../images/stepwarriors/bg.png');
+  background-repeat: repeat;
+  background-size: 320px 320px;
+  filter: brightness(0.4) saturate(0.85);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* ---- HEADER ---- */
+.header-stepwarriors .project-title {
+  font-family: var(--font-sw);
+  font-size: clamp(40px, 6vw, 88px);
+  letter-spacing: 2px;
+  color: var(--sw-green);
+  -webkit-text-stroke: 3px var(--sw-ink);
+  paint-order: stroke fill;
+  text-shadow: 4px 4px 0 var(--sw-ink);
+}
+
+/* ---- STATUS BAR ---- */
+.sw-status {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 40px 0 20px;
+  padding: 16px 28px;
+  background: var(--sw-red);
+  border: 5px solid var(--sw-ink);
+  border-radius: 40px;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.35);
+  position: relative;
+  overflow: hidden;
+}
+.sw-status__dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--sw-ink);
+  animation: swblink 1.5s ease-in-out infinite;
+  flex-shrink: 0;
+}
+@keyframes swblink { 0%,100% { opacity: 1; } 50% { opacity: 0.25; } }
+.sw-status__text { font-size: 15px; color: rgba(255,255,255,0.9); }
+.sw-status__text strong { color: #fff; font-family: var(--font-sw); letter-spacing: 0.5px; }
+
+/* ---- HERO TAGLINE ---- */
+.sw-hero { position: relative; text-align: center; padding: 50px 5% 30px; }
+.sw-hero__trail { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.sw-hero__trail img {
+  position: absolute;
+  width: 60px;
+  opacity: 0.7;
+  filter: drop-shadow(3px 3px 0 rgba(0,0,0,0.4));
+}
+.sw-hero__trail img:nth-child(1) { top: 8%;  left: 5%;  transform: rotate(-18deg); }
+.sw-hero__trail img:nth-child(2) { top: 42%; left: 13%; transform: rotate(10deg) scaleX(-1); }
+.sw-hero__trail img:nth-child(3) { top: 12%; right: 7%; transform: rotate(15deg) scaleX(-1); }
+.sw-hero__trail img:nth-child(4) { top: 46%; right: 15%; transform: rotate(-12deg); }
+.sw-hero__tagline {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-sw);
+  font-size: clamp(26px, 4vw, 46px);
+  line-height: 1.3;
+  color: var(--sw-green);
+  -webkit-text-stroke: 2px var(--sw-ink);
+  paint-order: stroke fill;
+  text-shadow: 3px 3px 0 var(--sw-ink);
+  margin-bottom: 20px;
+}
+.sw-hero__sub {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  margin: 0 auto;
+  color: rgba(255,255,255,0.75);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+/* ---- HUD STRIP ---- */
+.sw-hud {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin: 40px 0;
+}
+.sw-hud-cell {
+  background: var(--sw-red);
+  border: 5px solid var(--sw-ink);
+  border-radius: 14px;
+  padding: 16px 14px;
+  text-align: center;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.35);
+  position: relative;
+  overflow: hidden;
+}
+.sw-hud-label { font-size: 11px; letter-spacing: 2px; color: rgba(255,255,255,0.65); margin-bottom: 8px; font-weight: 700; }
+.sw-hud-val { font-family: var(--font-sw); font-size: 22px; color: #fff; letter-spacing: 1px; }
+.sw-hud-live { color: #ffe27a; }
+
+.sw-no-media {
+  text-align: center;
+  padding: 60px 20px;
+  border: 3px dashed var(--sw-ink);
+  border-radius: 16px;
+  background: rgba(244,236,209,0.06);
+  color: rgba(255,255,255,0.55);
+  font-family: var(--font-sw);
+  letter-spacing: 1px;
+  font-size: 18px;
+}
+
+/* ---- FEATURES ---- */
+.sw-features { margin: 70px 0; }
+.sw-features__title {
+  font-family: var(--font-sw);
+  font-size: clamp(20px, 2.6vw, 30px);
+  color: var(--sw-green);
+  text-align: center;
+  margin-bottom: 36px;
+  letter-spacing: 2px;
+  -webkit-text-stroke: 2px var(--sw-ink);
+  paint-order: stroke fill;
+}
+.sw-features__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+.sw-feature-card {
+  background: var(--sw-red);
+  border: 5px solid var(--sw-ink);
+  border-radius: 18px;
+  padding: 26px 22px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.32);
+}
+.sw-feature-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 9px 9px 0 rgba(0,0,0,0.32);
+}
+.sw-feature-card__icon { font-size: 32px; margin-bottom: 14px; display: block; }
+.sw-feature-card__title { font-family: var(--font-sw); font-size: 19px; color: #fff; margin-bottom: 10px; letter-spacing: 1px; }
+.sw-feature-card p { font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.6; }
+
+/* ---- SPRITE SHOWCASE ---- */
+.sw-sprites { margin: 70px 0; text-align: center; }
+.sw-sprites__title {
+  font-family: var(--font-sw);
+  font-size: clamp(18px, 2.2vw, 26px);
+  color: var(--sw-green);
+  margin-bottom: 40px;
+  letter-spacing: 2px;
+  -webkit-text-stroke: 1.8px var(--sw-ink);
+  paint-order: stroke fill;
+}
+.sw-sprites__row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.sw-sprite-card { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.sw-sprite-box {
+  width: 160px;
+  height: 160px;
+  background-image: url('../images/stepwarriors/button_square.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.15s ease;
+}
+.sw-sprite-box:hover {
+  transform: translate(-3px, -3px) rotate(-3deg);
+}
+.sw-sprite-card img {
+  height: 120px;
+  width: auto;
+  object-fit: contain;
+}
+.sw-sprite-card__label {
+  font-family: var(--font-sw);
+  font-size: 15px;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.7);
+  text-transform: uppercase;
+}
+
+/* ---- HONEST NOTE ---- */
+.sw-honest {
+  margin: 60px 0;
+  padding: 30px 34px;
+  background: var(--sw-red);
+  border: 5px solid var(--sw-ink);
+  border-radius: 18px;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.32);
+  position: relative;
+  overflow: hidden;
+}
+.sw-honest__tag { font-family: var(--font-sw); font-size: 13px; letter-spacing: 2px; color: #fff; margin-bottom: 14px; }
+.sw-honest p { color: rgba(255,255,255,0.9); line-height: 1.8; font-size: 15px; }
+.sw-honest strong { color: #ffe27a; }
+
+/* Glossy corner highlight, echoing button.png's shine, on all the red sticker boxes */
+.sw-status::before,
+.sw-hud-cell::before,
+.sw-feature-card::before,
+.sw-honest::before {
+}
+.sw-status::after,
+.sw-hud-cell::after,
+.sw-feature-card::after,
+.sw-honest::after {
+}
+
+/* ---- CTA ---- */
+.sw-cta { text-align: center; margin: 70px 0 40px; }
+.sw-cta__sub { color: rgba(255,255,255,0.55); margin-bottom: 22px; font-size: 14px; }
+.sw-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sw);
+  font-size: 16px;
+  letter-spacing: 1px;
+  color: #fff;
+  text-decoration: none;
+  padding: 0 34px;
+  height: 74px;
+  background-image: url('../images/stepwarriors/button.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  border: none;
+  transition: transform 0.15s ease;
+}
+.sw-btn:hover {
+  transform: scale(1.06) rotate(-1deg);
+}
+.sw-btn i { font-size: 20px; }
+
+/* ---- RESPONSIVE ---- */
+@media (max-width: 768px) {
+  .sw-hud { grid-template-columns: repeat(2, 1fr); }
+  .sw-features__grid { grid-template-columns: 1fr 1fr; }
+  .sw-sprite-box { width: 110px; height: 110px; }
+  .sw-sprite-card img { height: 80px; }
+  .sw-status { flex-direction: column; text-align: center; }
+  .sw-hero__trail img { width: 40px; }
+  body.pg-stepwarriors::before { background-size: 200px 200px; }
+}
+@media (max-width: 480px) {
+  .sw-features__grid { grid-template-columns: 1fr; }
 }
