@@ -53,6 +53,22 @@
     <section class="project-content" id="projectContent"></section>
 </main>
 
+<section id="contact">
+    <div class="section-title">
+        <h2 data-i18n="contactbtn">Contact</h2>
+        <p data-i18n="contact-desc">Let's build something</p>
+    </div>
+    <div class="contact-box">
+        <form id="contactForm">
+            <input type="text" name="user_name" data-i18n="contact-name" placeholder="Your Name" required />
+            <input type="email" name="user_email" data-i18n="contact-email" placeholder="Your Email" required />
+            <textarea name="message" rows="5" data-i18n="contact-message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn" data-i18n="contact-send">Send</button>
+        </form>
+        <div id="formStatus"></div>
+    </div>
+</section>
+
 <footer>
     <div class="socials games-only">
         <a class="social-btn" href="https://www.youtube.com/@39Gamess" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
