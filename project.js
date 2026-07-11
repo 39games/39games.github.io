@@ -229,6 +229,17 @@ const projectsData = {
     links: { itch: "https://39games.itch.io/step-warriors" },
     dates: { start: "2026-01", end: "" },
     i18n: { title: "game-stepwarriors-title", description: "game-stepwarriors-desc", cardDesc: "game-stepwarriors-card-desc" }
+  },
+  "obsidianrift": {
+    status: "DEMO",
+    cardImg: "../images/games/game17.png",
+    tags: ["Game", "Adventure", "Dungeon Crawler", "Dark Fantasy", "Fantasy", "Mystery", "Stealth", "2D", "Unity", "C#", "Pixel Art"],
+    logo: "../images/logos/obsidianrift.png",
+    header: { background: "../images/headers/obsidianrift-bg.png", accent: "#7c5cff", class: "header-obsidianrift" },
+    media: [{ type: "video", src: "https://www.youtube.com/embed/Ws0C8cRk0xM" }],
+    links: { itch: "https://39games.itch.io/obsidian-rift" },
+    dates: { start: "2025-11", end: "2025-11" },
+    i18n: { title: "game-obsidianrift-title", description: "game-obsidianrift-desc", cardDesc: "game-obsidianrift-card-desc" }
   }
 };
 
@@ -1322,6 +1333,44 @@ else if (gameKey === "stepwarriors") {
       swCounterEl.textContent = String(swSteps).padStart(4, '0');
     }, 400);
   }
+}
+else if (gameKey === "obsidianrift") {
+  document.body.classList.add('pg-rift');
+  contentEl.innerHTML = `
+    <div class="rift-status fade">
+      <div class="rift-status__dot"></div>
+      <div class="rift-status__text">
+        <strong>PROTOTYPE</strong> &nbsp;·&nbsp;
+        <strong>Dungeon Crawler</strong> &nbsp;·&nbsp;
+        <strong>Stealth</strong> &nbsp;·&nbsp; <strong>Portals & Teleportation</strong>
+      </div>
+    </div>
+
+    <div class="media-gallery rift-media fade">${mediaHTML}</div>
+
+    <div class="rift-intro fade-up">
+      <div class="rift-intro__label">— THE CONCEPT —</div>
+      <p class="rift-intro__text" data-i18n="${game.i18n.description}"></p>
+    </div>
+
+    <div class="rift-tags fade-up">
+      <div class="rift-tag">Dark Fantasy</div>
+      <div class="rift-tag">Dungeon Crawler</div>
+      <div class="rift-tag">Fantasy</div>
+      <div class="rift-tag">Mystery</div>
+      <div class="rift-tag">Stealth</div>
+    </div>
+
+    <div class="rift-honest fade-up">
+      <div class="rift-honest__tag">AN HONEST NOTE</div>
+      <p>Obsidian Rift is an early prototype built around a concept I liked, but haven't had the time to fully develop yet: sneaking through dark, obsidian-black dungeons and using portals and teleportation to slip past enemies and solve your way through. It's rough, unfinished, and shelved for now — but if enough people want to see it finished, that's exactly the kind of push that gets a project like this back on the table.</p>
+    </div>
+
+    <div class="rift-cta fade-up">
+      <p class="rift-cta__sub">Free download, playable now.</p>
+      <a href="https://39games.itch.io/obsidian-rift" target="_blank" class="rift-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a>
+    </div>
+  `;
 }
 else {
       contentEl.innerHTML = `

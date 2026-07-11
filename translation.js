@@ -55,6 +55,7 @@ const translations = {
     "game-termiteswarm-title":   "Termite Swarm",
     "game-rng-title":            "RNG",
     "game-stepwarriors-title":   "Step Warriors",
+    "game-obsidianrift-title":   "Obsidian Rift",
 
     /* ── GAME CARD SHORT DESCRIPTIONS ── */
     "game-foreigner-card-desc": "A dark beat-em-up RPG. Demo coming end of year.",
@@ -73,6 +74,7 @@ const translations = {
     "game-termiteswarm-card-desc": "A Brackeys jam prototype about a termite swarm bullying an old man.",
     "game-rng-card-desc": "A Brackeys jam game where absolutely everything — gun color, size, damage — is random.",
     "game-stepwarriors-card-desc": "A turn-based walking RPG made for the mts app konkurs — walk in real life to fight cursed feet.",
+    "game-obsidianrift-card-desc": "An early dungeon crawler prototype about sneaking through dark ruins and using portals to slip past danger.",
 
     /* ── GAME PAGE FULL DESCRIPTIONS ── */
     "game-dread-desc1": `<br><br>
@@ -114,6 +116,7 @@ const translations = {
     "game-rng-desc": "RNG takes its name literally: gun color, player size, damage — even things that probably shouldn't be random are random. Made in one week for the Brackeys Game Jam 2021.2, it's a chaotic, unbalanced-on-purpose top-down shooter prototype kept around for the sake of a good bit.",
 
     "game-stepwarriors-desc": "Step Warriors is a turn-based idle RPG that forces you to actually walk. Roam around in real life to stumble into battles and boss fights placed on a real-world map, earn currency to unlock stranger and rarer foot warriors, build a team, and fight other players online. Made for the mts app konkurs by two friends who wondered what Pokémon GO would look like if it were about violent foot combat.",
+    "game-obsidianrift-desc": "I haven't really thought much into this game. I thought it was a cool concept — sneaking through dark, obsidian ruins and using rifts and teleportation to slip past danger. If you want to see me finish it, let me know.",
 
     /* ── BEATS LIBRARY ── */
     "beats-title":    "My Discography",
@@ -243,6 +246,7 @@ const translations = {
     "game-termiteswarm-title":   "Termite Swarm",
     "game-rng-title":            "RNG",
     "game-stepwarriors-title":   "Step Warriors",
+    "game-obsidianrift-title":   "Obsidian Rift",
 
     /* ── KRATKI OPISI KARTI ── */
     "game-foreigner-card-desc": "Tamni beat-em-up RPG. Demo krajem godine.",
@@ -261,6 +265,7 @@ const translations = {
     "game-termiteswarm-card-desc": "Brackeys jam prototip o roju termita koji maltretira starca.",
     "game-rng-card-desc": "Brackeys jam igra u kojoj je bukvalno sve — boja pištolja, veličina, damage — nasumično.",
     "game-stepwarriors-card-desc": "Potezni šetački RPG napravljen za mts app konkurs — hodaj u stvarnom životu da bi se borio protiv prokletih stopala.",
+    "game-obsidianrift-card-desc": "Rani prototip dungeon crawlera o šunjanju kroz mračne ruševine i korišćenju portala da izbegneš opasnost.",
 
     /* ── PUNI OPISI STRANICA IGARA ── */
     "game-dread-desc1": `<br><br>
@@ -302,6 +307,7 @@ const translations = {
     "game-rng-desc": "RNG shvata svoje ime bukvalno: boja pištolja, veličina igrača, damage — čak i stvari koje verovatno ne bi trebalo da budu nasumične, jesu. Napravljena za nedelju dana za Brackeys Game Jam 2021.2, ovo je haotičan, namerno nebalansiran top-down shooter prototip koji je ostao ovde radi dobrog vica.",
 
     "game-stepwarriors-desc": "Step Warriors je potezni idle RPG koji te tera da zaista hodaš. Šetaj se u stvarnom životu da bi naišao na bitke i borbe sa šefovima postavljene na pravoj mapi, zarađuj valutu da otključaš čudnija i ređa stopala-ratnike, sastavi tim i bori se protiv drugih igrača onlajn. Napravljen za mts app konkurs od strane dvojice prijatelja koji su se zapitali kako bi izgledao Pokémon GO kada bi se radio o nasilnim borbama stopala.",
+    "game-obsidianrift-desc": "Nisam mnogo razmišljao o ovoj igri. Mislio sam da je koncept dobar — šunjanje kroz mračne, opsidijanske ruševine i korišćenje portala i teleportacije da se izbegne opasnost. Ako želiš da vidiš da je završim, javi mi.",
 
     /* ── BIBLIOTEKA BITOVA ── */
     "beats-title":   "Moja Diskografija",
