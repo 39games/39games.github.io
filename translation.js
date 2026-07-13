@@ -56,6 +56,8 @@ const translations = {
     "game-rng-title":            "RNG",
     "game-stepwarriors-title":   "Step Warriors",
     "game-obsidianrift-title":   "Obsidian Rift",
+    "game-gnometowerdefense-title": "Untitled Tower Defense Game",
+    "game-parasiterun3d-title":  "Parasite Run 3D",
 
     /* ── GAME CARD SHORT DESCRIPTIONS ── */
     "game-foreigner-card-desc": "A dark beat-em-up RPG. Demo coming end of year.",
@@ -75,6 +77,8 @@ const translations = {
     "game-rng-card-desc": "A Brackeys jam game where absolutely everything — gun color, size, damage — is random.",
     "game-stepwarriors-card-desc": "A turn-based walking RPG made for the mts app konkurs — walk in real life to fight cursed feet.",
     "game-obsidianrift-card-desc": "An early dungeon crawler prototype about sneaking through dark ruins and using portals to slip past danger.",
+    "game-gnometowerdefense-card-desc": "A PvZ-style tower defense prototype — gnomes vs goblins, modeled in Blender and rendered as 2D pixel art.",
+    "game-parasiterun3d-card-desc": "A hypercasual 3D runner where you control a parasite jumping between people to dodge obstacles.",
 
     /* ── GAME PAGE FULL DESCRIPTIONS ── */
     "game-dread-desc1": `<br><br>
@@ -117,6 +121,8 @@ const translations = {
 
     "game-stepwarriors-desc": "Step Warriors is a turn-based idle RPG that forces you to actually walk. Roam around in real life to stumble into battles and boss fights placed on a real-world map, earn currency to unlock stranger and rarer foot warriors, build a team, and fight other players online. Made for the mts app konkurs by two friends who wondered what Pokémon GO would look like if it were about violent foot combat.",
     "game-obsidianrift-desc": "I haven't really thought much into this game. I thought it was a cool concept — sneaking through dark, obsidian ruins and using rifts and teleportation to slip past danger. If you want to see me finish it, let me know.",
+    "game-gnometowerdefense-desc": "A PvZ-style tower defense game where you place gnome-themed towers to fight off waves of goblins. All the assets were fully modeled and animated in Blender, then rendered out as 2D pixel art — that pipeline is really what I was trying to learn with this one. Unfinished for now, but could come back to it if enough people want to see it.",
+    "game-parasiterun3d-desc": "A hypercasual runner where you control a parasite that attaches itself to the people running in front of you. Jump onto different types of people to make it past different obstacles as the run gets faster and stranger. Unfinished for now, but could come back to it if enough people want to see it.",
 
     /* ── BEATS LIBRARY ── */
     "beats-title":    "My Discography",
@@ -188,6 +194,14 @@ const translations = {
     "project-interfaith-title": "Interfaith Debate",
     "project-interfaith-card-desc": "Omegle-style stranger-matching web app including 34+ faiths.",
     "project-interfaith-desc": "<p style='text-indent:50px;'>Interfaith Debate is an Omegle-style stranger-matching web application dedicated to theological and philosophical discussions. It features a robust matching system encompassing over 34 different faiths, allowing users to engage in meaningful dialogue and explore logical paradoxes and metaphysical questions with people from diverse belief systems.</p>",
+  "game-topdownshooter-title": "Untitled Top Down Shooter Game",
+    "game-topdownshooter-card-desc": "A pixel-art survival spaceship shooter built in a day for the MET Game Hackathon 2023.",
+    "game-topdownshooter-desc": "Protect a core power generator from aggressive waves of extra-terrestrial invaders seeking control of your spaceship cargo block. You take control of an upgraded variations of the modular robot model shared with Salesmen and Ogre Assault. Successfully fend off the incoming waves to trigger access arrays to custom stat modifications and tool scaling arrays. Awarded 2nd place overall.",
+
+    // --- Fighting Game ---
+    "game-fightinggame-title": "Untitled Fighting Game",
+    "game-fightinggame-card-desc": "An arena combat prototype engineered over 48 hours for Global Game Jam 2024.",
+    "game-fightinggame-desc": "Drop directly into a high-stakes pixelated arena where standard combat victory is cast aside for a more psychological parameter: you must orchestrate combat loops intense enough to make the massive, sinister silhouette watching from the background laugh. Engineered around fluid kinetic timing loops, the setup highlights precise mechanical animations across a suite of combat loops including dynamic blocking states, high kicks, direct punches, heavy uppercuts, and precise head-finisher states."
   },
 
   sr: {
@@ -247,6 +261,8 @@ const translations = {
     "game-rng-title":            "RNG",
     "game-stepwarriors-title":   "Step Warriors",
     "game-obsidianrift-title":   "Obsidian Rift",
+    "game-gnometowerdefense-title": "Neimenovana Tower Defense Igra",
+    "game-parasiterun3d-title":  "Parasite Run 3D",
 
     /* ── KRATKI OPISI KARTI ── */
     "game-foreigner-card-desc": "Tamni beat-em-up RPG. Demo krajem godine.",
@@ -266,6 +282,8 @@ const translations = {
     "game-rng-card-desc": "Brackeys jam igra u kojoj je bukvalno sve — boja pištolja, veličina, damage — nasumično.",
     "game-stepwarriors-card-desc": "Potezni šetački RPG napravljen za mts app konkurs — hodaj u stvarnom životu da bi se borio protiv prokletih stopala.",
     "game-obsidianrift-card-desc": "Rani prototip dungeon crawlera o šunjanju kroz mračne ruševine i korišćenju portala da izbegneš opasnost.",
+    "game-gnometowerdefense-card-desc": "Tower defense prototip u PvZ stilu — patuljci protiv goblina, modelovano u Blenderu i renderovano kao 2D pixel art.",
+    "game-parasiterun3d-card-desc": "Hyper-casual 3D runner u kojem kontrolišeš parazita koji skače sa osobe na osobu da izbegne prepreke.",
 
     /* ── PUNI OPISI STRANICA IGARA ── */
     "game-dread-desc1": `<br><br>
@@ -308,6 +326,8 @@ const translations = {
 
     "game-stepwarriors-desc": "Step Warriors je potezni idle RPG koji te tera da zaista hodaš. Šetaj se u stvarnom životu da bi naišao na bitke i borbe sa šefovima postavljene na pravoj mapi, zarađuj valutu da otključaš čudnija i ređa stopala-ratnike, sastavi tim i bori se protiv drugih igrača onlajn. Napravljen za mts app konkurs od strane dvojice prijatelja koji su se zapitali kako bi izgledao Pokémon GO kada bi se radio o nasilnim borbama stopala.",
     "game-obsidianrift-desc": "Nisam mnogo razmišljao o ovoj igri. Mislio sam da je koncept dobar — šunjanje kroz mračne, opsidijanske ruševine i korišćenje portala i teleportacije da se izbegne opasnost. Ako želiš da vidiš da je završim, javi mi.",
+    "game-gnometowerdefense-desc": "Tower defense igra u PvZ stilu u kojoj postavljaš kule u obliku patuljaka da se boriš protiv talasa goblina. Svi asseti su u potpunosti modelovani i animirani u Blenderu, a zatim renderovani kao 2D pixel art — taj proces je zapravo ono što sam pokušavao da naučim ovim projektom. Za sada nezavršena, ali mogu da joj se vratim ako dovoljno ljudi bude želelo da je vidi gotovu.",
+    "game-parasiterun3d-desc": "Hyper-casual runner u kojem kontrolišeš parazita koji se kači za ljude koji trče ispred tebe. Skači sa jedne osobe na drugu da bi prošao razne prepreke dok trka postaje sve brža i čudnija. Za sada nezavršena, ali mogu da joj se vratim ako dovoljno ljudi bude želelo da je vidi gotovu.",
 
     /* ── BIBLIOTEKA BITOVA ── */
     "beats-title":   "Moja Diskografija",

@@ -33,7 +33,7 @@ if (switchBtn1) {
     });
 }
 
-// ====== PROJECTS DATA (WITH NEW TAGS) ======
+// ====== PROJECTS DATA ======
 const projectsData = {
   "interfaithdebate": {
     status: "IN DEVELOPMENT",
@@ -41,7 +41,7 @@ const projectsData = {
     tags: ["Site", "Web App", "Theology", "Philosophy", "Chat", "Video Chat", "HTML", "CSS", "JavaScript", "EmailJS"],
     logo: "../images/logos/interfaith.png",
     header: {
-      background: "../images/headers/interfaith-bg.png", // Your provided banner
+      background: "../images/headers/interfaith-bg.png",
       accent: "#3498db",
       class: "header-interfaith"
     },
@@ -129,7 +129,7 @@ const projectsData = {
     media: [],
     links: { googleplay: "", steam: "", itch: "" },
     dates: { start: "2025-11", end: "" },
-    i18n: { title: "game-theforeigner-title", description: "game-theforeigner-desc", cardDesc: "game-foreigner-card-desc" }
+    i18n: { title: "game-theforeigner-title", description: "game-theforeigner-desc", cardDesc: "game-theforeigner-card-desc" }
   },
   "salesmen": {
     status: "DEMO",
@@ -240,17 +240,59 @@ const projectsData = {
     links: { itch: "https://39games.itch.io/obsidian-rift" },
     dates: { start: "2025-11", end: "2025-11" },
     i18n: { title: "game-obsidianrift-title", description: "game-obsidianrift-desc", cardDesc: "game-obsidianrift-card-desc" }
+  },
+  "gnometowerdefense": {
+    status: "DEMO",
+    cardImg: "../images/games/game18.png",
+    tags: ["Game", "Tower Defense", "Strategy", "Gnomes", "Goblins", "Pixel Art", "Blender", "2D", "Untitled"],
+    logo: "../images/logos/gnometowerdefense.png",
+    header: { background: "../images/headers/gnometowerdefense-bg.png", accent: "#6fae3d", class: "header-gnometowerdefense" },
+    media: [{ type: "video", src: "https://www.youtube.com/embed/cYAlBGVIxsM" }, { type: "video", src: "https://www.youtube.com/embed/HPsGhSKUwnA" }, { type: "video", src: "https://youtube.com/embed/cgdrkBBhI5w" }],
+    links: { itch: "" },
+    dates: { start: "2026-05", end: "" },
+    i18n: { title: "game-gnometowerdefense-title", description: "game-gnometowerdefense-desc", cardDesc: "game-gnometowerdefense-card-desc" }
+  },
+  "parasiterun3d": {
+    status: "DEMO",
+    cardImg: "../images/games/game19.png",
+    tags: ["Game", "Hypercasual", "Runner", "Mobile", "3D", "Parasite", "Unity", "C#"],
+    logo: "../images/logos/parasiterun3d.png",
+    header: { background: "../images/headers/parasiterun3d-bg.png", accent: "#a63dae", class: "header-parasiterun3d" },
+    media: [{ type: "video", src: "https://www.youtube.com/embed/1hdFOpgF3Ok" }, { type: "video", src: "https://www.youtube.com/embed/e-Wv32FY2U0" }],
+    links: { itch: "" },
+    dates: { start: "2025-09", end: "" },
+    i18n: { title: "game-parasiterun3d-title", description: "game-parasiterun3d-desc", cardDesc: "game-parasiterun3d-card-desc" }
+  },
+  "topdownshooter": {
+    status: "DEMO",
+    cardImg: "../images/games/game20.png",
+    tags: ["Game", "Top-Down", "Shooter", "Survival", "Pixel Art", "Unity", "C#", "Robot", "Game Jam", "2D", "Untitled"],
+    logo: "../images/logos/topdownshooter.png",
+    header: { background: "../images/headers/topdownshooter-bg.png", accent: "#ff4d4d", class: "header-topdownshooter" },
+    media: [{ type: "video", src: "https://www.youtube.com/embed/ltUz94avdow" }],
+    links: { itch: "" },
+    dates: { start: "2023-12", end: "2023-12" },
+    i18n: { title: "game-topdownshooter-title", description: "game-topdownshooter-desc", cardDesc: "game-topdownshooter-card-desc" }
+  },
+  "fightinggame": {
+    status: "DEMO",
+    cardImg: "../images/games/game21.png",
+    tags: ["Game", "Fighting", "Pixel Art", "Unity", "C#", "2D", "Game Jam", "Arcade", "Untitled"],
+    logo: "../images/logos/fightinggame.png",
+    header: { background: "../images/headers/fightinggame-bg.png", accent: "#e5a93b", class: "header-fightinggame" },
+    media: [{ type: "video", src: "https://www.youtube.com/embed/EdCo8MHVrBA" }],
+    links: { itch: "" },
+    dates: { start: "2024-01", end: "2024-01" },
+    i18n: { title: "game-fightinggame-title", description: "game-fightinggame-desc", cardDesc: "game-fightinggame-card-desc" }
   }
 };
 
 // ====== STATUS TYPES ======
-// Add new statuses here — each needs a CSS class (.game-card.<cls>) and
-// an i18n key (tag-<cls>) defined in style.css / translation.js
 const STATUS_META = {
   "IN DEVELOPMENT": { cls: "dev",      i18n: "tag-dev" },
   "RELEASED":       { cls: "released", i18n: "tag-released" },
   "DEMO":           { cls: "demo",     i18n: "tag-demo" },
-  "PAUSED":           { cls: "paused",     i18n: "tag-paused" }
+  "PAUSED":         { cls: "paused",   i18n: "tag-paused" }
 };
 
 function getStatusMeta(status) {
@@ -258,7 +300,6 @@ function getStatusMeta(status) {
 }
 
 // ====== DATE HELPERS ======
-// Accepts "YYYY-MM-DD", "YYYY-MM", "YYYY", or "" (empty = not shown)
 const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 function formatProjectDate(str) {
@@ -270,8 +311,6 @@ function formatProjectDate(str) {
   return year;
 }
 
-// Returns a sortable timestamp for a project's start date, or -Infinity
-// if it doesn't have one (so undated projects sink to the bottom)
 function getProjectSortValue(project) {
   const start = project.dates && project.dates.start;
   if (!start) return -Infinity;
@@ -279,23 +318,22 @@ function getProjectSortValue(project) {
   return isNaN(t) ? -Infinity : t;
 }
 
-// Returns a plain-text date range string (e.g. "May 2023 — Aug 2023"), or "" if no dates set.
-// Shared by both the directory grid cards and the single project page badge.
 function getDateRangeText(project) {
   const d = project.dates;
   if (!d || (!d.start && !d.end)) return "";
-  if (d.start && d.end) return `${formatProjectDate(d.start)} — ${formatProjectDate(d.end)}`;
+  if (d.start && d.end) {
+    if (d.start === d.end) return formatProjectDate(d.start);
+    return `${formatProjectDate(d.start)} — ${formatProjectDate(d.end)}`;
+  }
   if (d.start) return `Started ${formatProjectDate(d.start)}`;
   return `Finished ${formatProjectDate(d.end)}`;
 }
 
-// Badge shown on a project's own page (bigger pill, under the logo)
 function buildDateBadgeHTML(project) {
   const text = getDateRangeText(project);
   return text ? `<div class="project-date-badge">${text}</div>` : "";
 }
 
-// Small date line shown on the directory grid cards (/projects page only — never on the main home page)
 function buildCardDateHTML(project) {
   const text = getDateRangeText(project);
   return text ? `<div class="game-card-date"><i class="far fa-calendar-alt"></i> ${text}</div>` : "";
@@ -311,7 +349,7 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 const urlParams = new URLSearchParams(window.location.search);
-const projectKey = urlParams.get("project"); // Note: changed from game to project
+const projectKey = urlParams.get("project");
 
 // ====== ROUTER ======
 if (!projectKey) {
@@ -322,15 +360,13 @@ if (!projectKey) {
     renderSingleProject(projectKey);
 }
 
-
 // ================================================================
-//  DIRECTORY VIEW (List of all projects)
+//  DIRECTORY VIEW
 // ================================================================
 function renderProjectDirectory() {
     const headerEl = document.getElementById("projectHeader");
     const contentEl = document.getElementById("projectContent");
 
-    // Reset header, then style it the same way individual project headers are styled
     headerEl.className = '';
     headerEl.style.cssText = '';
     headerEl.classList.add('header-directory');
@@ -339,19 +375,16 @@ function renderProjectDirectory() {
     headerEl.style.backgroundSize = 'cover';
     headerEl.style.backgroundPosition = 'center';
 
-    // Set up basic header
     headerEl.innerHTML = `
         <h1 class="project-title" style="font-size: 56px;" data-i18n="directory-title">Project Directory</h1>
     `;
     
-    // Build unique tags array from all projects
     const allTags = new Set();
     Object.values(projectsData).forEach(proj => {
         if(proj.tags) proj.tags.forEach(t => allTags.add(t));
     });
     const sortedTags = Array.from(allTags).sort();
     
-    // Inject controls and grid
     contentEl.innerHTML = `
         <div class="directory-controls fade show">
             <input type="text" id="search-projects" data-i18n="search-projects" placeholder="Search projects, tags, or tools..." />
@@ -373,19 +406,16 @@ function renderProjectDirectory() {
         const query = searchInput.value.toLowerCase();
         projectsGrid.innerHTML = "";
 
-        // Sort by start date (newest first); projects with no start date sink to the bottom
         const sortedKeys = Object.keys(projectsData).sort((a, b) => {
             return getProjectSortValue(projectsData[b]) - getProjectSortValue(projectsData[a]);
         });
 
         sortedKeys.forEach(key => {
             const p = projectsData[key];
-            const title = p.i18n.title.toLowerCase(); // simplified fallback matching
+            const title = p.i18n.title.toLowerCase();
             const tagStr = p.tags ? p.tags.join(" ").toLowerCase() : "";
             
-            // Check Tag filter
             const matchesTag = (currentFilter === "all") || (p.tags && p.tags.includes(currentFilter));
-            // Check Search query
             const matchesSearch = title.includes(query) || tagStr.includes(query) || key.includes(query);
             
             if (matchesTag && matchesSearch) {
@@ -408,14 +438,12 @@ function renderProjectDirectory() {
             }
         });
         
-        // Re-trigger translation if script is loaded
         if (typeof setLanguage === 'function') {
             const savedLang = localStorage.getItem('preferredLang') || 'en';
             setLanguage(savedLang);
         }
     }
 
-    // Event Listeners for filtering
     searchInput.addEventListener("input", updateGrid);
     
     filterContainer.addEventListener("click", e => {
@@ -431,7 +459,7 @@ function renderProjectDirectory() {
 }
 
 // ================================================================
-//  SINGLE PROJECT VIEW (Your existing project.js logic)
+//  SINGLE PROJECT VIEW
 // ================================================================
 function renderSingleProject(gameKey) {
     const game = projectsData[gameKey];
@@ -453,7 +481,6 @@ function renderSingleProject(gameKey) {
       if (h.accent) headerEl.style.setProperty('--accent', h.accent);
     }
 
-    // Fallback if there's no logo image
     const logoHtml = game.logo 
         ? `<img src="${game.logo}" alt="" class="game-logo" data-i18n="${game.i18n.title}">` 
         : `<h1 class="project-title" data-i18n="${game.i18n.title}"></h1>`;
@@ -468,7 +495,6 @@ function renderSingleProject(gameKey) {
         });
     }
 
-    // --- YOUR SPECIFIC GAME LOGIC BELOW ---
     if (gameKey === "theforeigner") {
       document.body.classList.add('pg-foreigner');
       contentEl.innerHTML = `
@@ -538,17 +564,6 @@ function renderSingleProject(gameKey) {
             <h2 class="dread-title">WHAT IS<br>DREAD<span class="dread-title-glitch">?</span></h2>
             <div class="dread-scanbar"></div>
             <p class="dread-body" data-i18n="${game.i18n.description}"></p>
-          </div>
-        </div>
-        <div class="dread-section fade">
-          <div class="dread-ps1-border">
-            <div class="dread-ps1-corner tl"></div>
-            <div class="dread-ps1-corner tr"></div>
-            <div class="dread-ps1-corner bl"></div>
-            <div class="dread-ps1-corner br"></div>
-            <h2 class="dread-title">DEMO COMING<br>SOON<span class="dread-title-glitch">?</span></h2>
-            <div class="dread-scanbar"></div>
-            <p class="dread-body" data-i18n=""></p>
           </div>
         </div>
         <div class="dread-features fade">
@@ -796,583 +811,259 @@ function renderSingleProject(gameKey) {
         </div>
         <div class="oa-cta fade"><a href="https://play.google.com/store/apps/details?id=com.bruh39.OgreAssault" target="_blank" class="oa-px-btn"><i class="fab fa-google-play"></i> Download Free</a><a href="https://39games.itch.io/ogre-assault" target="_blank" class="oa-px-btn oa-px-btn--alt"><i class="fab fa-itch-io"></i> Itch.io</a></div>
       `;
-    // Add this inside renderSingleProject(gameKey) ...
-// Add this inside your renderSingleProject(gameKey) function in project.js
-} else if (gameKey === "interfaithdebate") {
-contentEl.innerHTML = `
-
-<section class="interfaith-hero fade-up">
-
-
-<div class="interfaith-bg-glow"></div>
-
-<div class="interfaith-content">
-
-
-
-    <p class="interfaith-desc">
-        A modern platform built for respectful religious discussion,
-        philosophy, theology, and debate. Explore different beliefs,
-        challenge ideas, and connect with people from around the world
-        through structured anonymous conversations.
-    </p>
-
-    <div class="interfaith-buttons">
-        <a href="${game.links.website}" target="_blank" class="btn-primary">
-            ENTER DEBATE
-        </a>
-
-        <a href="#interfaith-features" class="btn-secondary">
-            LEARN MORE
-        </a>
-    </div>
-
-    <div class="stats-strip">
-
-        <div class="stat">
-            <span class="stat-num">34+</span>
-            <span class="stat-label">FAITHS COVERED</span>
+    } else if (gameKey === "interfaithdebate") {
+      contentEl.innerHTML = `
+        <section class="interfaith-hero fade-up">
+        <div class="interfaith-bg-glow"></div>
+        <div class="interfaith-content">
+            <p class="interfaith-desc">
+                A modern platform built for respectful religious discussion,
+                philosophy, theology, and debate. Explore different beliefs,
+                challenge ideas, and connect with people from around the world
+                through structured anonymous conversations.
+            </p>
+            <div class="interfaith-buttons">
+                <a href="${game.links.website}" target="_blank" class="btn-primary">ENTER DEBATE</a>
+                <a href="#interfaith-features" class="btn-secondary">LEARN MORE</a>
+            </div>
+            <div class="stats-strip">
+                <div class="stat"><span class="stat-num">34+</span><span class="stat-label">FAITHS COVERED</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><span class="stat-num">LIVE</span><span class="stat-label">MATCHING ENGINE</span></div>
+                <div class="stat-divider"></div>
+                <div class="stat"><span class="stat-num">100%</span><span class="stat-label">ANONYMOUS</span></div>
+            </div>
         </div>
-
-        <div class="stat-divider"></div>
-
-        <div class="stat">
-            <span class="stat-num">LIVE</span>
-            <span class="stat-label">MATCHING ENGINE</span>
+        </section>
+        <section id="interfaith-features" class="interfaith-features fade-up">
+        <div class="section-title">
+            <h2>WHY THIS EXISTS</h2>
+            <p>Most online religious discussions become hostile instantly. Interfaith Debate was designed to create a cleaner and more thoughtful space for genuine discussion and understanding.</p>
         </div>
-
-        <div class="stat-divider"></div>
-
-        <div class="stat">
-            <span class="stat-num">100%</span>
-            <span class="stat-label">ANONYMOUS</span>
+        <div class="interfaith-grid">
+            <div class="interfaith-card"><h3>Respectful Debate</h3><p>Structured conversations focused on understanding instead of insults and chaos.</p></div>
+            <div class="interfaith-card"><h3>Anonymous Discussion</h3><p>Debate ideas freely without pressure, status, or social bias.</p></div>
+            <div class="interfaith-card"><h3>Different Perspectives</h3><p>Explore theology, philosophy, atheism, spirituality, morality, and more.</p></div>
         </div>
-
-    </div>
-</div>
-
-
-</section>
-
-<section id="interfaith-features" class="interfaith-features fade-up">
-
-
-<div class="section-title">
-    <h2>WHY THIS EXISTS</h2>
-    <p>
-        Most online religious discussions become hostile instantly.
-        Interfaith Debate was designed to create a cleaner and more
-        thoughtful space for genuine discussion and understanding.
-    </p>
-</div>
-
-<div class="interfaith-grid">
-
-    <div class="interfaith-card">
-        <h3>Respectful Debate</h3>
-        <p>
-            Structured conversations focused on understanding instead
-            of insults and chaos.
-        </p>
-    </div>
-
-    <div class="interfaith-card">
-        <h3>Anonymous Discussion</h3>
-        <p>
-            Debate ideas freely without pressure, status, or social bias.
-        </p>
-    </div>
-
-    <div class="interfaith-card">
-        <h3>Different Perspectives</h3>
-        <p>
-            Explore theology, philosophy, atheism, spirituality,
-            morality, and more.
-        </p>
-    </div>
-
-</div>
-
-
-</section>
-
-<section class="interfaith-quote fade-up">
-
-
-<div class="quote-line"></div>
-
-<p class="quote-text">
-    "The goal is not to win arguments. The goal is to understand
-    perspectives you would never normally encounter."
-</p>
-
-
-</section>
-
-`;
-}
-else if (gameKey === "salesmen") {
-  document.body.classList.add('pg-salesmen');
-  contentEl.innerHTML = `
-    <div class="salesmen-pitch fade-up">
-      <div class="salesmen-pitch__tag">▶ STEP RIGHT UP</div>
-      <p class="salesmen-pitch__text" data-i18n="${game.i18n.description}"></p>
-    </div>
-
-    <div class="media-gallery salesmen-media fade-up">${mediaHTML}</div>
-
-    <div class="salesmen-price-divider fade-up">— choose how you'll build your empire —</div>
-
-    <div class="salesmen-paths fade-up">
-      <div class="salesmen-path-card">
-        <div class="salesmen-path-card__icon">💰</div>
-        <div class="salesmen-path-card__title">The Tycoon</div>
-        <p>Climb from scrap-heap trader to respected business mogul. Every deal counts, every upgrade matters.</p>
-      </div>
-      <div class="salesmen-path-card">
-        <div class="salesmen-path-card__icon">🃏</div>
-        <div class="salesmen-path-card__title">The Renegade</div>
-        <p>Cut corners, con customers, and claw your way up any way you can. Scrapropolis won't play fair with you either.</p>
-      </div>
-      <div class="salesmen-path-card">
-        <div class="salesmen-path-card__icon">🤝</div>
-        <div class="salesmen-path-card__title">The Kind Machine</div>
-        <p>Build a business that actually helps the neighborhood. Slower, harder, but somebody has to care.</p>
-      </div>
-    </div>
-
-    <div class="salesmen-shop-strip fade-up">
-      <div class="salesmen-shop-card">
-        <div class="salesmen-shop-card__num">01</div>
-        <div class="salesmen-shop-card__title">START WITH NOTHING</div>
-        <p>A cardboard box, a dirty shell, and whatever you can scavenge off the street. Scrapropolis doesn't hand out sympathy.</p>
-      </div>
-      <div class="salesmen-shop-card">
-        <div class="salesmen-shop-card__num">02</div>
-        <div class="salesmen-shop-card__title">MEET THE LOCALS</div>
-        <p>A whole cast of citizens with their own wants, quirks, and price points. Learn what sells and to whom.</p>
-      </div>
-      <div class="salesmen-shop-card">
-        <div class="salesmen-shop-card__num">03</div>
-        <div class="salesmen-shop-card__title">BUILD YOUR SHOP</div>
-        <p>Upgrade your stall into a storefront, and your storefront into whatever kind of empire you can imagine.</p>
-      </div>
-    </div>
-
-    <div class="salesmen-quote fade-up">
-      <div class="salesmen-quote-mark">"</div>
-      <div class="salesmen-quote-text">Every robot in Scrapropolis is selling something. The only question is what you're willing to sell.</div>
-    </div>
-
-    <div class="salesmen-cta fade-up">
-      <p class="salesmen-cta__sub">Currently just a demo — development is paused.</p>
-      <a href="https://39games.itch.io/salesmen" target="_blank" class="salesmen-btn"><i class="fab fa-itch-io"></i> Follow it on Itch.io</a>
-    </div>
-  `;
-}
-else if (gameKey === "rulersofserbia") {
-  document.body.classList.add('pg-ros');
-  contentEl.innerHTML = `
-    <div class="ros-intro fade-up">
-      <div class="ros-intro__crest">☨</div>
-      <p class="ros-intro__text" data-i18n="${game.i18n.description}"></p>
-    </div>
-
-    <div class="ros-honest fade-up">
-      <div class="ros-honest__tag">A NOTE ON THIS ONE</div>
-      <p>Rulers of Serbia was an ambitious attempt to turn 200 years of Serbian medieval history into a playable strategy game. It grew bigger than one person could realistically finish, and development is currently paused. The project file's still here though, and it might get picked back up one day.</p>
-    </div>
-
-    <div class="ros-timeline fade-up">
-      <div class="ros-timeline__title">THE NEMANJIĆ DYNASTY <span>1166 – 1371</span></div>
-      <div class="ros-timeline__line"></div>
-      <div class="ros-timeline__items">
-        <div class="ros-tl-item">
-          <div class="ros-tl-item__year">1166</div>
-          <div class="ros-tl-item__name">Stefan Nemanja</div>
-          <div class="ros-tl-item__desc">Grand Prince who united the Serbian lands and founded the dynasty.</div>
+        </section>
+        <section class="interfaith-quote fade-up">
+        <div class="quote-line"></div>
+        <p class="quote-text">"The goal is not to win arguments. The goal is to understand perspectives you would never normally encounter."</p>
+        </section>
+      `;
+    } else if (gameKey === "salesmen") {
+      document.body.classList.add('pg-salesmen');
+      contentEl.innerHTML = `
+        <div class="salesmen-pitch fade-up">
+          <div class="salesmen-pitch__tag">▶ STEP RIGHT UP</div>
+          <p class="salesmen-pitch__text" data-i18n="${game.i18n.description}"></p>
         </div>
-        <div class="ros-tl-item">
-          <div class="ros-tl-item__year">1217</div>
-          <div class="ros-tl-item__name">Stefan the First-Crowned</div>
-          <div class="ros-tl-item__desc">Crowned the first King of Serbia, cementing the kingdom's place in Europe.</div>
+        <div class="media-gallery salesmen-media fade-up">${mediaHTML}</div>
+        <div class="salesmen-price-divider fade-up">— choose how you'll build your empire —</div>
+        <div class="salesmen-paths fade-up">
+          <div class="salesmen-path-card"><div class="salesmen-path-card__icon">💰</div><div class="salesmen-path-card__title">The Tycoon</div><p>Climb from scrap-heap trader to respected business mogul. Every deal counts, every upgrade matters.</p></div>
+          <div class="salesmen-path-card"><div class="salesmen-path-card__icon">🃏</div><div class="salesmen-path-card__title">The Renegade</div><p>Cut corners, con customers, and claw your way up any way you can. Scrapropolis won't play fair with you either.</p></div>
+          <div class="salesmen-path-card"><div class="salesmen-path-card__icon">🤝</div><div class="salesmen-path-card__title">The Kind Machine</div><p>Build a business that actually helps the neighborhood. Slower, harder, but somebody has to care.</p></div>
         </div>
-        <div class="ros-tl-item">
-          <div class="ros-tl-item__year">1282</div>
-          <div class="ros-tl-item__name">King Milutin</div>
-          <div class="ros-tl-item__desc">Expanded the kingdom's borders and built dozens of monasteries.</div>
+        <div class="salesmen-shop-strip fade-up">
+          <div class="salesmen-shop-card"><div class="salesmen-shop-card__num">01</div><div class="salesmen-shop-card__title">START WITH NOTHING</div><p>A cardboard box, a dirty shell, and whatever you can scavenge off the street. Scrapropolis doesn't hand out sympathy.</p></div>
+          <div class="salesmen-shop-card"><div class="salesmen-shop-card__num">02</div><div class="salesmen-shop-card__title">MEET THE LOCALS</div><p>A whole cast of citizens with their own wants, quirks, and price points. Learn what sells and to whom.</p></div>
+          <div class="salesmen-shop-card"><div class="salesmen-shop-card__num">03</div><div class="salesmen-shop-card__title">BUILD YOUR SHOP</div><p>Upgrade your stall into a storefront, and your storefront into whatever kind of empire you can imagine.</p></div>
         </div>
-        <div class="ros-tl-item">
-          <div class="ros-tl-item__year">1346</div>
-          <div class="ros-tl-item__name">Emperor Dušan</div>
-          <div class="ros-tl-item__desc">Crowned Emperor, ruling over the largest Serbian empire in history.</div>
+        <div class="salesmen-quote fade-up"><div class="salesmen-quote-mark">"</div><div class="salesmen-quote-text">Every robot in Scrapropolis is selling something. The only question is what you're willing to sell.</div></div>
+        <div class="salesmen-cta fade-up"><p class="salesmen-cta__sub">Currently just a demo — development is paused.</p><a href="https://39games.itch.io/salesmen" target="_blank" class="salesmen-btn"><i class="fab fa-itch-io"></i> Follow it on Itch.io</a></div>
+      `;
+    } else if (gameKey === "rulersofserbia") {
+      document.body.classList.add('pg-ros');
+      contentEl.innerHTML = `
+        <div class="ros-intro fade-up"><div class="ros-intro__crest">☨</div><p class="ros-intro__text" data-i18n="${game.i18n.description}"></p></div>
+        <div class="ros-honest fade-up"><div class="ros-honest__tag">A NOTE ON THIS ONE</div><p>Rulers of Serbia was an ambitious attempt to turn 200 years of Serbian medieval history into a playable strategy game. It grew bigger than one person could realistically finish, and development is currently paused. The project file's still here though, and it might get picked back up one day.</p></div>
+        <div class="ros-timeline fade-up">
+          <div class="ros-timeline__title">THE NEMANJIĆ DYNASTY <span>1166 – 1371</span></div>
+          <div class="ros-timeline__line"></div>
+          <div class="ros-timeline__items">
+            <div class="ros-tl-item"><div class="ros-tl-item__year">1166</div><div class="ros-tl-item__name">Stefan Nemanja</div><div class="ros-tl-item__desc">Grand Prince who united the Serbian lands and founded the dynasty.</div></div>
+            <div class="ros-tl-item"><div class="ros-tl-item__year">1217</div><div class="ros-tl-item__name">Stefan the First-Crowned</div><div class="ros-tl-item__desc">Crowned the first King of Serbia, cementing the kingdom's place in Europe.</div></div>
+            <div class="ros-tl-item"><div class="ros-tl-item__year">1282</div><div class="ros-tl-item__name">King Milutin</div><div class="ros-tl-item__desc">Expanded the kingdom's borders and built dozens of monasteries.</div></div>
+            <div class="ros-tl-item"><div class="ros-tl-item__year">1346</div><div class="ros-tl-item__name">Emperor Dušan</div><div class="ros-tl-item__desc">Crowned Emperor, ruling over the largest Serbian empire in history.</div></div>
+            <div class="ros-tl-item"><div class="ros-tl-item__year">1371</div><div class="ros-tl-item__name">Uroš the Weak</div><div class="ros-tl-item__desc">The last Nemanjić ruler. His death fractured the empire into rival lords.</div></div>
+          </div>
         </div>
-        <div class="ros-tl-item">
-          <div class="ros-tl-item__year">1371</div>
-          <div class="ros-tl-item__name">Uroš the Weak</div>
-          <div class="ros-tl-item__desc">The last Nemanjić ruler. His death fractured the empire into rival lords.</div>
+        <div class="ros-vision fade-up">
+          <div class="ros-vision__title">WHAT IT WAS GOING FOR</div>
+          <div class="ros-vision__grid">
+            <div class="ros-vision-card"><div class="ros-vision-card__icon">🏰</div><div class="ros-vision-card__title">RULE A KINGDOM</div><p>Manage territory, alliances, and succession across generations of Nemanjić rulers.</p></div>
+            <div class="ros-vision-card"><div class="ros-vision-card__icon">⛪</div><div class="ros-vision-card__title">BUILD MONASTERIES</div><p>Fund the same real monastic complexes the Nemanjići actually built, from Studenica to Visoki Dečani.</p></div>
+            <div class="ros-vision-card"><div class="ros-vision-card__icon">⚔️</div><div class="ros-vision-card__title">EXPAND THE BORDERS</div><p>Push into Byzantine territory, fend off rival kingdoms, and grow Serbia into an empire.</p></div>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="ros-vision fade-up">
-      <div class="ros-vision__title">WHAT IT WAS GOING FOR</div>
-      <div class="ros-vision__grid">
-        <div class="ros-vision-card">
-          <div class="ros-vision-card__icon">🏰</div>
-          <div class="ros-vision-card__title">RULE A KINGDOM</div>
-          <p>Manage territory, alliances, and succession across generations of Nemanjić rulers.</p>
+        <div class="ros-cta fade-up"><p class="ros-cta__sub">Extract the .zip, run the .exe, and see how far it got.</p><a href="https://39games.itch.io/ros-nemanjic" target="_blank" class="ros-btn"><i class="fab fa-itch-io"></i> Play it on Itch.io</a></div>
+      `;
+    } else if (gameKey === "chum") {
+      document.body.classList.add('pg-chum');
+      contentEl.innerHTML = `
+        <div class="chum-intro fade-up"><div class="chum-suits">♠ ♥ ♦ ♣</div><p class="chum-intro__text" data-i18n="${game.i18n.description}"></p></div>
+        <div class="chum-rules fade-up">
+          <div class="chum-rule-card"><div class="chum-rule-card__icon">📦</div><div class="chum-rule-card__title">OPEN A CHEST</div><p>Crack one open on your turn for a random item to add to your hand. You never know what you'll get.</p></div>
+          <div class="chum-rule-card"><div class="chum-rule-card__icon">⚔️</div><div class="chum-rule-card__title">OR ATTACK</div><p>Already holding something useful? Click it to strike your opponent instead of drawing.</p></div>
+          <div class="chum-rule-card"><div class="chum-rule-card__icon">🏆</div><div class="chum-rule-card__title">LAST ONE STANDING</div><p>Whoever runs their opponent's health to zero first wins the match. Simple as that.</p></div>
         </div>
-        <div class="ros-vision-card">
-          <div class="ros-vision-card__icon">⛪</div>
-          <div class="ros-vision-card__title">BUILD MONASTERIES</div>
-          <p>Fund the same real monastic complexes the Nemanjići actually built, from Studenica to Visoki Dečani.</p>
+        <div class="chum-honest fade-up"><div class="chum-honest__tag">WHY IT'S DISCONTINUED</div><p>Chum needed a server to match players up, and I didn't want to keep paying to keep it running. I leaned on some free server options for a while, but I'm honestly not sure they still work. On top of that, the code behind it turned into a mess that got harder and harder to touch. It was a fun one to make, but this one's retired.</p></div>
+        <div class="chum-cta fade-up"><p class="chum-cta__sub">Still downloadable, name your own price.</p><a href="https://39games.itch.io/chum" target="_blank" class="chum-btn"><i class="fab fa-itch-io"></i> Grab it on Itch.io</a></div>
+      `;
+    } else if (gameKey === "ohcrab") {
+      document.body.classList.add('pg-ohcrab');
+      contentEl.innerHTML = `
+        <div class="crab-intro fade-up"><p class="crab-intro__text" data-i18n="${game.i18n.description}"></p></div>
+        <div class="crab-tags fade-up"><span class="crab-tag">🦀 crab</span><span class="crab-tag">🦞 lobster</span><span class="crab-tag">🏰 tower defense</span><span class="crab-tag">🤷 idk</span></div>
+        <div class="crab-honest fade-up"><div class="crab-honest__tag">A NOTE FROM THE PAST</div><p>Oh Crab! was one of the very first games I ever finished, made for a game jam back when I was just starting to learn Pygame. It's rough, it's held together with duct tape, and it's absolutely not representative of what I make now. I'm keeping it up anyway — everyone's first game is a little embarrassing, and this one's mine.</p></div>
+        <div class="crab-cta fade-up"><p class="crab-cta__sub">You've been warned. Download at your own risk.</p><a href="https://39games.itch.io/oh-crab" target="_blank" class="crab-btn"><i class="fab fa-itch-io"></i> Brave it on Itch.io</a></div>
+      `;
+    } else if (gameKey === "colors") {
+      document.body.classList.add('pg-colors');
+      contentEl.innerHTML = `
+        <div class="colors-blend fade-up" aria-hidden="true"><div class="colors-blend__blob colors-blend__blob--a"></div><div class="colors-blend__blob colors-blend__blob--b"></div><div class="colors-blend__blob colors-blend__blob--c"></div></div>
+        <div class="colors-intro fade-up"><div class="colors-intro__tag">MY FIRST UNITY GAME EVER</div><p class="colors-intro__text" data-i18n="${game.i18n.description}"></p></div>
+        <div class="media-gallery colors-media fade-up">${mediaHTML}</div>
+        <div class="colors-mix fade-up">
+          <div class="colors-mix__title">MIX. MATCH. SOLVE.</div>
+          <div class="colors-mix__row"><div class="colors-mix__swatch" style="background:#e63946"></div><div class="colors-mix__op">+</div><div class="colors-mix__swatch" style="background:#3d5ee2"></div><div class="colors-mix__op">=</div><div class="colors-mix__swatch colors-mix__swatch--result" style="background:#8b2fc9"></div></div>
+          <p class="colors-mix__desc">The whole game is built around one simple idea: combine colors to hit a target shade. No more, no less.</p>
         </div>
-        <div class="ros-vision-card">
-          <div class="ros-vision-card__icon">⚔️</div>
-          <div class="ros-vision-card__title">EXPAND THE BORDERS</div>
-          <p>Push into Byzantine territory, fend off rival kingdoms, and grow Serbia into an empire.</p>
+        <div class="colors-honest fade-up"><div class="colors-honest__tag">A NOTE FROM THE PAST</div><p>Colors was the very first thing I ever finished in Unity, made before I had any idea what I was doing. It's rough, it's simple, and it's absolutely not representative of what I make now — but everything else on this site started because of it. Kept up here the way a first drawing stays on the fridge.</p></div>
+        <div class="colors-cta fade-up"><p class="colors-cta__sub">Free, Android and PC only.</p><a href="https://39games.itch.io/colors" target="_blank" class="colors-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a></div>
+      `;
+    } else if (gameKey === "moonbreaker") {
+      document.body.classList.add('pg-moonbreaker');
+      contentEl.innerHTML = `
+        <div class="moonbreak-intro fade-up"><div class="moonbreak-intro__tag">YEAR 2999</div><p class="moonbreak-intro__text" data-i18n="${game.i18n.description}"></p></div>
+        <div class="media-gallery moonbreak-media fade-up">${mediaHTML}</div>
+        <div class="moonbreak-brief fade-up">
+          <div class="moonbreak-brief__title">THE MISSION</div>
+          <div class="moonbreak-brief__grid">
+            <div class="moonbreak-brief-card"><div class="moonbreak-brief-card__icon">🪐</div><div class="moonbreak-brief-card__title">FIND A PLANET</div><p>The green people want it. There's just one problem orbiting in the way.</p></div>
+            <div class="moonbreak-brief-card"><div class="moonbreak-brief-card__icon">🌕</div><div class="moonbreak-brief-card__title">SPOT THE MOON</div><p>Every planet's got one, and every single one stands between you and conquest.</p></div>
+            <div class="moonbreak-brief-card"><div class="moonbreak-brief-card__icon">💥</div><div class="moonbreak-brief-card__title">BREAK IT</div><p>Shoot it until it isn't there anymore. That's really the whole game.</p></div>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <div class="ros-cta fade-up">
-      <p class="ros-cta__sub">Extract the .zip, run the .exe, and see how far it got.</p>
-      <a href="https://39games.itch.io/ros-nemanjic" target="_blank" class="ros-btn"><i class="fab fa-itch-io"></i> Play it on Itch.io</a>
-    </div>
-  `;
-}
-else if (gameKey === "chum") {
-  document.body.classList.add('pg-chum');
-  contentEl.innerHTML = `
-
-    <div class="chum-intro fade-up">
-      <div class="chum-suits">♠ ♥ ♦ ♣</div>
-      <p class="chum-intro__text" data-i18n="${game.i18n.description}"></p>
-    </div>
-
-    <div class="chum-rules fade-up">
-      <div class="chum-rule-card">
-        <div class="chum-rule-card__icon">📦</div>
-        <div class="chum-rule-card__title">OPEN A CHEST</div>
-        <p>Crack one open on your turn for a random item to add to your hand. You never know what you'll get.</p>
-      </div>
-      <div class="chum-rule-card">
-        <div class="chum-rule-card__icon">⚔️</div>
-        <div class="chum-rule-card__title">OR ATTACK</div>
-        <p>Already holding something useful? Click it to strike your opponent instead of drawing.</p>
-      </div>
-      <div class="chum-rule-card">
-        <div class="chum-rule-card__icon">🏆</div>
-        <div class="chum-rule-card__title">LAST ONE STANDING</div>
-        <p>Whoever runs their opponent's health to zero first wins the match. Simple as that.</p>
-      </div>
-    </div>
-
-    <div class="chum-honest fade-up">
-      <div class="chum-honest__tag">WHY IT'S DISCONTINUED</div>
-      <p>Chum needed a server to match players up, and I didn't want to keep paying to keep it running. I leaned on some free server options for a while, but I'm honestly not sure they still work. On top of that, the code behind it turned into a mess that got harder and harder to touch. It was a fun one to make, but this one's retired.</p>
-    </div>
-
-    <div class="chum-cta fade-up">
-      <p class="chum-cta__sub">Still downloadable, name your own price.</p>
-      <a href="https://39games.itch.io/chum" target="_blank" class="chum-btn"><i class="fab fa-itch-io"></i> Grab it on Itch.io</a>
-    </div>
-  `;
-}
-else if (gameKey === "ohcrab") {
-  document.body.classList.add('pg-ohcrab');
-  contentEl.innerHTML = `
-
-    <div class="crab-intro fade-up">
-      <p class="crab-intro__text" data-i18n="${game.i18n.description}"></p>
-    </div>
-
-    <div class="crab-tags fade-up">
-      <span class="crab-tag">🦀 crab</span>
-      <span class="crab-tag">🦞 lobster</span>
-      <span class="crab-tag">🏰 tower defense</span>
-      <span class="crab-tag">🤷 idk</span>
-    </div>
-
-    <div class="crab-honest fade-up">
-      <div class="crab-honest__tag">A NOTE FROM THE PAST</div>
-      <p>Oh Crab! was one of the very first games I ever finished, made for a game jam back when I was just starting to learn Pygame. It's rough, it's held together with duct tape, and it's absolutely not representative of what I make now. I'm keeping it up anyway — everyone's first game is a little embarrassing, and this one's mine.</p>
-    </div>
-
-    <div class="crab-cta fade-up">
-      <p class="crab-cta__sub">You've been warned. Download at your own risk.</p>
-      <a href="https://39games.itch.io/oh-crab" target="_blank" class="crab-btn"><i class="fab fa-itch-io"></i> Brave it on Itch.io</a>
-    </div>
-  `;
-}
-else if (gameKey === "colors") {
-  document.body.classList.add('pg-colors');
-  contentEl.innerHTML = `
-
-    <div class="colors-blend fade-up" aria-hidden="true">
-      <div class="colors-blend__blob colors-blend__blob--a"></div>
-      <div class="colors-blend__blob colors-blend__blob--b"></div>
-      <div class="colors-blend__blob colors-blend__blob--c"></div>
-    </div>
-
-    <div class="colors-intro fade-up">
-      <div class="colors-intro__tag">MY FIRST UNITY GAME EVER</div>
-      <p class="colors-intro__text" data-i18n="${game.i18n.description}"></p>
-    </div>
-
-    <div class="media-gallery colors-media fade-up">${mediaHTML}</div>
-
-    <div class="colors-mix fade-up">
-      <div class="colors-mix__title">MIX. MATCH. SOLVE.</div>
-      <div class="colors-mix__row">
-        <div class="colors-mix__swatch" style="background:#e63946"></div>
-        <div class="colors-mix__op">+</div>
-        <div class="colors-mix__swatch" style="background:#3d5ee2"></div>
-        <div class="colors-mix__op">=</div>
-        <div class="colors-mix__swatch colors-mix__swatch--result" style="background:#8b2fc9"></div>
-      </div>
-      <p class="colors-mix__desc">The whole game is built around one simple idea: combine colors to hit a target shade. No more, no less.</p>
-    </div>
-
-    <div class="colors-honest fade-up">
-      <div class="colors-honest__tag">A NOTE FROM THE PAST</div>
-      <p>Colors was the very first thing I ever finished in Unity, made before I had any idea what I was doing. It's rough, it's simple, and it's absolutely not representative of what I make now — but everything else on this site started because of it. Kept up here the way a first drawing stays on the fridge.</p>
-    </div>
-
-    <div class="colors-cta fade-up">
-      <p class="colors-cta__sub">Free, Android and PC only.</p>
-      <a href="https://39games.itch.io/colors" target="_blank" class="colors-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a>
-    </div>
-  `;
-}
-else if (gameKey === "moonbreaker") {
-  document.body.classList.add('pg-moonbreaker');
-  contentEl.innerHTML = `
-    
-    <div class="moonbreak-intro fade-up">
-      <div class="moonbreak-intro__tag">YEAR 2999</div>
-      <p class="moonbreak-intro__text" data-i18n="${game.i18n.description}"></p>
-    </div>
-
-    <div class="media-gallery moonbreak-media fade-up">${mediaHTML}</div>
-
-    <div class="moonbreak-brief fade-up">
-      <div class="moonbreak-brief__title">THE MISSION</div>
-      <div class="moonbreak-brief__grid">
-        <div class="moonbreak-brief-card">
-          <div class="moonbreak-brief-card__icon">🪐</div>
-          <div class="moonbreak-brief-card__title">FIND A PLANET</div>
-          <p>The green people want it. There's just one problem orbiting in the way.</p>
+        <div class="moonbreak-honest fade-up"><div class="moonbreak-honest__tag">STRAIGHT FROM THE ITCH PAGE</div><p>Moonbreaker was thrown together in a few days for the Game Off 2020 game jam, and it has not aged well. It's short, it's rough, and even the original itch.io page tells you flat out not to download it. It's kept up here purely for the nostalgia of an old jam project — consider yourself warned.</p></div>
+        <div class="moonbreak-cta fade-up"><p class="moonbreak-cta__sub">Free download, source code included, Windows only.</p><div class="moonbreak-cta__btns"><a href="https://39games.itch.io/moonbreaker" target="_blank" class="moonbreak-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a><a href="https://github.com/ChocoFry/Moonbreaker" target="_blank" class="moonbreak-btn moonbreak-btn--outline"><i class="fab fa-github"></i> View the Source</a></div></div>
+      `;
+    } else if (gameKey === "termiteswarm") {
+      document.body.classList.add('pg-termiteswarm');
+      contentEl.innerHTML = `
+        <div class="termite-intro fade-up"><div class="termite-intro__tag">THE OBJECTIVE</div><p class="termite-intro__text" data-i18n="${game.i18n.description}"></p></div>
+        <div class="media-gallery termite-media fade-up">${mediaHTML}</div>
+        <div class="termite-brief fade-up">
+          <div class="termite-brief__title">HOW TO BULLY AN OLD MAN</div>
+          <div class="termite-brief__grid">
+            <div class="termite-brief-card"><div class="termite-brief-card__icon">🌿</div><div class="termite-brief-card__title">EAT THE PLANTS</div><p>Chew through the greenery to grow your swarm. The bigger it gets, the scarier it looks.</p></div>
+            <div class="termite-brief-card"><div class="termite-brief-card__icon">🏚️</div><div class="termite-brief-card__title">EAT THE CABIN</div><p>Once your swarm is big enough, start gnawing through the old man's home. He's still asleep.</p></div>
+            <div class="termite-brief-card"><div class="termite-brief-card__icon">👴</div><div class="termite-brief-card__title">BITE HIM TO DEATH</div><p>Or something. The old man never really stood a chance against an entire swarm of termites.</p></div>
+          </div>
         </div>
-        <div class="moonbreak-brief-card">
-          <div class="moonbreak-brief-card__icon">🌕</div>
-          <div class="moonbreak-brief-card__title">SPOT THE MOON</div>
-          <p>Every planet's got one, and every single one stands between you and conquest.</p>
+        <div class="termite-honest fade-up"><div class="termite-honest__tag">WHAT THIS ACTUALLY IS</div><p>Termite Swarm was made for the Brackeys Game Jam 2021.1, and it's exactly as silly as it sounds — control a growing termite swarm, eat everything in sight, and take down an old man in front of his cabin. It's short, it's a bit chaotic, and it hasn't been touched since. A weirdly satisfying little prototype.</p></div>
+        <div class="termite-cta fade-up"><p class="termite-cta__sub">Free download, Windows only.</p><a href="https://39games.itch.io/termites" target="_blank" class="termite-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a></div>
+      `;
+    } else if (gameKey === "rng") {
+      document.body.classList.add('pg-rng');
+      contentEl.innerHTML = `
+        <div class="rng-intro fade-up"><p class="rng-intro__text" data-i18n="${game.i18n.description}"></p></div>
+        <div class="rng-honest fade-up"><div class="rng-honest__tag">A NOTE FROM THE PAST</div><p>RNG was made in one week for the Brackeys Game Jam 2021.2, built around taking the word "random" as literally as possible — gun color, player size, damage, all rolled on the spot. It's chaotic, unbalanced on purpose, and not meant to be taken seriously. A weird little jam experiment kept up for the memories.</p></div>
+        <div class="rng-cta fade-up"><p class="rng-cta__sub">Free download, Windows only.</p><a href="https://39games.itch.io/rng" target="_blank" class="rng-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a></div>
+      `;
+    } else if (gameKey === "stepwarriors") {
+      document.body.classList.add('pg-stepwarriors');
+      contentEl.innerHTML = `
+        <div class="sw-status fade"><div class="sw-status__dot"></div><div class="sw-status__text"><strong>IN DEVELOPMENT</strong> &nbsp;·&nbsp; <strong>Made for the mts app konkurs</strong> &nbsp;·&nbsp; <strong>Walking RPG</strong> &nbsp;·&nbsp; <strong>Unity · Android</strong></div></div>
+        <div class="sw-hero fade-up">
+          <h2 class="sw-hero__tagline">Walk in real life.<br>Collect cursed feet.<br>Destroy your enemies.</h2>
+          <p class="sw-hero__sub" data-i18n="${game.i18n.description}"></p>
         </div>
-        <div class="moonbreak-brief-card">
-          <div class="moonbreak-brief-card__icon">💥</div>
-          <div class="moonbreak-brief-card__title">BREAK IT</div>
-          <p>Shoot it until it isn't there anymore. That's really the whole game.</p>
+        <div class="sw-hud fade-up">
+          <div class="sw-hud-cell"><div class="sw-hud-label">STEPS TODAY</div><div class="sw-hud-val">???</div></div>
+          <div class="sw-hud-cell"><div class="sw-hud-label">PLATFORM</div><div class="sw-hud-val">ANDROID</div></div>
+          <div class="sw-hud-cell"><div class="sw-hud-label">MODE</div><div class="sw-hud-val">ONLINE PVP</div></div>
+          <div class="sw-hud-cell"><div class="sw-hud-label">STATUS</div><div class="sw-hud-val sw-hud-live">● PROTOTYPE</div></div>
         </div>
-      </div>
-    </div>
-
-    <div class="moonbreak-honest fade-up">
-      <div class="moonbreak-honest__tag">STRAIGHT FROM THE ITCH PAGE</div>
-      <p>Moonbreaker was thrown together in a few days for the Game Off 2020 game jam, and it has not aged well. It's short, it's rough, and even the original itch.io page tells you flat out not to download it. It's kept up here purely for the nostalgia of an old jam project — consider yourself warned.</p>
-    </div>
-
-    <div class="moonbreak-cta fade-up">
-      <p class="moonbreak-cta__sub">Free download, source code included, Windows only.</p>
-      <div class="moonbreak-cta__btns">
-        <a href="https://39games.itch.io/moonbreaker" target="_blank" class="moonbreak-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a>
-        <a href="https://github.com/ChocoFry/Moonbreaker" target="_blank" class="moonbreak-btn moonbreak-btn--outline"><i class="fab fa-github"></i> View the Source</a>
-      </div>
-    </div>
-  `;
-}
-else if (gameKey === "termiteswarm") {
-  document.body.classList.add('pg-termiteswarm');
-  let dots = '';
-  for (let i = 0; i < 18; i++) {
-    const angle = (i / 18) * 360;
-    const radius = 30 + (i % 3) * 12;
-    const d = (i * 0.15).toFixed(2);
-    dots += `<div class="termite-dot" style="--angle:${angle}deg;--radius:${radius}px;animation-delay:${d}s"></div>`;
-  }
-  contentEl.innerHTML = `
-
-
-    <div class="termite-intro fade-up">
-      <div class="termite-intro__tag">THE OBJECTIVE</div>
-      <p class="termite-intro__text" data-i18n="${game.i18n.description}"></p>
-    </div>
-
-    <div class="media-gallery termite-media fade-up">${mediaHTML}</div>
-
-    <div class="termite-brief fade-up">
-      <div class="termite-brief__title">HOW TO BULLY AN OLD MAN</div>
-      <div class="termite-brief__grid">
-        <div class="termite-brief-card">
-          <div class="termite-brief-card__icon">🌿</div>
-          <div class="termite-brief-card__title">EAT THE PLANTS</div>
-          <p>Chew through the greenery to grow your swarm. The bigger it gets, the scarier it looks.</p>
+        <div class="media-gallery sw-media fade">${mediaHTML || '<div class="sw-no-media">[ NO FOOTAGE YET — GO OUTSIDE AND WALK INSTEAD ]</div>'}</div>
+        <div class="sw-features fade-up">
+          <div class="sw-features__title">HOW IT WORKS</div>
+          <div class="sw-features__grid">
+            <div class="sw-feature-card"><div class="sw-feature-card__icon">🌍</div><div class="sw-feature-card__title">REAL WORLD BATTLES</div><p>Walk around in real life to uncover battles and boss fights scattered across an actual map.</p></div>
+            <div class="sw-feature-card"><div class="sw-feature-card__icon">⚔️</div><div class="sw-feature-card__title">TURN-BASED COMBAT</div><p>Build a team of feet and take down enemy feet using different attacks and strategies.</p></div>
+            <div class="sw-feature-card"><div class="sw-feature-card__icon">📦</div><div class="sw-feature-card__title">UNLOCK RARE FEET</div><p>Earn currency from walking and battles to crack open boxes and unlock stronger, weirder foot warriors.</p></div>
+            <div class="sw-feature-card"><div class="sw-feature-card__icon">👥</div><div class="sw-feature-card__title">ONLINE PVP</div><p>Fight real players with automatic matchmaking and player-hosted servers.</p></div>
+          </div>
         </div>
-        <div class="termite-brief-card">
-          <div class="termite-brief-card__icon">🏚️</div>
-          <div class="termite-brief-card__title">EAT THE CABIN</div>
-          <p>Once your swarm is big enough, start gnawing through the old man's home. He's still asleep.</p>
+        <div class="sw-honest fade-up"><div class="sw-honest__tag">WHY THIS EXISTS</div><p>Step Warriors was built for the <strong>mts app konkurs</strong> — a mobile app development competition run by Telekom Srbija for high school students specializing in math and computer science. It isn't released anywhere yet, but it should be soon.</p></div>
+        <div class="sw-cta fade-up"><p class="sw-cta__sub">Not out anywhere yet — but you can follow along.</p><a href="https://39games.itch.io/step-warriors" target="_blank" class="sw-btn"><i class="fab fa-itch-io"></i> View it on Itch.io</a></div>
+      `;
+    } else if (gameKey === "obsidianrift") {
+      document.body.classList.add('pg-rift');
+      contentEl.innerHTML = `
+        <div class="rift-status fade"><div class="rift-status__dot"></div><div class="rift-status__text"><strong>PROTOTYPE</strong> &nbsp;·&nbsp; <strong>Dungeon Crawler</strong> &nbsp;·&nbsp; <strong>Stealth</strong> &nbsp;·&nbsp; <strong>Portals & Teleportation</strong></div></div>
+        <div class="media-gallery rift-media fade">${mediaHTML}</div>
+        <div class="rift-intro fade-up"><div class="rift-intro__label">— THE CONCEPT —</div><p class="rift-intro__text" data-i18n="${game.i18n.description}"></p></div>
+        <div class="rift-tags fade-up"><div class="rift-tag">Dark Fantasy</div><div class="rift-tag">Dungeon Crawler</div><div class="rift-tag">Fantasy</div><div class="rift-tag">Mystery</div><div class="rift-tag">Stealth</div></div>
+        <div class="rift-honest fade-up"><div class="rift-honest__tag">AN HONEST NOTE</div><p>Obsidian Rift is an early prototype built around a concept I liked, but haven't had the time to fully develop yet: sneaking through dark, obsidian-black dungeons and using portals and teleportation to slip past enemies and solve your way through.</p></div>
+        <div class="rift-cta fade-up"><p class="rift-cta__sub">Free download, playable now.</p><a href="https://39games.itch.io/obsidian-rift" target="_blank" class="rift-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a></div>
+      `;
+    } else if (gameKey === "gnometowerdefense") {
+      document.body.classList.add('pg-gnometowerdefense');
+      contentEl.innerHTML = `
+        <div class="rift-status fade"><div class="rift-status__dot"></div><div class="rift-status__text"><strong>DEMO</strong> &nbsp;·&nbsp; <strong>Tower Defense</strong> &nbsp;·&nbsp; <strong>Gnomes vs Goblins</strong> &nbsp;·&nbsp; <strong>Blender → 2D Pixel Art</strong></div></div>
+        <div class="media-gallery rift-media fade">${mediaHTML}</div>
+        <div class="rift-intro fade-up"><div class="rift-intro__label">— THE CONCEPT —</div><p class="rift-intro__text" data-i18n="${game.i18n.description}"></p></div>
+        <div class="rift-tags fade-up"><div class="rift-tag">Tower Defense</div><div class="rift-tag">Gnomes</div><div class="rift-tag">Goblins</div><div class="rift-tag">Pixel Art</div><div class="rift-tag">Blender</div></div>
+        <div class="rift-honest fade-up"><div class="rift-honest__tag">INFO</div><p>The game is a PvZ-style tower defense prototype where you place gnome-themed towers to fight off waves of goblins. All the assets were fully modeled and animated in Blender, then rendered out as 2D pixel art.</p></div>
+        <div class="rift-cta fade-up"><p class="rift-cta__sub">A couple of short clips are up on YouTube if you want to see it in motion.</p><a href="https://www.youtube.com/shorts/HPsGhSKUwnA" target="_blank" class="rift-btn"><i class="fab fa-youtube"></i> Watch it on YouTube</a></div>
+      `;
+    } else if (gameKey === "parasiterun3d") {
+      document.body.classList.add('pg-parasiterun3d');
+      contentEl.innerHTML = `
+        <div class="rift-status fade"><div class="rift-status__dot"></div><div class="rift-status__text"><strong>DEMO</strong> &nbsp;·&nbsp; <strong>Hypercasual Runner</strong> &nbsp;·&nbsp; <strong>3D</strong> &nbsp;·&nbsp; <strong>Mobile</strong></div></div>
+        <div class="media-gallery rift-media fade">${mediaHTML}</div>
+        <div class="rift-intro fade-up"><div class="rift-intro__label">— THE CONCEPT —</div><p class="rift-intro__text" data-i18n="${game.i18n.description}"></p></div>
+        <div class="rift-tags fade-up"><div class="rift-tag">Hypercasual</div><div class="rift-tag">Runner</div><div class="rift-tag">Mobile</div><div class="rift-tag">3D</div></div>
+        <div class="rift-honest fade-up"><div class="rift-honest__tag">SOME INFO ABOUT THIS ONE</div><p>Parasite Run 3D is a hypercasual runner prototype where you control a parasite attaching itself to the people running in front of you. Jump between different types of people to get past different obstacles.</p></div>
+        <div class="rift-cta fade-up"><p class="rift-cta__sub">A couple of short clips are up on YouTube if you want to see it in motion.</p><a href="https://www.youtube.com/shorts/1hdFOpgF3Ok" target="_blank" class="rift-btn"><i class="fab fa-youtube"></i> Watch it on YouTube</a></div>
+      `;
+    } else if (gameKey === "topdownshooter") {
+      document.body.classList.add('pg-shooter');
+      contentEl.innerHTML = `
+        <div class="shooter-status fade">
+          <div class="shooter-status__dot"></div>
+          <div class="shooter-status__text"><strong>MET Game Hackathon 2023 Entry</strong> &nbsp;·&nbsp; <strong>2nd Place Winner</strong> &nbsp;·&nbsp; <strong>Built in 1 Day</strong></div>
         </div>
-        <div class="termite-brief-card">
-          <div class="termite-brief-card__icon">👴</div>
-          <div class="termite-brief-card__title">BITE HIM TO DEATH</div>
-          <p>Or something. The old man never really stood a chance against an entire swarm of termites.</p>
+        <div class="media-gallery shooter-media fade">${mediaHTML}</div>
+        <div class="shooter-intro fade-up">
+          <div class="shooter-label">SYSTEM OVERVIEW</div>
+          <p class="shooter-text" data-i18n="${game.i18n.description}"></p>
         </div>
-      </div>
-    </div>
-
-    <div class="termite-honest fade-up">
-      <div class="termite-honest__tag">WHAT THIS ACTUALLY IS</div>
-      <p>Termite Swarm was made for the Brackeys Game Jam 2021.1, and it's exactly as silly as it sounds — control a growing termite swarm, eat everything in sight, and take down an old man in front of his cabin. It's short, it's a bit chaotic, and it hasn't been touched since. A weirdly satisfying little prototype.</p>
-    </div>
-
-    <div class="termite-cta fade-up">
-      <p class="termite-cta__sub">Free download, Windows only.</p>
-      <a href="https://39games.itch.io/termites" target="_blank" class="termite-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a>
-    </div>
-  `;
-}
-else if (gameKey === "rng") {
-  document.body.classList.add('pg-rng');
-  contentEl.innerHTML = `
-
-    <div class="rng-intro fade-up">
-      <p class="rng-intro__text" data-i18n="${game.i18n.description}"></p>
-    </div>
-
-    <div class="rng-honest fade-up">
-      <div class="rng-honest__tag">A NOTE FROM THE PAST</div>
-      <p>RNG was made in one week for the Brackeys Game Jam 2021.2, built around taking the word "random" as literally as possible — gun color, player size, damage, all rolled on the spot. It's chaotic, unbalanced on purpose, and not meant to be taken seriously. A weird little jam experiment kept up for the memories.</p>
-    </div>
-
-    <div class="rng-cta fade-up">
-      <p class="rng-cta__sub">Free download, Windows only.</p>
-      <a href="https://39games.itch.io/rng" target="_blank" class="rng-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a>
-    </div>
-  `;
-}
-else if (gameKey === "stepwarriors") {
-  document.body.classList.add('pg-stepwarriors');
-  contentEl.innerHTML = `
-    <div class="sw-status fade">
-      <div class="sw-status__dot"></div>
-      <div class="sw-status__text">
-        <strong>IN DEVELOPMENT</strong> &nbsp;·&nbsp;
-        <strong>Made for the mts app konkurs</strong> &nbsp;·&nbsp;
-        <strong>Walking RPG</strong> &nbsp;·&nbsp; <strong>Unity · Android</strong>
-      </div>
-    </div>
-
-    <div class="sw-hero fade-up">
-      <div class="sw-hero__trail" aria-hidden="true">
-        <img src="../images/stepwarriors/foot-plain.png" alt="">
-        <img src="../images/stepwarriors/foot-plain.png" alt="">
-        <img src="../images/stepwarriors/foot-plain.png" alt="">
-        <img src="../images/stepwarriors/foot-plain.png" alt="">
-      </div>
-      <h2 class="sw-hero__tagline">Walk in real life.<br>Collect cursed feet.<br>Destroy your enemies.</h2>
-      <p class="sw-hero__sub" data-i18n="${game.i18n.description}"></p>
-    </div>
-
-    <div class="sw-hud fade-up">
-      <div class="sw-hud-cell"><div class="sw-hud-label">STEPS TODAY</div><div class="sw-hud-val">???</div></div>
-      <div class="sw-hud-cell"><div class="sw-hud-label">PLATFORM</div><div class="sw-hud-val">ANDROID</div></div>
-      <div class="sw-hud-cell"><div class="sw-hud-label">MODE</div><div class="sw-hud-val">ONLINE PVP</div></div>
-      <div class="sw-hud-cell"><div class="sw-hud-label">STATUS</div><div class="sw-hud-val sw-hud-live">● PROTOTYPE</div></div>
-    </div>
-
-    <div class="media-gallery sw-media fade">${mediaHTML || '<div class="sw-no-media">[ NO FOOTAGE YET — GO OUTSIDE AND WALK INSTEAD ]</div>'}</div>
-
-    <div class="sw-features fade-up">
-      <div class="sw-features__title">HOW IT WORKS</div>
-      <div class="sw-features__grid">
-        <div class="sw-feature-card"><div class="sw-feature-card__icon">🌍</div><div class="sw-feature-card__title">REAL WORLD BATTLES</div><p>Walk around in real life to uncover battles and boss fights scattered across an actual map.</p></div>
-        <div class="sw-feature-card"><div class="sw-feature-card__icon">⚔️</div><div class="sw-feature-card__title">TURN-BASED COMBAT</div><p>Build a team of feet and take down enemy feet using different attacks and strategies.</p></div>
-        <div class="sw-feature-card"><div class="sw-feature-card__icon">📦</div><div class="sw-feature-card__title">UNLOCK RARE FEET</div><p>Earn currency from walking and battles to crack open boxes and unlock stronger, weirder foot warriors.</p></div>
-        <div class="sw-feature-card"><div class="sw-feature-card__icon">👥</div><div class="sw-feature-card__title">ONLINE PVP</div><p>Fight real players with automatic matchmaking and player-hosted servers.</p></div>
-      </div>
-    </div>
-
-    <div class="sw-sprites fade-up">
-      <div class="sw-sprites__title">MEET THE FEET</div>
-      <div class="sw-sprites__row">
-        <div class="sw-sprite-card"><div class="sw-sprite-box"><img src="../images/stepwarriors/foot-bigfoot.png" alt="Bigfoot"></div><span class="sw-sprite-card__label">BIGFOOT</span></div>
-        <div class="sw-sprite-card"><div class="sw-sprite-box"><img src="../images/stepwarriors/foot-king.png" alt="Foot King"></div><span class="sw-sprite-card__label">FOOT KING</span></div>
-        <div class="sw-sprite-card"><div class="sw-sprite-box"><img src="../images/stepwarriors/foot-pirate.png" alt="Foot Pirate"></div><span class="sw-sprite-card__label">FOOT PIRATE</span></div>
-        <div class="sw-sprite-card"><div class="sw-sprite-box"><img src="../images/stepwarriors/foot-wizard.png" alt="Foot Wizard"></div><span class="sw-sprite-card__label">FOOT WIZARD</span></div>
-      </div>
-    </div>
-
-    <div class="sw-honest fade-up">
-      <div class="sw-honest__tag">WHY THIS EXISTS</div>
-      <p>Step Warriors was built for the <strong>mts app konkurs</strong> — a mobile app development competition run by Telekom Srbija for high school students specializing in math and computer science, judged on originality and technical complexity. Made by two friends who asked one simple question: what if Pokémon GO was about violent foot combat? It isn't released anywhere yet, but it should be soon.</p>
-    </div>
-
-    <div class="sw-cta fade-up">
-      <p class="sw-cta__sub">Not out anywhere yet — but you can follow along.</p>
-      <a href="https://39games.itch.io/step-warriors" target="_blank" class="sw-btn"><i class="fab fa-itch-io"></i> View it on Itch.io</a>
-    </div>
-  `;
-
-  const swCounterEl = document.getElementById('swStepCounter');
-  if (swCounterEl) {
-    let swSteps = 0;
-    setInterval(() => {
-      swSteps += Math.floor(Math.random() * 3) + 1;
-      swCounterEl.textContent = String(swSteps).padStart(4, '0');
-    }, 400);
-  }
-}
-else if (gameKey === "obsidianrift") {
-  document.body.classList.add('pg-rift');
-  contentEl.innerHTML = `
-    <div class="rift-status fade">
-      <div class="rift-status__dot"></div>
-      <div class="rift-status__text">
-        <strong>PROTOTYPE</strong> &nbsp;·&nbsp;
-        <strong>Dungeon Crawler</strong> &nbsp;·&nbsp;
-        <strong>Stealth</strong> &nbsp;·&nbsp; <strong>Portals & Teleportation</strong>
-      </div>
-    </div>
-
-    <div class="media-gallery rift-media fade">${mediaHTML}</div>
-
-    <div class="rift-intro fade-up">
-      <div class="rift-intro__label">— THE CONCEPT —</div>
-      <p class="rift-intro__text" data-i18n="${game.i18n.description}"></p>
-    </div>
-
-    <div class="rift-tags fade-up">
-      <div class="rift-tag">Dark Fantasy</div>
-      <div class="rift-tag">Dungeon Crawler</div>
-      <div class="rift-tag">Fantasy</div>
-      <div class="rift-tag">Mystery</div>
-      <div class="rift-tag">Stealth</div>
-    </div>
-
-    <div class="rift-honest fade-up">
-      <div class="rift-honest__tag">AN HONEST NOTE</div>
-      <p>Obsidian Rift is an early prototype built around a concept I liked, but haven't had the time to fully develop yet: sneaking through dark, obsidian-black dungeons and using portals and teleportation to slip past enemies and solve your way through. It's rough, unfinished, and shelved for now — but if enough people want to see it finished, that's exactly the kind of push that gets a project like this back on the table.</p>
-    </div>
-
-    <div class="rift-cta fade-up">
-      <p class="rift-cta__sub">Free download, playable now.</p>
-      <a href="https://39games.itch.io/obsidian-rift" target="_blank" class="rift-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a>
-    </div>
-  `;
-}
-else {
+        <div class="shooter-honest fade-up">
+          <div class="shooter-honest__tag">DEVELOPMENT OVERVIEW</div>
+          <p>This project was thrown together under a tight 24-hour deadline for the MET Game Hackathon 2023. It reuses the signature robot character type found in Ogre Assault and Salesmen. Though mechanics remain straightforward and clean, the loops and progressive character upgrades landed it a 2nd place spot in the competition judgment matrix.</p>
+        </div>
+      `;
+    } else if (gameKey === "fightinggame") {
+      document.body.classList.add('pg-fighter');
+      contentEl.innerHTML = `
+        <div class="fighter-status fade">
+          <div class="fighter-status__dot"></div>
+          <div class="fighter-status__text"><strong>Global Game Jam 2024 Entry</strong> &nbsp;·&nbsp; <strong>Theme: "Make Me Laugh"</strong> &nbsp;·&nbsp; <strong>Built in 2 Days</strong></div>
+        </div>
+        <div class="media-gallery fighter-media fade">${mediaHTML}</div>
+        <div class="fighter-intro fade-up">
+          <div class="fighter-label">MATCH BRIEFING</div>
+          <p class="fighter-text" data-i18n="${game.i18n.description}"></p>
+        </div>
+        <div class="fighter-honest fade-up">
+          <div class="fighter-honest__tag">BEHIND THE SCENES</div>
+          <p>Created across a frantic 48-hour development window during Global Game Jam 2024. Because the core jam parameter was focused entirely on amusement or laughter generation, the focal goal became entertaining the dark lord overlooking the arena. Heavy prioritization was thrown directly into execution loops, hand-drawn fighting physics, blocks, and punch-to-uppercut combo states.</p>
+        </div>
+      `;
+    } else {
       contentEl.innerHTML = `
         <div class="media-gallery fade">${mediaHTML}</div>
         <br><br>
@@ -1380,7 +1071,6 @@ else {
       `;
     }
 
-    // Parallax
     const logos = document.querySelectorAll('.game-logo');
     window.addEventListener('scroll',()=>{
       const scrollY = window.scrollY;
@@ -1390,7 +1080,6 @@ else {
       });
     });
 
-    // Fades
     function observeFades(root=document) { root.querySelectorAll('.fade, .fade-up').forEach(el=>observer.observe(el)); }
     observeFades(contentEl);
 }

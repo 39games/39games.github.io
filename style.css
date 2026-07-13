@@ -7830,3 +7830,123 @@ body.pg-rift #projectHeader::before {
   .rift-intro { padding: 28px 22px; }
   .rift-honest { padding: 20px 22px; }
 }
+
+/* ================================================================
+   CUSTOM PAGE INTERFACES (NON-FLASHY & CLEAN)
+   ================================================================ */
+
+/* --- 1. UNTITLED TOP DOWN SHOOTER --- */
+.pg-shooter .shooter-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 77, 77, 0.05);
+  border-left: 3px solid #ff4d4d;
+  padding: 16px 24px;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+.pg-shooter .shooter-status__dot {
+  width: 8px;
+  height: 8px;
+  background: #ff4d4d;
+  border-radius: 50%;
+}
+.pg-shooter .shooter-status__text {
+  font-size: 14px;
+  color: #eee;
+  letter-spacing: 0.5px;
+}
+.pg-shooter .shooter-intro {
+  margin: 40px 0;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #222;
+}
+.pg-shooter .shooter-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #ff4d4d;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.pg-shooter .shooter-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #ccc;
+  max-width: 800px;
+}
+.pg-shooter .shooter-honest {
+  background: #111;
+  border: 1px solid #222;
+  padding: 32px;
+  border-radius: 8px;
+}
+.pg-shooter .shooter-honest__tag {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.pg-shooter .shooter-honest p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #888;
+}
+
+/* --- 2. UNTITLED FIGHTING GAME --- */
+.pg-fighter .fighter-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(229, 169, 59, 0.05);
+  border-left: 3px solid #e5a93b;
+  padding: 16px 24px;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+.pg-fighter .fighter-status__dot {
+  width: 8px;
+  height: 8px;
+  background: #e5a93b;
+  border-radius: 50%;
+}
+.pg-fighter .fighter-status__text {
+  font-size: 14px;
+  color: #eee;
+  letter-spacing: 0.5px;
+}
+.pg-fighter .fighter-intro {
+  margin: 40px 0;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #222;
+}
+.pg-fighter .fighter-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #e5a93b;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+.pg-fighter .fighter-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #ccc;
+  max-width: 800px;
+}
+.pg-fighter .fighter-honest {
+  background: #111;
+  border: 1px solid #222;
+  padding: 32px;
+  border-radius: 8px;
+}
+.pg-fighter .fighter-honest__tag {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.pg-fighter .fighter-honest p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #888;
+}
