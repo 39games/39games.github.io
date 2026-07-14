@@ -201,7 +201,10 @@ const translations = {
     // --- Fighting Game ---
     "game-fightinggame-title": "Untitled Fighting Game",
     "game-fightinggame-card-desc": "An arena combat prototype engineered over 48 hours for Global Game Jam 2024.",
-    "game-fightinggame-desc": "Drop directly into a high-stakes pixelated arena where standard combat victory is cast aside for a more psychological parameter: you must orchestrate combat loops intense enough to make the massive, sinister silhouette watching from the background laugh. Engineered around fluid kinetic timing loops, the setup highlights precise mechanical animations across a suite of combat loops including dynamic blocking states, high kicks, direct punches, heavy uppercuts, and precise head-finisher states."
+    "game-fightinggame-desc": "Drop directly into a high-stakes pixelated arena where standard combat victory is cast aside for a more psychological parameter: you must orchestrate combat loops intense enough to make the massive, sinister silhouette watching from the background laugh. Engineered around fluid kinetic timing loops, the setup highlights precise mechanical animations across a suite of combat loops including dynamic blocking states, high kicks, direct punches, heavy uppercuts, and precise head-finisher states.",
+
+    "tool-pasniper-title": "Polovni Automobili Sniper",
+    "tool-pasniper-card-desc": "A tool for scraping Polovni Automobili and getting notifications for the latest market listings.",
   },
 
   sr: {
@@ -442,16 +445,10 @@ function setLanguage(lang) {
 }
 
 (function initLanguage() {
+  // Only ever auto-select Serbian if the user explicitly chose it before.
+  // Any other saved value, or no saved value at all, falls back to English.
   const savedLang = localStorage.getItem('preferredLang');
-  if (savedLang) { setLanguage(savedLang); return; }
-
-  /*fetch('https://ipapi.co/json/')
-    .then(r => r.json())
-    .then(data => {
-      const balkans = ['RS', 'BA', 'HR', 'ME'];
-      setLanguage(balkans.includes(data.country_code) ? 'sr' : 'en');
-    })
-    .catch(() => setLanguage('en'));*/
+  setLanguage(savedLang === 'sr' ? 'sr' : 'en');
 })();
 
 window.addEventListener('click', () => {

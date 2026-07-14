@@ -284,7 +284,26 @@ const projectsData = {
     links: { itch: "" },
     dates: { start: "2024-01", end: "2024-01" },
     i18n: { title: "game-fightinggame-title", description: "game-fightinggame-desc", cardDesc: "game-fightinggame-card-desc" }
-  }
+  },
+  "pasniper": {
+    status: "DEMO",
+    cardImg: "../images/games/project2.png",
+    tags: ["Tool", "Utility", "Unity", "C#", "Web Scraping", "HTML", "Automation", "Notifications", "App", "Android"],
+    logo: "../images/logos/pasniper.png",
+    header: { 
+      background: "../images/headers/pasniper-bg.png", 
+      accent: "#ffcc00", 
+      class: "header-pasniper" 
+    },
+    media: [],
+    links: { itch: "" },
+    dates: { start: "2025-11", end: "" },
+    i18n: { 
+        title: "tool-pasniper-title", 
+        description: "tool-pasniper-desc", 
+        cardDesc: "tool-pasniper-card-desc" 
+    }
+  },
 };
 
 // ====== STATUS TYPES ======
@@ -1063,7 +1082,61 @@ function renderSingleProject(gameKey) {
           <p>Created across a frantic 48-hour development window during Global Game Jam 2024. Because the core jam parameter was focused entirely on amusement or laughter generation, the focal goal became entertaining the dark lord overlooking the arena. Heavy prioritization was thrown directly into execution loops, hand-drawn fighting physics, blocks, and punch-to-uppercut combo states.</p>
         </div>
       `;
-    } else {
+    } else if (gameKey === "pasniper") {
+      document.body.classList.add('pg-pasniper');
+      contentEl.innerHTML = `
+        <div class="pasniper-status fade">
+          <div class="pasniper-status__dot"></div>
+          <div class="pasniper-status__text">
+            <strong>DEMO AUTOMATION TOOL</strong> &nbsp;·&nbsp;
+            <strong>High-Frequency Scraper</strong> &nbsp;·&nbsp; 
+            <strong>Unity C# Engine</strong>
+          </div>
+        </div>
+        
+        <div class="pasniper-intro fade-up">
+          <div class="pasniper-panel">
+            <div class="pasniper-panel__header">
+              <div class="pasniper-radar-ping"></div>
+              <h2>LIVE MARKET SNIPER</h2>
+            </div>
+            <p class="pasniper-panel__desc" data-i18n="${game.i18n.description}">
+              Polovni Automobili Sniper is a specialized utility client built natively inside Unity. By targeting HTML page structures directly through threaded web queries, it completely bypasses localized rendering overhead. Specify your preferred pricing parameters, vehicle configurations, and production years to isolate target deals instantly.
+            </p>
+          </div>
+        </div>
+        <div class="pasniper-features fade-up">
+          <div class="pasniper-features__title">TACTICAL SYSTEM FUNCTIONS</div>
+          <div class="pasniper-features__grid">
+            <div class="pasniper-feature-card">
+              <div class="pasniper-feature-card__icon">🎯</div>
+              <div class="pasniper-feature-card__title">RAW HTML PARSING</div>
+              <div class="pasniper-feature-card__desc">Scrapes raw web DOM elements instantly. Identifies fresh vehicle uploads before they load into conventional web cache stacks.</div>
+            </div>
+            <div class="pasniper-feature-card">
+              <div class="pasniper-feature-card__icon">🎛️</div>
+              <div class="pasniper-feature-card__title">PARAMETER INJECTION</div>
+              <div class="pasniper-feature-card__desc">Configures strict filter structures matching specific vehicle brands, price ceilings, mileage benchmarks, and geo-locations.</div>
+            </div>
+            <div class="pasniper-feature-card">
+              <div class="pasniper-feature-card__icon">🔔</div>
+              <div class="pasniper-feature-card__title">REALTIME NOTIFICATIONS</div>
+              <div class="pasniper-feature-card__desc">Dispatches immediate push pings to your active workspace framework when an asset matches your profile configuration.</div>
+            </div>
+            <div class="pasniper-feature-card">
+              <div class="pasniper-feature-card__icon">⚡</div>
+              <div class="pasniper-feature-card__title">UNITY RUNTIME ASYNC</div>
+              <div class="pasniper-feature-card__desc">Engineered with high-performance asynchronous background web processes ensuring minimal CPU overhead while polling.</div>
+            </div>
+          </div>
+        </div>
+        <div class="pasniper-footer fade-up">
+          <div class="pasniper-footer__accent"></div>
+          <p>Gain a precision advantage on high-demand, below-market listings automatically.</p>
+        </div>
+      `;
+    } 
+    else {
       contentEl.innerHTML = `
         <div class="media-gallery fade">${mediaHTML}</div>
         <br><br>
