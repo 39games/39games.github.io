@@ -60,7 +60,7 @@ const projectsData = {
     tags: ["Game", "Horror", "Multiplayer", "Unity", "C#", "Blender", "3D", "Servers", "PC"],
     logo: "../images/logos/dread.png",
     header: { background: "../images/headers/dread-bg.png", accent: "#eae73d", class: "header-dread" },
-    media: [{ type: "video", src: "https://www.youtube.com/embed/VQtT93fjYdI" }],
+    media: [{ type: "video", src: "https://www.youtube.com/embed/UUdT050HZaE" }],
     links: { googleplay: "", steam: "", itch: "https://39games.itch.io/dread" },
     dates: { start: "2025-09", end: "" },
     i18n: { title: "game-dread-title", description: "game-dread-desc1", cardDesc: "game-dread-desc" }
@@ -226,7 +226,7 @@ const projectsData = {
     logo: "../images/logos/stepwarriors.png",
     header: { background: "../images/headers/stepwarriors-bg.png", accent: "#5ecb3d", class: "header-stepwarriors" },
     media: [],
-    links: { itch: "https://39games.itch.io/step-warriors" },
+    links: { itch: "https://39games.itch.io/step-warriors", apk: "https://github.com/39games/39games.github.io/releases/download/Step-Warriors/step.apk" },
     dates: { start: "2026-01", end: "" },
     i18n: { title: "game-stepwarriors-title", description: "game-stepwarriors-desc", cardDesc: "game-stepwarriors-card-desc" }
   },
@@ -270,7 +270,7 @@ const projectsData = {
     logo: "../images/logos/topdownshooter.png",
     header: { background: "../images/headers/topdownshooter-bg.png", accent: "#ff4d4d", class: "header-topdownshooter" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/ltUz94avdow" }],
-    links: { itch: "" },
+    links: { pc: "https://github.com/39games/39games.github.io/releases/download/Top-Down-Shooter/Shooter.zip" },
     dates: { start: "2023-12", end: "2023-12" },
     i18n: { title: "game-topdownshooter-title", description: "game-topdownshooter-desc", cardDesc: "game-topdownshooter-card-desc" }
   },
@@ -314,9 +314,9 @@ function getPlatformIcons(tags, status = 'default') {
 
   // Map status/metaClass to dynamic colors
   const statusColors = {
-    released: '#2ecc71', // Green
-    dev: '#dbd834',      // Blue
-    demo: '#b2b2b2',     // Yellow
+    released: '#2ecc71',
+    dev: '#dbd834',
+    demo: '#b2b2b2',
     paused: '#3cb9e7'
   };
 
