@@ -94,7 +94,7 @@ const projectsData = {
     logo: "../images/logos/troll.png",
     header: { background: "../images/headers/troll-bg.png", accent: "#1ab617", class: "header-trolls" },
     media: [],
-    links: { googleplay: "", steam: "", itch: "https://39games.itch.io/smash-trolls" },
+    links: { googleplay: "", steam: "", itch: "https://39games.itch.io/smash-trolls", y8: "https://www.y8.com/games/smash_trolls" },
     dates: { start: "2024-04", end: "" },
     i18n: { title: "game-smashtrolls-title", description: "game-smashtrolls-desc", cardDesc: "game-smash-desc" }
   },
@@ -105,7 +105,7 @@ const projectsData = {
     logo: "../images/logos/gb.png",
     header: { background: "../images/headers/gb-bg.png", accent: "#e2801d", class: "header-gb" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/3IjSDXVTHQg" }],
-    links: { googleplay: "https://play.google.com/store/apps/details?id=com.bruh39.GoblinBarrage", steam: "", itch: "https://39games.itch.io/goblin-barrage" },
+    links: { googleplay: "https://play.google.com/store/apps/details?id=com.bruh39.GoblinBarrage", steam: "", itch: "https://39games.itch.io/goblin-barrage", newgrounds: "https://www.newgrounds.com/portal/view/923021", gamejolt:"https://gamejolt.com/games/goblin-barrage/885168" },
     dates: { start: "2022-02", end: "2022-05" },
     i18n: { title: "game-goblinbarrage-title", description: "game-goblinbarrage-desc", cardDesc: "game-gb-desc" }
   },
@@ -116,7 +116,7 @@ const projectsData = {
     logo: "../images/logos/oa.png",
     header: { background: "../images/headers/oa-bg.png", accent: "#218631", class: "header-oa" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/YC6pSaAKGqA" }],
-    links: { googleplay: "https://play.google.com/store/apps/details?id=com.bruh39.OgreAssault", steam: "", itch: "https://39games.itch.io/ogre-assault" },
+    links: { googleplay: "https://play.google.com/store/apps/details?id=com.bruh39.OgreAssault", steam: "", itch: "https://39games.itch.io/ogre-assault", newgrounds: "https://www.newgrounds.com/portal/view/924056" },
     dates: { start: "2024-02", end: "2024-04" },
     i18n: { title: "game-ogreassault-title", description: "game-ogreassault-desc", cardDesc: "game-oa-desc" }
   },
@@ -138,7 +138,7 @@ const projectsData = {
     logo: "../images/logos/salesmen.png",
     header: { background: "../images/headers/salesmen-bg.png", accent: "#e2a33d", class: "header-salesmen" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/G9Gn5TNlHI0" }],
-    links: { itch: "https://39games.itch.io/salesmen" },
+    links: { itch: "https://39games.itch.io/salesmen", pc: "https://github.com/39games/39games.github.io/releases/download/Salesmen/salesmen.zip" },
     dates: { start: "2023-12", end: "2024-06" },
     i18n: { title: "game-salesmen-title", description: "game-salesmen-desc", cardDesc: "game-salesmen-card-desc" }
   },
@@ -149,7 +149,7 @@ const projectsData = {
     logo: "../images/logos/ros.png",
     header: { background: "../images/headers/ros-bg.png", accent: "#c9a227", class: "header-ros" },
     media: [],
-    links: { itch: "https://39games.itch.io/ros-nemanjic" },
+    links: { itch: "https://39games.itch.io/ros-nemanjic", pc: "https://github.com/39games/39games.github.io/releases/download/Rulers-of-Serbia/Serbia.zip" },
     dates: { start: "2023-10", end: "2023-12" },
     i18n: { title: "game-ros-title", description: "game-ros-desc", cardDesc: "game-ros-card-desc" }
   },
@@ -160,7 +160,7 @@ const projectsData = {
     logo: "../images/logos/chum.png",
     header: { background: "../images/headers/chum-bg.png", accent: "#c98a3c", class: "header-chum" },
     media: [],
-    links: { itch: "https://39games.itch.io/chum" },
+    links: { itch: "https://39games.itch.io/chum", pc: "https://github.com/39games/39games.github.io/releases/download/Chum/Chum.zip", apk: "https://github.com/39games/39games.github.io/releases/download/Chum/Chum.apk" },
     dates: { start: "2021-10", end: "2022-02" },
     i18n: { title: "game-chum-title", description: "game-chum-desc", cardDesc: "game-chum-card-desc" }
   },
@@ -171,7 +171,7 @@ const projectsData = {
     logo: "../images/logos/ohcrab.png",
     header: { background: "../images/headers/ohcrab-bg.png", accent: "#e81e00", class: "header-ohcrab" },
     media: [],
-    links: { itch: "https://39games.itch.io/oh-crab" },
+    links: { itch: "https://39games.itch.io/oh-crab", "v0.3": "https://github.com/39games/39games.github.io/releases/download/Oh-Crab/Oh.Crab.version.0.3.zip", "Jam Version": "https://github.com/39games/39games.github.io/releases/download/Oh-Crab-Jam/Oh.Crab.Jam.version.zip" },
     dates: { start: "2020-05", end: "2020-07" },
     i18n: { title: "game-ohcrab-title", description: "game-ohcrab-desc", cardDesc: "game-ohcrab-card-desc" }
   },
@@ -182,7 +182,7 @@ const projectsData = {
     logo: "../images/logos/colors.png",
     header: { background: "../images/headers/colors-bg.png", accent: "#8b2fc9", class: "header-colors" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/NBGup5VyUxU" }],
-    links: { itch: "https://39games.itch.io/colors" },
+    links: { itch: "https://39games.itch.io/colors", apk: "https://github.com/39games/39games.github.io/releases/download/Colors/Colors.apk", pc: "https://github.com/39games/39games.github.io/releases/download/Colors/Colors.zip" },
     dates: { start: "2021-01", end: "2021-02" },
     i18n: { title: "game-colors-title", description: "game-colors-desc", cardDesc: "game-colors-card-desc" }
   },
@@ -193,7 +193,7 @@ const projectsData = {
     logo: "../images/logos/moonbreaker.png",
     header: { background: "../images/headers/moonbreaker-bg.png", accent: "#4dff9e", class: "header-moonbreaker" },
     media: [],
-    links: { itch: "https://39games.itch.io/moonbreaker" },
+    links: { itch: "https://39games.itch.io/moonbreaker", "pc": "https://github.com/39games/39games.github.io/releases/download/Moonbreaker/Moonbreaker.zip"},
     dates: { start: "2020-11", end: "2020-11" },
     i18n: { title: "game-moonbreaker-title", description: "game-moonbreaker-desc", cardDesc: "game-moonbreaker-card-desc" }
   },
@@ -204,7 +204,7 @@ const projectsData = {
     logo: "../images/logos/termiteswarm.png",
     header: { background: "../images/headers/termiteswarm-bg.png", accent: "#f7b079", class: "header-termiteswarm" },
     media: [],
-    links: { itch: "https://39games.itch.io/termites" },
+    links: { itch: "https://39games.itch.io/termites", pc: "https://github.com/39games/39games.github.io/releases/download/Termite-Swarm/Termites.zip" },
     dates: { start: "2021-02", end: "2021-02" },
     i18n: { title: "game-termiteswarm-title", description: "game-termiteswarm-desc", cardDesc: "game-termiteswarm-card-desc" }
   },
@@ -215,7 +215,7 @@ const projectsData = {
     logo: "../images/logos/rng.png",
     header: { background: "../images/headers/rng-bg.png", accent: "#00e5ff", class: "header-rng" },
     media: [],
-    links: { itch: "https://39games.itch.io/rng" },
+    links: { itch: "https://39games.itch.io/rng", pc: "https://github.com/39games/39games.github.io/releases/download/RNG/RNG.zip" },
     dates: { start: "2021-08", end: "2021-08" },
     i18n: { title: "game-rng-title", description: "game-rng-desc", cardDesc: "game-rng-card-desc" }
   },
@@ -439,7 +439,7 @@ function renderProjectDirectory() {
   headerEl.style.backgroundPosition = 'center';
 
   headerEl.innerHTML = `
-        <h1 class="project-title" style="font-size: 56px;" data-i18n="directory-title">Project Directory</h1>
+        <img src="../images/projdir.png" alt="Project Directory" class="project-title" style="height: 256px; width: auto;">
     `;
 
   const allTags = new Set();
@@ -542,6 +542,7 @@ function buildDownloadButtonsHTML(project) {
     windows: '<i class="fab fa-windows"></i>',
     mac: '<i class="fab fa-apple"></i>',
     linux: '<i class="fab fa-linux"></i>',
+    browser: '<i class="fas fa-globe"></i>',
     default: '<i class="fas fa-download"></i>'
   };
 
@@ -583,8 +584,18 @@ function buildDownloadButtonsHTML(project) {
     } 
     // Other standard platforms
     else if (k === 'itch' || url.includes('itch.io')) {
-      icon = icons.itch;
-      title = 'Download on Itch.io';
+      return; // Skip itch.io links as they are handled elsewhere
+    }else if (k === 'y8') {
+      icon = icons.browser;
+      title = 'Play on Y8';
+      subtitle = 'Game Page';
+      }else if (k === 'newgrounds') {
+      icon = icons.browser;
+      title = 'Play on Newgrounds';
+      subtitle = 'Game Page';
+    }else if (k === 'gamejolt') {
+      icon = icons.browser;
+      title = 'Play on Game Jolt';
       subtitle = 'Game Page';
     } else if (k === 'steam' || url.includes('steampowered.com')) {
       icon = icons.steam;
@@ -602,6 +613,14 @@ function buildDownloadButtonsHTML(project) {
       icon = icons.linux;
       title = 'Linux Download';
       subtitle = 'Direct Linux Build';
+    } else if (url.includes('.apk')) {
+      icon = icons.android;
+      title = `Direct .APK Download (${key.toUpperCase()})`;
+      subtitle = 'Android (.apk file)';
+    } else if (url.includes('.zip')) {
+      icon = icons.windows;
+      title = `Windows PC Download (${key.toUpperCase()})`;
+      subtitle = 'Direct .exe / .zip';
     } else {
       title = `Download (${key.toUpperCase()})`;
       subtitle = 'External Link';
