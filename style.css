@@ -1014,6 +1014,7 @@ body.mode-beats #lang-btn{
     grid-template-columns:1fr 1fr;
     gap:60px;
     align-items:start;
+    padding:60px 0;
 }
 
 .project-content .description{
@@ -3629,6 +3630,8 @@ body.pg-oa .game-logo { filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.35));}
 
 /* 🟡 IN DEVELOPMENT */
 .game-card.dev {
+  background: rgb(17, 15, 9);
+  outline: 5px solid rgb(182, 143, 3);
   box-shadow: 0 0 12px rgba(255, 200, 0, 0.6),
               0 0 25px rgba(255, 200, 0, 0.3);
 }
@@ -3640,6 +3643,8 @@ body.pg-oa .game-logo { filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.35));}
 
 /* 🟢 RELEASED */
 .game-card.released {
+  background: rgb(9, 17, 12);
+  outline: 5px solid rgb(15, 192, 88);
   box-shadow: 0 0 12px rgba(0, 255, 120, 0.6),
               0 0 25px rgba(0, 255, 120, 0.3);
 }
@@ -3650,16 +3655,20 @@ body.pg-oa .game-logo { filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.35));}
 }
 
 .game-card.paused {
-  box-shadow: 0 0 12px rgba(3, 115, 190, 0.6),
-              0 0 25px rgba(2, 51, 136, 0.3);
+  background: rgb(10, 18, 18);
+  outline: 5px solid rgb(8, 208, 205);
+  box-shadow: 0 0 12px rgba(4, 222, 218, 0.6),
+              0 0 25px rgba(2, 128, 186, 0.3);
 }
 .game-card.paused:hover {
   box-shadow: 0 0 20px rgba(0, 225, 255, 0.9),
-              0 0 40px rgba(1, 118, 133, 0.5);
+              0 0 40px rgba(3, 181, 205, 0.5);
 }
 
 /* ⚪ DEMO */
 .game-card.demo {
+  background: rgb(23, 23, 23);
+  outline: 5px solid rgb(101, 101, 106);
   box-shadow: 0 0 12px rgba(170, 170, 180, 0.6),
               0 0 25px rgba(170, 170, 180, 0.3);
 }
@@ -3687,31 +3696,27 @@ body.pg-oa .game-logo { filter: drop-shadow(0 0 24px rgba(0, 0, 0, 0.35));}
 
 /* Match tag colors */
 .game-card.dev .game-tag {
-  background: rgba(255, 200, 0, 0.15);
+  background: rgb(93, 74, 4);
   color: #ffd54a;
-  border: 1px solid rgba(255, 200, 0, 0.4);
-  box-shadow: 0 0 8px rgba(255, 200, 0, 0.6);
+  border: 1px solid rgb(226, 179, 10);
 }
 
 .game-card.released .game-tag {
-  background: rgba(0, 255, 119, 0.585);
+  background: rgb(9, 86, 45);
   color: #00ff88;
-  border: 1px solid rgba(0, 255, 120, 0.4);
-  box-shadow: 0 0 8px rgba(0, 255, 120, 0.6);
+  border: 1px solid rgb(0, 255, 119);
 }
 
 .game-card.demo .game-tag {
-  background: rgba(180, 180, 190, 0.15);
+  background: rgb(73, 73, 77);
   color: #c4c4cc;
-  border: 1px solid rgba(180, 180, 190, 0.4);
-  box-shadow: 0 0 8px rgba(180, 180, 190, 0.5);
+  border: 1px solid rgb(180, 180, 190);
 }
 
 .game-card.paused .game-tag {
-  background: rgba(7, 137, 126, 0.484);
+  background: rgb(6, 94, 87);
   color: #13dad0;
-  border: 1px solid rgba(20, 219, 195, 0.4);
-  box-shadow: 0 0 8px rgba(4, 219, 219, 0.5);
+  border: 1px solid rgb(20, 219, 196);
 }
 /* ================================================================
    SALESMEN — Page Styles
@@ -6001,24 +6006,6 @@ footer {
   backdrop-filter: blur(6px);
 }
 
-.game-card.dev .game-tag {
-  background: rgba(255, 200, 0, 0.15);
-  color: #ffd54a;
-  border: 1px solid rgba(255, 200, 0, 0.4);
-}
-
-.game-card.released .game-tag {
-  background: rgba(0, 255, 120, 0.12);
-  color: #00ff88;
-  border: 1px solid rgba(0, 255, 120, 0.35);
-}
-
-.game-card.demo .game-tag {
-  background: rgba(180, 180, 190, 0.12);
-  color: #c4c4cc;
-  border: 1px solid rgba(180, 180, 190, 0.35);
-}
-
 /* Arrow hint on hover */
 .game-card::after {
   content: '→';
@@ -8114,4 +8101,126 @@ body.pg-pasniper {
   0% { transform: scale(0.95); opacity: 0.5; }
   50% { transform: scale(1.1); opacity: 1; }
   100% { transform: scale(0.95); opacity: 0.5; }
+}
+
+/* --- Platform Icons --- */
+/* --- Root Color Palette Variables --- */
+:root {
+  --status-released: #2ecc71;
+  --status-dev: #dbd834;
+  --status-demo: #b2b2b2;
+  --status-paused: #3cb9e7;
+}
+
+/* --- Platform Icons Layout & Alignment --- */
+.platform-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 8px 0 12px 0;
+}
+
+/* --- Dynamic SVG Styling --- */
+.platform-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 18px;
+  height: 18px;
+  opacity: 0.85;
+  transition: transform 0.25 ease, opacity 0.25s ease, filter 0.25s ease;
+}
+
+/* --- Card & Icon Hover Interactivity --- */
+.game-card:hover .platform-icon {
+  opacity: 1;
+}
+
+.platform-icon:hover {
+  opacity: 1;
+  transform: translateY(-2px) scale(1.15);
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+/* --- Status Class Mapping (If assigning classes instead of inline styles) --- */
+.platform-icon.released, .game-card.released .platform-icon { color: var(--status-released); }
+.platform-icon.dev,      .game-card.dev .platform-icon      { color: var(--status-dev); }
+.platform-icon.demo,     .game-card.demo .platform-icon     { color: var(--status-demo); }
+.platform-icon.paused,   .game-card.paused .platform-icon   { color: var(--status-paused); }
+.platform-icon.utility,  .game-card.utility .platform-icon  { color: var(--status-utility); }
+
+/* =========================================
+   DYNAMIC DOWNLOAD BUTTONS
+========================================= */
+.project-downloads-wrapper {
+  margin: 60px auto;
+  padding: 40px 20px;
+  text-align: center;
+  max-width: 900px;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.dyn-downloads-heading {
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  color: var(--accent, #fff);
+  text-transform: uppercase;
+}
+
+.dyn-download-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.dyn-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  color: #fff;
+  text-decoration: none;
+  min-width: 280px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.dyn-download-btn:hover {
+  background: var(--accent, #3498db);
+  border-color: var(--accent, #3498db);
+  color: #111; /* Dark text for contrast on hover */
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.dyn-download-icon {
+  font-size: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dyn-download-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.dyn-download-title {
+  font-weight: 800;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.dyn-download-sub {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 4px;
+  font-weight: 500;
 }

@@ -2,35 +2,35 @@ const switchBtn1 = document.getElementById('modeSwitch1');
 const body = document.body;
 
 if (switchBtn1) {
-    switchBtn1.addEventListener('click', () => {
-        body.classList.add('switching');
-        switchBtn1.classList.add('switch-animate');
-        
-        setTimeout(() => {
-            const isBeats = body.classList.contains('mode-beats');
-            body.classList.toggle('mode-games');
-            body.classList.toggle('mode-beats');
+  switchBtn1.addEventListener('click', () => {
+    body.classList.add('switching');
+    switchBtn1.classList.add('switch-animate');
 
-            const url = new URL(window.location);
-            if (isBeats) url.searchParams.delete('mode'); 
-            else url.searchParams.set('mode', 'beats'); 
-            window.history.replaceState({}, '', url);
+    setTimeout(() => {
+      const isBeats = body.classList.contains('mode-beats');
+      body.classList.toggle('mode-games');
+      body.classList.toggle('mode-beats');
 
-            const visibleFaders = document.querySelectorAll('.fade');
-            visibleFaders.forEach(fader => {
-                const rect = fader.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) fader.classList.add('show');
-                else fader.classList.remove('show');
-            });
+      const url = new URL(window.location);
+      if (isBeats) url.searchParams.delete('mode');
+      else url.searchParams.set('mode', 'beats');
+      window.history.replaceState({}, '', url);
 
-            switchBtn1.classList.remove('switch-animate');
-        }, 300);
+      const visibleFaders = document.querySelectorAll('.fade');
+      visibleFaders.forEach(fader => {
+        const rect = fader.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) fader.classList.add('show');
+        else fader.classList.remove('show');
+      });
 
-        setTimeout(() => {
-            body.classList.remove('switching');
-            window.location.href = '../index.html?mode=beats';
-        }, 600);
-    });
+      switchBtn1.classList.remove('switch-animate');
+    }, 300);
+
+    setTimeout(() => {
+      body.classList.remove('switching');
+      window.location.href = '../index.html?mode=beats';
+    }, 600);
+  });
 }
 
 // ====== PROJECTS DATA ======
@@ -48,16 +48,16 @@ const projectsData = {
     media: [],
     links: { website: "https://interfaith.up.railway.app/" },
     dates: { start: "2026-05", end: "" },
-    i18n: { 
-        title: "project-interfaith-title", 
-        description: "project-interfaith-desc", 
-        cardDesc: "project-interfaith-card-desc" 
+    i18n: {
+      title: "project-interfaith-title",
+      description: "project-interfaith-desc",
+      cardDesc: "project-interfaith-card-desc"
     }
   },
   "dread": {
     status: "PAUSED",
     cardImg: "../images/games/game1.png",
-    tags: ["Game", "Horror", "Multiplayer", "Unity", "C#", "Blender", "3D", "Servers"],
+    tags: ["Game", "Horror", "Multiplayer", "Unity", "C#", "Blender", "3D", "Servers", "PC"],
     logo: "../images/logos/dread.png",
     header: { background: "../images/headers/dread-bg.png", accent: "#eae73d", class: "header-dread" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/VQtT93fjYdI" }],
@@ -68,7 +68,7 @@ const projectsData = {
   "nutriasoulrush": {
     status: "RELEASED",
     cardImg: "../images/games/game2.png",
-    tags: ["Game", "Arcade", "Mobile", "Unity", "C#", "2D", "Lumo TV"],
+    tags: ["Game", "Arcade", "Mobile", "Unity", "C#", "2D", "Lumo TV", "Android"],
     logo: "../images/logos/nsr.png",
     header: { background: "../images/headers/nsr-bg.png", accent: "#e63946", class: "header-nsr" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/jwONLTwq24E" }],
@@ -79,7 +79,7 @@ const projectsData = {
   "themoon": {
     status: "PAUSED",
     cardImg: "../images/games/game3.png",
-    tags: ["Game", "Atmospheric", "3D", "Unity", "C#", "Blender"],
+    tags: ["Game", "Atmospheric", "3D", "Unity", "C#", "Blender", "PC"],
     logo: "../images/logos/moon.png",
     header: { background: "../images/headers/moon-bg.png", accent: "#ffffff", class: "header-moon" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/qcjvQ-SErNI" }],
@@ -90,7 +90,7 @@ const projectsData = {
   "smashtrolls": {
     status: "RELEASED",
     cardImg: "../images/games/game4.png",
-    tags: ["Game", "2D", "Multiplayer", "Unity", "C#", "Pixel Art", "1v1"],
+    tags: ["Game", "2D", "Multiplayer", "Unity", "C#", "Pixel Art", "1v1", "Browser", "PC"],
     logo: "../images/logos/troll.png",
     header: { background: "../images/headers/troll-bg.png", accent: "#1ab617", class: "header-trolls" },
     media: [],
@@ -101,7 +101,7 @@ const projectsData = {
   "goblinbarrage": {
     status: "RELEASED",
     cardImg: "../images/games/game5.png",
-    tags: ["Game", "Arcade", "Mobile", "Pixel Art", "Unity", "C#", "2D"],
+    tags: ["Game", "Arcade", "Mobile", "Pixel Art", "Unity", "C#", "2D", "Android", "Browser"],
     logo: "../images/logos/gb.png",
     header: { background: "../images/headers/gb-bg.png", accent: "#e2801d", class: "header-gb" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/3IjSDXVTHQg" }],
@@ -112,7 +112,7 @@ const projectsData = {
   "ogreassault": {
     status: "RELEASED",
     cardImg: "../images/games/game6.png",
-    tags: ["Game", "Strategy", "Mobile", "Pixel Art", "Unity", "C#", "Robots", "Tower Defense", "2D"],
+    tags: ["Game", "Strategy", "Mobile", "Pixel Art", "Unity", "C#", "Robots", "Tower Defense", "2D", "Browser", "Android"],
     logo: "../images/logos/oa.png",
     header: { background: "../images/headers/oa-bg.png", accent: "#218631", class: "header-oa" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/YC6pSaAKGqA" }],
@@ -123,7 +123,7 @@ const projectsData = {
   "theforeigner": {
     status: "IN DEVELOPMENT",
     cardImg: "../images/games/game7.png",
-    tags: ["Game", "RPG", "2D", "Unity", "C#", "Lumo TV"],
+    tags: ["Game", "RPG", "2D", "Unity", "C#", "Lumo TV", "PC"],
     logo: "../images/logos/foreigner.png",
     header: { background: "../images/headers/foreigner-bg.png", accent: "#8b2fc9", class: "header-foreigner" },
     media: [],
@@ -134,7 +134,7 @@ const projectsData = {
   "salesmen": {
     status: "DEMO",
     cardImg: "../images/games/game9.png",
-    tags: ["Game", "Simulation", "Sandbox", "Robots", "Futuristic", "Unity", "C#", "Pixel Art", "2D"],
+    tags: ["Game", "Simulation", "Sandbox", "Robots", "Futuristic", "Unity", "C#", "Pixel Art", "2D", "Browser", "PC"],
     logo: "../images/logos/salesmen.png",
     header: { background: "../images/headers/salesmen-bg.png", accent: "#e2a33d", class: "header-salesmen" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/G9Gn5TNlHI0" }],
@@ -145,7 +145,7 @@ const projectsData = {
   "rulersofserbia": {
     status: "DEMO",
     cardImg: "../images/games/game10.png",
-    tags: ["Game", "Historical", "Medieval", "Story Rich", "Top-Down", "Adventure", "Unity", "C#", "Pixel Art", "2D"],
+    tags: ["Game", "Historical", "Medieval", "Story Rich", "Top-Down", "Adventure", "Unity", "C#", "Pixel Art", "2D", "PC"],
     logo: "../images/logos/ros.png",
     header: { background: "../images/headers/ros-bg.png", accent: "#c9a227", class: "header-ros" },
     media: [],
@@ -156,7 +156,7 @@ const projectsData = {
   "chum": {
     status: "DEMO",
     cardImg: "../images/games/game11.png",
-    tags: ["Game", "Card Game", "1v1", "2D", "Multiplayer", "Pixel Art", "Unity", "C#", "Servers"],
+    tags: ["Game", "Card Game", "1v1", "2D", "Multiplayer", "Pixel Art", "Unity", "C#", "Servers", "PC", "Android"],
     logo: "../images/logos/chum.png",
     header: { background: "../images/headers/chum-bg.png", accent: "#c98a3c", class: "header-chum" },
     media: [],
@@ -167,7 +167,7 @@ const projectsData = {
   "ohcrab": {
     status: "DEMO",
     cardImg: "../images/games/game12.png",
-    tags: ["Game", "Tower Defense", "2D", "Pygame", "Game Jam", "Pixel Art"],
+    tags: ["Game", "Tower Defense", "2D", "Pygame", "Game Jam", "Pixel Art", "PC"],
     logo: "../images/logos/ohcrab.png",
     header: { background: "../images/headers/ohcrab-bg.png", accent: "#e81e00", class: "header-ohcrab" },
     media: [],
@@ -178,7 +178,7 @@ const projectsData = {
   "colors": {
     status: "DEMO",
     cardImg: "../images/games/game13.png",
-    tags: ["Game", "Puzzle", "Mobile", "Android", "Unity", "C#", "Pixel Art", "Colorful", "2D"],
+    tags: ["Game", "Puzzle", "Mobile", "Android", "Unity", "C#", "Pixel Art", "Colorful", "2D", "PC", "Android"],
     logo: "../images/logos/colors.png",
     header: { background: "../images/headers/colors-bg.png", accent: "#8b2fc9", class: "header-colors" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/NBGup5VyUxU" }],
@@ -189,7 +189,7 @@ const projectsData = {
   "moonbreaker": {
     status: "DEMO",
     cardImg: "../images/games/game14.png",
-    tags: ["Game", "Space", "Arcade", "Game Jam", "Pygame", "Aliens", "2D", "Pixel Art"],
+    tags: ["Game", "Space", "Arcade", "Game Jam", "Pygame", "Aliens", "2D", "Pixel Art", "PC"],
     logo: "../images/logos/moonbreaker.png",
     header: { background: "../images/headers/moonbreaker-bg.png", accent: "#4dff9e", class: "header-moonbreaker" },
     media: [],
@@ -200,7 +200,7 @@ const projectsData = {
   "termiteswarm": {
     status: "DEMO",
     cardImg: "../images/games/game15.png",
-    tags: ["Game", "Arcade", "Game Jam", "2D", "Pixel Art", "Short", "Unity", "C#"],
+    tags: ["Game", "Arcade", "Game Jam", "2D", "Pixel Art", "Short", "Unity", "C#", "PC"],
     logo: "../images/logos/termiteswarm.png",
     header: { background: "../images/headers/termiteswarm-bg.png", accent: "#f7b079", class: "header-termiteswarm" },
     media: [],
@@ -211,7 +211,7 @@ const projectsData = {
   "rng": {
     status: "DEMO",
     cardImg: "../images/games/game16.png",
-    tags: ["Game", "Shooter", "Top-Down", "Game Jam", "2D", "Pixel Art", "Unity", "C#"],
+    tags: ["Game", "Shooter", "Top-Down", "Game Jam", "2D", "Pixel Art", "Unity", "C#", "PC"],
     logo: "../images/logos/rng.png",
     header: { background: "../images/headers/rng-bg.png", accent: "#00e5ff", class: "header-rng" },
     media: [],
@@ -222,7 +222,7 @@ const projectsData = {
   "stepwarriors": {
     status: "PAUSED",
     cardImg: "../images/games/game8.png",
-    tags: ["Game", "RPG", "Mobile", "Android", "Walking", "Turn-Based", "PvP", "Unity", "C#", "3D", "Blender", "Multiplayer", "1v1", "Fitness", "Game Jam"],
+    tags: ["Game", "RPG", "Mobile", "Android", "Walking", "Turn-Based", "PvP", "Unity", "C#", "3D", "Blender", "Multiplayer", "1v1", "Fitness", "Game Jam", "Android"],
     logo: "../images/logos/stepwarriors.png",
     header: { background: "../images/headers/stepwarriors-bg.png", accent: "#5ecb3d", class: "header-stepwarriors" },
     media: [],
@@ -233,7 +233,7 @@ const projectsData = {
   "obsidianrift": {
     status: "DEMO",
     cardImg: "../images/games/game17.png",
-    tags: ["Game", "Adventure", "Dungeon Crawler", "Dark Fantasy", "Fantasy", "Mystery", "Stealth", "2D", "Unity", "C#", "Pixel Art"],
+    tags: ["Game", "Adventure", "Dungeon Crawler", "Dark Fantasy", "Fantasy", "Mystery", "Stealth", "2D", "Unity", "C#", "Pixel Art", "PC"],
     logo: "../images/logos/obsidianrift.png",
     header: { background: "../images/headers/obsidianrift-bg.png", accent: "#7c5cff", class: "header-obsidianrift" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/Ws0C8cRk0xM" }],
@@ -244,7 +244,7 @@ const projectsData = {
   "gnometowerdefense": {
     status: "DEMO",
     cardImg: "../images/games/game18.png",
-    tags: ["Game", "Tower Defense", "Strategy", "Gnomes", "Goblins", "Pixel Art", "Blender", "2D", "Untitled"],
+    tags: ["Game", "Tower Defense", "Strategy", "Gnomes", "Goblins", "Pixel Art", "Blender", "2D", "Untitled", "PC"],
     logo: "../images/logos/gnometowerdefense.png",
     header: { background: "../images/headers/gnometowerdefense-bg.png", accent: "#6fae3d", class: "header-gnometowerdefense" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/cYAlBGVIxsM" }, { type: "video", src: "https://www.youtube.com/embed/HPsGhSKUwnA" }, { type: "video", src: "https://youtube.com/embed/cgdrkBBhI5w" }],
@@ -255,7 +255,7 @@ const projectsData = {
   "parasiterun3d": {
     status: "DEMO",
     cardImg: "../images/games/game19.png",
-    tags: ["Game", "Hypercasual", "Runner", "Mobile", "3D", "Parasite", "Unity", "C#"],
+    tags: ["Game", "Hypercasual", "Runner", "Mobile", "3D", "Parasite", "Unity", "C#", "Android"],
     logo: "../images/logos/parasiterun3d.png",
     header: { background: "../images/headers/parasiterun3d-bg.png", accent: "#a63dae", class: "header-parasiterun3d" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/1hdFOpgF3Ok" }, { type: "video", src: "https://www.youtube.com/embed/e-Wv32FY2U0" }],
@@ -266,7 +266,7 @@ const projectsData = {
   "topdownshooter": {
     status: "DEMO",
     cardImg: "../images/games/game20.png",
-    tags: ["Game", "Top-Down", "Shooter", "Survival", "Pixel Art", "Unity", "C#", "Robot", "Game Jam", "2D", "Untitled"],
+    tags: ["Game", "Top-Down", "Shooter", "Survival", "Pixel Art", "Unity", "C#", "Robot", "Game Jam", "2D", "Untitled", "PC"],
     logo: "../images/logos/topdownshooter.png",
     header: { background: "../images/headers/topdownshooter-bg.png", accent: "#ff4d4d", class: "header-topdownshooter" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/ltUz94avdow" }],
@@ -277,7 +277,7 @@ const projectsData = {
   "fightinggame": {
     status: "DEMO",
     cardImg: "../images/games/game21.png",
-    tags: ["Game", "Fighting", "Pixel Art", "Unity", "C#", "2D", "Game Jam", "Arcade", "Untitled"],
+    tags: ["Game", "Fighting", "Pixel Art", "Unity", "C#", "2D", "Game Jam", "Arcade", "Untitled", "PC"],
     logo: "../images/logos/fightinggame.png",
     header: { background: "../images/headers/fightinggame-bg.png", accent: "#e5a93b", class: "header-fightinggame" },
     media: [{ type: "video", src: "https://www.youtube.com/embed/EdCo8MHVrBA" }],
@@ -290,28 +290,72 @@ const projectsData = {
     cardImg: "../images/games/project2.png",
     tags: ["Tool", "Utility", "Unity", "C#", "Web Scraping", "HTML", "Automation", "Notifications", "App", "Android"],
     logo: "../images/logos/pasniper.png",
-    header: { 
-      background: "../images/headers/pasniper-bg.png", 
-      accent: "#ffcc00", 
-      class: "header-pasniper" 
+    header: {
+      background: "../images/headers/pasniper-bg.png",
+      accent: "#ffcc00",
+      class: "header-pasniper"
     },
     media: [],
     links: { itch: "" },
     dates: { start: "2025-11", end: "" },
-    i18n: { 
-        title: "tool-pasniper-title", 
-        description: "tool-pasniper-desc", 
-        cardDesc: "tool-pasniper-card-desc" 
+    i18n: {
+      title: "tool-pasniper-title",
+      description: "tool-pasniper-desc",
+      cardDesc: "tool-pasniper-card-desc"
     }
   },
 };
 
+// Dynamically generate platform icons based on tags array
+function getPlatformIcons(tags, status = 'default') {
+  if (!tags) return '';
+  const platforms = new Set();
+  const t = tags.map(tag => tag.toLowerCase());
+
+  // Map status/metaClass to dynamic colors
+  const statusColors = {
+    released: '#2ecc71', // Green
+    dev: '#dbd834',      // Blue
+    demo: '#b2b2b2',     // Yellow
+    paused: '#3cb9e7'
+  };
+
+  // Determine target fill color (supports both named status keys or raw color values)
+  const normalizedStatus = status.toLowerCase();
+  const iconColor = statusColors[normalizedStatus] || status;
+  const colorStyle = `style="color: ${iconColor};"`;
+
+  // Inline SVG Templates
+  const svgs = {
+    android: `<svg class="platform-icon" ${colorStyle} viewBox="0 0 24 24" width="16" height="16" fill="currentColor" title="Android"><path d="M6 18c0 .55.45 1 1 1h1v3c0 .55.45 1 1 1s1-.45 1-1v-3h4v3c0 .55.45 1 1 1s1-.45 1-1v-3h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v7c0 .83.67 1.5 1.5 1.5S5 17.33 5 16.5v-7C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v7c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-7c0-.83-.67-1.5-1.5-1.5zM15.53 2.16l1.3-1.3c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0l-1.48 1.48C13.85 1.23 12.95 1 12 1c-.96 0-1.86.23-2.66.63L7.86.15c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l1.31 1.31C6.97 3.26 6 5.01 6 7h12c0-1.99-.97-3.74-2.47-4.84zM10 5H9V4h1v1zm5 0h-1V4h1v1z"/></svg>`,
+    
+    ios: `<svg class="platform-icon" ${colorStyle} viewBox="0 0 24 24" width="16" height="16" fill="currentColor" title="iOS"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.12-1.96.99-3.1-.97.04-2.15.65-2.85 1.47-.63.73-1.18 1.89-1.03 3.01 1.09.08 2.22-.56 2.89-1.38z"/></svg>`,
+    
+    pc: `<svg class="platform-icon" ${colorStyle} viewBox="0 0 24 24" width="16" height="16" fill="currentColor" title="PC"><path d="M0 3.449L9.75 2.1v9.451H0zm10.55-1.51L24 0v11.4H10.55zM0 12.6h9.75v9.451L0 20.701zM10.55 12.6H24V24l-13.45-1.899z"/></svg>`,
+    
+    mac: `<svg class="platform-icon" ${colorStyle} viewBox="0 0 24 24" width="16" height="16" fill="currentColor" title="Mac"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.12-1.96.99-3.1-.97.04-2.15.65-2.85 1.47-.63.73-1.18 1.89-1.03 3.01 1.09.08 2.22-.56 2.89-1.38z"/></svg>`,
+    
+    browser: `<svg class="platform-icon" ${colorStyle} viewBox="0 0 24 24" width="16" height="16" fill="currentColor" title="Browser"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>`,
+    
+    console: `<svg class="platform-icon" ${colorStyle} viewBox="0 0 24 24" width="16" height="16" fill="currentColor" title="Console"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H9v2H7v-2H5v-2h2V9h2v2h2v2zm4.5 1c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>`
+  };
+
+  if (t.includes('android') || t.includes('mobile')) platforms.add(svgs.android);
+  if (t.includes('ios')) platforms.add(svgs.ios);
+  if (t.includes('pc') || t.includes('windows') || t.includes('steam')) platforms.add(svgs.pc);
+  if (t.includes('mac')) platforms.add(svgs.mac);
+  if (t.includes('browser') || t.includes('web app') || t.includes('site')) platforms.add(svgs.browser);
+  if (t.includes('console')) platforms.add(svgs.console);
+
+  return Array.from(platforms).join('');
+}
+
 // ====== STATUS TYPES ======
 const STATUS_META = {
-  "IN DEVELOPMENT": { cls: "dev",      i18n: "tag-dev" },
-  "RELEASED":       { cls: "released", i18n: "tag-released" },
-  "DEMO":           { cls: "demo",     i18n: "tag-demo" },
-  "PAUSED":         { cls: "paused",   i18n: "tag-paused" }
+  "IN DEVELOPMENT": { cls: "dev", i18n: "tag-dev" },
+  "RELEASED": { cls: "released", i18n: "tag-released" },
+  "DEMO": { cls: "demo", i18n: "tag-demo" },
+  "PAUSED": { cls: "paused", i18n: "tag-paused" }
 };
 
 function getStatusMeta(status) {
@@ -319,7 +363,7 @@ function getStatusMeta(status) {
 }
 
 // ====== DATE HELPERS ======
-const MONTH_NAMES = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 function formatProjectDate(str) {
   if (!str) return "";
@@ -372,39 +416,39 @@ const projectKey = urlParams.get("project");
 
 // ====== ROUTER ======
 if (!projectKey) {
-    renderProjectDirectory();
+  renderProjectDirectory();
 } else if (!projectsData[projectKey]) {
-    window.location.replace("/projects/");
+  window.location.replace("/projects/");
 } else {
-    renderSingleProject(projectKey);
+  renderSingleProject(projectKey);
 }
 
 // ================================================================
 //  DIRECTORY VIEW
 // ================================================================
 function renderProjectDirectory() {
-    const headerEl = document.getElementById("projectHeader");
-    const contentEl = document.getElementById("projectContent");
+  const headerEl = document.getElementById("projectHeader");
+  const contentEl = document.getElementById("projectContent");
 
-    headerEl.className = '';
-    headerEl.style.cssText = '';
-    headerEl.classList.add('header-directory');
-    headerEl.style.backgroundImage = 'url(../images/headers/project-bg.png)';
-    headerEl.style.backgroundRepeat = 'no-repeat';
-    headerEl.style.backgroundSize = 'cover';
-    headerEl.style.backgroundPosition = 'center';
+  headerEl.className = '';
+  headerEl.style.cssText = '';
+  headerEl.classList.add('header-directory');
+  headerEl.style.backgroundImage = 'url(../images/headers/project-bg.png)';
+  headerEl.style.backgroundRepeat = 'no-repeat';
+  headerEl.style.backgroundSize = 'cover';
+  headerEl.style.backgroundPosition = 'center';
 
-    headerEl.innerHTML = `
+  headerEl.innerHTML = `
         <h1 class="project-title" style="font-size: 56px;" data-i18n="directory-title">Project Directory</h1>
     `;
-    
-    const allTags = new Set();
-    Object.values(projectsData).forEach(proj => {
-        if(proj.tags) proj.tags.forEach(t => allTags.add(t));
-    });
-    const sortedTags = Array.from(allTags).sort();
-    
-    contentEl.innerHTML = `
+
+  const allTags = new Set();
+  Object.values(projectsData).forEach(proj => {
+    if (proj.tags) proj.tags.forEach(t => allTags.add(t));
+  });
+  const sortedTags = Array.from(allTags).sort();
+
+  contentEl.innerHTML = `
         <div class="directory-controls fade show">
             <input type="text" id="search-projects" data-i18n="search-projects" placeholder="Search projects, tags, or tools..." />
             <div class="filter-tags" id="filter-tags">
@@ -415,108 +459,218 @@ function renderProjectDirectory() {
         <div class="games-grid fade show" id="projects-grid"></div>
     `;
 
-    const searchInput = document.getElementById("search-projects");
-    const filterContainer = document.getElementById("filter-tags");
-    const projectsGrid = document.getElementById("projects-grid");
-    
-    let currentFilter = "all";
-    
-    function updateGrid() {
-        const query = searchInput.value.toLowerCase();
-        projectsGrid.innerHTML = "";
+  const searchInput = document.getElementById("search-projects");
+  const filterContainer = document.getElementById("filter-tags");
+  const projectsGrid = document.getElementById("projects-grid");
 
-        const sortedKeys = Object.keys(projectsData).sort((a, b) => {
-            return getProjectSortValue(projectsData[b]) - getProjectSortValue(projectsData[a]);
-        });
+  let currentFilter = "all";
 
-        sortedKeys.forEach(key => {
-            const p = projectsData[key];
-            const title = p.i18n.title.toLowerCase();
-            const tagStr = p.tags ? p.tags.join(" ").toLowerCase() : "";
-            
-            const matchesTag = (currentFilter === "all") || (p.tags && p.tags.includes(currentFilter));
-            const matchesSearch = title.includes(query) || tagStr.includes(query) || key.includes(query);
-            
-            if (matchesTag && matchesSearch) {
-                const meta = getStatusMeta(p.status);
-                const tagsHTML = p.tags ? p.tags.slice(0,3).map(t => `<span class="tag">${t}</span>`).join("") : "";
-                const dateHTML = buildCardDateHTML(p);
-                
-                projectsGrid.innerHTML += `
-                    <a class="game-card ${meta.cls}" href="?project=${key}">
-                        <div class="game-tag" data-i18n="${meta.i18n}">${p.status}</div>
-                        <img src="${p.cardImg}" alt="" onerror="this.src='../images/herogames-alt.png'" />
-                        <div class="game-info">
-                            <h3 data-i18n="${p.i18n.title}">Project</h3>
-                            <div class="beat-tags">${tagsHTML}</div>
-                            <p data-i18n="${p.i18n.cardDesc}">Description</p>
-                            ${dateHTML}
-                        </div>
-                    </a>
-                `;
-            }
-        });
-        
-        if (typeof setLanguage === 'function') {
-            const savedLang = localStorage.getItem('preferredLang') || 'en';
-            setLanguage(savedLang);
-        }
-    }
+  function updateGrid() {
+    const query = searchInput.value.toLowerCase();
+    projectsGrid.innerHTML = "";
 
-    searchInput.addEventListener("input", updateGrid);
-    
-    filterContainer.addEventListener("click", e => {
-        if (e.target.classList.contains("filter-tag")) {
-            document.querySelectorAll(".filter-tag").forEach(el => el.classList.remove("active"));
-            e.target.classList.add("active");
-            currentFilter = e.target.dataset.tag;
-            updateGrid();
-        }
+    const sortedKeys = Object.keys(projectsData).sort((a, b) => {
+      return getProjectSortValue(projectsData[b]) - getProjectSortValue(projectsData[a]);
     });
 
-    updateGrid();
+    sortedKeys.forEach(key => {
+      const p = projectsData[key];
+      const title = p.i18n.title.toLowerCase();
+      const tagStr = p.tags ? p.tags.join(" ").toLowerCase() : "";
+
+      const matchesTag = (currentFilter === "all") || (p.tags && p.tags.includes(currentFilter));
+      const matchesSearch = title.includes(query) || tagStr.includes(query) || key.includes(query);
+
+      if (matchesTag && matchesSearch) {
+        const meta = getStatusMeta(p.status);
+        const tagsHTML = p.tags ? p.tags.slice(0, 3).map(t => `<span class="tag">${t}</span>`).join("") : "";
+        const dateHTML = buildCardDateHTML(p);
+
+        // Inside updateGrid(), modify the innerHTML template:
+        const cardAccent = p.header && p.header.accent ? p.header.accent : 'var(--accent)';
+
+        projectsGrid.innerHTML += `
+    <a class="game-card ${meta.cls}" href="?project=${key}" style="--card-accent: ${cardAccent};">
+        <div class="game-tag" data-i18n="${meta.i18n}">${p.status}</div>
+        <img src="${p.cardImg}" alt="" onerror="this.src='../images/herogames-alt.png'" />
+        <div class="game-info">
+            <h3 data-i18n="${p.i18n.title}">Project</h3>
+            <div class="platform-icons">
+                ${getPlatformIcons(p.tags)}
+            </div>
+            <div class="beat-tags">${tagsHTML}</div>
+            <p data-i18n="${p.i18n.cardDesc}">Description</p>
+            ${dateHTML}
+        </div>
+    </a>
+`;
+      }
+    });
+
+    if (typeof setLanguage === 'function') {
+      const savedLang = localStorage.getItem('preferredLang') || 'en';
+      setLanguage(savedLang);
+    }
+  }
+
+  searchInput.addEventListener("input", updateGrid);
+
+  filterContainer.addEventListener("click", e => {
+    if (e.target.classList.contains("filter-tag")) {
+      document.querySelectorAll(".filter-tag").forEach(el => el.classList.remove("active"));
+      e.target.classList.add("active");
+      currentFilter = e.target.dataset.tag;
+      updateGrid();
+    }
+  });
+
+  updateGrid();
+}
+
+// ====== DYNAMIC DOWNLOAD BUTTONS ======
+function buildDownloadButtonsHTML(project) {
+  if (!project || !project.links) return '';
+  const links = project.links;
+  const buttons = [];
+  
+  // Base icons using FontAwesome
+  const icons = {
+    android: '<i class="fab fa-android"></i>', 
+    googleplay: '<i class="fab fa-google-play"></i>',
+    itch: '<i class="fab fa-itch-io"></i>',
+    steam: '<i class="fab fa-steam"></i>',
+    windows: '<i class="fab fa-windows"></i>',
+    mac: '<i class="fab fa-apple"></i>',
+    linux: '<i class="fab fa-linux"></i>',
+    default: '<i class="fas fa-download"></i>'
+  };
+
+  Object.keys(links).forEach(key => {
+    const url = links[key];
+    
+    // Skip if the link is empty or undefined
+    if (!url || typeof url !== 'string' || url.trim() === '') return;
+    
+    const k = key.toLowerCase();
+    
+    // RULE 1: Browser apps/websites shouldn't have a download link
+    if (k === 'website' || k === 'browser' || k === 'web') return;
+    
+    let icon = icons.default;
+    let title = '';
+    let subtitle = '';
+
+    // RULE 2: Clarify Android downloads (Play Store vs Direct APK)
+    if (k === 'googleplay' || url.includes('play.google.com')) {
+      icon = icons.googleplay;
+      title = 'Google Play Store';
+      subtitle = 'Android App (Google Play)';
+    } else if (k === 'apk' || k === 'direct_apk' || k.includes('apk') || url.toLowerCase().endsWith('.apk')) {
+      icon = icons.android;
+      title = 'Direct .APK Download';
+      subtitle = 'Android Package (.apk)';
+    } else if (k === 'android') {
+      // Fallback check if the generic key "android" is used
+      if (url.includes('play.google.com')) {
+        icon = icons.googleplay;
+        title = 'Google Play Store';
+        subtitle = 'Android App';
+      } else {
+        icon = icons.android;
+        title = 'Direct .APK Download';
+        subtitle = 'Android (.apk file)';
+      }
+    } 
+    // Other standard platforms
+    else if (k === 'itch' || url.includes('itch.io')) {
+      icon = icons.itch;
+      title = 'Download on Itch.io';
+      subtitle = 'Game Page';
+    } else if (k === 'steam' || url.includes('steampowered.com')) {
+      icon = icons.steam;
+      title = 'Download on Steam';
+      subtitle = 'PC Platform';
+    } else if (k === 'windows' || k === 'pc') {
+      icon = icons.windows;
+      title = 'Windows PC Download';
+      subtitle = 'Direct .exe / .zip';
+    } else if (k === 'mac' || k === 'macos') {
+      icon = icons.mac;
+      title = 'macOS Download';
+      subtitle = 'Direct Apple Build';
+    } else if (k === 'linux') {
+      icon = icons.linux;
+      title = 'Linux Download';
+      subtitle = 'Direct Linux Build';
+    } else {
+      title = `Download (${key.toUpperCase()})`;
+      subtitle = 'External Link';
+    }
+    
+    buttons.push(`
+      <a href="${url}" target="_blank" rel="noopener noreferrer" class="dyn-download-btn">
+        <div class="dyn-download-icon">${icon}</div>
+        <div class="dyn-download-text">
+          <span class="dyn-download-title">${title}</span>
+          <span class="dyn-download-sub">${subtitle}</span>
+        </div>
+      </a>
+    `);
+  });
+
+  // If no valid download buttons were created (e.g. only a website link existed), return empty
+  if (buttons.length === 0) return '';
+
+  return `
+    <div class="project-downloads-wrapper fade show">
+      <h3 class="dyn-downloads-heading">DOWNLOADS & PLATFORMS</h3>
+      <div class="dyn-download-grid">
+        ${buttons.join('')}
+      </div>
+    </div>
+  `;
 }
 
 // ================================================================
 //  SINGLE PROJECT VIEW
 // ================================================================
 function renderSingleProject(gameKey) {
-    const game = projectsData[gameKey];
-    const headerEl = document.getElementById("projectHeader");
-    const contentEl = document.getElementById("projectContent");
+  const game = projectsData[gameKey];
+  const headerEl = document.getElementById("projectHeader");
+  const contentEl = document.getElementById("projectContent");
 
-    headerEl.className = '';
-    headerEl.style.cssText = '';
+  headerEl.className = '';
+  headerEl.style.cssText = '';
 
-    if (game.header) {
-      const h = game.header;
-      if (h.class) headerEl.classList.add(h.class);
-      if (h.background) {
-        headerEl.style.backgroundImage = `url(${h.background})`;
-        headerEl.style.backgroundRepeat = 'no-repeat';
-        headerEl.style.backgroundSize = 'cover';
-        headerEl.style.backgroundPosition = 'center';
-      }
-      if (h.accent) headerEl.style.setProperty('--accent', h.accent);
+  if (game.header) {
+    const h = game.header;
+    if (h.class) headerEl.classList.add(h.class);
+    if (h.background) {
+      headerEl.style.backgroundImage = `url(${h.background})`;
+      headerEl.style.backgroundRepeat = 'no-repeat';
+      headerEl.style.backgroundSize = 'cover';
+      headerEl.style.backgroundPosition = 'center';
     }
+    if (h.accent) headerEl.style.setProperty('--accent', h.accent);
+  }
 
-    const logoHtml = game.logo 
-        ? `<img src="${game.logo}" alt="" class="game-logo" data-i18n="${game.i18n.title}">` 
-        : `<h1 class="project-title" data-i18n="${game.i18n.title}"></h1>`;
+  const logoHtml = game.logo
+    ? `<img src="${game.logo}" alt="" class="game-logo" data-i18n="${game.i18n.title}">`
+    : `<h1 class="project-title" data-i18n="${game.i18n.title}"></h1>`;
 
-    headerEl.innerHTML = logoHtml + buildDateBadgeHTML(game);
+  headerEl.innerHTML = logoHtml + buildDateBadgeHTML(game);
 
-    let mediaHTML = '';
-    if(game.media) {
-        game.media.forEach(m => {
-          if (m.type === "image") mediaHTML += `<div class="media-item fade"><img src="${m.src}" alt=""></div>`;
-          if (m.type === "video") mediaHTML += `<div class="media-item fade"><iframe src="${m.src}" allowfullscreen></iframe></div>`;
-        });
-    }
+  let mediaHTML = '';
+  if (game.media) {
+    game.media.forEach(m => {
+      if (m.type === "image") mediaHTML += `<div class="media-item fade"><img src="${m.src}" alt=""></div>`;
+      if (m.type === "video") mediaHTML += `<div class="media-item fade"><iframe src="${m.src}" allowfullscreen></iframe></div>`;
+    });
+  }
 
-    if (gameKey === "theforeigner") {
-      document.body.classList.add('pg-foreigner');
-      contentEl.innerHTML = `
+  if (gameKey === "theforeigner") {
+    document.body.classList.add('pg-foreigner');
+    contentEl.innerHTML = `
         <div class="foreigner-status fade">
           <div class="foreigner-status__dot"></div>
           <div class="foreigner-status__text">
@@ -569,9 +723,9 @@ function renderSingleProject(gameKey) {
           </div>
         </div>
       `;
-    } else if (gameKey === "dread") {
-      document.body.classList.add('pg-dread');
-      contentEl.innerHTML = `
+  } else if (gameKey === "dread") {
+    document.body.classList.add('pg-dread');
+    contentEl.innerHTML = `
         <div class="dread-vhs-noise" aria-hidden="true"></div>
         <div class="media-gallery dread-media fade">${mediaHTML}</div>
         <div class="dread-section fade">
@@ -619,9 +773,9 @@ function renderSingleProject(gameKey) {
           </a>
         </div>
       `;
-    } else if (gameKey === "nutriasoulrush") {
-      document.body.classList.add('pg-nsr');
-      contentEl.innerHTML = `
+  } else if (gameKey === "nutriasoulrush") {
+    document.body.classList.add('pg-nsr');
+    contentEl.innerHTML = `
         <div class="nsr-static" aria-hidden="true"></div>
         <div class="nsr-wrong-text fade">
             <div class="line">
@@ -667,38 +821,38 @@ function renderSingleProject(gameKey) {
         </div>
       `;
 
-      document.addEventListener('mousemove', (e) => {
-        const mouseX = e.clientX;
-        const mouseY = e.clientY;
-        const eyes = document.querySelectorAll('.nsr-eye');
-        eyes.forEach(eye => {
-          const pupil = eye.querySelector('.nsr-pupil');
-          if (!pupil) return;
-          const eyeRect = eye.getBoundingClientRect();
-          const pupilRect = pupil.getBoundingClientRect();
-          const eyeCenterX = eyeRect.left + (eyeRect.width / 2);
-          const eyeCenterY = eyeRect.top + (eyeRect.height / 2);
-          const angle = Math.atan2(mouseY - eyeCenterY, mouseX - eyeCenterX);
-          const distanceToMouse = Math.hypot(mouseX - eyeCenterX, mouseY - eyeCenterY);
-          const maxDistance = (eyeRect.width / 2) - (pupilRect.width / 2);
-          const moveDistance = Math.min(distanceToMouse * 0.1, maxDistance);
-          const pupilX = Math.cos(angle) * moveDistance;
-          const pupilY = Math.sin(angle) * moveDistance;
-          pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
-        });
+    document.addEventListener('mousemove', (e) => {
+      const mouseX = e.clientX;
+      const mouseY = e.clientY;
+      const eyes = document.querySelectorAll('.nsr-eye');
+      eyes.forEach(eye => {
+        const pupil = eye.querySelector('.nsr-pupil');
+        if (!pupil) return;
+        const eyeRect = eye.getBoundingClientRect();
+        const pupilRect = pupil.getBoundingClientRect();
+        const eyeCenterX = eyeRect.left + (eyeRect.width / 2);
+        const eyeCenterY = eyeRect.top + (eyeRect.height / 2);
+        const angle = Math.atan2(mouseY - eyeCenterY, mouseX - eyeCenterX);
+        const distanceToMouse = Math.hypot(mouseX - eyeCenterX, mouseY - eyeCenterY);
+        const maxDistance = (eyeRect.width / 2) - (pupilRect.width / 2);
+        const moveDistance = Math.min(distanceToMouse * 0.1, maxDistance);
+        const pupilX = Math.cos(angle) * moveDistance;
+        const pupilY = Math.sin(angle) * moveDistance;
+        pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
       });
+    });
 
-    } else if (gameKey === "themoon") {
-      document.body.classList.add('pg-moon');
-      let stars = '';
-      for (let i = 0; i < 90; i++) {
-        const x = Math.random() * 100;
-        const y = Math.random() * 100;
-        const s = (Math.random() * 2 + 0.4).toFixed(1);
-        const d = (Math.random() * 5).toFixed(1);
-        stars += `<div class="moon-star" style="left:${x}%;top:${y}%;width:${s}px;height:${s}px;animation-delay:${d}s"></div>`;
-      }
-      contentEl.innerHTML = `
+  } else if (gameKey === "themoon") {
+    document.body.classList.add('pg-moon');
+    let stars = '';
+    for (let i = 0; i < 90; i++) {
+      const x = Math.random() * 100;
+      const y = Math.random() * 100;
+      const s = (Math.random() * 2 + 0.4).toFixed(1);
+      const d = (Math.random() * 5).toFixed(1);
+      stars += `<div class="moon-star" style="left:${x}%;top:${y}%;width:${s}px;height:${s}px;animation-delay:${d}s"></div>`;
+    }
+    contentEl.innerHTML = `
         <div class="moon-starfield" aria-hidden="true">${stars}</div>
         <div class="media-gallery moon-media fade">${mediaHTML}</div>
         <div class="moon-lore fade">
@@ -711,9 +865,9 @@ function renderSingleProject(gameKey) {
           <div class="moon-quote-attr">— Zen Buddhist Saying</div>
         </div>
       `;
-    } else if (gameKey === "smashtrolls") {
-      document.body.classList.add('pg-trolls');
-      contentEl.innerHTML = `
+  } else if (gameKey === "smashtrolls") {
+    document.body.classList.add('pg-trolls');
+    contentEl.innerHTML = `
         <div id="st-game-launcher" class="fade">
           <div class="st-play-now-label"><span class="st-play-now-text">PLAY NOW</span><div class="st-arrows"></div></div>
           <br><br><br><br><button id="st-play-btn" onclick="launchSTGame()"><img src="../images/smashtrolls/play-button.png" alt="Play" id="st-play-img"></button>
@@ -741,9 +895,9 @@ function renderSingleProject(gameKey) {
         </div>
         <div class="trolls-cta fade"><a href="https://39games.itch.io/smash-trolls" target="_blank" class="trolls-px-btn">▶ PLAY FREE ON ITCH.IO TOO</a></div>
       `;
-    } else if (gameKey === "goblinbarrage") {
-      document.body.classList.add('pg-gb');
-      contentEl.innerHTML = `
+  } else if (gameKey === "goblinbarrage") {
+    document.body.classList.add('pg-gb');
+    contentEl.innerHTML = `
         <div class="gb-px-hud fade">
           <div class="gb-px-hud-cell"><div class="gb-px-hud-label">SCORE</div><div class="gb-px-hud-val gb-px-counter" id="gbScoreCounter">000000</div></div>
           <div class="gb-px-hud-cell"><div class="gb-px-hud-label">PLATFORM</div><div class="gb-px-hud-val">ANDROID</div></div>
@@ -777,39 +931,39 @@ function renderSingleProject(gameKey) {
         </div>
       `;
 
-      let score = 0;
-      const counter = document.getElementById('gbScoreCounter');
-      setInterval(() => {
-        score += Math.floor(Math.random() * 47 + 3);
-        if (counter) counter.textContent = String(score).padStart(6, '0');
-      }, 80);
+    let score = 0;
+    const counter = document.getElementById('gbScoreCounter');
+    setInterval(() => {
+      score += Math.floor(Math.random() * 47 + 3);
+      if (counter) counter.textContent = String(score).padStart(6, '0');
+    }, 80);
 
-      const skins = ["default.png","potion.png","homeless.png","red.png","pirate.png","osama.png","doom.png","demoman.png","chemist.png","dave.png","skeleton.png","vampire.png","bunny.png","santa.png","ghost.png","zombie.png","viking.png","executioner.png","robot.png"];
-      let currentSkin = 0;
-      const skinImg  = document.getElementById("skinImage");
-      const skinName = document.getElementById("skinName");
-      function formatName(f) { return f.replace(".png","").replace(/[-_]/g," ").replace(/\b\w/g,c=>c.toUpperCase()); }
-      function showSkin(idx, dir=1) {
-        if(!skinImg) return;
-        skinImg.classList.remove("show");
-        skinImg.classList.add(dir>0?"slide-left":"slide-right");
-        setTimeout(()=>{
-          skinImg.src = `../images/gbskins/${skins[idx]}`;
-          if(skinName) skinName.textContent = formatName(skins[idx]);
-          skinImg.classList.remove("slide-left","slide-right");
-          skinImg.classList.add("show");
-        },200);
-      }
-      setTimeout(() => showSkin(currentSkin), 100);
-      
-      const leftArr = document.querySelector(".skin-arrow.left");
-      const rightArr = document.querySelector(".skin-arrow.right");
-      if(leftArr) leftArr.addEventListener("click",()=>{ currentSkin=(currentSkin-1+skins.length)%skins.length; showSkin(currentSkin,-1); });
-      if(rightArr) rightArr.addEventListener("click",()=>{ currentSkin=(currentSkin+1)%skins.length; showSkin(currentSkin,1); });
+    const skins = ["default.png", "potion.png", "homeless.png", "red.png", "pirate.png", "osama.png", "doom.png", "demoman.png", "chemist.png", "dave.png", "skeleton.png", "vampire.png", "bunny.png", "santa.png", "ghost.png", "zombie.png", "viking.png", "executioner.png", "robot.png"];
+    let currentSkin = 0;
+    const skinImg = document.getElementById("skinImage");
+    const skinName = document.getElementById("skinName");
+    function formatName(f) { return f.replace(".png", "").replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase()); }
+    function showSkin(idx, dir = 1) {
+      if (!skinImg) return;
+      skinImg.classList.remove("show");
+      skinImg.classList.add(dir > 0 ? "slide-left" : "slide-right");
+      setTimeout(() => {
+        skinImg.src = `../images/gbskins/${skins[idx]}`;
+        if (skinName) skinName.textContent = formatName(skins[idx]);
+        skinImg.classList.remove("slide-left", "slide-right");
+        skinImg.classList.add("show");
+      }, 200);
+    }
+    setTimeout(() => showSkin(currentSkin), 100);
 
-    } else if (gameKey === "ogreassault") {
-      document.body.classList.add('pg-oa');
-      contentEl.innerHTML = `
+    const leftArr = document.querySelector(".skin-arrow.left");
+    const rightArr = document.querySelector(".skin-arrow.right");
+    if (leftArr) leftArr.addEventListener("click", () => { currentSkin = (currentSkin - 1 + skins.length) % skins.length; showSkin(currentSkin, -1); });
+    if (rightArr) rightArr.addEventListener("click", () => { currentSkin = (currentSkin + 1) % skins.length; showSkin(currentSkin, 1); });
+
+  } else if (gameKey === "ogreassault") {
+    document.body.classList.add('pg-oa');
+    contentEl.innerHTML = `
         <div class="oa-px-banner fade">
           <div class="oa-px-team"><div class="oa-px-team-label">YOUR OGRES</div><div class="oa-px-hp-bar"><div class="oa-px-hp-fill oa-hp-green" style="width:78%"></div></div></div>
           <div class="oa-px-vs">VS</div>
@@ -830,8 +984,8 @@ function renderSingleProject(gameKey) {
         </div>
         <div class="oa-cta fade"><a href="https://play.google.com/store/apps/details?id=com.bruh39.OgreAssault" target="_blank" class="oa-px-btn"><i class="fab fa-google-play"></i> Download Free</a><a href="https://39games.itch.io/ogre-assault" target="_blank" class="oa-px-btn oa-px-btn--alt"><i class="fab fa-itch-io"></i> Itch.io</a></div>
       `;
-    } else if (gameKey === "interfaithdebate") {
-      contentEl.innerHTML = `
+  } else if (gameKey === "interfaithdebate") {
+    contentEl.innerHTML = `
         <section class="interfaith-hero fade-up">
         <div class="interfaith-bg-glow"></div>
         <div class="interfaith-content">
@@ -870,9 +1024,9 @@ function renderSingleProject(gameKey) {
         <p class="quote-text">"The goal is not to win arguments. The goal is to understand perspectives you would never normally encounter."</p>
         </section>
       `;
-    } else if (gameKey === "salesmen") {
-      document.body.classList.add('pg-salesmen');
-      contentEl.innerHTML = `
+  } else if (gameKey === "salesmen") {
+    document.body.classList.add('pg-salesmen');
+    contentEl.innerHTML = `
         <div class="salesmen-pitch fade-up">
           <div class="salesmen-pitch__tag">▶ STEP RIGHT UP</div>
           <p class="salesmen-pitch__text" data-i18n="${game.i18n.description}"></p>
@@ -892,9 +1046,9 @@ function renderSingleProject(gameKey) {
         <div class="salesmen-quote fade-up"><div class="salesmen-quote-mark">"</div><div class="salesmen-quote-text">Every robot in Scrapropolis is selling something. The only question is what you're willing to sell.</div></div>
         <div class="salesmen-cta fade-up"><p class="salesmen-cta__sub">Currently just a demo — development is paused.</p><a href="https://39games.itch.io/salesmen" target="_blank" class="salesmen-btn"><i class="fab fa-itch-io"></i> Follow it on Itch.io</a></div>
       `;
-    } else if (gameKey === "rulersofserbia") {
-      document.body.classList.add('pg-ros');
-      contentEl.innerHTML = `
+  } else if (gameKey === "rulersofserbia") {
+    document.body.classList.add('pg-ros');
+    contentEl.innerHTML = `
         <div class="ros-intro fade-up"><div class="ros-intro__crest">☨</div><p class="ros-intro__text" data-i18n="${game.i18n.description}"></p></div>
         <div class="ros-honest fade-up"><div class="ros-honest__tag">A NOTE ON THIS ONE</div><p>Rulers of Serbia was an ambitious attempt to turn 200 years of Serbian medieval history into a playable strategy game. It grew bigger than one person could realistically finish, and development is currently paused. The project file's still here though, and it might get picked back up one day.</p></div>
         <div class="ros-timeline fade-up">
@@ -918,9 +1072,9 @@ function renderSingleProject(gameKey) {
         </div>
         <div class="ros-cta fade-up"><p class="ros-cta__sub">Extract the .zip, run the .exe, and see how far it got.</p><a href="https://39games.itch.io/ros-nemanjic" target="_blank" class="ros-btn"><i class="fab fa-itch-io"></i> Play it on Itch.io</a></div>
       `;
-    } else if (gameKey === "chum") {
-      document.body.classList.add('pg-chum');
-      contentEl.innerHTML = `
+  } else if (gameKey === "chum") {
+    document.body.classList.add('pg-chum');
+    contentEl.innerHTML = `
         <div class="chum-intro fade-up"><div class="chum-suits">♠ ♥ ♦ ♣</div><p class="chum-intro__text" data-i18n="${game.i18n.description}"></p></div>
         <div class="chum-rules fade-up">
           <div class="chum-rule-card"><div class="chum-rule-card__icon">📦</div><div class="chum-rule-card__title">OPEN A CHEST</div><p>Crack one open on your turn for a random item to add to your hand. You never know what you'll get.</p></div>
@@ -930,17 +1084,17 @@ function renderSingleProject(gameKey) {
         <div class="chum-honest fade-up"><div class="chum-honest__tag">WHY IT'S DISCONTINUED</div><p>Chum needed a server to match players up, and I didn't want to keep paying to keep it running. I leaned on some free server options for a while, but I'm honestly not sure they still work. On top of that, the code behind it turned into a mess that got harder and harder to touch. It was a fun one to make, but this one's retired.</p></div>
         <div class="chum-cta fade-up"><p class="chum-cta__sub">Still downloadable, name your own price.</p><a href="https://39games.itch.io/chum" target="_blank" class="chum-btn"><i class="fab fa-itch-io"></i> Grab it on Itch.io</a></div>
       `;
-    } else if (gameKey === "ohcrab") {
-      document.body.classList.add('pg-ohcrab');
-      contentEl.innerHTML = `
+  } else if (gameKey === "ohcrab") {
+    document.body.classList.add('pg-ohcrab');
+    contentEl.innerHTML = `
         <div class="crab-intro fade-up"><p class="crab-intro__text" data-i18n="${game.i18n.description}"></p></div>
         <div class="crab-tags fade-up"><span class="crab-tag">🦀 crab</span><span class="crab-tag">🦞 lobster</span><span class="crab-tag">🏰 tower defense</span><span class="crab-tag">🤷 idk</span></div>
         <div class="crab-honest fade-up"><div class="crab-honest__tag">A NOTE FROM THE PAST</div><p>Oh Crab! was one of the very first games I ever finished, made for a game jam back when I was just starting to learn Pygame. It's rough, it's held together with duct tape, and it's absolutely not representative of what I make now. I'm keeping it up anyway — everyone's first game is a little embarrassing, and this one's mine.</p></div>
         <div class="crab-cta fade-up"><p class="crab-cta__sub">You've been warned. Download at your own risk.</p><a href="https://39games.itch.io/oh-crab" target="_blank" class="crab-btn"><i class="fab fa-itch-io"></i> Brave it on Itch.io</a></div>
       `;
-    } else if (gameKey === "colors") {
-      document.body.classList.add('pg-colors');
-      contentEl.innerHTML = `
+  } else if (gameKey === "colors") {
+    document.body.classList.add('pg-colors');
+    contentEl.innerHTML = `
         <div class="colors-blend fade-up" aria-hidden="true"><div class="colors-blend__blob colors-blend__blob--a"></div><div class="colors-blend__blob colors-blend__blob--b"></div><div class="colors-blend__blob colors-blend__blob--c"></div></div>
         <div class="colors-intro fade-up"><div class="colors-intro__tag">MY FIRST UNITY GAME EVER</div><p class="colors-intro__text" data-i18n="${game.i18n.description}"></p></div>
         <div class="media-gallery colors-media fade-up">${mediaHTML}</div>
@@ -952,9 +1106,9 @@ function renderSingleProject(gameKey) {
         <div class="colors-honest fade-up"><div class="colors-honest__tag">A NOTE FROM THE PAST</div><p>Colors was the very first thing I ever finished in Unity, made before I had any idea what I was doing. It's rough, it's simple, and it's absolutely not representative of what I make now — but everything else on this site started because of it. Kept up here the way a first drawing stays on the fridge.</p></div>
         <div class="colors-cta fade-up"><p class="colors-cta__sub">Free, Android and PC only.</p><a href="https://39games.itch.io/colors" target="_blank" class="colors-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a></div>
       `;
-    } else if (gameKey === "moonbreaker") {
-      document.body.classList.add('pg-moonbreaker');
-      contentEl.innerHTML = `
+  } else if (gameKey === "moonbreaker") {
+    document.body.classList.add('pg-moonbreaker');
+    contentEl.innerHTML = `
         <div class="moonbreak-intro fade-up"><div class="moonbreak-intro__tag">YEAR 2999</div><p class="moonbreak-intro__text" data-i18n="${game.i18n.description}"></p></div>
         <div class="media-gallery moonbreak-media fade-up">${mediaHTML}</div>
         <div class="moonbreak-brief fade-up">
@@ -968,9 +1122,9 @@ function renderSingleProject(gameKey) {
         <div class="moonbreak-honest fade-up"><div class="moonbreak-honest__tag">STRAIGHT FROM THE ITCH PAGE</div><p>Moonbreaker was thrown together in a few days for the Game Off 2020 game jam, and it has not aged well. It's short, it's rough, and even the original itch.io page tells you flat out not to download it. It's kept up here purely for the nostalgia of an old jam project — consider yourself warned.</p></div>
         <div class="moonbreak-cta fade-up"><p class="moonbreak-cta__sub">Free download, source code included, Windows only.</p><div class="moonbreak-cta__btns"><a href="https://39games.itch.io/moonbreaker" target="_blank" class="moonbreak-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a><a href="https://github.com/ChocoFry/Moonbreaker" target="_blank" class="moonbreak-btn moonbreak-btn--outline"><i class="fab fa-github"></i> View the Source</a></div></div>
       `;
-    } else if (gameKey === "termiteswarm") {
-      document.body.classList.add('pg-termiteswarm');
-      contentEl.innerHTML = `
+  } else if (gameKey === "termiteswarm") {
+    document.body.classList.add('pg-termiteswarm');
+    contentEl.innerHTML = `
         <div class="termite-intro fade-up"><div class="termite-intro__tag">THE OBJECTIVE</div><p class="termite-intro__text" data-i18n="${game.i18n.description}"></p></div>
         <div class="media-gallery termite-media fade-up">${mediaHTML}</div>
         <div class="termite-brief fade-up">
@@ -984,16 +1138,16 @@ function renderSingleProject(gameKey) {
         <div class="termite-honest fade-up"><div class="termite-honest__tag">WHAT THIS ACTUALLY IS</div><p>Termite Swarm was made for the Brackeys Game Jam 2021.1, and it's exactly as silly as it sounds — control a growing termite swarm, eat everything in sight, and take down an old man in front of his cabin. It's short, it's a bit chaotic, and it hasn't been touched since. A weirdly satisfying little prototype.</p></div>
         <div class="termite-cta fade-up"><p class="termite-cta__sub">Free download, Windows only.</p><a href="https://39games.itch.io/termites" target="_blank" class="termite-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a></div>
       `;
-    } else if (gameKey === "rng") {
-      document.body.classList.add('pg-rng');
-      contentEl.innerHTML = `
+  } else if (gameKey === "rng") {
+    document.body.classList.add('pg-rng');
+    contentEl.innerHTML = `
         <div class="rng-intro fade-up"><p class="rng-intro__text" data-i18n="${game.i18n.description}"></p></div>
         <div class="rng-honest fade-up"><div class="rng-honest__tag">A NOTE FROM THE PAST</div><p>RNG was made in one week for the Brackeys Game Jam 2021.2, built around taking the word "random" as literally as possible — gun color, player size, damage, all rolled on the spot. It's chaotic, unbalanced on purpose, and not meant to be taken seriously. A weird little jam experiment kept up for the memories.</p></div>
         <div class="rng-cta fade-up"><p class="rng-cta__sub">Free download, Windows only.</p><a href="https://39games.itch.io/rng" target="_blank" class="rng-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a></div>
       `;
-    } else if (gameKey === "stepwarriors") {
-      document.body.classList.add('pg-stepwarriors');
-      contentEl.innerHTML = `
+  } else if (gameKey === "stepwarriors") {
+    document.body.classList.add('pg-stepwarriors');
+    contentEl.innerHTML = `
         <div class="sw-status fade"><div class="sw-status__dot"></div><div class="sw-status__text"><strong>IN DEVELOPMENT</strong> &nbsp;·&nbsp; <strong>Made for the mts app konkurs</strong> &nbsp;·&nbsp; <strong>Walking RPG</strong> &nbsp;·&nbsp; <strong>Unity · Android</strong></div></div>
         <div class="sw-hero fade-up">
           <h2 class="sw-hero__tagline">Walk in real life.<br>Collect cursed feet.<br>Destroy your enemies.</h2>
@@ -1018,9 +1172,9 @@ function renderSingleProject(gameKey) {
         <div class="sw-honest fade-up"><div class="sw-honest__tag">WHY THIS EXISTS</div><p>Step Warriors was built for the <strong>mts app konkurs</strong> — a mobile app development competition run by Telekom Srbija for high school students specializing in math and computer science. It isn't released anywhere yet, but it should be soon.</p></div>
         <div class="sw-cta fade-up"><p class="sw-cta__sub">Not out anywhere yet — but you can follow along.</p><a href="https://39games.itch.io/step-warriors" target="_blank" class="sw-btn"><i class="fab fa-itch-io"></i> View it on Itch.io</a></div>
       `;
-    } else if (gameKey === "obsidianrift") {
-      document.body.classList.add('pg-rift');
-      contentEl.innerHTML = `
+  } else if (gameKey === "obsidianrift") {
+    document.body.classList.add('pg-rift');
+    contentEl.innerHTML = `
         <div class="rift-status fade"><div class="rift-status__dot"></div><div class="rift-status__text"><strong>PROTOTYPE</strong> &nbsp;·&nbsp; <strong>Dungeon Crawler</strong> &nbsp;·&nbsp; <strong>Stealth</strong> &nbsp;·&nbsp; <strong>Portals & Teleportation</strong></div></div>
         <div class="media-gallery rift-media fade">${mediaHTML}</div>
         <div class="rift-intro fade-up"><div class="rift-intro__label">— THE CONCEPT —</div><p class="rift-intro__text" data-i18n="${game.i18n.description}"></p></div>
@@ -1028,9 +1182,9 @@ function renderSingleProject(gameKey) {
         <div class="rift-honest fade-up"><div class="rift-honest__tag">AN HONEST NOTE</div><p>Obsidian Rift is an early prototype built around a concept I liked, but haven't had the time to fully develop yet: sneaking through dark, obsidian-black dungeons and using portals and teleportation to slip past enemies and solve your way through.</p></div>
         <div class="rift-cta fade-up"><p class="rift-cta__sub">Free download, playable now.</p><a href="https://39games.itch.io/obsidian-rift" target="_blank" class="rift-btn"><i class="fab fa-itch-io"></i> Download it on Itch.io</a></div>
       `;
-    } else if (gameKey === "gnometowerdefense") {
-      document.body.classList.add('pg-gnometowerdefense');
-      contentEl.innerHTML = `
+  } else if (gameKey === "gnometowerdefense") {
+    document.body.classList.add('pg-gnometowerdefense');
+    contentEl.innerHTML = `
         <div class="rift-status fade"><div class="rift-status__dot"></div><div class="rift-status__text"><strong>DEMO</strong> &nbsp;·&nbsp; <strong>Tower Defense</strong> &nbsp;·&nbsp; <strong>Gnomes vs Goblins</strong> &nbsp;·&nbsp; <strong>Blender → 2D Pixel Art</strong></div></div>
         <div class="media-gallery rift-media fade">${mediaHTML}</div>
         <div class="rift-intro fade-up"><div class="rift-intro__label">— THE CONCEPT —</div><p class="rift-intro__text" data-i18n="${game.i18n.description}"></p></div>
@@ -1038,9 +1192,9 @@ function renderSingleProject(gameKey) {
         <div class="rift-honest fade-up"><div class="rift-honest__tag">INFO</div><p>The game is a PvZ-style tower defense prototype where you place gnome-themed towers to fight off waves of goblins. All the assets were fully modeled and animated in Blender, then rendered out as 2D pixel art.</p></div>
         <div class="rift-cta fade-up"><p class="rift-cta__sub">A couple of short clips are up on YouTube if you want to see it in motion.</p><a href="https://www.youtube.com/shorts/HPsGhSKUwnA" target="_blank" class="rift-btn"><i class="fab fa-youtube"></i> Watch it on YouTube</a></div>
       `;
-    } else if (gameKey === "parasiterun3d") {
-      document.body.classList.add('pg-parasiterun3d');
-      contentEl.innerHTML = `
+  } else if (gameKey === "parasiterun3d") {
+    document.body.classList.add('pg-parasiterun3d');
+    contentEl.innerHTML = `
         <div class="rift-status fade"><div class="rift-status__dot"></div><div class="rift-status__text"><strong>DEMO</strong> &nbsp;·&nbsp; <strong>Hypercasual Runner</strong> &nbsp;·&nbsp; <strong>3D</strong> &nbsp;·&nbsp; <strong>Mobile</strong></div></div>
         <div class="media-gallery rift-media fade">${mediaHTML}</div>
         <div class="rift-intro fade-up"><div class="rift-intro__label">— THE CONCEPT —</div><p class="rift-intro__text" data-i18n="${game.i18n.description}"></p></div>
@@ -1048,9 +1202,9 @@ function renderSingleProject(gameKey) {
         <div class="rift-honest fade-up"><div class="rift-honest__tag">SOME INFO ABOUT THIS ONE</div><p>Parasite Run 3D is a hypercasual runner prototype where you control a parasite attaching itself to the people running in front of you. Jump between different types of people to get past different obstacles.</p></div>
         <div class="rift-cta fade-up"><p class="rift-cta__sub">A couple of short clips are up on YouTube if you want to see it in motion.</p><a href="https://www.youtube.com/shorts/1hdFOpgF3Ok" target="_blank" class="rift-btn"><i class="fab fa-youtube"></i> Watch it on YouTube</a></div>
       `;
-    } else if (gameKey === "topdownshooter") {
-      document.body.classList.add('pg-shooter');
-      contentEl.innerHTML = `
+  } else if (gameKey === "topdownshooter") {
+    document.body.classList.add('pg-shooter');
+    contentEl.innerHTML = `
         <div class="shooter-status fade">
           <div class="shooter-status__dot"></div>
           <div class="shooter-status__text"><strong>MET Game Hackathon 2023 Entry</strong> &nbsp;·&nbsp; <strong>2nd Place Winner</strong> &nbsp;·&nbsp; <strong>Built in 1 Day</strong></div>
@@ -1065,9 +1219,9 @@ function renderSingleProject(gameKey) {
           <p>This project was thrown together under a tight 24-hour deadline for the MET Game Hackathon 2023. It reuses the signature robot character type found in Ogre Assault and Salesmen. Though mechanics remain straightforward and clean, the loops and progressive character upgrades landed it a 2nd place spot in the competition judgment matrix.</p>
         </div>
       `;
-    } else if (gameKey === "fightinggame") {
-      document.body.classList.add('pg-fighter');
-      contentEl.innerHTML = `
+  } else if (gameKey === "fightinggame") {
+    document.body.classList.add('pg-fighter');
+    contentEl.innerHTML = `
         <div class="fighter-status fade">
           <div class="fighter-status__dot"></div>
           <div class="fighter-status__text"><strong>Global Game Jam 2024 Entry</strong> &nbsp;·&nbsp; <strong>Theme: "Make Me Laugh"</strong> &nbsp;·&nbsp; <strong>Built in 2 Days</strong></div>
@@ -1082,9 +1236,9 @@ function renderSingleProject(gameKey) {
           <p>Created across a frantic 48-hour development window during Global Game Jam 2024. Because the core jam parameter was focused entirely on amusement or laughter generation, the focal goal became entertaining the dark lord overlooking the arena. Heavy prioritization was thrown directly into execution loops, hand-drawn fighting physics, blocks, and punch-to-uppercut combo states.</p>
         </div>
       `;
-    } else if (gameKey === "pasniper") {
-      document.body.classList.add('pg-pasniper');
-      contentEl.innerHTML = `
+  } else if (gameKey === "pasniper") {
+    document.body.classList.add('pg-pasniper');
+    contentEl.innerHTML = `
         <div class="pasniper-status fade">
           <div class="pasniper-status__dot"></div>
           <div class="pasniper-status__text">
@@ -1135,24 +1289,30 @@ function renderSingleProject(gameKey) {
           <p>Gain a precision advantage on high-demand, below-market listings automatically.</p>
         </div>
       `;
-    } 
-    else {
-      contentEl.innerHTML = `
+  }
+  else {
+    contentEl.innerHTML = `
         <div class="media-gallery fade">${mediaHTML}</div>
         <br><br>
         <div class="description fade" data-i18n="${game.i18n.description}"></div>
       `;
-    }
+  }
 
-    const logos = document.querySelectorAll('.game-logo');
-    window.addEventListener('scroll',()=>{
-      const scrollY = window.scrollY;
-      logos.forEach((logo,i)=>{
-        const speed = 0.04+(i%5)*0.01;
-        logo.style.setProperty('--parallax',`${scrollY*speed}px`);
-      });
+  const downloadButtonsHTML = buildDownloadButtonsHTML(game);
+  if (downloadButtonsHTML) {
+    contentEl.insertAdjacentHTML('beforeend', downloadButtonsHTML);
+  }
+  //
+
+  const logos = document.querySelectorAll('.game-logo');
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    logos.forEach((logo, i) => {
+      const speed = 0.04 + (i % 5) * 0.01;
+      logo.style.setProperty('--parallax', `${scrollY * speed}px`);
     });
+  });
 
-    function observeFades(root=document) { root.querySelectorAll('.fade, .fade-up').forEach(el=>observer.observe(el)); }
-    observeFades(contentEl);
+  function observeFades(root = document) { root.querySelectorAll('.fade, .fade-up').forEach(el => observer.observe(el)); }
+  observeFades(contentEl);
 }
