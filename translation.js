@@ -15,8 +15,8 @@ const translations = {
     "buybeats":    " Buy Beats",
 
     /* ── HERO — GAMES ── */
-    "hero-title-games": "Indie Games. Fun Mechanics. Complete products.",
-    "hero-desc-games":  "Indie game developer focused primarily on fun, user experience, and every aspect of a shipped product.",
+    "hero-title-games": "Trying to make fun indie games...",
+    "hero-desc-games":  "Check out my latest game releases and upcoming projects.",
     "view-games":       "View Games",
     "contact":          "Contact",
 
