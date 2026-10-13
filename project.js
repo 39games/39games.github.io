@@ -36,7 +36,7 @@ if (switchBtn1) {
 // ====== PROJECTS DATA ======
 const projectsData = {
   "interfaithdebate": {
-    status: "IN DEVELOPMENT",
+    status: "DEMO                                                                     ",
     cardImg: "../images/games/project1.png",
     tags: ["Site", "Web App", "Theology", "Philosophy", "Chat", "Video Chat", "HTML", "CSS", "JavaScript", "EmailJS"],
     logo: "../images/logos/interfaith.png",
@@ -54,7 +54,7 @@ const projectsData = {
       cardDesc: "project-interfaith-card-desc"
     }
   },
-  "dread": {
+  "dread": {                                                
     status: "PAUSED",
     cardImg: "../images/games/game1.png",
     tags: ["Game", "Horror", "Multiplayer", "Unity", "C#", "Blender", "3D", "Servers", "PC"],
@@ -284,6 +284,17 @@ const projectsData = {
     links: { itch: "" },
     dates: { start: "2024-01", end: "2024-01" },
     i18n: { title: "game-fightinggame-title", description: "game-fightinggame-desc", cardDesc: "game-fightinggame-card-desc" }
+  },
+  "rocksvsstones": {
+    status: "IN DEVELOPMENT",
+    cardImg: "../images/games/game22.png",
+    tags: ["Game", "Shooter", "Multiplayer", "Comedy", "Comic Book", "Unreal Engine", "C++", "3D", "PC"],
+    logo: "../images/logos/rvs.png",
+    header: { background: "../images/headers/rvs-bg.png", accent: "#8b2fc9", class: "header-colors" },
+    media: [],
+    links: { itch: "" },
+    dates: { start: "2026-08", end: "" },
+    i18n: { title: "game-rvs-title", description: "game-rvs-desc", cardDesc: "game-rvs-card-desc" }
   },
   "pasniper": {
     status: "DEMO",
@@ -693,7 +704,7 @@ function renderSingleProject(gameKey) {
         <div class="foreigner-status fade">
           <div class="foreigner-status__dot"></div>
           <div class="foreigner-status__text">
-            <strong>IN DEVELOPMENT</strong> &nbsp;·&nbsp;
+            <strong>PAUSED</strong> &nbsp;·&nbsp;
             <strong>Beat-em-up RPG</strong> &nbsp;·&nbsp; <strong>Unity 2D</strong> &nbsp;·&nbsp;
             <strong>Demo coming before end of the year</strong>
           </div>
@@ -1306,6 +1317,119 @@ function renderSingleProject(gameKey) {
         <div class="pasniper-footer fade-up">
           <div class="pasniper-footer__accent"></div>
           <p>Gain a precision advantage on high-demand, below-market listings automatically.</p>
+        </div>
+      `;
+  } else if (gameKey === "rocksvsstones") {
+    document.body.classList.add('pg-rvs');
+    if (!document.getElementById('rvs-fonts')) {
+      const fl = document.createElement('link');
+      fl.id = 'rvs-fonts';
+      fl.rel = 'stylesheet';
+      fl.href = 'https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Londrina+Solid:wght@400;900&display=swap';
+      document.head.appendChild(fl);
+    }
+    contentEl.innerHTML = `
+        <div class="rvs-grid">
+
+          <section class="rvs-panel rvs-s12 rvs-open">
+            <p class="rvs-cap" data-i18n="${game.i18n.description}"></p>
+            <h2 class="rvs-d rvs-shout" data-i18n="rvs-shout">They’re the exact same thing.</h2>
+            <p class="rvs-p" data-i18n="rvs-open-1">For generations, two factions have waged an endless war: the Rocks and the Stones.</p>
+            <p class="rvs-p" data-i18n="rvs-open-2">They look the same. They’re made of the same material. They use the same weapons, wear the same uniforms, and build the same structures. There is no meaningful difference between them.</p>
+            <p class="rvs-p" data-i18n="rvs-open-3">But the Rocks identify as Rocks, the Stones identify as Stones, and each faction despises the other for it. Nobody knows how the conflict started. Nobody questions whether it makes sense.</p>
+          </section>
+
+          <section class="rvs-panel rvs-s12 rvs-gray">
+            <h2 class="rvs-d rvs-h" data-i18n="rvs-gray-h">Two factions, one shade of gray.</h2>
+            <p class="rvs-p" data-i18n="rvs-gray-p">The Rocks have Rock Gray. The Stones have Stone Gray. These are supposedly two completely different and deeply significant colors. Their flags, uniforms, and equipment don’t differ either.</p>
+          </section>
+
+          <div class="rvs-sides">
+          <div class="rvs-panel rvs-side">
+            <div class="rvs-side__head">
+              <img class="rvs-side__icon" src="../images/rvs/icon.png" alt="" onerror="this.style.display='none'">
+              <h3 class="rvs-d rvs-side__name">Rocks</h3>
+            </div>
+            <p class="rvs-bubble" data-i18n="rvs-bubble">We are nothing like them.</p>
+            <dl class="rvs-facts">
+              <div><dt data-i18n="rvs-l-color">Color</dt><dd><span class="rvs-sw" aria-hidden="true"></span>Rock Gray <span class="rvs-hex">#8A8A8A</span></dd></div>
+              <div><dt data-i18n="rvs-l-unif">Uniform</dt><dd data-i18n="rvs-v-gray">Gray</dd></div>
+              <div><dt data-i18n="rvs-l-weap">Weapons</dt><dd data-i18n="rvs-v-same">The same</dd></div>
+              <div><dt data-i18n="rvs-l-struct">Structures</dt><dd data-i18n="rvs-v-same">The same</dd></div>
+              <div><dt data-i18n="rvs-l-opin">Opinion of the other side</dt><dd data-i18n="rvs-v-disg">Disgust</dd></div>
+            </dl>
+          </div>
+            <div class="rvs-vs rvs-d" aria-hidden="true">VS.</div>
+          <div class="rvs-panel rvs-side">
+            <div class="rvs-side__head">
+              <img class="rvs-side__icon" src="../images/rvs/icon.png" alt="" onerror="this.style.display='none'">
+              <h3 class="rvs-d rvs-side__name">Stones</h3>
+            </div>
+            <p class="rvs-bubble" data-i18n="rvs-bubble">We are nothing like them.</p>
+            <dl class="rvs-facts">
+              <div><dt data-i18n="rvs-l-color">Color</dt><dd><span class="rvs-sw" aria-hidden="true"></span>Stone Gray <span class="rvs-hex">#8A8A8A</span></dd></div>
+              <div><dt data-i18n="rvs-l-unif">Uniform</dt><dd data-i18n="rvs-v-gray">Gray</dd></div>
+              <div><dt data-i18n="rvs-l-weap">Weapons</dt><dd data-i18n="rvs-v-same">The same</dd></div>
+              <div><dt data-i18n="rvs-l-struct">Structures</dt><dd data-i18n="rvs-v-same">The same</dd></div>
+              <div><dt data-i18n="rvs-l-opin">Opinion of the other side</dt><dd data-i18n="rvs-v-disg">Disgust</dd></div>
+            </dl>
+          </div>
+          </div>
+
+          <section class="rvs-panel rvs-s5">
+            <h2 class="rvs-d rvs-h" data-i18n="rvs-a-h">No classes. No heroes.</h2>
+            <p class="rvs-p" data-i18n="rvs-a-p">There are no character classes, special heroes, or unique abilities. Every soldier is just a rock. The factions take their differences incredibly seriously anyway.</p>
+          </section>
+
+          <section class="rvs-panel rvs-s7">
+            <h2 class="rvs-d rvs-h" data-i18n="rvs-b-h">A completely serious war.</h2>
+            <p class="rvs-p" data-i18n="rvs-b-p">The conflict is presented as an epic military struggle, with dramatic battles, weapons, flags, and propaganda. The world treats the rivalry as historically significant. The premise is a distinction nobody can explain.</p>
+          </section>
+
+          <section class="rvs-panel rvs-s12 rvs-jokes">
+            <div>
+              <h2 class="rvs-d rvs-h" data-i18n="rvs-c-h">Where the jokes come from</h2>
+              <p class="rvs-p" data-i18n="rvs-c-p">The Rocks and Stones aren’t secretly different species. There’s no hidden biological difference that justifies the hatred. They’re two groups of identical beings who refuse to agree on what to call themselves.</p>
+            </div>
+            <dl class="rvs-list">
+              <div><dt class="rvs-d" data-i18n="rvs-c1-t">Deadpan stupidity</dt><dd data-i18n="rvs-c1-d">Characters say ridiculous things with complete sincerity.</dd></div>
+              <div><dt class="rvs-d" data-i18n="rvs-c2-t">Rock puns</dt><dd data-i18n="rvs-c2-d">Phrases like “rock hard” become literal in a world made entirely of rocks.</dd></div>
+              <div><dt class="rvs-d" data-i18n="rvs-c3-t">Petty rivalry</dt><dd data-i18n="rvs-c3-d">Both sides find reasons to hate each other over the smallest distinctions.</dd></div>
+              <div><dt class="rvs-d" data-i18n="rvs-c4-t">Military seriousness</dt><dd data-i18n="rvs-c4-d">An inconsequential disagreement is treated like the greatest conflict in history.</dd></div>
+              </dl>
+          </section>
+
+          <section class="rvs-panel rvs-s12 rvs-comic">
+            <div>
+              <h2 class="rvs-d rvs-h" data-i18n="rvs-comic-h">The lore comes in comics</h2>
+              <p class="rvs-p" data-i18n="rvs-comic-1">Instead of long exposition, the story is told in short comic-book panels: arguments, stupid misunderstandings, ridiculous weapon jokes, and glimpses of the supposedly grand history of the Rock–Stone War.</p>
+              <p class="rvs-p" data-i18n="rvs-comic-2">They’re planned for a future story mode or for multiplayer seasons. They don’t advance a complicated plot. They set the personality of the world, one stupid interaction at a time.</p>
+            </div>
+            <figure class="rvs-comic__fig"><img src="../images/rvs/comic.png" alt="A comic panel from Rocks vs Stones showing two identical gray soldiers talking"></figure>
+          </section>
+
+          <section class="rvs-panel rvs-s7 rvs-score-panel">
+            <h2 class="rvs-d rvs-h" data-i18n="rvs-score-h">Purple and yellow</h2>
+            <div class="rvs-score" aria-hidden="true">
+              <div class="rvs-team rvs-team--purple"><span data-i18n="rvs-team-p">Purple team</span><b class="rvs-d">39</b></div>
+              <div class="rvs-team rvs-team--yellow"><b class="rvs-d">39</b><span data-i18n="rvs-team-y">Yellow team</span></div>
+            </div>
+            <p class="rvs-p" data-i18n="rvs-score-p">The multiplayer scoreboard uses purple and yellow to separate the teams. The colors mean nothing in the lore. They’re only there so players can tell which team is which.</p>
+          </section>
+
+          <section class="rvs-panel rvs-s5 rvs-follow">
+            <div class="rvs-follow__head">
+              <img class="rvs-follow__icon" src="../images/rvs/icon.png" alt="" onerror="this.style.display='none'">
+              <h2 class="rvs-d rvs-h" data-i18n="rvs-follow-h">Follow the war</h2>
+            </div>
+            <p class="rvs-p" data-i18n="rvs-follow-p">Follow along for updates.</p>
+            <div class="rvs-links">
+              <a href="https://www.youtube.com/@39Gamess" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> YouTube</a>
+              <a href="https://www.tiktok.com/@39games_" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a>
+              <a href="https://www.instagram.com/39games_" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a>
+            </div>
+          </section>
+
         </div>
       `;
   }
