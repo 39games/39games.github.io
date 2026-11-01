@@ -434,7 +434,8 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 const urlParams = new URLSearchParams(window.location.search);
-const projectKey = urlParams.get("project");
+// Static pages (projects/<slug>.html) set data-project; old ?project= links still work
+const projectKey = document.body.dataset.project || urlParams.get("project");
 
 // ====== ROUTER ======
 if (!projectKey) {
