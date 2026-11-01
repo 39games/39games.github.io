@@ -33,8 +33,7 @@ const releasesData = {
     title: "along the way",
     artists: ["39 Beats"],
     type: "Album",
-    date: "",
-    hidden: true,            // delivered to stores, not live yet — remove this line once it is
+    date: "2026-11-09",    // delivered to stores, not live yet — remove this line once it is
     desc: "",
     links: { spotify: "", apple: "", youtube: "", amazon: "", deezer: "", tidal: "", soundcloud: "" }
   },
