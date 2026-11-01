@@ -55,10 +55,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="beats.css" />
     <link rel="icon" type="image/png" href="images/herobeats-alt.png">
     <script src="https://www.paypal.com/sdk/js?client-id=BAAqVd_MlvkUCOgstd5Vz0kV4qqCQaq38RwFndLDaxvx97RQU4weoiYdwzpGuLAtSVgmbIzOEbXNOE86AM&components=hosted-buttons&disable-funding=venmo&currency=EUR"></script>
 </head>
-<body class="mode-beats">
+<body class="mode-beats beats-page">
 
 <nav>
     <div class="nav-left">
@@ -73,7 +74,7 @@
 
     <ul>
         <li><a href="/?mode=beats#home"><i class="fas fa-home"></i><span data-i18n="homebtn"> Home</span></a></li>
-        <li class="beats-only"><a href="/?mode=beats#library"><i class="fas fa-music"></i><span data-i18n="libbtn"> Discography</span></a></li>
+        <li class="beats-only"><a href="/discography/"><i class="fas fa-music"></i><span data-i18n="libbtn"> Discography</span></a></li>
         <li class="beats-only"><a href="/?mode=beats#collaborations"><i class="fas fa-handshake"></i><span data-i18n="collabbtn"> Collaborations</span></a></li>
         <li class="beats-only"><a href="/beats#buy-beats"><i class="fas fa-shopping-cart"></i><span data-i18n="buybeats"> Buy Beats</span></a></li>
         <li><a href="/?mode=beats#about"><i class="fas fa-info-circle"></i><span data-i18n="aboutbtn"> About</span></a></li>
@@ -82,15 +83,17 @@
 
 </nav>
 
-<section id="buy-beats" class="beats-only">
-    <div class="section-title fade">
-        <h2 data-i18n="beats-available-title">Available Beats</h2>
-        <p data-i18n="beats-available-sub">Search and filter by tags</p>
-        <br><br>
+<main class="bp beats-only" id="buy-beats">
+    <header class="bp-head">
+        <h1>Available Beats</h1>
+        <p>Non-exclusive licenses from €20 — search or filter by tag</p>
+    </header>
+    <div class="bp-tools">
         <input type="text" id="search-beats" data-i18n="beats-search" placeholder="Search beats..." aria-label="Search beats by title or tag" />
+        <div class="bp-filters" id="bp-filters" aria-label="Filter by tag"></div>
     </div>
-    <div class="beat-grid fade" id="beat-grid" role="list" aria-label="Available beats"></div>
-</section>
+    <ol class="bp-list" id="beat-grid" aria-label="Available beats"></ol>
+</main>
 
 <section id="contact">
     <div class="section-title">
@@ -141,15 +144,36 @@ const beats = [
 const defaultIcon = "beats/default.png";
 const grid        = document.getElementById("beat-grid");
 const searchInput = document.getElementById("search-beats");
+const filterBox   = document.getElementById("bp-filters");
+let activeTag = "all";
+
+function renderFilters() {
+    const used = tagPriority.filter(t => beats.some(b => b.tags.includes(t)));
+    filterBox.innerHTML = ["all", ...used].map(t =>
+        `<button type="button" data-tag="${t}" class="${t === activeTag ? "on" : ""}">${t}</button>`).join("");
+}
+filterBox.addEventListener("click", e => {
+    const btn = e.target.closest("button");
+    if (!btn) return;
+    activeTag = btn.dataset.tag;
+    renderFilters();
+    renderBeats(searchInput.value);
+    setupBeatPlayers();
+});
 
 function renderBeats(filter = "") {
     grid.innerHTML = "";
     const query = filter.toLowerCase();
 
     let filteredBeats = beats.filter(beat =>
-        beat.title.toLowerCase().includes(query) ||
-        beat.tags.join(" ").toLowerCase().includes(query)
+        (activeTag === "all" || beat.tags.includes(activeTag)) &&
+        (beat.title.toLowerCase().includes(query) ||
+         beat.tags.join(" ").toLowerCase().includes(query))
     );
+    if (!filteredBeats.length) {
+        grid.innerHTML = '<li class="bp-empty">Nothing matches that.</li>';
+        return;
+    }
 
     filteredBeats.sort((a, b) => {
         const getPriorities = beat => beat.tags
@@ -167,35 +191,36 @@ function renderBeats(filter = "") {
     });
 
     filteredBeats.forEach(beat => {
-        const container  = document.createElement("div");
-        container.className = "beat-card";
-        container.setAttribute("role", "listitem");
-        const iconPath   = beat.icon ? `beats/${beat.icon}` : defaultIcon;
-        const audioPath  = `beats/${beat.file}`;
-        container.innerHTML = `
-            <div class="beat-img-container">
-                <img class="beat" src="${iconPath}" alt="${beat.title} — ${beat.tags.join(', ')} beat" />
+        const row = document.createElement("li");
+        row.className = "beat-row";
+        const iconPath  = beat.icon ? `beats/${beat.icon}` : defaultIcon;
+        const audioPath = `beats/${beat.file}`;
+        row.innerHTML = `
+            <div class="beat-cover">
+                <img class="beat" src="${iconPath}" alt="" />
                 <button class="play-overlay" aria-label="Play ${beat.title}"><i class="fas fa-play" aria-hidden="true"></i></button>
                 <audio src="${audioPath}" preload="none"></audio>
             </div>
-            <div class="game-info">
+            <div class="beat-title">
                 <h3>${beat.title}</h3>
-                <div class="beat-tags">
-                    ${beat.tags.map(tag => `<span class="tag">${tag}</span>`).join("")}
-                </div>
-                <div class="timeline">
-                    <span class="current-time">0:00</span>
-                    <input type="range" class="progress" value="0" min="0" max="100" aria-label="Seek ${beat.title}">
-                    <span class="duration">0:00</span>
-                </div>
+                <div class="beat-meta">${beat.tags.map(t => `<span class="tag">${t}</span>`).join("")}</div>
+            </div>
+            <div class="timeline">
+                <span class="current-time">0:00</span>
+                <input type="range" class="progress" value="0" min="0" max="100" aria-label="Seek ${beat.title}">
+                <span class="duration">0:00</span>
+            </div>
+            <div class="beat-buy">
+                <span class="beat-price">€${beat.price}</span>
                 <button class="btn buy-btn" data-title="${beat.title}" data-price="${beat.price}" data-paypal="${beat.paypal}" data-i18n="beats-buy">Buy Now</button>
             </div>
         `;
-        grid.appendChild(container);
+        grid.appendChild(row);
     });
 }
 
-searchInput.addEventListener("input", e => renderBeats(e.target.value));
+searchInput.addEventListener("input", e => { renderBeats(e.target.value); setupBeatPlayers(); });
+renderFilters();
 </script>
 
 <script src="../beats.js"></script>

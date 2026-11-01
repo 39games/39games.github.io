@@ -60,4 +60,41 @@
         <changefreq>yearly</changefreq>
         <priority>0.6</priority>
     </url>
+    <!-- discography:start -->
+    <url>
+        <loc>https://39gamesandbeats.com/discography/</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://39gamesandbeats.com/discography/39beattapevol1</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://39gamesandbeats.com/discography/od1do10</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://39gamesandbeats.com/discography/baustela</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://39gamesandbeats.com/discography/skit</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://39gamesandbeats.com/discography/konjskasnaga</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://39gamesandbeats.com/discography/realciggaintro</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <!-- discography:end -->
 </urlset>

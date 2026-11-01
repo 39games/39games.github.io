@@ -67,7 +67,7 @@ function formatTime(time) {
 }
 
 function setupBeatPlayers() {
-    document.querySelectorAll('.beat-card').forEach(card => {
+    document.querySelectorAll('.beat-row').forEach(card => {
         const audio      = card.querySelector('audio');
         const playBtn    = card.querySelector('.play-overlay');
         const progress   = card.querySelector('.progress');
@@ -94,6 +94,7 @@ function setupBeatPlayers() {
 
         // Reset on end
         audio.addEventListener('ended', () => {
+            card.classList.remove('is-playing');
             playBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
             playBtn.setAttribute('aria-label', playBtn.getAttribute('aria-label')?.replace('Pause', 'Play') || 'Play');
             progress.value = 0;
@@ -105,19 +106,22 @@ function setupBeatPlayers() {
             const isPlaying = !audio.paused;
 
             // Pause ALL other cards first
-            document.querySelectorAll('.beat-card').forEach(otherCard => {
+            document.querySelectorAll('.beat-row').forEach(otherCard => {
                 if (otherCard === card) return;
                 const otherAudio = otherCard.querySelector('audio');
                 const otherBtn   = otherCard.querySelector('.play-overlay i');
                 otherAudio.pause();
+                otherCard.classList.remove('is-playing');
                 otherBtn.classList.replace('fa-pause', 'fa-play');
             });
 
             if (isPlaying) {
                 audio.pause();
+                card.classList.remove('is-playing');
                 playBtn.querySelector('i').classList.replace('fa-pause', 'fa-play');
             } else {
                 audio.play();
+                card.classList.add('is-playing');
                 playBtn.querySelector('i').classList.replace('fa-play', 'fa-pause');
             }
         });
