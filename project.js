@@ -513,7 +513,7 @@ function renderProjectDirectory() {
         const cardAccent = p.header && p.header.accent ? p.header.accent : 'var(--accent)';
 
         projectsGrid.innerHTML += `
-    <a class="game-card ${meta.cls}" href="?project=${key}" style="--card-accent: ${cardAccent};">
+    <a class="game-card ${meta.cls}" href="${key}" style="--card-accent: ${cardAccent};">
         <div class="game-tag" data-i18n="${meta.i18n}">${p.status}</div>
         <img src="${p.cardImg}" alt="" onerror="this.src='../images/herogames-alt.png'" />
         <div class="game-info">
