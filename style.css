@@ -9281,3 +9281,371 @@ body.pg-rvs .project-page {
         padding: 12px 26px
     }
 }
+
+/* ================================================================
+   CONTROL BOB  (body.pg-cbob)
+   Black ink on paper, one yellow accent, comic lettering.
+================================================================ */
+body.pg-cbob {
+    --cb-ink: #111;
+    --cb-paper: #f3f0e6;
+    --cb-card: #fff;
+    --cb-y: #ffd23f
+}
+
+/* ---- header (logo + background are images) ---- */
+body.pg-cbob #projectHeader {
+    background-color: #e4e0d3;
+    border-bottom: 5px solid var(--cb-ink);
+    min-height: 60vh !important
+}
+
+body.pg-cbob #projectHeader::before {
+    display: none
+}
+
+body.pg-cbob .game-logo,
+body.pg-cbob .game-logo:hover {
+    filter: none;
+    max-height: 420px;
+    max-width: min(92%, 900px)
+}
+
+body.pg-cbob #projectHeader,
+body.pg-cbob #projectContent {
+    font-family: 'Comic Neue', 'Comic Sans MS', sans-serif
+}
+
+body.pg-cbob .project-date-badge {
+    margin-top: 22px;
+    padding: 5px 16px;
+    background: var(--cb-ink);
+    color: #fff;
+    border: 0;
+    border-radius: 0;
+    backdrop-filter: none;
+    filter: none;
+    opacity: 1;
+    font-weight: 700;
+    letter-spacing: .08em
+}
+
+/* ---- page ---- */
+body.pg-cbob .project-page {
+    background: var(--cb-paper);
+    padding: 0 5%;
+    color: var(--cb-ink)
+}
+
+body.pg-cbob #projectContent {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 56px;
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 72px 0 84px;
+    text-align: left
+}
+
+/* ---- panels ---- */
+body.pg-cbob .cb-panel {
+    position: relative;
+    padding: 44px 32px 28px;
+    background: var(--cb-card);
+    color: var(--cb-ink);
+    border: 3px solid var(--cb-ink);
+    border-radius: 0;
+    box-shadow: 6px 6px 0 var(--cb-ink)
+}
+
+body.pg-cbob .cb-label {
+    position: absolute;
+    top: -18px;
+    left: 20px;
+    padding: 2px 14px;
+    font: 400 24px/1.3 'Bangers', Impact, sans-serif;
+    letter-spacing: .08em;
+    color: #fff;
+    background: var(--cb-ink);
+    border: 0;
+    border-radius: 0
+}
+
+body.pg-cbob .cb-panel p {
+    max-width: 62ch;
+    margin: 0 0 14px;
+    font-size: 19px;
+    line-height: 1.55;
+    font-weight: 700
+}
+
+body.pg-cbob .cb-panel p:last-child { margin-bottom: 0 }
+
+body.pg-cbob .cb-panel .cb-small {
+    font-size: 16px;
+    font-weight: 400;
+    opacity: .7
+}
+
+/* video */
+body.pg-cbob .cb-screen {
+    padding: 32px 14px 14px;
+    background: var(--cb-card)
+}
+
+body.pg-cbob .cb-screen__frame {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #000;
+    border: 3px solid var(--cb-ink)
+}
+
+body.pg-cbob .cb-screen__frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0
+}
+
+/* about */
+body.pg-cbob .cb-about__grid {
+    display: grid;
+    grid-template-columns: 1fr minmax(0, 260px);
+    gap: 32px;
+    align-items: center
+}
+
+body.pg-cbob .cb-bob {
+    width: 100%;
+    height: auto
+}
+
+body.pg-cbob .cb-panel p.cb-beat {
+    margin: 4px 0;
+    font: 400 clamp(34px, 5vw, 54px)/1.1 'Bangers', Impact, sans-serif;
+    letter-spacing: .04em
+}
+
+body.pg-cbob .cb-panel p.cb-beat--no {
+    display: inline-block;
+    align-self: flex-start;
+    padding: 0 10px;
+    margin-bottom: 18px;
+    background: var(--cb-y)
+}
+
+body.pg-cbob .cb-dev s { opacity: .55 }
+
+/* commands */
+body.pg-cbob .cb-cmd-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+body.pg-cbob .cb-cmd {
+    padding: 8px 12px;
+    font: 700 17px/1.3 'Courier New', ui-monospace, monospace;
+    background: var(--cb-paper);
+    border: 2px solid var(--cb-ink)
+}
+
+body.pg-cbob .cb-cmd em {
+    font-style: normal;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 3px
+}
+
+body.pg-cbob .cb-cmd--restart { grid-column: 1 / -1 }
+
+body.pg-cbob .cb-cmd__note {
+    display: block;
+    margin-top: 4px;
+    font: 400 14px/1.4 'Comic Neue', sans-serif;
+    opacity: .75
+}
+
+body.pg-cbob .cb-sub {
+    margin: 28px 0 12px;
+    font: 400 26px/1.2 'Bangers', Impact, sans-serif;
+    letter-spacing: .06em
+}
+
+body.pg-cbob .cb-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px
+}
+
+body.pg-cbob .cb-chip {
+    padding: 3px 14px;
+    font-weight: 700;
+    border: 2px solid var(--cb-ink)
+}
+
+/* hints */
+body.pg-cbob .cb-hint-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px
+}
+
+body.pg-cbob .cb-hint {
+    background: var(--cb-card);
+    border: 2px solid var(--cb-ink)
+}
+
+body.pg-cbob .cb-hint summary {
+    padding: 8px 16px;
+    font: 400 22px/1.2 'Bangers', Impact, sans-serif;
+    letter-spacing: .06em;
+    cursor: pointer;
+    list-style: none
+}
+
+body.pg-cbob .cb-hint summary::-webkit-details-marker { display: none }
+body.pg-cbob .cb-reveal { margin-left: 12px; font: 400 14px 'Comic Neue', sans-serif; letter-spacing: 0; opacity: .55 }
+body.pg-cbob .cb-hint[open] .cb-reveal { display: none }
+body.pg-cbob .cb-hint[open] { background: var(--cb-y) }
+body.pg-cbob .cb-hint p { padding: 0 16px 12px }
+
+/* downloads */
+body.pg-cbob .cb-dl-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px
+}
+
+body.pg-cbob .cb-dl {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 18px;
+    color: var(--cb-ink);
+    text-decoration: none;
+    background: var(--cb-y);
+    border: 3px solid var(--cb-ink);
+    box-shadow: 4px 4px 0 var(--cb-ink);
+    transition: transform .08s, box-shadow .08s
+}
+
+body.pg-cbob .cb-dl:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--cb-ink)
+}
+
+body.pg-cbob .cb-dl:active {
+    transform: translate(3px, 3px);
+    box-shadow: 1px 1px 0 var(--cb-ink)
+}
+
+body.pg-cbob .cb-dl i { font-size: 26px }
+
+body.pg-cbob .cb-dl__text {
+    display: flex;
+    flex-direction: column
+}
+
+body.pg-cbob .cb-dl__title {
+    font: 400 26px/1.1 'Bangers', Impact, sans-serif;
+    letter-spacing: .06em
+}
+
+body.pg-cbob .cb-dl__sub {
+    font-size: 15px;
+    font-weight: 700
+}
+
+body.pg-cbob .cb-dl--bad {
+    background: var(--cb-card);
+    border-style: dashed;
+    box-shadow: none;
+    opacity: .8
+}
+
+body.pg-cbob .cb-dl--bad:hover { box-shadow: none; transform: none; opacity: 1 }
+body.pg-cbob .cb-dl--bad .cb-dl__sub::before { content: '⚠ ' }
+body.pg-cbob .cb-dl:focus-visible { outline: 3px solid var(--cb-ink); outline-offset: 3px }
+
+/* jam */
+body.pg-cbob .cb-jam {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    flex-wrap: wrap
+}
+
+body.pg-cbob .cb-jam__img {
+    width: 170px;
+    max-width: 100%;
+    border: 3px solid var(--cb-ink)
+}
+
+body.pg-cbob .cb-jam__text { flex: 1 1 260px }
+
+/* buttons */
+body.pg-cbob .cb-cta {
+    display: flex;
+    justify-content: center;
+    padding-top: 8px
+}
+
+body.pg-cbob .cb-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 36px;
+    font: 400 32px/1.1 'Bangers', Impact, sans-serif;
+    letter-spacing: .06em;
+    color: var(--cb-ink);
+    text-decoration: none;
+    background: var(--cb-y);
+    border: 3px solid var(--cb-ink);
+    border-radius: 0;
+    box-shadow: 5px 5px 0 var(--cb-ink);
+    transition: transform .08s, box-shadow .08s
+}
+
+body.pg-cbob .cb-btn--sm {
+    padding: 6px 20px;
+    font-size: 22px;
+    box-shadow: 4px 4px 0 var(--cb-ink)
+}
+
+body.pg-cbob .cb-btn:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 var(--cb-ink)
+}
+
+body.pg-cbob .cb-btn:active {
+    transform: translate(4px, 4px);
+    box-shadow: 1px 1px 0 var(--cb-ink)
+}
+
+body.pg-cbob .cb-btn:focus-visible,
+body.pg-cbob .cb-hint summary:focus-visible {
+    outline: 3px solid var(--cb-ink);
+    outline-offset: 3px
+}
+
+@media (max-width: 760px) {
+    body.pg-cbob .cb-about__grid { grid-template-columns: 1fr }
+    body.pg-cbob .cb-bob { max-width: 220px; margin: 0 auto }
+}
+
+@media (max-width: 700px) {
+    body.pg-cbob #projectHeader { padding: 100px 5% 44px !important }
+    body.pg-cbob .game-logo, body.pg-cbob .game-logo:hover { max-height: 220px }
+    body.pg-cbob #projectContent { gap: 48px; padding: 60px 0 64px }
+    body.pg-cbob .cb-panel { padding: 40px 18px 22px; box-shadow: 5px 5px 0 var(--cb-ink) }
+    body.pg-cbob .cb-screen { padding: 30px 10px 10px }
+    body.pg-cbob .cb-panel p { font-size: 17px }
+    body.pg-cbob .cb-btn { font-size: 26px; padding: 10px 26px }
+}

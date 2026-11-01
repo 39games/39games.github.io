@@ -296,6 +296,17 @@ const projectsData = {
     dates: { start: "2026-08", end: "" },
     i18n: { title: "game-rvs-title", description: "game-rvs-desc", cardDesc: "game-rvs-card-desc" }
   },
+  "controlbob": {
+    status: "RELEASED",
+    cardImg: "../images/games/game23.png",
+    tags: ["Game", "Comedy", "Game Jam", "Text Parser", "Unity", "C#", "PC"],   // <- check engine/platform tags
+    logo: "../images/logos/controlbob.png",
+    header: { background: "../images/headers/controlbob-bg.png", accent: "#ffd23f", class: "header-cbob" },
+    media: [{ type: "video", src: "https://www.youtube.com/embed/hrP5W2mwkIk" }],
+    links: { itch: "https://39games.itch.io/control-bob" },
+    dates: { start: "2026-10", end: "2026-10" },
+    i18n: { title: "game-controlbob-title", description: "game-controlbob-desc", cardDesc: "game-controlbob-card-desc" }
+  },
   "pasniper": {
     status: "DEMO",
     cardImg: "../images/games/project2.png",
@@ -1319,6 +1330,103 @@ function renderSingleProject(gameKey) {
           <p>Gain a precision advantage on high-demand, below-market listings automatically.</p>
         </div>
       `;
+  } else if (gameKey === "controlbob") {
+    document.body.classList.add('pg-cbob');
+    if (!document.getElementById('cb-fonts')) {
+      const fl = document.createElement('link');
+      fl.id = 'cb-fonts';
+      fl.rel = 'stylesheet';
+      fl.href = 'https://fonts.googleapis.com/css2?family=Bangers&family=Comic+Neue:wght@400;700&display=swap';
+      document.head.appendChild(fl);
+    }
+
+    // [command typed by the player, i18n key of the argument, English fallback of the argument]
+    const cbCommands = [
+      ['go to', 'cb-a-locitem', 'location/item'], ['look at', 'cb-a-locitem', 'location/item'], ['stand up'], ['sit'],
+      ['go', 'cb-a-dir', 'direction'], ['eat'], ['throw'], ['pick up', 'cb-a-item', 'item'], ['punch', 'cb-a-target', 'target'],
+      ['open / close', 'cb-a-door', 'door'], ['switch / pull', 'cb-a-switch', 'a switch'], ['say', 'cb-a-phrase', 'phrase']
+    ];
+    // these are what the player actually types, so they are not translated
+    const cbTargets = ['key', 'door', 'trash bag', 'fire', 'through the door', 'enemy', 'center', 'switch 1 to 4', 'mushroom', 'boss'];
+    const cbHints = [
+      'You can also punch the door.',
+      'You need to throw the trash bags into the fire by picking them up, looking at the fire, then throwing.',
+      'Good night is a good night for the enemies, beat them up.',
+      'Power trip relates to the mushroom, the switches are useless.',
+      'When the boss does the alert sound, you have to move away in any direction to dodge, then once he misses go punch him.'
+    ];
+    const cbDownloads = [
+      { url: 'https://github.com/39games/39games.github.io/releases/download/ControlBob/BuildNoLLM.zip', title: 'cb-dl-nollm', titleEn: 'No LLM Version', sub: 'cb-dl-nollm-sub', subEn: 'Recommended', cls: '' },
+      { url: 'https://github.com/39games/39games.github.io/releases/download/ControlBob/ControlBobBuild.zip', title: 'cb-dl-llm', titleEn: 'LLM Version', sub: 'cb-dl-llm-sub', subEn: "DON'T download this, it works bad.", cls: 'cb-dl--bad' }
+    ];
+
+    const videosHTML = (game.media || []).filter(m => m.type === 'video').map(m =>
+      `<div class="cb-panel cb-screen fade"><span class="cb-label" data-i18n="cb-trailer">▶ TRAILER</span><div class="cb-screen__frame"><iframe src="${m.src}" title="Control Bob trailer" loading="lazy" allowfullscreen></iframe></div></div>`
+    ).join('');
+
+    contentEl.innerHTML = `
+      ${videosHTML}
+
+      <div class="cb-panel cb-about fade">
+        <span class="cb-label" data-i18n="cb-about">ABOUT</span>
+        <div class="cb-about__grid">
+          <div class="cb-about__text">
+            <p data-i18n="cb-about-1">Control Bob is a comedy game where you control an unpredictable little man using natural language commands. Tell him to open a door, grab a key, avoid a fire, or defeat his enemies.</p>
+            <p class="cb-beat" data-i18n="cb-beat-1">Simple enough, right?</p>
+            <p class="cb-beat cb-beat--no" data-i18n="cb-beat-2">Wrong.</p>
+            <p data-i18n="cb-about-2">Bob might misunderstand you. He might do the exact opposite. He might refuse to cooperate entirely, because apparently following basic instructions is beneath him.</p>
+            <p data-i18n="cb-about-3">Think carefully about what you say. Choose your words wisely. And whatever you do, try not to lose your patience.</p>
+            <p class="cb-small" data-i18n="cb-slow">The first command you give Bob might be a bit slower, you'll have to wait a bit.</p>
+          </div>
+          <img class="cb-bob" src="../images/controlbob/bob.png" alt="Bob" onerror="this.remove()">
+        </div>
+      </div>
+
+      <div class="cb-panel cb-dev fade">
+        <span class="cb-label" data-i18n="cb-dev">DEV NOTE</span>
+        <p data-i18n="cb-dev-1">This game <s>integrates</s> was supposed to integrate an AI LLM directly inside the build as a core gameplay mechanic to interpret player commands, but the LLM was so dog#@t (I had to use a small one for the file size) that I decided to just hard code the answers. No game assets, models, code, animations or other project content were generated using AI tools.</p>
+        <p class="cb-small" data-i18n="cb-dev-2"><s>Note: The game may be a bit bigger and tougher on your PC since it has a built-in LLM.</s></p>
+      </div>
+
+      <div class="cb-panel cb-downloads fade">
+        <span class="cb-label" data-i18n="cb-dl-h">DOWNLOADS</span>
+        <div class="cb-dl-grid">
+          ${cbDownloads.map(d => `<a class="cb-dl ${d.cls}" href="${d.url}" target="_blank" rel="noopener noreferrer"><i class="fas fa-download"></i><span class="cb-dl__text"><span class="cb-dl__title" data-i18n="${d.title}">${d.titleEn}</span><span class="cb-dl__sub" data-i18n="${d.sub}">${d.subEn}</span></span></a>`).join('')}
+        </div>
+      </div>
+
+      <div class="cb-panel cb-cmds fade">
+        <span class="cb-label" data-i18n="cb-cmds-h">COMMANDS BOB CAN FOLLOW</span>
+        <ul class="cb-cmd-grid">
+          ${cbCommands.map(c => `<li class="cb-cmd"><span class="cb-cmd__prompt">&gt;</span> ${c[0]}${c[1] ? ` <em data-i18n="${c[1]}">${c[2]}</em>` : ''}</li>`).join('')}
+          <li class="cb-cmd cb-cmd--restart"><span class="cb-cmd__prompt">&gt;</span> restart <span class="cb-cmd__note" data-i18n="cb-restart-note">type it exactly like this, it restarts the level</span></li>
+        </ul>
+        <h3 class="cb-sub" data-i18n="cb-targets-h">Valid locations / items</h3>
+        <div class="cb-chips">${cbTargets.map(t => `<span class="cb-chip">${t}</span>`).join('')}</div>
+      </div>
+
+      <div class="cb-panel cb-hints fade">
+        <span class="cb-label" data-i18n="cb-hints-h">HINTS</span>
+        <p class="cb-small" data-i18n="cb-hints-intro">Reveal only if you're stuck.</p>
+        <div class="cb-hint-list">
+          ${cbHints.map((h, i) => `<details class="cb-hint"><summary><span data-i18n="cb-hint-word">Hint</span> ${i + 1}<span class="cb-reveal" data-i18n="cb-reveal">click to reveal</span></summary><p data-i18n="cb-hint-${i + 1}">${h}</p></details>`).join('')}
+        </div>
+      </div>
+
+      <div class="cb-panel cb-jam fade">
+        <span class="cb-label" data-i18n="cb-jam-label">MADE FOR</span>
+        <img class="cb-jam__img" src="../images/controlbob/jam.png" alt="" onerror="this.remove()">
+        <div class="cb-jam__text">
+          <p data-i18n="cb-jam-text">Made for the worst game jam: <strong>Your Worst Ideas</strong>.</p>
+          <a class="cb-btn cb-btn--sm" href="https://itch.io/jam/your-worst-ideas" target="_blank" rel="noopener noreferrer"><i class="fas fa-external-link-alt"></i> <span data-i18n="cb-jam-btn">See the jam</span></a>
+        </div>
+      </div>
+
+      <div class="cb-cta fade">
+        <a class="cb-btn" href="${game.links.itch}" target="_blank" rel="noopener noreferrer"><i class="fab fa-itch-io"></i> <span data-i18n="cb-itch">Get it on itch.io</span></a>
+      </div>
+    `;
+
   } else if (gameKey === "rocksvsstones") {
     document.body.classList.add('pg-rvs');
     if (!document.getElementById('rvs-fonts')) {

@@ -18,6 +18,16 @@
     <url>
         <loc>https://39gamesandbeats.com/projects/?project=theforeigner</loc>
         <changefreq>monthly</changefreq>
+        <priority>0.6</priority>
+    </url>
+    <url>
+        <loc>https://39gamesandbeats.com/projects/?project=rocksvsstones</loc>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://39gamesandbeats.com/projects/?project=controlbob</loc>
+        <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     <url>
